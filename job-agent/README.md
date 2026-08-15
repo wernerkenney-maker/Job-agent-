@@ -6,57 +6,81 @@ affairs / medical affairs / adjacent pharma-biotech leadership roles
 
 ## Fetching listings
 
-`fetch_greenhouse_jobs.py` fetches open listings from several companies'
-public Greenhouse job board APIs and prints each job's title and link,
-grouped by company.
+Two provider modules, one per ATS, both with the same shape (`COMPANIES`
+dict of token → display name, plus a `fetch_jobs()`):
+
+- `fetch_greenhouse_jobs.py` — Greenhouse boards:
+  - **Iovance Biotherapeutics** — clinical-stage biotech (cell therapy)
+  - **Precision Medicine Group** — CRO, roles explicitly open to
+    Remote/Brazil, Remote/LATAM
+  - **Precision for Medicine** — CRO business unit of Precision Medicine
+    Group, also has Brazil/LATAM-remote clinical roles
+  - **Precision AQ** — health economics/market access unit of the same
+    Precision Medicine Group family (no Brazil/LATAM roles currently,
+    but tracked in case that changes)
+  - **ClinChoice** — global CRO with Brazil-based listings
+- `fetch_lever_jobs.py` — Lever boards:
+  - **Alimentiv** — established CRO (GI/inflammation focus), broad
+    international remote hiring (Europe, Africa, India, Canada, US) and
+    historical evidence of a LATAM-scoped regulatory posting, though
+    none are live as of this check — tracked so future Brazil/LATAM
+    postings get caught automatically.
+
+`companies.py` holds `COMPANY_FAMILIES`, mapping sibling boards from the
+same corporate group across *either* provider (currently all three
+Precision entities) so duplicate postings of the same role can be
+deduped — see "Deduplication" below.
 
 ```
 pip install -r requirements.txt
 python3 fetch_greenhouse_jobs.py
+python3 fetch_lever_jobs.py
 ```
 
-Companies checked (`COMPANIES` dict in the script — add/remove
-Greenhouse board tokens there):
-
-- **Iovance Biotherapeutics** — clinical-stage biotech (cell therapy)
-- **Precision Medicine Group** — CRO, has roles explicitly open to
-  Remote/Brazil, Remote/LATAM
-- **Precision for Medicine** — CRO business unit of Precision Medicine
-  Group, also has Brazil/LATAM-remote clinical roles
-- **Precision AQ** — health economics/market access business unit of the
-  same Precision Medicine Group family (no Brazil/LATAM roles currently,
-  but tracked in case that changes)
-- **ClinChoice** — global CRO with Brazil-based listings
-
-`COMPANY_FAMILIES` (same file) maps sibling boards from the same
-corporate group (currently all three Precision entities) so duplicate
-postings of the same role can be deduped — see "Deduplication" below.
-
 **Note on Thermo Fisher:** its careers site (jobs.thermofisher.com) runs
-on Phenom People, not Greenhouse, so no
-`boards-api.greenhouse.io/v1/boards/thermofisher/jobs` endpoint exists.
+on Phenom People, not Greenhouse or Lever, so no matching public-API
+endpoint exists on either provider.
 
-**Company search notes:** tried and confirmed *not* on Greenhouse (or on
-Greenhouse with zero Brazil/LATAM postings) after an extensive search —
-useful context before re-searching: major CROs `medable`, `curebase`,
+**Company search notes** (useful context before re-searching):
+
+*Greenhouse* — confirmed *not* present (or present with zero Brazil/LATAM
+postings) after an extensive search: major CROs `medable`, `curebase`,
 `advarra`, `icon` (an empty "ICON Talent Community" board, not ICON plc),
 `fortrea`, `veevasystems`, `certara`, `iqvia`, `parexel`, `syneoshealth`,
 `medpace`, `ppd`, `worldwideclinicaltrials`, `biorasi`, and many more —
-most large CROs run on Workday/other enterprise ATS, not Greenhouse.
-Standalone biotechs that *are* on Greenhouse (Natera, Blueprint
-Medicines, Revolution Medicines, Praxis, etc.) were checked and have
-zero Brazil/LATAM-remote postings even when sizeable. Genuine
-Brazil/LATAM remote hiring on Greenhouse appears concentrated in CROs
-with an explicit global-delivery staffing model (the Precision family,
-ClinChoice) rather than single-asset biotechs.
+most large CROs run on Workday/other enterprise ATS. Standalone biotechs
+that *are* on Greenhouse (Natera, Blueprint Medicines, Revolution
+Medicines, Praxis, etc.) have zero Brazil/LATAM-remote postings even when
+sizeable.
+
+*Lever* — checked ARTBio, Capstan Medical, Orca Bio, ProTrials: real
+companies, no Lever presence for some, zero Brazil/LATAM signal for the
+rest (mostly US-onsite). Two names that surfaced repeatedly in search
+were deliberately **excluded**, not just unmatched:
+- **Jobgether** (`jobgether`) — not a CRO/biotech/pharma employer; a
+  third-party AI-matching recruiting layer that reposts ~4,000 jobs
+  across every industry and routes applications through its own
+  screening rather than straight to the employer.
+- **Welo Global** (`weloglobal`) — despite a "Life Sciences" business
+  line, its actual Brazil-tagged postings are generic crowdsourced
+  data-annotation/BPO gig work (e.g. "Ads Quality Rater"), not clinical
+  roles.
+
+Genuine Brazil/LATAM remote hiring in this space appears concentrated in
+CROs with an explicit global-delivery staffing model (the Precision
+family, ClinChoice) rather than single-asset biotechs or job-board
+intermediaries.
 
 ## Resume-based matching
 
-`match_jobs.py` fetches jobs from all companies in `COMPANIES`, sends
-them to Claude in batches to score fit (1-100) against a candidate
+`match_jobs.py` fetches jobs from every company across both providers,
+sends them to Claude in batches to score fit (1-100) against a candidate
 background hardcoded in `CANDIDATE_PROFILE`, keeps jobs scoring 60+
 (`MIN_SCORE`), then runs them through the shared pipeline (dedup, seen-job
 tracking, salary, cover letters — see below) before writing the report.
+Each batch uses its own local integer ids (0, 1, 2, ...) when talking to
+Claude, since Lever ids are UUID strings rather than Greenhouse's
+integers — keeps the scoring prompt/response format identical either way.
 
 The scoring rubric is intentionally broader than an exact title match:
 it considers clinical operations, quality, regulatory affairs, medical
@@ -117,11 +141,17 @@ to refresh the report.
 ## Salary
 
 `salary.py` extracts a **disclosed** salary range using only structural
-signals from the Greenhouse posting itself — a pay-transparency metadata
-field (Precision Medicine Group/Precision for Medicine) or a
-pay-transparency widget embedded in the job description HTML (Iovance
-Biotherapeutics). It never guesses at a number from free-text mentions
-elsewhere in the description (e.g. budget/revenue figures).
+signals from the posting itself:
+- Greenhouse (`extract_salary()`) — a pay-transparency metadata field
+  (Precision Medicine Group/Precision for Medicine) or a pay-transparency
+  widget embedded in the job description HTML (Iovance Biotherapeutics).
+- Lever (`extract_salary_lever()`) — the native `salaryRange` field Lever
+  exposes directly in the listing (no extra request needed, unlike
+  Greenhouse which requires a per-job detail fetch), falling back to the
+  poster's own `salaryDescription` text field if present.
+
+It never guesses at a number from free-text mentions elsewhere in the
+job description (e.g. budget/revenue figures).
 
 When nothing is structurally disclosed (the norm for non-US postings),
 `salary_estimate.py` provides a rough, clearly-labeled **market-rate

@@ -21,15 +21,6 @@ COMPANIES = {
     "clinchoice": "ClinChoice",
 }
 
-# Companies that are separate Greenhouse boards but the same corporate
-# family, so identical roles get posted to more than one board. Used to
-# dedupe sibling postings into a single match with multiple apply links.
-COMPANY_FAMILIES = {
-    "Precision Medicine Group": "Precision Medicine Group family",
-    "Precision for Medicine": "Precision Medicine Group family",
-    "Precision AQ": "Precision Medicine Group family",
-}
-
 GREENHOUSE_URL_TEMPLATE = "https://boards-api.greenhouse.io/v1/boards/{token}/jobs"
 GREENHOUSE_JOB_DETAIL_TEMPLATE = "https://boards-api.greenhouse.io/v1/boards/{token}/jobs/{job_id}?content=true"
 

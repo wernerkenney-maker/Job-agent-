@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Fetch jobs from the configured Greenhouse boards, score each one for fit
-against a candidate's background using Claude, dedupe sibling postings,
-track which matches are new since the last run, draft cover letters for
-80+ scores, estimate salary where undisclosed, and refresh report.html.
+"""Fetch jobs from the configured Greenhouse and Lever boards, score each
+one for fit against a candidate's background using Claude, dedupe sibling
+postings, track which matches are new since the last run, draft cover
+letters for 80+ scores, estimate salary where undisclosed, and refresh
+report.html.
 
 Requires an Anthropic API key in the ANTHROPIC_API_KEY environment variable.
 """
@@ -13,11 +14,12 @@ import sys
 
 import anthropic
 
+import fetch_greenhouse_jobs
+import fetch_lever_jobs
 from cover_letter import generate_cover_letter_via_claude, save_cover_letter
-from fetch_greenhouse_jobs import COMPANIES, fetch_job_detail, fetch_jobs
 from pipeline import process_run
 from report import write_report
-from salary import extract_salary
+from salary import extract_salary, extract_salary_lever
 from salary_estimate import estimate_salary_via_claude
 
 CANDIDATE_PROFILE = """
@@ -56,35 +58,60 @@ Brazil (location explicitly includes Brazil, or a LATAM-inclusive remote
 scope). If it does not, score it no higher than 40 regardless of how
 strong the functional fit is.
 
-For each job below, score fit from 1 (no fit) to 100 (excellent fit).
+For each job below, score fit from 1 (no fit) to 100 (excellent fit). Each
+job has a batch-local numeric id (0, 1, 2, ...) -- echo that same integer
+back, not any id/UUID mentioned in the job's own text.
 
 Jobs:
 {jobs}
 
 Respond with ONLY a JSON array, no other text, in this exact form:
-[{{"id": <job id, integer>, "score": <integer 1-100>, "reason": "<one-line reason, under 20 words>"}}, ...]
+[{{"id": <batch-local integer id>, "score": <integer 1-100>, "reason": "<one-line reason, under 20 words>"}}, ...]
 Include exactly one entry per job listed above, in any order.
 """
 
 
 def collect_all_jobs():
     all_jobs = []
-    for board_token, company_name in COMPANIES.items():
+
+    for board_token, company_name in fetch_greenhouse_jobs.COMPANIES.items():
         try:
-            jobs = fetch_jobs(board_token)
+            jobs = fetch_greenhouse_jobs.fetch_jobs(board_token)
         except Exception as exc:
             print(f"Failed to fetch {company_name}: {exc}", file=sys.stderr)
             continue
         for job in jobs:
             all_jobs.append(
                 {
-                    "id": job["id"],
+                    "source": "greenhouse",
+                    "source_id": job["id"],
+                    "board_token": board_token,
                     "title": job["title"],
                     "location": (job.get("location") or {}).get("name", ""),
                     "url": job["absolute_url"],
                     "company": company_name,
                 }
             )
+
+    for token, company_name in fetch_lever_jobs.COMPANIES.items():
+        try:
+            postings = fetch_lever_jobs.fetch_jobs(token)
+        except Exception as exc:
+            print(f"Failed to fetch {company_name}: {exc}", file=sys.stderr)
+            continue
+        for posting in postings:
+            all_jobs.append(
+                {
+                    "source": "lever",
+                    "source_id": posting["id"],
+                    "raw": posting,
+                    "title": posting["text"],
+                    "location": fetch_lever_jobs.normalize_location(posting),
+                    "url": posting["hostedUrl"],
+                    "company": company_name,
+                }
+            )
+
     return all_jobs
 
 
@@ -95,8 +122,8 @@ def chunk(items, size):
 
 def score_batch(client, batch):
     jobs_text = "\n".join(
-        f"- id={job['id']}, title=\"{job['title']}\", location=\"{job['location']}\", company=\"{job['company']}\""
-        for job in batch
+        f"- id={i}, title=\"{job['title']}\", location=\"{job['location']}\", company=\"{job['company']}\""
+        for i, job in enumerate(batch)
     )
     prompt = SCORING_INSTRUCTIONS.format(profile=CANDIDATE_PROFILE, jobs=jobs_text)
 
@@ -124,7 +151,6 @@ def main():
     client = anthropic.Anthropic()
 
     all_jobs = collect_all_jobs()
-    jobs_by_id = {job["id"]: job for job in all_jobs}
 
     scored = []
     for batch in chunk(all_jobs, BATCH_SIZE):
@@ -134,31 +160,39 @@ def main():
             print(f"Warning: failed to score a batch of {len(batch)} jobs: {exc}", file=sys.stderr)
             continue
         for result in results:
-            job = jobs_by_id.get(result.get("id"))
-            if job is None:
+            idx = result.get("id")
+            if not isinstance(idx, int) or not (0 <= idx < len(batch)):
                 continue
+            job = batch[idx]
             scored.append({**job, "score": result["score"], "reason": result["reason"]})
 
     matches = [job for job in scored if job["score"] >= MIN_SCORE]
     matches.sort(key=lambda job: job["score"], reverse=True)
 
-    board_token_by_company = {v: k for k, v in COMPANIES.items()}
-    detail_cache = {}
+    detail_cache = {}  # url -> greenhouse job detail or lever raw posting
     for job in matches:
-        board_token = board_token_by_company[job["company"]]
         try:
-            detail = fetch_job_detail(board_token, job["id"])
-            detail_cache[job["url"]] = detail
-            job["salary"] = extract_salary(detail)
+            if job["source"] == "greenhouse":
+                detail = fetch_greenhouse_jobs.fetch_job_detail(job["board_token"], job["source_id"])
+                detail_cache[job["url"]] = detail
+                job["salary"] = extract_salary(detail)
+            else:
+                detail_cache[job["url"]] = job["raw"]
+                job["salary"] = extract_salary_lever(job["raw"])
         except Exception as exc:
-            print(f"Warning: failed to fetch salary for job {job['id']}: {exc}", file=sys.stderr)
+            print(f"Warning: failed to fetch salary for {job['title']}: {exc}", file=sys.stderr)
             job["salary"] = "Not disclosed"
 
+    def description_html(url, source):
+        detail = detail_cache.get(url, {})
+        return detail.get("content", "") if source == "greenhouse" else detail.get("description", "")
+
     def cover_letter_fn(state_job):
-        detail = detail_cache.get(state_job["postings"][0]["url"], {})
+        url = state_job["postings"][0]["url"]
+        source = next((m["source"] for m in matches if m["url"] == url), "greenhouse")
         try:
             letter = generate_cover_letter_via_claude(
-                client, state_job, detail.get("content", ""), CANDIDATE_PROFILE, MODEL
+                client, state_job, description_html(url, source), CANDIDATE_PROFILE, MODEL
             )
             return save_cover_letter(state_job, letter)
         except Exception as exc:

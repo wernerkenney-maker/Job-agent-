@@ -6,7 +6,7 @@ single match with multiple apply links, instead of showing duplicates.
 
 import re
 
-from fetch_greenhouse_jobs import COMPANY_FAMILIES
+from companies import COMPANY_FAMILIES
 
 
 def _family(company):

@@ -9,8 +9,11 @@ affairs / medical affairs / adjacent pharma-biotech leadership roles
 When the user says **"check jobs"**, treat it as the complete instruction
 to do all of the following, without asking for confirmation:
 
-1. Fetch current listings from every company board in
-   `job-agent/fetch_greenhouse_jobs.py`'s `COMPANIES` dict.
+1. Fetch current listings from every company board across both provider
+   modules: `job-agent/fetch_greenhouse_jobs.py`'s `COMPANIES` dict
+   (Greenhouse) and `job-agent/fetch_lever_jobs.py`'s `COMPANIES` dict
+   (Lever). Sibling-family mapping for dedup lives in
+   `job-agent/companies.py` (`COMPANY_FAMILIES`), shared by both.
 2. Score each job for fit against `CANDIDATE_PROFILE` in
    `job-agent/match_jobs.py`, using the broadened rubric in
    `SCORING_INSTRUCTIONS`: not limited to an exact title match (clinical
