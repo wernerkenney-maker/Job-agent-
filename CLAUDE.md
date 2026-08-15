@@ -9,45 +9,62 @@ affairs / medical affairs / adjacent pharma-biotech leadership roles
 When the user says **"check jobs"**, treat it as the complete instruction
 to do all of the following, without asking for confirmation:
 
-1. Run today's check: fetch current listings from every company board in
+1. Fetch current listings from every company board in
    `job-agent/fetch_greenhouse_jobs.py`'s `COMPANIES` dict.
-2. Score each job for fit against the candidate background in
-   `job-agent/match_jobs.py`'s `CANDIDATE_PROFILE`, using the broadened
-   rubric in `SCORING_INSTRUCTIONS`:
-   - Not limited to an exact title match — clinical operations, quality,
-     regulatory affairs, medical affairs, and other pharma/biotech
-     leadership functions are all in scope where the candidate's
-     experience is a strong transferable fit.
-   - Prioritize compensation and long-term career trajectory over exact
-     title wording. A junior/contract-type role (e.g. "Associate",
-     "Consultant") should score lower than a permanent
-     managerial/director-level role, even in a closer-sounding function.
-   - Hard requirement, not traded off against anything above: the role
-     must plausibly be performable remotely from Brazil (explicit Brazil
-     location, or a LATAM-inclusive remote scope). Cap at 40 otherwise.
-   - If `ANTHROPIC_API_KEY` is set, run `python3 match_jobs.py` directly —
-     it fetches, scores via the Claude API (including this rubric),
-     looks up salary for matches, and writes the report itself.
+2. Score each job for fit against `CANDIDATE_PROFILE` in
+   `job-agent/match_jobs.py`, using the broadened rubric in
+   `SCORING_INSTRUCTIONS`: not limited to an exact title match (clinical
+   operations, quality, regulatory affairs, medical affairs, and other
+   pharma/biotech leadership functions are all in scope where experience
+   is a strong transferable fit); prioritize compensation and long-term
+   career trajectory over exact title wording (junior/contract-type
+   roles score lower than permanent managerial/director-level roles);
+   hard requirement, not traded off: the role must plausibly be
+   performable remotely from Brazil (cap at 40 otherwise).
+   - If `ANTHROPIC_API_KEY` is set, run `python3 match_jobs.py` — it
+     fetches, scores, and runs the full pipeline (below) itself.
    - If no API key is available, score manually (as Claude, in
-     conversation) using the same rubric, update
-     `job-agent/manual_matches.json` with the fresh results — including a
-     real `salary` value per job (see step 3, never invented) — then run
-     `python3 apply_manual_scores.py` to regenerate the report.
-3. Look up a salary range for each matched job via
-   `job-agent/salary.py` (`extract_salary()`), fetching job detail with
-   `fetch_greenhouse_jobs.fetch_job_detail()`. Only report a range when
-   the posting structurally discloses one (Greenhouse pay-transparency
-   metadata or an embedded pay-range widget) — never infer or guess a
-   number from other figures in the description (e.g. budget/revenue
-   mentions). If not structurally disclosed, report `"Not disclosed"`
-   rather than a guess — this is expected and common for non-US postings.
+     conversation) using the same rubric, record raw per-posting matches
+     in `job-agent/manual_matches.json` (with a real, API-verified
+     `salary` per posting — see step 4, never invented), record any
+     cover letter text / salary estimate figures for this run in
+     `job-agent/manual_extras.json`, then run
+     `python3 apply_manual_scores.py`.
+3. The pipeline (`job-agent/pipeline.py`, used identically by both paths
+   above) then:
+   - **Dedupes sibling postings** (`job-agent/dedup.py`): the same role
+     posted on multiple boards from the same corporate family (per
+     `COMPANY_FAMILIES`, e.g. Precision Medicine Group / Precision for
+     Medicine / Precision AQ) is shown once, with other boards' links
+     noted.
+   - **Tracks seen jobs** (`job-agent/jobs_state.py`,
+     `job-agent/jobs_state.json`): only matches new since the last check
+     are surfaced as "New matches" in the report. Anything the user has
+     marked `interested` or `applied` (via `set_status.py`) stays visible
+     in a "Tracked" section regardless of whether it's new this run.
+     Anything marked `pass` is hidden from the report entirely. A match
+     that scored 60+ before and was never actioned does not resurface —
+     don't re-show the same jobs every day.
+   - **Drafts cover letters** for any match scoring 80+ that doesn't have
+     one yet (`job-agent/cover_letter.py`), saved to
+     `job-agent/cover_letters/<slug>.md` for the user to review/edit —
+     never auto-submitted anywhere.
+   - **Estimates salary** when a posting doesn't disclose one
+     (`job-agent/salary_estimate.py`): a rough, clearly-labeled
+     market-rate range (e.g. "~$60,000–$90,000 USD (estimated — ...,
+     not disclosed by employer)"), distinct from a real disclosed figure
+     from `job-agent/salary.py` (which only ever reports a number when
+     the posting structurally discloses one — metadata field or embedded
+     pay-transparency widget — never inferred from other figures in the
+     description).
 4. Update `job-agent/report.html` with the fresh matches (score 60+,
-   sorted highest first, each showing its salary) — this happens
-   automatically via `report.write_report()` in both paths above.
+   "New matches" + "Tracked" sections, each showing salary/estimate,
+   sibling links, status, and cover letter link where applicable) — this
+   happens automatically via `report.write_report()` in both paths above.
 5. `report.html` must keep every job title as its own clickable link
-   straight to the posting (not just the surrounding card).
-6. Summarize the results back to the user (what changed since last time,
-   if anything — including any new matches surfaced purely by the
-   broadened role rubric) and mention the updated report.
+   straight to the (primary) posting.
+6. Summarize the results back to the user (what's new since last time,
+   any status changes reflected, any cover letters drafted) and mention
+   the updated report.
 
 See `job-agent/README.md` for full details on each script.

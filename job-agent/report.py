@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
-"""Generate report.html from a list of scored job matches.
+"""Generate report.html from tracked job state.
 
 Used by match_jobs.py after a live scoring run, and by
 apply_manual_scores.py after a manual (conversation-based) scoring pass —
-both call write_report() so the output is always produced the same way.
+both go through pipeline.process_run() and then call write_report(), so
+the output is always produced the same way.
 """
 
 import html
+import os
 from datetime import datetime, timezone
 
 SCORE_BANDS = (
@@ -14,6 +16,11 @@ SCORE_BANDS = (
     (70, "#0f7ea8", "#e6f3f9"),  # good match
     (0, "#a86a10", "#fbf1de"),  # notable match
 )
+
+STATUS_LABELS = {
+    "interested": ("Interested", "#0f7ea8", "#e6f3f9"),
+    "applied": ("Applied", "#1a7f5a", "#e6f6ef"),
+}
 
 
 def _band_colors(score):
@@ -23,38 +30,91 @@ def _band_colors(score):
     return SCORE_BANDS[-1][1], SCORE_BANDS[-1][2]
 
 
+def _salary_line(job):
+    salary = job.get("salary") or "Not disclosed"
+    if salary != "Not disclosed":
+        return html.escape(salary), "salary"
+    estimate = job.get("salary_estimate")
+    if estimate:
+        return html.escape(estimate), "salary estimate"
+    return "Not disclosed", "salary undisclosed"
+
+
 def _job_card(job):
     fg, bg = _band_colors(job["score"])
     title = html.escape(job["title"])
-    company = html.escape(job["company"])
     location = html.escape(job.get("location", ""))
     reason = html.escape(job["reason"])
-    url = html.escape(job["url"])
-    salary = html.escape(job.get("salary") or "Not disclosed")
-    salary_class = "salary" if salary != "Not disclosed" else "salary undisclosed"
+    postings = job["postings"]
+    primary_url = html.escape(postings[0]["url"])
+    salary_text, salary_class = _salary_line(job)
     location_html = f'<span class="loc">{location}</span>' if location else ""
+    company_label = html.escape(" + ".join(job["companies"]))
+
+    other_links = ""
+    if len(postings) > 1:
+        links = " &middot; ".join(
+            f'<a href="{html.escape(p["url"])}" target="_blank" rel="noopener">{html.escape(p["company"])}</a>'
+            for p in postings[1:]
+        )
+        other_links = f'<p class="also-posted">Also posted by: {links}</p>'
+
+    status_html = ""
+    if job["status"] in STATUS_LABELS:
+        label, sfg, sbg = STATUS_LABELS[job["status"]]
+        status_html = f'<span class="status" style="color:{sfg}; background:{sbg};">{label}</span>'
+
+    cover_letter_html = ""
+    if job.get("cover_letter_path"):
+        path = html.escape(job["cover_letter_path"])
+        cover_letter_html = f'<p class="cover-letter"><a href="{path}">Cover letter draft &rarr;</a></p>'
 
     return f"""
     <li class="card">
       <div class="card-top">
         <span class="score" style="color:{fg}; background:{bg};">{job["score"]}</span>
         <div class="titles">
-          <a class="title" href="{url}" target="_blank" rel="noopener">{title}</a>
-          <span class="company">{company}{" · " + location_html if location else ""}</span>
+          <a class="title" href="{primary_url}" target="_blank" rel="noopener">{title}</a>
+          <span class="company">{company_label}{" · " + location_html if location else ""}</span>
         </div>
+        {status_html}
       </div>
       <p class="reason">{reason}</p>
-      <p class="{salary_class}">{salary}</p>
+      <p class="{salary_class}">{salary_text}</p>
+      {other_links}
+      {cover_letter_html}
     </li>"""
 
 
-def generate_report_html(matches, scored_count, fetched_count, generated_at=None):
+def _section(title_text, matches, empty_text):
+    if not matches:
+        return f"""
+    <section>
+      <h2>{title_text}</h2>
+      <p class="empty">{empty_text}</p>
+    </section>"""
+    cards = "\n".join(_job_card(job) for job in matches)
+    return f"""
+    <section>
+      <h2>{title_text}</h2>
+      <ul>
+        {cards}
+      </ul>
+    </section>"""
+
+
+def generate_report_html(new_matches, tracked_matches, scored_count, fetched_count, generated_at=None):
     generated_at = generated_at or datetime.now(timezone.utc)
     timestamp = generated_at.strftime("%Y-%m-%d %H:%M UTC")
 
-    cards = "\n".join(_job_card(job) for job in matches) or (
-        '<li class="empty">No jobs scored 60+ this run.</li>'
+    new_section = _section(
+        "New matches",
+        new_matches,
+        "No new matches since your last check — same postings as before, nothing new to show.",
     )
+    tracked_section = ""
+    if tracked_matches:
+        tracked_section = _section("Tracked (interested / applied)", tracked_matches, "")
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -102,6 +162,13 @@ def generate_report_html(matches, scored_count, fetched_count, generated_at=None
     font-size: 1.5rem;
     margin: 0 0 6px;
     letter-spacing: -0.01em;
+  }}
+  h2 {{
+    font-size: 1.05rem;
+    margin: 0 0 12px;
+  }}
+  section + section {{
+    margin-top: 30px;
   }}
   .subtitle {{
     color: var(--text-muted);
@@ -155,6 +222,7 @@ def generate_report_html(matches, scored_count, fetched_count, generated_at=None
     flex-direction: column;
     gap: 2px;
     min-width: 0;
+    flex: 1 1 auto;
   }}
   .title {{
     font-weight: 600;
@@ -175,6 +243,14 @@ def generate_report_html(matches, scored_count, fetched_count, generated_at=None
   .loc {{
     color: var(--text-muted);
   }}
+  .status {{
+    flex: 0 0 auto;
+    font-size: 0.72rem;
+    font-weight: 600;
+    border-radius: 999px;
+    padding: 4px 10px;
+    white-space: nowrap;
+  }}
   .reason {{
     margin: 10px 0 0;
     font-size: 0.9rem;
@@ -187,15 +263,38 @@ def generate_report_html(matches, scored_count, fetched_count, generated_at=None
     font-weight: 600;
     color: var(--text);
   }}
+  .salary.estimate {{
+    font-weight: 400;
+    font-style: italic;
+    color: var(--text-muted);
+  }}
   .salary.undisclosed {{
     font-weight: 400;
     font-style: italic;
     color: var(--text-muted);
   }}
+  .also-posted {{
+    margin: 8px 0 0;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }}
+  .also-posted a {{
+    color: var(--text-muted);
+  }}
+  .cover-letter {{
+    margin: 10px 0 0;
+    font-size: 0.85rem;
+  }}
+  .cover-letter a {{
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+  }}
   .empty {{
     text-align: center;
     color: var(--text-muted);
-    padding: 40px 0;
+    padding: 24px 0;
+    font-size: 0.88rem;
   }}
   footer {{
     margin-top: 28px;
@@ -210,19 +309,20 @@ def generate_report_html(matches, scored_count, fetched_count, generated_at=None
   <div class="wrap">
     <header>
       <h1>Clinical Ops Job Matches</h1>
-      <p class="subtitle">Clinical operations, quality, regulatory affairs, medical affairs, and adjacent pharma/biotech leadership roles, scored for fit, compensation, and career trajectory against your background — remote-from-Brazil required. Filtered to score 60+, sorted highest first.</p>
+      <p class="subtitle">Clinical operations, quality, regulatory affairs, medical affairs, and adjacent pharma/biotech leadership roles, scored for fit, compensation, and career trajectory against your background — remote-from-Brazil required. Filtered to score 60+, sorted highest first. Sibling postings from the same corporate family are shown once.</p>
       <div class="stats">
-        <span>{len(matches)} matches</span>
+        <span>{len(new_matches)} new</span>
+        <span>{len(tracked_matches)} tracked</span>
         <span>{scored_count} scored</span>
         <span>{fetched_count} fetched</span>
         <span>updated {timestamp}</span>
       </div>
     </header>
-    <ul>
-      {cards}
-    </ul>
+    {new_section}
+    {tracked_section}
     <footer>
-      Generated by match_jobs.py / manual scoring &middot; job-agent
+      Generated by match_jobs.py / manual scoring &middot; job-agent<br>
+      Mark a job's status with: python3 set_status.py &lt;url&gt; applied|interested|pass
     </footer>
   </div>
 </body>
@@ -230,8 +330,10 @@ def generate_report_html(matches, scored_count, fetched_count, generated_at=None
 """
 
 
-def write_report(matches, scored_count, fetched_count, output_path="report.html", generated_at=None):
-    html_content = generate_report_html(matches, scored_count, fetched_count, generated_at)
+def write_report(new_matches, tracked_matches, scored_count, fetched_count, output_path=None, generated_at=None):
+    if output_path is None:
+        output_path = os.path.join(os.path.dirname(__file__), "report.html")
+    html_content = generate_report_html(new_matches, tracked_matches, scored_count, fetched_count, generated_at)
     with open(output_path, "w") as f:
         f.write(html_content)
     return output_path

@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Fetch jobs from the configured Greenhouse boards, score each one for fit
-against a candidate's background using Claude, and print only the jobs that
-score 60+, sorted highest first with a one-line reason.
+against a candidate's background using Claude, dedupe sibling postings,
+track which matches are new since the last run, draft cover letters for
+80+ scores, estimate salary where undisclosed, and refresh report.html.
 
 Requires an Anthropic API key in the ANTHROPIC_API_KEY environment variable.
 """
@@ -12,9 +13,12 @@ import sys
 
 import anthropic
 
+from cover_letter import generate_cover_letter_via_claude, save_cover_letter
 from fetch_greenhouse_jobs import COMPANIES, fetch_job_detail, fetch_jobs
+from pipeline import process_run
 from report import write_report
 from salary import extract_salary
+from salary_estimate import estimate_salary_via_claude
 
 CANDIDATE_PROFILE = """
 Portfolio Manager at Labcorp Clinical Laboratory Services (Labcorp CLS),
@@ -139,25 +143,48 @@ def main():
     matches.sort(key=lambda job: job["score"], reverse=True)
 
     board_token_by_company = {v: k for k, v in COMPANIES.items()}
+    detail_cache = {}
     for job in matches:
         board_token = board_token_by_company[job["company"]]
         try:
             detail = fetch_job_detail(board_token, job["id"])
+            detail_cache[job["url"]] = detail
             job["salary"] = extract_salary(detail)
         except Exception as exc:
             print(f"Warning: failed to fetch salary for job {job['id']}: {exc}", file=sys.stderr)
             job["salary"] = "Not disclosed"
 
-    print(f"{len(matches)} jobs scored {MIN_SCORE}+ (out of {len(scored)} scored, {len(all_jobs)} fetched)\n")
-    for job in matches:
+    def cover_letter_fn(state_job):
+        detail = detail_cache.get(state_job["postings"][0]["url"], {})
+        try:
+            letter = generate_cover_letter_via_claude(
+                client, state_job, detail.get("content", ""), CANDIDATE_PROFILE, MODEL
+            )
+            return save_cover_letter(state_job, letter)
+        except Exception as exc:
+            print(f"Warning: failed to draft cover letter for {state_job['title']}: {exc}", file=sys.stderr)
+            return None
+
+    def salary_estimate_fn(state_job):
+        try:
+            return estimate_salary_via_claude(client, state_job, MODEL)
+        except Exception as exc:
+            print(f"Warning: failed to estimate salary for {state_job['title']}: {exc}", file=sys.stderr)
+            return None
+
+    new_matches, tracked_matches, state = process_run(matches, cover_letter_fn, salary_estimate_fn)
+
+    print(f"{len(new_matches)} new matches this run, {len(tracked_matches)} tracked "
+          f"(out of {len(scored)} scored, {len(all_jobs)} fetched)\n")
+    for job in new_matches:
         location = f" ({job['location']})" if job["location"] else ""
         print(f"[{job['score']}] {job['title']} — {job['company']}{location}")
-        print(job["url"])
-        print(f"Salary: {job['salary']}")
+        print(job["postings"][0]["url"])
+        print(f"Salary: {job['salary']}" + (f" (est: {job['salary_estimate']})" if job.get("salary_estimate") else ""))
         print(job["reason"])
         print()
 
-    report_path = write_report(matches, len(scored), len(all_jobs))
+    report_path = write_report(new_matches, tracked_matches, len(scored), len(all_jobs))
     print(f"Report written to {report_path}")
 
 
