@@ -1,0 +1,137 @@
+#!/usr/bin/env python3
+"""Fetch jobs from the configured Greenhouse boards, score each one for fit
+against a candidate's background using Claude, and print only the jobs that
+score 60+, sorted highest first with a one-line reason.
+
+Requires an Anthropic API key in the ANTHROPIC_API_KEY environment variable.
+"""
+
+import json
+import os
+import sys
+
+import anthropic
+
+from fetch_greenhouse_jobs import COMPANIES, fetch_jobs
+
+CANDIDATE_PROFILE = """
+Portfolio Manager at Labcorp Clinical Laboratory Services (Labcorp CLS),
+overseeing 100+ global clinical studies and $200M+ in annual revenue.
+Previously Global Clinical Study Manager, managing $20M+ trial budgets
+across Oncology, Autoimmune, and Malaria trials. Before that, Regional
+Study Coordinator, EMEA. Certificate in Project Management from Rutgers.
+Fluent in English and Portuguese; working proficiency in German. Looking
+for remote clinical operations / clinical trial management roles that can
+be performed from Brazil.
+""".strip()
+
+MODEL = os.environ.get("CLAUDE_MODEL", "claude-sonnet-5")
+MIN_SCORE = 60
+BATCH_SIZE = 40
+
+SCORING_INSTRUCTIONS = """
+You are screening job listings for fit against a candidate's background.
+
+Candidate background:
+{profile}
+
+For each job below, score how good a fit it is for this candidate from 1
+(no fit) to 100 (excellent fit). Consider seniority, subject matter
+(clinical operations / clinical trial management), and whether the role
+looks compatible with being performed remotely from Brazil.
+
+Jobs:
+{jobs}
+
+Respond with ONLY a JSON array, no other text, in this exact form:
+[{{"id": <job id, integer>, "score": <integer 1-100>, "reason": "<one-line reason, under 20 words>"}}, ...]
+Include exactly one entry per job listed above, in any order.
+"""
+
+
+def collect_all_jobs():
+    all_jobs = []
+    for board_token, company_name in COMPANIES.items():
+        try:
+            jobs = fetch_jobs(board_token)
+        except Exception as exc:
+            print(f"Failed to fetch {company_name}: {exc}", file=sys.stderr)
+            continue
+        for job in jobs:
+            all_jobs.append(
+                {
+                    "id": job["id"],
+                    "title": job["title"],
+                    "location": (job.get("location") or {}).get("name", ""),
+                    "url": job["absolute_url"],
+                    "company": company_name,
+                }
+            )
+    return all_jobs
+
+
+def chunk(items, size):
+    for i in range(0, len(items), size):
+        yield items[i : i + size]
+
+
+def score_batch(client, batch):
+    jobs_text = "\n".join(
+        f"- id={job['id']}, title=\"{job['title']}\", location=\"{job['location']}\", company=\"{job['company']}\""
+        for job in batch
+    )
+    prompt = SCORING_INSTRUCTIONS.format(profile=CANDIDATE_PROFILE, jobs=jobs_text)
+
+    response = client.messages.create(
+        model=MODEL,
+        max_tokens=4096,
+        messages=[{"role": "user", "content": prompt}],
+    )
+    text = response.content[0].text.strip()
+
+    if text.startswith("```"):
+        text = text.strip("`")
+        if text.startswith("json"):
+            text = text[4:]
+        text = text.strip()
+
+    return json.loads(text)
+
+
+def main():
+    if not os.environ.get("ANTHROPIC_API_KEY"):
+        print("Error: ANTHROPIC_API_KEY environment variable is not set.", file=sys.stderr)
+        sys.exit(1)
+
+    client = anthropic.Anthropic()
+
+    all_jobs = collect_all_jobs()
+    jobs_by_id = {job["id"]: job for job in all_jobs}
+
+    scored = []
+    for batch in chunk(all_jobs, BATCH_SIZE):
+        try:
+            results = score_batch(client, batch)
+        except Exception as exc:
+            print(f"Warning: failed to score a batch of {len(batch)} jobs: {exc}", file=sys.stderr)
+            continue
+        for result in results:
+            job = jobs_by_id.get(result.get("id"))
+            if job is None:
+                continue
+            scored.append({**job, "score": result["score"], "reason": result["reason"]})
+
+    matches = [job for job in scored if job["score"] >= MIN_SCORE]
+    matches.sort(key=lambda job: job["score"], reverse=True)
+
+    print(f"{len(matches)} jobs scored {MIN_SCORE}+ (out of {len(scored)} scored, {len(all_jobs)} fetched)\n")
+    for job in matches:
+        location = f" ({job['location']})" if job["location"] else ""
+        print(f"[{job['score']}] {job['title']} — {job['company']}{location}")
+        print(job["url"])
+        print(job["reason"])
+        print()
+
+
+if __name__ == "__main__":
+    main()

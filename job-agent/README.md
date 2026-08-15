@@ -37,3 +37,23 @@ Other Greenhouse tokens tried and confirmed *not* to exist for major
 CROs/biotechs (in case useful later): `medable`, `curebase`, `advarra`,
 `icon` (returns an empty "ICON Talent Community" board, not ICON plc),
 `fortrea`, `veevasystems`, `certara`.
+
+## Resume-based matching
+
+`match_jobs.py` fetches jobs from all companies in `COMPANIES` (reusing
+`fetch_greenhouse_jobs.py`), sends them to Claude in batches to score fit
+(1-100) against a candidate background hardcoded in `CANDIDATE_PROFILE`,
+then prints only jobs scoring 60+ (`MIN_SCORE`), sorted highest first,
+each with a one-line reason.
+
+Requires an Anthropic API key:
+
+```
+export ANTHROPIC_API_KEY=sk-ant-...
+pip install -r requirements.txt
+python3 match_jobs.py
+```
+
+Edit `CANDIDATE_PROFILE` at the top of `match_jobs.py` to update the
+background used for scoring. `CLAUDE_MODEL` env var overrides the model
+(defaults to `claude-sonnet-5`).
