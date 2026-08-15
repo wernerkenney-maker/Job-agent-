@@ -34,16 +34,14 @@ def _job_card(job):
 
     return f"""
     <li class="card">
-      <a class="card-link" href="{url}" target="_blank" rel="noopener">
-        <div class="card-top">
-          <span class="score" style="color:{fg}; background:{bg};">{job["score"]}</span>
-          <div class="titles">
-            <span class="title">{title}</span>
-            <span class="company">{company}{" · " + location_html if location else ""}</span>
-          </div>
+      <div class="card-top">
+        <span class="score" style="color:{fg}; background:{bg};">{job["score"]}</span>
+        <div class="titles">
+          <a class="title" href="{url}" target="_blank" rel="noopener">{title}</a>
+          <span class="company">{company}{" · " + location_html if location else ""}</span>
         </div>
-        <p class="reason">{reason}</p>
-      </a>
+      </div>
+      <p class="reason">{reason}</p>
     </li>"""
 
 
@@ -133,13 +131,7 @@ def generate_report_html(matches, scored_count, fetched_count, generated_at=None
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 14px;
-    overflow: hidden;
-  }}
-  .card-link {{
-    display: block;
     padding: 16px 18px;
-    text-decoration: none;
-    color: inherit;
   }}
   .card-top {{
     display: flex;
@@ -165,6 +157,13 @@ def generate_report_html(matches, scored_count, fetched_count, generated_at=None
     font-weight: 600;
     font-size: 1rem;
     line-height: 1.3;
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
+    text-underline-offset: 2px;
+  }}
+  .title:hover, .title:focus {{
+    text-decoration-color: var(--accent);
   }}
   .company {{
     font-size: 0.85rem;
