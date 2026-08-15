@@ -21,6 +21,7 @@ COMPANIES = {
 }
 
 GREENHOUSE_URL_TEMPLATE = "https://boards-api.greenhouse.io/v1/boards/{token}/jobs"
+GREENHOUSE_JOB_DETAIL_TEMPLATE = "https://boards-api.greenhouse.io/v1/boards/{token}/jobs/{job_id}?content=true"
 
 
 def fetch_jobs(board_token):
@@ -28,6 +29,15 @@ def fetch_jobs(board_token):
     response = requests.get(url, timeout=30)
     response.raise_for_status()
     return response.json().get("jobs", [])
+
+
+def fetch_job_detail(board_token, job_id):
+    """Fetch a single job's full detail, including description content and
+    any pay-transparency metadata, used for salary extraction."""
+    url = GREENHOUSE_JOB_DETAIL_TEMPLATE.format(token=board_token, job_id=job_id)
+    response = requests.get(url, timeout=30)
+    response.raise_for_status()
+    return response.json()
 
 
 def main():

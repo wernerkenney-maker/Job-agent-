@@ -12,8 +12,9 @@ import sys
 
 import anthropic
 
-from fetch_greenhouse_jobs import COMPANIES, fetch_jobs
+from fetch_greenhouse_jobs import COMPANIES, fetch_job_detail, fetch_jobs
 from report import write_report
+from salary import extract_salary
 
 CANDIDATE_PROFILE = """
 Portfolio Manager at Labcorp Clinical Laboratory Services (Labcorp CLS),
@@ -21,9 +22,7 @@ overseeing 100+ global clinical studies and $200M+ in annual revenue.
 Previously Global Clinical Study Manager, managing $20M+ trial budgets
 across Oncology, Autoimmune, and Malaria trials. Before that, Regional
 Study Coordinator, EMEA. Certificate in Project Management from Rutgers.
-Fluent in English and Portuguese; working proficiency in German. Looking
-for remote clinical operations / clinical trial management roles that can
-be performed from Brazil.
+Fluent in English and Portuguese; working proficiency in German.
 """.strip()
 
 MODEL = os.environ.get("CLAUDE_MODEL", "claude-sonnet-5")
@@ -36,10 +35,24 @@ You are screening job listings for fit against a candidate's background.
 Candidate background:
 {profile}
 
-For each job below, score how good a fit it is for this candidate from 1
-(no fit) to 100 (excellent fit). Consider seniority, subject matter
-(clinical operations / clinical trial management), and whether the role
-looks compatible with being performed remotely from Brazil.
+The candidate is not limited to their exact current title. Score roles
+across clinical operations, quality, regulatory affairs, medical affairs,
+or other pharma/biotech leadership functions where their experience
+(large-scale trial/portfolio management, multi-million dollar budgets,
+cross-functional and cross-regional leadership) is a strong transferable
+fit. Prioritize compensation and long-term career trajectory over an
+exact title match: a role in an adjacent function at equal-or-better
+seniority, pay, and growth potential should score as well as or better
+than a narrower title match at a lower level (e.g. a "Consultant" or
+"Associate"-level contract role should score lower than a permanent
+managerial/director-level role, even in a closer-sounding function).
+
+Hard requirement: the role must plausibly be performable remotely from
+Brazil (location explicitly includes Brazil, or a LATAM-inclusive remote
+scope). If it does not, score it no higher than 40 regardless of how
+strong the functional fit is.
+
+For each job below, score fit from 1 (no fit) to 100 (excellent fit).
 
 Jobs:
 {jobs}
@@ -125,11 +138,22 @@ def main():
     matches = [job for job in scored if job["score"] >= MIN_SCORE]
     matches.sort(key=lambda job: job["score"], reverse=True)
 
+    board_token_by_company = {v: k for k, v in COMPANIES.items()}
+    for job in matches:
+        board_token = board_token_by_company[job["company"]]
+        try:
+            detail = fetch_job_detail(board_token, job["id"])
+            job["salary"] = extract_salary(detail)
+        except Exception as exc:
+            print(f"Warning: failed to fetch salary for job {job['id']}: {exc}", file=sys.stderr)
+            job["salary"] = "Not disclosed"
+
     print(f"{len(matches)} jobs scored {MIN_SCORE}+ (out of {len(scored)} scored, {len(all_jobs)} fetched)\n")
     for job in matches:
         location = f" ({job['location']})" if job["location"] else ""
         print(f"[{job['score']}] {job['title']} — {job['company']}{location}")
         print(job["url"])
+        print(f"Salary: {job['salary']}")
         print(job["reason"])
         print()
 

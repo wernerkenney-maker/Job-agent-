@@ -30,6 +30,8 @@ def _job_card(job):
     location = html.escape(job.get("location", ""))
     reason = html.escape(job["reason"])
     url = html.escape(job["url"])
+    salary = html.escape(job.get("salary") or "Not disclosed")
+    salary_class = "salary" if salary != "Not disclosed" else "salary undisclosed"
     location_html = f'<span class="loc">{location}</span>' if location else ""
 
     return f"""
@@ -42,6 +44,7 @@ def _job_card(job):
         </div>
       </div>
       <p class="reason">{reason}</p>
+      <p class="{salary_class}">{salary}</p>
     </li>"""
 
 
@@ -178,6 +181,17 @@ def generate_report_html(matches, scored_count, fetched_count, generated_at=None
     color: var(--text-muted);
     line-height: 1.45;
   }}
+  .salary {{
+    margin: 8px 0 0;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text);
+  }}
+  .salary.undisclosed {{
+    font-weight: 400;
+    font-style: italic;
+    color: var(--text-muted);
+  }}
   .empty {{
     text-align: center;
     color: var(--text-muted);
@@ -196,7 +210,7 @@ def generate_report_html(matches, scored_count, fetched_count, generated_at=None
   <div class="wrap">
     <header>
       <h1>Clinical Ops Job Matches</h1>
-      <p class="subtitle">Remote clinical trials / clinical operations roles scored for fit against your background, filtered to score 60+ and sorted highest first.</p>
+      <p class="subtitle">Clinical operations, quality, regulatory affairs, medical affairs, and adjacent pharma/biotech leadership roles, scored for fit, compensation, and career trajectory against your background — remote-from-Brazil required. Filtered to score 60+, sorted highest first.</p>
       <div class="stats">
         <span>{len(matches)} matches</span>
         <span>{scored_count} scored</span>
