@@ -2,8 +2,8 @@
 """Fetch jobs from the configured Greenhouse and Lever boards, score each
 one for fit against a candidate's background using Claude, dedupe sibling
 postings, track which matches are new since the last run, draft cover
-letters for 80+ scores, estimate salary where undisclosed, and refresh
-report.html.
+letters + tailored resume bullets for 80+ scores, estimate salary where
+undisclosed, and refresh report.html.
 
 Requires an Anthropic API key in the ANTHROPIC_API_KEY environment variable.
 """
@@ -19,6 +19,7 @@ import fetch_lever_jobs
 from cover_letter import generate_cover_letter_via_claude, save_cover_letter
 from pipeline import process_run
 from report import write_report
+from resume_bullets import generate_resume_bullets_via_claude, save_resume_bullets
 from salary import extract_salary, extract_salary_lever
 from salary_estimate import estimate_salary_via_claude
 
@@ -199,6 +200,18 @@ def main():
             print(f"Warning: failed to draft cover letter for {state_job['title']}: {exc}", file=sys.stderr)
             return None
 
+    def resume_bullets_fn(state_job):
+        url = state_job["postings"][0]["url"]
+        source = next((m["source"] for m in matches if m["url"] == url), "greenhouse")
+        try:
+            bullets = generate_resume_bullets_via_claude(
+                client, state_job, description_html(url, source), CANDIDATE_PROFILE, MODEL
+            )
+            return save_resume_bullets(state_job, bullets)
+        except Exception as exc:
+            print(f"Warning: failed to draft resume bullets for {state_job['title']}: {exc}", file=sys.stderr)
+            return None
+
     def salary_estimate_fn(state_job):
         try:
             return estimate_salary_via_claude(client, state_job, MODEL)
@@ -206,7 +219,9 @@ def main():
             print(f"Warning: failed to estimate salary for {state_job['title']}: {exc}", file=sys.stderr)
             return None
 
-    new_matches, tracked_matches, state = process_run(matches, cover_letter_fn, salary_estimate_fn)
+    new_matches, tracked_matches, state = process_run(
+        matches, cover_letter_fn, salary_estimate_fn, resume_bullets_fn
+    )
 
     print(f"{len(new_matches)} new matches this run, {len(tracked_matches)} tracked "
           f"(out of {len(scored)} scored, {len(all_jobs)} fetched)\n")

@@ -39,6 +39,7 @@ def update_state(state, merged_jobs, today):
                 "last_seen": today,
                 "salary_estimate": None,
                 "cover_letter_path": None,
+                "resume_bullets_path": None,
             }
             new_keys.append(key)
         else:

@@ -30,8 +30,8 @@ to do all of the following, without asking for confirmation:
      conversation) using the same rubric, record raw per-posting matches
      in `job-agent/manual_matches.json` (with a real, API-verified
      `salary` per posting — see step 4, never invented), record any
-     cover letter text / salary estimate figures for this run in
-     `job-agent/manual_extras.json`, then run
+     cover letter / resume bullets text / salary estimate figures for
+     this run in `job-agent/manual_extras.json`, then run
      `python3 apply_manual_scores.py`.
 3. The pipeline (`job-agent/pipeline.py`, used identically by both paths
    above) then:
@@ -48,10 +48,17 @@ to do all of the following, without asking for confirmation:
      Anything marked `pass` is hidden from the report entirely. A match
      that scored 60+ before and was never actioned does not resurface —
      don't re-show the same jobs every day.
-   - **Drafts cover letters** for any match scoring 80+ that doesn't have
-     one yet (`job-agent/cover_letter.py`), saved to
-     `job-agent/cover_letters/<slug>.md` for the user to review/edit —
-     never auto-submitted anywhere.
+   - **Drafts cover letters and resume bullet adjustments** for any match
+     scoring 80+ that doesn't have them yet (`job-agent/cover_letter.py`,
+     `job-agent/resume_bullets.py`), saved to
+     `job-agent/cover_letters/<slug>.md` and
+     `job-agent/resume_bullets/<slug>.md` for the user to review/edit —
+     never auto-submitted anywhere. Resume bullets are 3-4 rewritten
+     bullets pulling only from `CANDIDATE_PROFILE`'s real experience,
+     reordered/emphasized for the specific role — never inventing new
+     accomplishments or numbers. The two backfill independently, so an
+     existing cover letter doesn't block generating missing bullets (or
+     vice versa).
    - **Estimates salary** when a posting doesn't disclose one
      (`job-agent/salary_estimate.py`): a rough, clearly-labeled
      market-rate range (e.g. "~$60,000–$90,000 USD (estimated — ...,
@@ -62,12 +69,17 @@ to do all of the following, without asking for confirmation:
      description).
 4. Update `job-agent/report.html` with the fresh matches (score 60+,
    "New matches" + "Tracked" sections, each showing salary/estimate,
-   sibling links, status, and cover letter link where applicable) — this
-   happens automatically via `report.write_report()` in both paths above.
+   sibling links, status, and cover letter/resume bullets links where
+   applicable) — this happens automatically via `report.write_report()`
+   in both paths above. Note: draft links only render for jobs currently
+   in one of those two sections — a job that already has drafts but has
+   scrolled out of "new" (seen before, no status set) still has the
+   files in the repo, just not linked from the report until it's marked
+   `interested`/`applied`.
 5. `report.html` must keep every job title as its own clickable link
    straight to the (primary) posting.
 6. Summarize the results back to the user (what's new since last time,
-   any status changes reflected, any cover letters drafted) and mention
-   the updated report.
+   any status changes reflected, any cover letters/resume bullets
+   drafted) and mention the updated report.
 
 See `job-agent/README.md` for full details on each script.

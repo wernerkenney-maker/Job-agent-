@@ -163,21 +163,39 @@ Claude directly and recorded in `manual_extras.json`. This is always
 presented as an estimate, styled distinctly (italic) from a real
 disclosed figure, never asserted as fact.
 
-## Cover letters
+## Cover letters & resume bullets
 
-For any match scoring 80+, `cover_letter.py` drafts a short, tailored
-cover letter (via Claude, using `CANDIDATE_PROFILE` and the job
-description) and saves it to `cover_letters/<slug>.md` for review/editing
-— never auto-submitted anywhere. The report links to it under the job
-card. Backfills automatically for any job that crosses 80+ later, even
-if it was first seen at a lower score in a previous run.
+For any match scoring 80+, two things get drafted via Claude and saved
+for review/editing — never auto-submitted anywhere:
+- `cover_letter.py` — a short, tailored cover letter (using
+  `CANDIDATE_PROFILE` and the job description), saved to
+  `cover_letters/<slug>.md`.
+- `resume_bullets.py` — 3-4 rewritten resume bullets pulling only from
+  `CANDIDATE_PROFILE`'s real experience, reordered/reworded to foreground
+  whatever's most relevant to that specific role (never inventing new
+  accomplishments or numbers), saved to `resume_bullets/<slug>.md`.
+
+The report links to both under the job card. Both backfill automatically
+for any job that crosses 80+ later, even if it was first seen at a lower
+score in a previous run — and independently of each other, so if one was
+already drafted (e.g. in an earlier version of this tool) the other still
+gets backfilled without regenerating the first.
+
+Note: these links only render on jobs currently shown in the report (the
+"New matches" or "Tracked" section). A job that already had drafts
+generated but has since scrolled out of "new" (seen before, no status
+set) still has both files in the repo — just re-check `jobs_state.json`
+for its `cover_letter_path`/`resume_bullets_path`, or mark it
+`interested`/`applied` with `set_status.py` to bring it back into the
+Tracked section.
 
 ## HTML report
 
 `report.py` renders `report.html` — a single self-contained,
 mobile-friendly page (score badge, clickable title linking straight to
 the posting, company, location, salary/estimate, one-line reason, sibling
-links, cover letter link, status), styled for light and dark mode, no
+links, cover letter + resume bullets links, status), styled for light and
+dark mode, no
 external dependencies.
 
 `match_jobs.py` regenerates `report.html` automatically at the end of

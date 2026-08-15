@@ -64,10 +64,14 @@ def _job_card(job):
         label, sfg, sbg = STATUS_LABELS[job["status"]]
         status_html = f'<span class="status" style="color:{sfg}; background:{sbg};">{label}</span>'
 
-    cover_letter_html = ""
+    draft_links = []
     if job.get("cover_letter_path"):
         path = html.escape(job["cover_letter_path"])
-        cover_letter_html = f'<p class="cover-letter"><a href="{path}">Cover letter draft &rarr;</a></p>'
+        draft_links.append(f'<a href="{path}">Cover letter draft &rarr;</a>')
+    if job.get("resume_bullets_path"):
+        path = html.escape(job["resume_bullets_path"])
+        draft_links.append(f'<a href="{path}">Resume bullets &rarr;</a>')
+    drafts_html = f'<div class="drafts">{"".join(f"<span>{link}</span>" for link in draft_links)}</div>' if draft_links else ""
 
     return f"""
     <li class="card">
@@ -82,7 +86,7 @@ def _job_card(job):
       <p class="reason">{reason}</p>
       <p class="{salary_class}">{salary_text}</p>
       {other_links}
-      {cover_letter_html}
+      {drafts_html}
     </li>"""
 
 
@@ -281,11 +285,14 @@ def generate_report_html(new_matches, tracked_matches, scored_count, fetched_cou
   .also-posted a {{
     color: var(--text-muted);
   }}
-  .cover-letter {{
+  .drafts {{
     margin: 10px 0 0;
     font-size: 0.85rem;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
   }}
-  .cover-letter a {{
+  .drafts a {{
     color: var(--accent);
     font-weight: 600;
     text-decoration: none;
