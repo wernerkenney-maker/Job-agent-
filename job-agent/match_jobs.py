@@ -13,6 +13,7 @@ import sys
 import anthropic
 
 from fetch_greenhouse_jobs import COMPANIES, fetch_jobs
+from report import write_report
 
 CANDIDATE_PROFILE = """
 Portfolio Manager at Labcorp Clinical Laboratory Services (Labcorp CLS),
@@ -131,6 +132,9 @@ def main():
         print(job["url"])
         print(job["reason"])
         print()
+
+    report_path = write_report(matches, len(scored), len(all_jobs))
+    print(f"Report written to {report_path}")
 
 
 if __name__ == "__main__":

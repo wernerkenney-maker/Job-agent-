@@ -57,3 +57,26 @@ python3 match_jobs.py
 Edit `CANDIDATE_PROFILE` at the top of `match_jobs.py` to update the
 background used for scoring. `CLAUDE_MODEL` env var overrides the model
 (defaults to `claude-sonnet-5`).
+
+## HTML report
+
+`report.py` renders the scored matches into `report.html` — a single
+self-contained, mobile-friendly page (score badge, title, company,
+location, one-line reason, link to apply), styled for both light and
+dark mode. It has no external dependencies, so it can be opened directly
+in a browser or hosted anywhere (e.g. GitHub Pages).
+
+`match_jobs.py` regenerates `report.html` automatically at the end of
+every run (via `write_report()` in `report.py`).
+
+When no `ANTHROPIC_API_KEY` is available and scoring is instead done
+manually (e.g. by Claude directly in a chat session), record the results
+in `manual_matches.json` and run:
+
+```
+python3 apply_manual_scores.py
+```
+
+This calls the same `write_report()` function, so `report.html` is
+produced identically regardless of whether the matches came from a live
+`match_jobs.py` run or a manual scoring pass.
