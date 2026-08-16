@@ -307,11 +307,18 @@ for review/editing — never auto-submitted anywhere:
   whatever's most relevant to that specific role (never inventing new
   accomplishments or numbers), saved to `resume_bullets/<slug>.md`.
 
-The report links to both under the job card. Both backfill automatically
-for any job that crosses 80+ later, even if it was first seen at a lower
-score in a previous run — and independently of each other, so if one was
-already drafted (e.g. in an earlier version of this tool) the other still
-gets backfilled without regenerating the first.
+The report links to both under the job card, pointed at the file's
+GitHub blob URL (`report._github_blob_base_url()`, derived from `git
+remote get-url origin` + the current branch) rather than a bare relative
+path — a relative link only resolves when report.html is opened from
+inside a checkout with those sibling files present, not when previewed
+standalone (e.g. a sent-file viewer, which is how it's normally shared).
+Falls back to a relative path if this isn't a pushed git checkout. Both
+files backfill automatically for any job that crosses 80+ later, even if
+it was first seen at a lower score in a previous run — and independently
+of each other, so if one was already drafted (e.g. in an earlier version
+of this tool) the other still gets backfilled without regenerating the
+first.
 
 Note: these links only render on jobs currently shown in the report (the
 "New matches" or "Tracked" section). A job that already had drafts

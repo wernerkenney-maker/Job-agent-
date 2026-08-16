@@ -9,9 +9,51 @@ the output is always produced the same way.
 
 import html
 import os
+import subprocess
 from datetime import datetime, timezone
 
 from pace_tracker import total_count, weekly_count
+
+_REPO_DIR = os.path.dirname(__file__)
+
+
+def _github_blob_base_url():
+    """Base URL for linking to files in this repo/branch on GitHub, so
+    cover letter / resume bullets links work no matter where report.html
+    is viewed from (a plain relative link only resolves when report.html
+    is opened from inside a checkout with those sibling files present --
+    not when previewed standalone, e.g. via a sent-file viewer). Returns
+    None if this isn't a git checkout with a pushed remote (falls back to
+    a relative link in that case)."""
+    try:
+        remote = subprocess.run(
+            ["git", "remote", "get-url", "origin"], cwd=_REPO_DIR,
+            capture_output=True, text=True, timeout=5, check=True,
+        ).stdout.strip()
+        branch = subprocess.run(
+            ["git", "rev-parse", "--abbrev-ref", "HEAD"], cwd=_REPO_DIR,
+            capture_output=True, text=True, timeout=5, check=True,
+        ).stdout.strip()
+    except (subprocess.CalledProcessError, FileNotFoundError, subprocess.TimeoutExpired):
+        return None
+
+    if remote.endswith(".git"):
+        remote = remote[:-4]
+    if remote.startswith("git@github.com:"):
+        remote = "https://github.com/" + remote[len("git@github.com:"):]
+    if not remote.startswith("https://github.com/") or not branch or branch == "HEAD":
+        return None
+    return f"{remote}/blob/{branch}/job-agent"
+
+
+GITHUB_BLOB_BASE_URL = _github_blob_base_url()
+
+
+def _draft_url(rel_path):
+    if GITHUB_BLOB_BASE_URL:
+        return f"{GITHUB_BLOB_BASE_URL}/{rel_path}"
+    return rel_path
+
 
 SCORE_BANDS = (
     (85, "#1a7f5a", "#e6f6ef"),  # strong match
@@ -79,11 +121,11 @@ def _job_card(job):
 
     draft_links = []
     if job.get("cover_letter_path"):
-        path = html.escape(job["cover_letter_path"])
-        draft_links.append(f'<a href="{path}">Cover letter draft &rarr;</a>')
+        url = html.escape(_draft_url(job["cover_letter_path"]))
+        draft_links.append(f'<a href="{url}" target="_blank" rel="noopener">Cover letter draft &rarr;</a>')
     if job.get("resume_bullets_path"):
-        path = html.escape(job["resume_bullets_path"])
-        draft_links.append(f'<a href="{path}">Resume bullets &rarr;</a>')
+        url = html.escape(_draft_url(job["resume_bullets_path"]))
+        draft_links.append(f'<a href="{url}" target="_blank" rel="noopener">Resume bullets &rarr;</a>')
     drafts_html = f'<div class="drafts">{"".join(f"<span>{link}</span>" for link in draft_links)}</div>' if draft_links else ""
 
     category = job.get("category", "Adjacent")
