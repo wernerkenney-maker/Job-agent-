@@ -263,6 +263,34 @@
     font-weight: 600;
     text-decoration: none;
   }
+  .status-actions {
+    margin: 12px 0 0;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .status-btn {
+    font: inherit;
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: var(--text);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 5px 11px;
+    cursor: pointer;
+  }
+  .status-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .status-btn.copied {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--surface);
+  }
   .empty {
     text-align: center;
     color: var(--text-muted);
@@ -289,14 +317,14 @@
       <div class="applied-progress">
         <span class="pace-figure">0</span> applied of <span class="pace-figure">45</span> total matches tracked
       </div>
-      <p class="status-reminder">Mark a job's status with <code>python3 set_status.py &lt;url&gt; applied|interested|interviewing|declined|pass</code> — <strong>applied</strong> moves it to the Applied section below and logs it to your pace count above, <strong>interviewing</strong> keeps it in Applied but flags it (bold title, purple border), <strong>interested</strong> moves it to the Interested section, <strong>declined</strong>/<strong>pass</strong> hide it from every future report for good.</p>
+      <p class="status-reminder">Each card has status buttons that copy the exact <code>set_status.py</code> command (with that job's URL already filled in) to your clipboard — click one, then paste and run it in a terminal to update: <strong>applied</strong> moves it to the Applied section below and logs it to your pace count above, <strong>interviewing</strong> keeps it in Applied but flags it (bold title, purple border), <strong>interested</strong> moves it to the Interested section, <strong>declined</strong> hides it from every future report for good. This is a static file with no backend, so nothing updates until you actually run the copied command.</p>
       <div class="stats">
         <span>45 new</span>
         <span>0 applied</span>
         <span>0 interested</span>
         <span>1372 scored</span>
         <span>1372 fetched</span>
-        <span>updated 2026-08-16 12:14 UTC</span>
+        <span>updated 2026-08-16 12:30 UTC</span>
       </div>
     </header>
     
@@ -309,7 +337,7 @@
           
     <li class="card">
       <div class="card-top">
-        <span class="score" style="color:#1a7f5a; background:#e6f6ef;">92</span>
+        <span class="score" style="color:#1a7f5a; background:#e6f6ef;">95</span>
         <div class="titles">
           <a class="title" href="https://job-boards.greenhouse.io/precisionmedicinegroup/jobs/6108448004" target="_blank" rel="noopener">Clinical Trial Manager (LATAM)</a>
           <span class="company">Precision Medicine Group + Precision for Medicine · <span class="loc">Remote, Argentina; Remote, Brazil; Remote, Mexico</span></span>
@@ -317,18 +345,19 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">High</span></div>
-      <p class="reason">Direct match to your Global Clinical Study Manager trial-management experience, explicitly Brazil-eligible.</p>
+      <p class="reason">Direct match to your Global Study Manager background on Novartis&#x27;s largest Labcorp trial (HORIZON) -- explicitly Brazil-eligible.</p>
       <p class="salary estimate">~$60,000–$90,000 USD (estimated — LATAM CRO manager-level rate; ~45-55% of comparable disclosed US band, not disclosed by employer)</p>
       
       
-      <p class="trajectory">Lateral move at essentially the same level as your Global Clinical Study Manager role -- strong, low-risk fit.</p>
+      <p class="trajectory">Lateral move at the same level as your current Global Study Manager role, reinforced by real client-facing/bid-defense credibility -- strong, low-risk fit.</p>
       <p class="also-posted">Also posted by: <a href="https://job-boards.greenhouse.io/pfm/jobs/6108451004" target="_blank" rel="noopener">Precision for Medicine</a></p>
       <div class="drafts"><span><a href="https://github.com/wernerkenney-maker/Job-agent-/blob/claude/job-agent-thermo-fisher-lt28sv/job-agent/cover_letters/precision-medicine-group-clinical-trial-manager-latam.md" target="_blank" rel="noopener">Cover letter draft &rarr;</a></span><span><a href="https://github.com/wernerkenney-maker/Job-agent-/blob/claude/job-agent-thermo-fisher-lt28sv/job-agent/resume_bullets/precision-medicine-group-clinical-trial-manager-latam.md" target="_blank" rel="noopener">Resume bullets &rarr;</a></span></div>
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://job-boards.greenhouse.io/precisionmedicinegroup/jobs/6108448004" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://job-boards.greenhouse.io/precisionmedicinegroup/jobs/6108448004" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://job-boards.greenhouse.io/precisionmedicinegroup/jobs/6108448004" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://job-boards.greenhouse.io/precisionmedicinegroup/jobs/6108448004" data-status="declined">Decline</button></div>
     </li>
 
     <li class="card">
       <div class="card-top">
-        <span class="score" style="color:#1a7f5a; background:#e6f6ef;">90</span>
+        <span class="score" style="color:#1a7f5a; background:#e6f6ef;">93</span>
         <div class="titles">
           <a class="title" href="https://iqvia.wd1.myworkdayjobs.com/IQVIA/job/So-Paulo-Brazil/Clinical-Trial-Manager---Sponsor-Dedicated_R1556631" target="_blank" rel="noopener">Clinical Trial Manager - Sponsor Dedicated</a>
           <span class="company">IQVIA · <span class="loc">São Paulo, Brazil</span></span>
@@ -336,37 +365,19 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">High</span></div>
-      <p class="reason">Direct match to your Global Clinical Study Manager trial-management scope, sponsor-dedicated, Brazil-based.</p>
+      <p class="reason">Direct match to your Global Clinical Study Manager trial-management scope, sponsor-dedicated -- you already represent Labcorp directly to a major sponsor (Novartis) in exactly this kind of role.</p>
       <p class="salary estimate">~$60,000–$90,000 USD (estimated — LATAM CRO manager-level rate, sponsor-dedicated, not disclosed by employer)</p>
       <p class="col-note">~R$300.000–R$450.000 in São Paulo is roughly equivalent to ~R$207.000–R$310.000 of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).</p>
       
-      <p class="trajectory">Lateral to your Global Clinical Study Manager role at one of the largest global CROs -- strong, low-risk fit.</p>
+      <p class="trajectory">Lateral to your Global Clinical Study Manager role at one of the largest global CROs, reinforced by real sponsor-facing credibility -- strong, low-risk fit.</p>
       
       <div class="drafts"><span><a href="https://github.com/wernerkenney-maker/Job-agent-/blob/claude/job-agent-thermo-fisher-lt28sv/job-agent/cover_letters/iqvia-clinical-trial-manager-sponsor-dedicated.md" target="_blank" rel="noopener">Cover letter draft &rarr;</a></span><span><a href="https://github.com/wernerkenney-maker/Job-agent-/blob/claude/job-agent-thermo-fisher-lt28sv/job-agent/resume_bullets/iqvia-clinical-trial-manager-sponsor-dedicated.md" target="_blank" rel="noopener">Resume bullets &rarr;</a></span></div>
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://iqvia.wd1.myworkdayjobs.com/IQVIA/job/So-Paulo-Brazil/Clinical-Trial-Manager---Sponsor-Dedicated_R1556631" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://iqvia.wd1.myworkdayjobs.com/IQVIA/job/So-Paulo-Brazil/Clinical-Trial-Manager---Sponsor-Dedicated_R1556631" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://iqvia.wd1.myworkdayjobs.com/IQVIA/job/So-Paulo-Brazil/Clinical-Trial-Manager---Sponsor-Dedicated_R1556631" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://iqvia.wd1.myworkdayjobs.com/IQVIA/job/So-Paulo-Brazil/Clinical-Trial-Manager---Sponsor-Dedicated_R1556631" data-status="declined">Decline</button></div>
     </li>
 
     <li class="card">
       <div class="card-top">
-        <span class="score" style="color:#1a7f5a; background:#e6f6ef;">89</span>
-        <div class="titles">
-          <a class="title" href="https://apply.workable.com/j/CA09B86631" target="_blank" rel="noopener">Senior Clinical Project Manager</a>
-          <span class="company">EDETEK · <span class="loc">Remote, Brazil</span></span>
-        </div>
-        
-      </div>
-      <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">High</span></div>
-      <p class="reason">Direct match to Global Clinical Study Manager scope -- multi-country CRO project ownership.</p>
-      <p class="salary estimate">~$65,000–$95,000 USD (estimated — LATAM CRO senior PM level, slightly above standard Clinical Trial Manager band, not disclosed by employer)</p>
-      
-      
-      <p class="trajectory">Lateral to modest step up from your Global Clinical Study Manager role -- strong direct fit, high-confidence application.</p>
-      
-      <div class="drafts"><span><a href="https://github.com/wernerkenney-maker/Job-agent-/blob/claude/job-agent-thermo-fisher-lt28sv/job-agent/cover_letters/edetek-senior-clinical-project-manager.md" target="_blank" rel="noopener">Cover letter draft &rarr;</a></span><span><a href="https://github.com/wernerkenney-maker/Job-agent-/blob/claude/job-agent-thermo-fisher-lt28sv/job-agent/resume_bullets/edetek-senior-clinical-project-manager.md" target="_blank" rel="noopener">Resume bullets &rarr;</a></span></div>
-    </li>
-
-    <li class="card">
-      <div class="card-top">
-        <span class="score" style="color:#1a7f5a; background:#e6f6ef;">88</span>
+        <span class="score" style="color:#1a7f5a; background:#e6f6ef;">93</span>
         <div class="titles">
           <a class="title" href="https://wd1.myworkdaysite.com/recruiting/parexel/Parexel_External_Careers/job/Mexico-Remote/Global-Study-Manager-II---FSP_R0000044322-1" target="_blank" rel="noopener">Global Study Manager II - FSP</a>
           <span class="company">Parexel · <span class="loc">Remote, Mexico; Remote, Argentina; Remote, Brazil</span></span>
@@ -374,18 +385,39 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">High</span></div>
-      <p class="reason">Title and scope essentially match your prior Global Clinical Study Manager role.</p>
+      <p class="reason">Title and scope essentially match your prior Global Clinical Study Manager role -- and you currently serve as Global Study Manager on HORIZON, Novartis&#x27;s largest trial with Labcorp, with direct sponsor-facing and bid-defense experience.</p>
       <p class="salary estimate">~$65,000–$95,000 USD (estimated — LATAM CRO senior manager level, FSP model, not disclosed by employer)</p>
       
       
-      <p class="trajectory">Lateral move to a near-identical prior title (Global Study Manager) at a major CRO -- strong, low-risk fit.</p>
+      <p class="trajectory">Lateral move to a near-identical role you already hold (Global Study Manager) at a major CRO -- strong, low-risk fit, reinforced by real client-facing credibility.</p>
       
       <div class="drafts"><span><a href="https://github.com/wernerkenney-maker/Job-agent-/blob/claude/job-agent-thermo-fisher-lt28sv/job-agent/cover_letters/parexel-global-study-manager-ii-fsp.md" target="_blank" rel="noopener">Cover letter draft &rarr;</a></span><span><a href="https://github.com/wernerkenney-maker/Job-agent-/blob/claude/job-agent-thermo-fisher-lt28sv/job-agent/resume_bullets/parexel-global-study-manager-ii-fsp.md" target="_blank" rel="noopener">Resume bullets &rarr;</a></span></div>
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://wd1.myworkdaysite.com/recruiting/parexel/Parexel_External_Careers/job/Mexico-Remote/Global-Study-Manager-II---FSP_R0000044322-1" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://wd1.myworkdaysite.com/recruiting/parexel/Parexel_External_Careers/job/Mexico-Remote/Global-Study-Manager-II---FSP_R0000044322-1" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://wd1.myworkdaysite.com/recruiting/parexel/Parexel_External_Careers/job/Mexico-Remote/Global-Study-Manager-II---FSP_R0000044322-1" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://wd1.myworkdaysite.com/recruiting/parexel/Parexel_External_Careers/job/Mexico-Remote/Global-Study-Manager-II---FSP_R0000044322-1" data-status="declined">Decline</button></div>
     </li>
 
     <li class="card">
       <div class="card-top">
-        <span class="score" style="color:#1a7f5a; background:#e6f6ef;">88</span>
+        <span class="score" style="color:#1a7f5a; background:#e6f6ef;">92</span>
+        <div class="titles">
+          <a class="title" href="https://apply.workable.com/j/CA09B86631" target="_blank" rel="noopener">Senior Clinical Project Manager</a>
+          <span class="company">EDETEK · <span class="loc">Remote, Brazil</span></span>
+        </div>
+        
+      </div>
+      <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">High</span></div>
+      <p class="reason">Direct match to Global Clinical Study Manager scope -- multi-country CRO project ownership, reinforced by your role as Global Study Manager on Novartis&#x27;s largest Labcorp trial and direct bid-defense experience.</p>
+      <p class="salary estimate">~$65,000–$95,000 USD (estimated — LATAM CRO senior PM level, slightly above standard Clinical Trial Manager band, not disclosed by employer)</p>
+      
+      
+      <p class="trajectory">Lateral to modest step up from your Global Clinical Study Manager role -- strong direct fit, now backed by real executive client-facing credibility.</p>
+      
+      <div class="drafts"><span><a href="https://github.com/wernerkenney-maker/Job-agent-/blob/claude/job-agent-thermo-fisher-lt28sv/job-agent/cover_letters/edetek-senior-clinical-project-manager.md" target="_blank" rel="noopener">Cover letter draft &rarr;</a></span><span><a href="https://github.com/wernerkenney-maker/Job-agent-/blob/claude/job-agent-thermo-fisher-lt28sv/job-agent/resume_bullets/edetek-senior-clinical-project-manager.md" target="_blank" rel="noopener">Resume bullets &rarr;</a></span></div>
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://apply.workable.com/j/CA09B86631" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://apply.workable.com/j/CA09B86631" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://apply.workable.com/j/CA09B86631" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://apply.workable.com/j/CA09B86631" data-status="declined">Decline</button></div>
+    </li>
+
+    <li class="card">
+      <div class="card-top">
+        <span class="score" style="color:#1a7f5a; background:#e6f6ef;">92</span>
         <div class="titles">
           <a class="title" href="https://fortrea.wd1.myworkdayjobs.com/Fortrea/job/Remote-Brazil/Sr-Clinical-Project-Manager-or-Clinical-Project-Manager-II---Oncology_263237" target="_blank" rel="noopener">Sr. Clinical Project Manager or Clinical Project Manager II - Oncology</a>
           <span class="company">Fortrea · <span class="loc">Remote, Brazil; Remote, Argentina; Remote, Chile; Remote, Colombia; Remote, Mexico; Remote, Peru</span></span>
@@ -393,18 +425,19 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">High</span></div>
-      <p class="reason">Oncology-specific role directly matches one of your actual therapeutic areas (Oncology, Autoimmune, Malaria) -- strong fit.</p>
+      <p class="reason">Oncology-specific role directly matches one of your actual therapeutic areas -- and your Global Study Manager role on Novartis&#x27;s largest Labcorp trial (HORIZON), plus direct bid-defense experience, strengthens this further.</p>
       <p class="salary estimate">~$65,000–$95,000 USD (estimated — LATAM CRO senior PM level, oncology therapeutic scope, not disclosed by employer)</p>
       
       
       <p class="trajectory">Lateral to modest step up from your Global Clinical Study Manager role, in a therapeutic area you already have direct experience in -- strong, low-risk fit.</p>
       
       <div class="drafts"><span><a href="https://github.com/wernerkenney-maker/Job-agent-/blob/claude/job-agent-thermo-fisher-lt28sv/job-agent/cover_letters/fortrea-sr-clinical-project-manager-or-clinical-project-manager-ii-oncology.md" target="_blank" rel="noopener">Cover letter draft &rarr;</a></span><span><a href="https://github.com/wernerkenney-maker/Job-agent-/blob/claude/job-agent-thermo-fisher-lt28sv/job-agent/resume_bullets/fortrea-sr-clinical-project-manager-or-clinical-project-manager-ii-oncology.md" target="_blank" rel="noopener">Resume bullets &rarr;</a></span></div>
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://fortrea.wd1.myworkdayjobs.com/Fortrea/job/Remote-Brazil/Sr-Clinical-Project-Manager-or-Clinical-Project-Manager-II---Oncology_263237" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://fortrea.wd1.myworkdayjobs.com/Fortrea/job/Remote-Brazil/Sr-Clinical-Project-Manager-or-Clinical-Project-Manager-II---Oncology_263237" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://fortrea.wd1.myworkdayjobs.com/Fortrea/job/Remote-Brazil/Sr-Clinical-Project-Manager-or-Clinical-Project-Manager-II---Oncology_263237" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://fortrea.wd1.myworkdayjobs.com/Fortrea/job/Remote-Brazil/Sr-Clinical-Project-Manager-or-Clinical-Project-Manager-II---Oncology_263237" data-status="declined">Decline</button></div>
     </li>
 
     <li class="card">
       <div class="card-top">
-        <span class="score" style="color:#1a7f5a; background:#e6f6ef;">87</span>
+        <span class="score" style="color:#1a7f5a; background:#e6f6ef;">90</span>
         <div class="titles">
           <a class="title" href="https://jobs.smartrecruiters.com/PSICRO/744000141565392" target="_blank" rel="noopener">Clinical Regional Project Lead</a>
           <span class="company">PSI CRO · <span class="loc">São Paulo, SP, Brazil</span></span>
@@ -412,18 +445,19 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">High</span></div>
-      <p class="reason">Mirrors your Regional Study Coordinator EMEA + Global Study Manager background closely.</p>
+      <p class="reason">Mirrors your Regional Study Coordinator EMEA + Global Study Manager background closely -- and your direct client representation to Novartis (London/Basel) strengthens the regional-leadership case.</p>
       <p class="salary estimate">~$65,000–$95,000 USD (estimated — LATAM CRO regional-lead level, comparable manager-level scope, not disclosed by employer)</p>
       <p class="col-note">~R$325.000–R$475.000 in São Paulo is roughly equivalent to ~R$224.000–R$328.000 of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).</p>
       
-      <p class="trajectory">Mirrors your Regional Study Coordinator + Global Study Manager background closely -- strong, low-risk fit worth prioritizing.</p>
+      <p class="trajectory">Mirrors your Regional Study Coordinator + Global Study Manager background closely, now reinforced by real international client-facing experience -- strong, low-risk fit worth prioritizing.</p>
       
       <div class="drafts"><span><a href="https://github.com/wernerkenney-maker/Job-agent-/blob/claude/job-agent-thermo-fisher-lt28sv/job-agent/cover_letters/psi-cro-clinical-regional-project-lead.md" target="_blank" rel="noopener">Cover letter draft &rarr;</a></span><span><a href="https://github.com/wernerkenney-maker/Job-agent-/blob/claude/job-agent-thermo-fisher-lt28sv/job-agent/resume_bullets/psi-cro-clinical-regional-project-lead.md" target="_blank" rel="noopener">Resume bullets &rarr;</a></span></div>
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://jobs.smartrecruiters.com/PSICRO/744000141565392" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://jobs.smartrecruiters.com/PSICRO/744000141565392" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://jobs.smartrecruiters.com/PSICRO/744000141565392" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://jobs.smartrecruiters.com/PSICRO/744000141565392" data-status="declined">Decline</button></div>
     </li>
 
     <li class="card">
       <div class="card-top">
-        <span class="score" style="color:#1a7f5a; background:#e6f6ef;">86</span>
+        <span class="score" style="color:#1a7f5a; background:#e6f6ef;">89</span>
         <div class="titles">
           <a class="title" href="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Senior-Clinical-Trial-Manager_JR154502" target="_blank" rel="noopener">Senior Clinical Trial Manager</a>
           <span class="company">ICON plc · <span class="loc">Brazil, Sao Paulo</span></span>
@@ -431,18 +465,19 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">High</span></div>
-      <p class="reason">Direct match to your Global Clinical Study Manager trial-management experience, senior level.</p>
+      <p class="reason">Direct match to your Global Clinical Study Manager trial-management experience, senior level -- and your Global Study Manager role on Novartis&#x27;s largest Labcorp trial (HORIZON) strengthens this further.</p>
       <p class="salary estimate">~$65,000–$95,000 USD (estimated — LATAM CRO senior manager level, not disclosed by employer)</p>
       <p class="col-note">~R$325.000–R$475.000 in São Paulo is roughly equivalent to ~R$224.000–R$328.000 of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).</p>
       
       <p class="trajectory">Lateral to modest step up from your Global Clinical Study Manager role -- strong, low-risk fit.</p>
       
       <div class="drafts"><span><a href="https://github.com/wernerkenney-maker/Job-agent-/blob/claude/job-agent-thermo-fisher-lt28sv/job-agent/cover_letters/icon-plc-senior-clinical-trial-manager.md" target="_blank" rel="noopener">Cover letter draft &rarr;</a></span><span><a href="https://github.com/wernerkenney-maker/Job-agent-/blob/claude/job-agent-thermo-fisher-lt28sv/job-agent/resume_bullets/icon-plc-senior-clinical-trial-manager.md" target="_blank" rel="noopener">Resume bullets &rarr;</a></span></div>
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Senior-Clinical-Trial-Manager_JR154502" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Senior-Clinical-Trial-Manager_JR154502" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Senior-Clinical-Trial-Manager_JR154502" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Senior-Clinical-Trial-Manager_JR154502" data-status="declined">Decline</button></div>
     </li>
 
     <li class="card">
       <div class="card-top">
-        <span class="score" style="color:#0f7ea8; background:#e6f3f9;">84</span>
+        <span class="score" style="color:#1a7f5a; background:#e6f6ef;">88</span>
         <div class="titles">
           <a class="title" href="https://syneoshealth.wd12.myworkdayjobs.com/Syneos_Health_External_Site/job/BRA-Remote/Clinical-Trial-Manager-with-focus-on-Project-Management---Sponsor-dedicated---Brazil-Home-Based_25109715" target="_blank" rel="noopener">Clinical Trial Manager with focus on Project Management - Sponsor dedicated - Brazil Home Based</a>
           <span class="company">Syneos Health · <span class="loc">BRA-Remote</span></span>
@@ -450,18 +485,19 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">High</span></div>
-      <p class="reason">Direct match to your Global Clinical Study Manager trial-management experience, sponsor-dedicated, Brazil home-based.</p>
+      <p class="reason">Direct match to your Global Clinical Study Manager trial-management experience, sponsor-dedicated -- exactly the kind of direct sponsor relationship you already hold with Novartis on HORIZON.</p>
       <p class="salary estimate">~$60,000–$90,000 USD (estimated — LATAM CRO manager-level rate, sponsor-dedicated, Brazil home-based, not disclosed by employer)</p>
       
       
       <p class="trajectory">Lateral move at essentially the same level as your Global Clinical Study Manager role -- strong, low-risk fit.</p>
       
       <div class="drafts"><span><a href="https://github.com/wernerkenney-maker/Job-agent-/blob/claude/job-agent-thermo-fisher-lt28sv/job-agent/cover_letters/syneos-health-clinical-trial-manager-with-focus-on-project-management-sponsor-dedicated-brazil-home-based.md" target="_blank" rel="noopener">Cover letter draft &rarr;</a></span><span><a href="https://github.com/wernerkenney-maker/Job-agent-/blob/claude/job-agent-thermo-fisher-lt28sv/job-agent/resume_bullets/syneos-health-clinical-trial-manager-with-focus-on-project-management-sponsor-dedicated-brazil-home-based.md" target="_blank" rel="noopener">Resume bullets &rarr;</a></span></div>
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://syneoshealth.wd12.myworkdayjobs.com/Syneos_Health_External_Site/job/BRA-Remote/Clinical-Trial-Manager-with-focus-on-Project-Management---Sponsor-dedicated---Brazil-Home-Based_25109715" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://syneoshealth.wd12.myworkdayjobs.com/Syneos_Health_External_Site/job/BRA-Remote/Clinical-Trial-Manager-with-focus-on-Project-Management---Sponsor-dedicated---Brazil-Home-Based_25109715" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://syneoshealth.wd12.myworkdayjobs.com/Syneos_Health_External_Site/job/BRA-Remote/Clinical-Trial-Manager-with-focus-on-Project-Management---Sponsor-dedicated---Brazil-Home-Based_25109715" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://syneoshealth.wd12.myworkdayjobs.com/Syneos_Health_External_Site/job/BRA-Remote/Clinical-Trial-Manager-with-focus-on-Project-Management---Sponsor-dedicated---Brazil-Home-Based_25109715" data-status="declined">Decline</button></div>
     </li>
 
     <li class="card">
       <div class="card-top">
-        <span class="score" style="color:#0f7ea8; background:#e6f3f9;">84</span>
+        <span class="score" style="color:#1a7f5a; background:#e6f6ef;">87</span>
         <div class="titles">
           <a class="title" href="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Project-Manager---Country-Level---Brazil_JR155789" target="_blank" rel="noopener">Clinical Project Manager - Brazil</a>
           <span class="company">ICON plc · <span class="loc">Brazil, Sao Paulo</span></span>
@@ -469,18 +505,19 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">High</span></div>
-      <p class="reason">Country-level clinical project management, direct match to your study/portfolio-management background.</p>
+      <p class="reason">Country-level clinical project management, direct match to your study/portfolio-management background -- reinforced by real client-facing credibility representing Labcorp to Novartis.</p>
       <p class="salary estimate">~$62,000–$92,000 USD (estimated — LATAM CRO country-level project manager rate, not disclosed by employer)</p>
       <p class="col-note">~R$310.000–R$460.000 in São Paulo is roughly equivalent to ~R$214.000–R$317.000 of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).</p>
       
       <p class="trajectory">Lateral move into country-level clinical project management at a major CRO -- strong, direct fit.</p>
       
       <div class="drafts"><span><a href="https://github.com/wernerkenney-maker/Job-agent-/blob/claude/job-agent-thermo-fisher-lt28sv/job-agent/cover_letters/icon-plc-clinical-project-manager-brazil.md" target="_blank" rel="noopener">Cover letter draft &rarr;</a></span><span><a href="https://github.com/wernerkenney-maker/Job-agent-/blob/claude/job-agent-thermo-fisher-lt28sv/job-agent/resume_bullets/icon-plc-clinical-project-manager-brazil.md" target="_blank" rel="noopener">Resume bullets &rarr;</a></span></div>
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Project-Manager---Country-Level---Brazil_JR155789" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Project-Manager---Country-Level---Brazil_JR155789" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Project-Manager---Country-Level---Brazil_JR155789" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Project-Manager---Country-Level---Brazil_JR155789" data-status="declined">Decline</button></div>
     </li>
 
     <li class="card">
       <div class="card-top">
-        <span class="score" style="color:#0f7ea8; background:#e6f3f9;">80</span>
+        <span class="score" style="color:#1a7f5a; background:#e6f6ef;">85</span>
         <div class="titles">
           <a class="title" href="https://wd1.myworkdaysite.com/recruiting/parexel/Parexel_External_Careers/job/Brazil-Remote/Country-Operations-Manager---FSP_R0000042625" target="_blank" rel="noopener">Country Operations Manager - FSP</a>
           <span class="company">Parexel · <span class="loc">Brazil-Remote</span></span>
@@ -488,18 +525,19 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">High</span></div>
-      <p class="reason">Country-level operations management closely mirrors your portfolio/operations leadership background.</p>
+      <p class="reason">Country-level operations management closely mirrors your portfolio/operations leadership background -- and your direct client-facing role representing Labcorp to Novartis (including in person in London/Basel) is exactly the credibility this country-lead role screens for.</p>
       <p class="salary estimate">~$60,000–$90,000 USD (estimated — LATAM CRO country-manager level, FSP model, not disclosed by employer)</p>
       
       
-      <p class="trajectory">Lateral move into country-level operations leadership at a major CRO -- strong, direct fit.</p>
+      <p class="trajectory">Lateral move into country-level operations leadership at a major CRO, reinforced by real international sponsor-facing experience -- strong, direct fit.</p>
       
       <div class="drafts"><span><a href="https://github.com/wernerkenney-maker/Job-agent-/blob/claude/job-agent-thermo-fisher-lt28sv/job-agent/cover_letters/parexel-country-operations-manager-fsp.md" target="_blank" rel="noopener">Cover letter draft &rarr;</a></span><span><a href="https://github.com/wernerkenney-maker/Job-agent-/blob/claude/job-agent-thermo-fisher-lt28sv/job-agent/resume_bullets/parexel-country-operations-manager-fsp.md" target="_blank" rel="noopener">Resume bullets &rarr;</a></span></div>
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://wd1.myworkdaysite.com/recruiting/parexel/Parexel_External_Careers/job/Brazil-Remote/Country-Operations-Manager---FSP_R0000042625" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://wd1.myworkdaysite.com/recruiting/parexel/Parexel_External_Careers/job/Brazil-Remote/Country-Operations-Manager---FSP_R0000042625" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://wd1.myworkdaysite.com/recruiting/parexel/Parexel_External_Careers/job/Brazil-Remote/Country-Operations-Manager---FSP_R0000042625" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://wd1.myworkdaysite.com/recruiting/parexel/Parexel_External_Careers/job/Brazil-Remote/Country-Operations-Manager---FSP_R0000042625" data-status="declined">Decline</button></div>
     </li>
 
     <li class="card">
       <div class="card-top">
-        <span class="score" style="color:#0f7ea8; background:#e6f3f9;">80</span>
+        <span class="score" style="color:#0f7ea8; background:#e6f3f9;">84</span>
         <div class="titles">
           <a class="title" href="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Clinical-Trial-Manager_JR154501" target="_blank" rel="noopener">Clinical Trial Manager</a>
           <span class="company">ICON plc · <span class="loc">Brazil, Sao Paulo</span></span>
@@ -507,18 +545,19 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">High</span></div>
-      <p class="reason">Direct match to your Global Clinical Study Manager trial-management experience.</p>
+      <p class="reason">Direct match to your Global Clinical Study Manager trial-management experience, reinforced by real sponsor-facing/bid-defense credibility.</p>
       <p class="salary estimate">~$60,000–$90,000 USD (estimated — LATAM CRO manager-level rate, not disclosed by employer)</p>
       <p class="col-note">~R$300.000–R$450.000 in São Paulo is roughly equivalent to ~R$207.000–R$310.000 of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).</p>
       
       <p class="trajectory">Lateral move at essentially the same level as your Global Clinical Study Manager role -- strong, low-risk fit.</p>
       
       <div class="drafts"><span><a href="https://github.com/wernerkenney-maker/Job-agent-/blob/claude/job-agent-thermo-fisher-lt28sv/job-agent/cover_letters/icon-plc-clinical-trial-manager.md" target="_blank" rel="noopener">Cover letter draft &rarr;</a></span><span><a href="https://github.com/wernerkenney-maker/Job-agent-/blob/claude/job-agent-thermo-fisher-lt28sv/job-agent/resume_bullets/icon-plc-clinical-trial-manager.md" target="_blank" rel="noopener">Resume bullets &rarr;</a></span></div>
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Clinical-Trial-Manager_JR154501" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Clinical-Trial-Manager_JR154501" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Clinical-Trial-Manager_JR154501" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Clinical-Trial-Manager_JR154501" data-status="declined">Decline</button></div>
     </li>
 
     <li class="card">
       <div class="card-top">
-        <span class="score" style="color:#0f7ea8; background:#e6f3f9;">80</span>
+        <span class="score" style="color:#0f7ea8; background:#e6f3f9;">84</span>
         <div class="titles">
           <a class="title" href="https://fortrea.wd1.myworkdayjobs.com/Fortrea/job/Remote-Mexico/Clinical-Start-up---Trial-Lead--Start-up---CTL-_262380" target="_blank" rel="noopener">Clinical Trial Manager (CTM)</a>
           <span class="company">Fortrea · <span class="loc">Remote, Mexico; Remote, Brazil</span></span>
@@ -526,18 +565,19 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">High</span></div>
-      <p class="reason">Direct match to your Global Clinical Study Manager trial-management experience.</p>
+      <p class="reason">Direct match to your Global Clinical Study Manager trial-management experience, reinforced by real sponsor-facing/bid-defense credibility.</p>
       <p class="salary estimate">~$60,000–$90,000 USD (estimated — LATAM CRO manager-level rate, not disclosed by employer)</p>
       
       
       <p class="trajectory">Lateral move at essentially the same level as your Global Clinical Study Manager role -- strong, low-risk fit.</p>
       
       <div class="drafts"><span><a href="https://github.com/wernerkenney-maker/Job-agent-/blob/claude/job-agent-thermo-fisher-lt28sv/job-agent/cover_letters/fortrea-clinical-trial-manager-ctm.md" target="_blank" rel="noopener">Cover letter draft &rarr;</a></span><span><a href="https://github.com/wernerkenney-maker/Job-agent-/blob/claude/job-agent-thermo-fisher-lt28sv/job-agent/resume_bullets/fortrea-clinical-trial-manager-ctm.md" target="_blank" rel="noopener">Resume bullets &rarr;</a></span></div>
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://fortrea.wd1.myworkdayjobs.com/Fortrea/job/Remote-Mexico/Clinical-Start-up---Trial-Lead--Start-up---CTL-_262380" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://fortrea.wd1.myworkdayjobs.com/Fortrea/job/Remote-Mexico/Clinical-Start-up---Trial-Lead--Start-up---CTL-_262380" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://fortrea.wd1.myworkdayjobs.com/Fortrea/job/Remote-Mexico/Clinical-Start-up---Trial-Lead--Start-up---CTL-_262380" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://fortrea.wd1.myworkdayjobs.com/Fortrea/job/Remote-Mexico/Clinical-Start-up---Trial-Lead--Start-up---CTL-_262380" data-status="declined">Decline</button></div>
     </li>
 
     <li class="card">
       <div class="card-top">
-        <span class="score" style="color:#0f7ea8; background:#e6f3f9;">78</span>
+        <span class="score" style="color:#0f7ea8; background:#e6f3f9;">83</span>
         <div class="titles">
           <a class="title" href="https://syneoshealth.wd12.myworkdayjobs.com/Syneos_Health_External_Site/job/ARG-Remote/CTM-II---Sr-CTM-assigned-to-client-LAtam--USA-scope-_25107944" target="_blank" rel="noopener">CTM II - Sr CTM assigned to client LAtam (USA scope or local scope) - Mexico, Argentina, Brasil, Chile, Colombia</a>
           <span class="company">Syneos Health · <span class="loc">Remote, Argentina; Remote, Brazil; Remote, Chile; Remote, Colombia; Remote, Mexico; Remote, Peru</span></span>
@@ -545,37 +585,39 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">High</span></div>
-      <p class="reason">Senior client-dedicated Clinical Trial Manager role across LATAM -- strong direct match to your trial-management background.</p>
+      <p class="reason">Senior client-dedicated Clinical Trial Manager role across LATAM -- direct match to your trial-management background and your real experience managing a direct client relationship (Novartis) at scale.</p>
       <p class="salary estimate">~$62,000–$92,000 USD (estimated — LATAM CRO senior CTM level, client-dedicated, not disclosed by employer)</p>
       
       
       <p class="trajectory">Lateral to modest step up from your Global Clinical Study Manager role -- strong direct fit.</p>
       
-      
+      <div class="drafts"><span><a href="https://github.com/wernerkenney-maker/Job-agent-/blob/claude/job-agent-thermo-fisher-lt28sv/job-agent/cover_letters/syneos-health-ctm-ii-sr-ctm-assigned-to-client-latam-usa-scope-or-local-scope-mexico-argentina-brasil-chile-colombia.md" target="_blank" rel="noopener">Cover letter draft &rarr;</a></span><span><a href="https://github.com/wernerkenney-maker/Job-agent-/blob/claude/job-agent-thermo-fisher-lt28sv/job-agent/resume_bullets/syneos-health-ctm-ii-sr-ctm-assigned-to-client-latam-usa-scope-or-local-scope-mexico-argentina-brasil-chile-colombia.md" target="_blank" rel="noopener">Resume bullets &rarr;</a></span></div>
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://syneoshealth.wd12.myworkdayjobs.com/Syneos_Health_External_Site/job/ARG-Remote/CTM-II---Sr-CTM-assigned-to-client-LAtam--USA-scope-_25107944" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://syneoshealth.wd12.myworkdayjobs.com/Syneos_Health_External_Site/job/ARG-Remote/CTM-II---Sr-CTM-assigned-to-client-LAtam--USA-scope-_25107944" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://syneoshealth.wd12.myworkdayjobs.com/Syneos_Health_External_Site/job/ARG-Remote/CTM-II---Sr-CTM-assigned-to-client-LAtam--USA-scope-_25107944" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://syneoshealth.wd12.myworkdayjobs.com/Syneos_Health_External_Site/job/ARG-Remote/CTM-II---Sr-CTM-assigned-to-client-LAtam--USA-scope-_25107944" data-status="declined">Decline</button></div>
     </li>
 
     <li class="card">
       <div class="card-top">
-        <span class="score" style="color:#0f7ea8; background:#e6f3f9;">76</span>
+        <span class="score" style="color:#0f7ea8; background:#e6f3f9;">81</span>
         <div class="titles">
           <a class="title" href="https://job-boards.greenhouse.io/pfm/jobs/6120144004" target="_blank" rel="noopener">Manager, Global Investigator Grants (LATAM)</a>
           <span class="company">Precision for Medicine · <span class="loc">Remote, Argentina; Remote, Brazil; Remote, Mexico</span></span>
         </div>
         
       </div>
-      <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#5c635d; background:#eceeec;">Adjacent</span><span class="tag" style="color:#a86a10; background:#fbf1de;">Medium</span></div>
-      <p class="reason">Adjacent leadership role: grants/budget oversight across trials at manager level, on par with your $20M+ budget scope; Brazil-eligible.</p>
+      <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#5c635d; background:#eceeec;">Adjacent</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">High</span></div>
+      <p class="reason">Grants/investigator relationship management at manager level -- your bid-defense and direct sponsor-facing experience with Novartis is a strong match for this stakeholder-facing function.</p>
       <p class="salary estimate">~$55,000–$80,000 USD (estimated — LATAM CRO manager-level, finance/grants-ops function, not disclosed by employer)</p>
       
       
-      <p class="trajectory">Lateral move into a specialized adjacent function -- leverages your budget experience, worth pursuing for the LATAM-specific scope.</p>
+      <p class="trajectory">Lateral move into a specialized adjacent function, strengthened by real client-facing credibility from representing Labcorp to Novartis -- worth pursuing.</p>
       
-      
+      <div class="drafts"><span><a href="https://github.com/wernerkenney-maker/Job-agent-/blob/claude/job-agent-thermo-fisher-lt28sv/job-agent/cover_letters/precision-for-medicine-manager-global-investigator-grants-latam.md" target="_blank" rel="noopener">Cover letter draft &rarr;</a></span><span><a href="https://github.com/wernerkenney-maker/Job-agent-/blob/claude/job-agent-thermo-fisher-lt28sv/job-agent/resume_bullets/precision-for-medicine-manager-global-investigator-grants-latam.md" target="_blank" rel="noopener">Resume bullets &rarr;</a></span></div>
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://job-boards.greenhouse.io/pfm/jobs/6120144004" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://job-boards.greenhouse.io/pfm/jobs/6120144004" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://job-boards.greenhouse.io/pfm/jobs/6120144004" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://job-boards.greenhouse.io/pfm/jobs/6120144004" data-status="declined">Decline</button></div>
     </li>
 
     <li class="card">
       <div class="card-top">
-        <span class="score" style="color:#0f7ea8; background:#e6f3f9;">76</span>
+        <span class="score" style="color:#0f7ea8; background:#e6f3f9;">81</span>
         <div class="titles">
           <a class="title" href="https://wd1.myworkdaysite.com/recruiting/parexel/Parexel_External_Careers/job/Brazil-Remote/Country-Study-Operations-Manager-I---FSP_R0000040522" target="_blank" rel="noopener">Country Study Operations Manager I - FSP</a>
           <span class="company">Parexel · <span class="loc">Brazil-Remote</span></span>
@@ -583,18 +625,39 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">High</span></div>
-      <p class="reason">Country-level study operations management, strong overlap with your regional coordination and study-management background.</p>
+      <p class="reason">Country-level study operations management, strong overlap with your regional coordination and study-management background -- reinforced by direct sponsor-facing experience representing Labcorp to Novartis.</p>
       <p class="salary estimate">~$55,000–$85,000 USD (estimated — LATAM CRO country-manager level, FSP model, not disclosed by employer)</p>
       
       
-      <p class="trajectory">Lateral move into country-level study operations -- solid fit, slightly narrower geographic remit than your current portfolio role.</p>
+      <p class="trajectory">Lateral move into country-level study operations, strengthened by real international client-facing credibility -- solid fit.</p>
       
-      
+      <div class="drafts"><span><a href="https://github.com/wernerkenney-maker/Job-agent-/blob/claude/job-agent-thermo-fisher-lt28sv/job-agent/cover_letters/parexel-country-study-operations-manager-i-fsp.md" target="_blank" rel="noopener">Cover letter draft &rarr;</a></span><span><a href="https://github.com/wernerkenney-maker/Job-agent-/blob/claude/job-agent-thermo-fisher-lt28sv/job-agent/resume_bullets/parexel-country-study-operations-manager-i-fsp.md" target="_blank" rel="noopener">Resume bullets &rarr;</a></span></div>
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://wd1.myworkdaysite.com/recruiting/parexel/Parexel_External_Careers/job/Brazil-Remote/Country-Study-Operations-Manager-I---FSP_R0000040522" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://wd1.myworkdaysite.com/recruiting/parexel/Parexel_External_Careers/job/Brazil-Remote/Country-Study-Operations-Manager-I---FSP_R0000040522" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://wd1.myworkdaysite.com/recruiting/parexel/Parexel_External_Careers/job/Brazil-Remote/Country-Study-Operations-Manager-I---FSP_R0000040522" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://wd1.myworkdaysite.com/recruiting/parexel/Parexel_External_Careers/job/Brazil-Remote/Country-Study-Operations-Manager-I---FSP_R0000040522" data-status="declined">Decline</button></div>
     </li>
 
     <li class="card">
       <div class="card-top">
-        <span class="score" style="color:#0f7ea8; background:#e6f3f9;">74</span>
+        <span class="score" style="color:#0f7ea8; background:#e6f3f9;">78</span>
+        <div class="titles">
+          <a class="title" href="https://fortrea.wd1.myworkdayjobs.com/Fortrea/job/So-Paulo/Investigator-Grants-Manager---Clinical-Trial-Costing-Manager---Brazil--Remote-_263951" target="_blank" rel="noopener">Investigator Grants Manager / Clinical Trial Costing Manager – Brazil (Remote)</a>
+          <span class="company">Fortrea · <span class="loc">São Paulo; Remote, Brazil</span></span>
+        </div>
+        
+      </div>
+      <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#5c635d; background:#eceeec;">Adjacent</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">High</span></div>
+      <p class="reason">Manager-level grants/trial-costing role -- matches your $20M+ budget management and your direct experience managing investigator/site relationships in bid-defense contexts.</p>
+      <p class="salary estimate">~$58,000–$86,000 USD (estimated — LATAM CRO manager-level rate, grants/trial-costing function, not disclosed by employer)</p>
+      <p class="col-note">~R$290.000–R$430.000 in São Paulo is roughly equivalent to ~R$200.000–R$297.000 of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).</p>
+      
+      <p class="trajectory">Lateral move leveraging your budget-management experience into a more specialized grants/costing function.</p>
+      
+      
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://fortrea.wd1.myworkdayjobs.com/Fortrea/job/So-Paulo/Investigator-Grants-Manager---Clinical-Trial-Costing-Manager---Brazil--Remote-_263951" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://fortrea.wd1.myworkdayjobs.com/Fortrea/job/So-Paulo/Investigator-Grants-Manager---Clinical-Trial-Costing-Manager---Brazil--Remote-_263951" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://fortrea.wd1.myworkdayjobs.com/Fortrea/job/So-Paulo/Investigator-Grants-Manager---Clinical-Trial-Costing-Manager---Brazil--Remote-_263951" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://fortrea.wd1.myworkdayjobs.com/Fortrea/job/So-Paulo/Investigator-Grants-Manager---Clinical-Trial-Costing-Manager---Brazil--Remote-_263951" data-status="declined">Decline</button></div>
+    </li>
+
+    <li class="card">
+      <div class="card-top">
+        <span class="score" style="color:#0f7ea8; background:#e6f3f9;">77</span>
         <div class="titles">
           <a class="title" href="https://job-boards.greenhouse.io/precisionmedicinegroup/jobs/6135868004" target="_blank" rel="noopener">Senior Regulatory and Start Up Specialist (Brazil)</a>
           <span class="company">Precision Medicine Group + Precision for Medicine · <span class="loc">Remote, Brazil</span></span>
@@ -602,18 +665,19 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#5c635d; background:#eceeec;">Adjacent</span><span class="tag" style="color:#a86a10; background:#fbf1de;">Medium</span></div>
-      <p class="reason">Regulatory/site start-up work mirrors your Regional Study Coordinator EMEA role; Brazil-based.</p>
+      <p class="reason">Regulatory/site start-up work mirrors your Regional Study Coordinator EMEA role; your client-audit and sponsor-facing experience adds real credibility; Brazil-based.</p>
       <p class="salary estimate">~$45,000–$70,000 USD (estimated — LATAM CRO senior specialist level, regulatory/start-up function, not disclosed by employer)</p>
       
       
-      <p class="trajectory">A step down in title from your current scope, but Brazil-based and domain-relevant -- worth it as a foothold role if title level isn&#x27;t the priority.</p>
+      <p class="trajectory">A step down in title from your current scope, but Brazil-based, domain-relevant, and backed by real sponsor-facing credibility -- worth it as a foothold role.</p>
       <p class="also-posted">Also posted by: <a href="https://job-boards.greenhouse.io/pfm/jobs/6135871004" target="_blank" rel="noopener">Precision for Medicine</a></p>
       
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://job-boards.greenhouse.io/precisionmedicinegroup/jobs/6135868004" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://job-boards.greenhouse.io/precisionmedicinegroup/jobs/6135868004" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://job-boards.greenhouse.io/precisionmedicinegroup/jobs/6135868004" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://job-boards.greenhouse.io/precisionmedicinegroup/jobs/6135868004" data-status="declined">Decline</button></div>
     </li>
 
     <li class="card">
       <div class="card-top">
-        <span class="score" style="color:#0f7ea8; background:#e6f3f9;">74</span>
+        <span class="score" style="color:#0f7ea8; background:#e6f3f9;">77</span>
         <div class="titles">
           <a class="title" href="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Project-Manager_JR153520" target="_blank" rel="noopener">Clinical Project Manager - Rare Diseases / CNS</a>
           <span class="company">ICON plc · <span class="loc">Brazil, Sao Paulo</span></span>
@@ -621,37 +685,19 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#a86a10; background:#fbf1de;">Medium</span></div>
-      <p class="reason">Manager-level scope fits well, but likely requires deep Rare Disease/CNS-specific trial experience you don&#x27;t have (your TAs are Oncology/Autoimmune/Malaria).</p>
+      <p class="reason">Manager-level scope fits well and your leadership/client-facing credentials strengthen the case, but likely still requires deep Rare Disease/CNS-specific trial experience you don&#x27;t have.</p>
       <p class="salary estimate">~$65,000–$95,000 USD (estimated — LATAM CRO manager-level rate, specialized rare disease/CNS therapeutic scope, not disclosed by employer)</p>
       <p class="col-note">~R$325.000–R$475.000 in São Paulo is roughly equivalent to ~R$224.000–R$328.000 of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).</p>
       
       <p class="trajectory">A leadership-level lateral move, but the CNS/rare-disease therapeutic depth is outside your background -- worth pursuing if that depth isn&#x27;t a hard requirement.</p>
       
       
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Project-Manager_JR153520" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Project-Manager_JR153520" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Project-Manager_JR153520" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Project-Manager_JR153520" data-status="declined">Decline</button></div>
     </li>
 
     <li class="card">
       <div class="card-top">
-        <span class="score" style="color:#0f7ea8; background:#e6f3f9;">74</span>
-        <div class="titles">
-          <a class="title" href="https://fortrea.wd1.myworkdayjobs.com/Fortrea/job/So-Paulo/Investigator-Grants-Manager---Clinical-Trial-Costing-Manager---Brazil--Remote-_263951" target="_blank" rel="noopener">Investigator Grants Manager / Clinical Trial Costing Manager – Brazil (Remote)</a>
-          <span class="company">Fortrea · <span class="loc">São Paulo; Remote, Brazil</span></span>
-        </div>
-        
-      </div>
-      <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#5c635d; background:#eceeec;">Adjacent</span><span class="tag" style="color:#a86a10; background:#fbf1de;">Medium</span></div>
-      <p class="reason">Manager-level grants/trial-costing role, matches your $20M+ trial-budget management experience well.</p>
-      <p class="salary estimate">~$58,000–$86,000 USD (estimated — LATAM CRO manager-level rate, grants/trial-costing function, not disclosed by employer)</p>
-      <p class="col-note">~R$290.000–R$430.000 in São Paulo is roughly equivalent to ~R$200.000–R$297.000 of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).</p>
-      
-      <p class="trajectory">Lateral move leveraging your budget-management experience into a more specialized grants/costing function.</p>
-      
-      
-    </li>
-
-    <li class="card">
-      <div class="card-top">
-        <span class="score" style="color:#0f7ea8; background:#e6f3f9;">70</span>
+        <span class="score" style="color:#0f7ea8; background:#e6f3f9;">73</span>
         <div class="titles">
           <a class="title" href="https://job-boards.greenhouse.io/precisionmedicinegroup/jobs/6138869004" target="_blank" rel="noopener">Change Order Manager</a>
           <span class="company">Precision Medicine Group + Precision for Medicine · <span class="loc">Remote, Brazil; Remote, Mexico</span></span>
@@ -659,18 +705,19 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#5c635d; background:#eceeec;">Adjacent</span><span class="tag" style="color:#a86a10; background:#fbf1de;">Medium</span></div>
-      <p class="reason">Contract &amp; budget-change oversight on trials fits your portfolio-level budget management; Brazil-eligible.</p>
+      <p class="reason">Contract &amp; budget-change oversight on trials fits your portfolio-level budget management and site/sponsor-facing negotiation experience; Brazil-eligible.</p>
       <p class="salary estimate">~$55,000–$80,000 USD (estimated — LATAM CRO manager-level, contracts/budget function, not disclosed by employer)</p>
       
       
       <p class="trajectory">Lateral move leveraging your budget-management experience into a more specialized contracts function.</p>
       <p class="also-posted">Also posted by: <a href="https://job-boards.greenhouse.io/pfm/jobs/6138872004" target="_blank" rel="noopener">Precision for Medicine</a></p>
       
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://job-boards.greenhouse.io/precisionmedicinegroup/jobs/6138869004" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://job-boards.greenhouse.io/precisionmedicinegroup/jobs/6138869004" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://job-boards.greenhouse.io/precisionmedicinegroup/jobs/6138869004" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://job-boards.greenhouse.io/precisionmedicinegroup/jobs/6138869004" data-status="declined">Decline</button></div>
     </li>
 
     <li class="card">
       <div class="card-top">
-        <span class="score" style="color:#0f7ea8; background:#e6f3f9;">70</span>
+        <span class="score" style="color:#0f7ea8; background:#e6f3f9;">71</span>
         <div class="titles">
           <a class="title" href="https://jobs.smartrecruiters.com/PSICRO/744000141567109" target="_blank" rel="noopener">Lead Clinical Research Associate</a>
           <span class="company">PSI CRO · <span class="loc">São Paulo, SP, Brazil</span></span>
@@ -685,11 +732,12 @@
       <p class="trajectory">Lateral pivot into site-monitoring leadership (a different track from your study/portfolio-management background) -- doable, not a direct line.</p>
       
       
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://jobs.smartrecruiters.com/PSICRO/744000141567109" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://jobs.smartrecruiters.com/PSICRO/744000141567109" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://jobs.smartrecruiters.com/PSICRO/744000141567109" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://jobs.smartrecruiters.com/PSICRO/744000141567109" data-status="declined">Decline</button></div>
     </li>
 
     <li class="card">
       <div class="card-top">
-        <span class="score" style="color:#0f7ea8; background:#e6f3f9;">70</span>
+        <span class="score" style="color:#0f7ea8; background:#e6f3f9;">71</span>
         <div class="titles">
           <a class="title" href="https://apply.workable.com/j/51F3AC7BD4" target="_blank" rel="noopener">Senior Clinical QA Specialist</a>
           <span class="company">EDETEK · <span class="loc">Remote, Brazil</span></span>
@@ -704,11 +752,12 @@
       <p class="trajectory">Lateral pivot into quality -- leverages your oversight/compliance experience even without a dedicated QA title history.</p>
       
       
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://apply.workable.com/j/51F3AC7BD4" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://apply.workable.com/j/51F3AC7BD4" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://apply.workable.com/j/51F3AC7BD4" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://apply.workable.com/j/51F3AC7BD4" data-status="declined">Decline</button></div>
     </li>
 
     <li class="card">
       <div class="card-top">
-        <span class="score" style="color:#a86a10; background:#fbf1de;">68</span>
+        <span class="score" style="color:#0f7ea8; background:#e6f3f9;">71</span>
         <div class="titles">
           <a class="title" href="https://fortrea.wd1.myworkdayjobs.com/Fortrea/job/So-Paulo/Clinical-Start-Up---Trial-Lead_254866" target="_blank" rel="noopener">Clinical Start-Up &amp; Trial Lead</a>
           <span class="company">Fortrea · <span class="loc">São Paulo</span></span>
@@ -723,30 +772,12 @@
       <p class="trajectory">A step down in scope from portfolio management to site/study start-up leadership, but Brazil-based and domain-relevant.</p>
       
       
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://fortrea.wd1.myworkdayjobs.com/Fortrea/job/So-Paulo/Clinical-Start-Up---Trial-Lead_254866" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://fortrea.wd1.myworkdayjobs.com/Fortrea/job/So-Paulo/Clinical-Start-Up---Trial-Lead_254866" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://fortrea.wd1.myworkdayjobs.com/Fortrea/job/So-Paulo/Clinical-Start-Up---Trial-Lead_254866" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://fortrea.wd1.myworkdayjobs.com/Fortrea/job/So-Paulo/Clinical-Start-Up---Trial-Lead_254866" data-status="declined">Decline</button></div>
     </li>
 
     <li class="card">
       <div class="card-top">
-        <span class="score" style="color:#a86a10; background:#fbf1de;">66</span>
-        <div class="titles">
-          <a class="title" href="https://wd1.myworkdaysite.com/recruiting/parexel/Parexel_External_Careers/job/Brazil-Sao-Paulo/Regulatory-Affairs-Consultant---CMC_R0000039962" target="_blank" rel="noopener">Regulatory Affairs Consultant - CMC US/EU - Biological products</a>
-          <span class="company">Parexel · <span class="loc">Brazil-Sao Paulo; Remote, Argentina; Remote, Mexico</span></span>
-        </div>
-        
-      </div>
-      <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#5c635d; background:#eceeec;">Adjacent</span><span class="tag" style="color:#a86a10; background:#fbf1de;">Medium</span></div>
-      <p class="reason">Senior regulatory consultant role; CMC/biologics specialization narrows the fit versus your generalist ops background.</p>
-      <p class="salary estimate">~$55,000–$85,000 USD (estimated — LATAM CRO senior regulatory consultant level, CMC/biologics specialization, not disclosed by employer)</p>
-      <p class="col-note">~R$275.000–R$425.000 in São Paulo is roughly equivalent to ~R$190.000–R$293.000 of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).</p>
-      
-      <p class="trajectory">A pivot into a specialized regulatory consulting function -- consultant-level seniority is a reasonable lateral, but the CMC/biologics depth is a stretch.</p>
-      
-      
-    </li>
-
-    <li class="card">
-      <div class="card-top">
-        <span class="score" style="color:#a86a10; background:#fbf1de;">66</span>
+        <span class="score" style="color:#a86a10; background:#fbf1de;">69</span>
         <div class="titles">
           <a class="title" href="https://syneoshealth.wd12.myworkdayjobs.com/Syneos_Health_External_Site/job/ARG-Remote/Feasibility-Strategy-Analytics-Lead--Sponsor-dedicated----Argentina--Brazil-and-Mexico-Home-Based_25109911" target="_blank" rel="noopener">Feasibility Strategy Analytics Lead (Sponsor dedicated) - Argentina, Brazil and Mexico Home Based</a>
           <span class="company">Syneos Health · <span class="loc">Remote, Argentina; Remote, Brazil; Remote, Mexico</span></span>
@@ -761,11 +792,52 @@
       <p class="trajectory">A pivot into feasibility strategy/analytics -- leverages portfolio-level planning experience, though it&#x27;s a distinct specialist track.</p>
       
       
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://syneoshealth.wd12.myworkdayjobs.com/Syneos_Health_External_Site/job/ARG-Remote/Feasibility-Strategy-Analytics-Lead--Sponsor-dedicated----Argentina--Brazil-and-Mexico-Home-Based_25109911" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://syneoshealth.wd12.myworkdayjobs.com/Syneos_Health_External_Site/job/ARG-Remote/Feasibility-Strategy-Analytics-Lead--Sponsor-dedicated----Argentina--Brazil-and-Mexico-Home-Based_25109911" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://syneoshealth.wd12.myworkdayjobs.com/Syneos_Health_External_Site/job/ARG-Remote/Feasibility-Strategy-Analytics-Lead--Sponsor-dedicated----Argentina--Brazil-and-Mexico-Home-Based_25109911" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://syneoshealth.wd12.myworkdayjobs.com/Syneos_Health_External_Site/job/ARG-Remote/Feasibility-Strategy-Analytics-Lead--Sponsor-dedicated----Argentina--Brazil-and-Mexico-Home-Based_25109911" data-status="declined">Decline</button></div>
     </li>
 
     <li class="card">
       <div class="card-top">
-        <span class="score" style="color:#a86a10; background:#fbf1de;">66</span>
+        <span class="score" style="color:#a86a10; background:#fbf1de;">69</span>
+        <div class="titles">
+          <a class="title" href="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Mexico-Mexico-City/Medical-Director_JR145222" target="_blank" rel="noopener">Medical Director</a>
+          <span class="company">ICON plc · <span class="loc">Mexico, Mexico City; Brazil, Sao Paulo</span></span>
+        </div>
+        
+      </div>
+      <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#5c635d; background:#eceeec;">Adjacent</span><span class="tag" style="color:#a8341a; background:#fbe9e6;">Long-shot</span></div>
+      <p class="reason">Director-level medical affairs leadership -- your direct client-facing/bid-defense credibility (representing Labcorp to Novartis internationally) is a strong signal for this kind of role, though it typically still requires an MD/clinical degree you don&#x27;t hold.</p>
+      <p class="salary estimate">~$90,000–$130,000 USD (estimated — LATAM pharma/CRO medical director level, medical affairs leadership, not disclosed by employer)</p>
+      <p class="col-note">~R$450.000–R$650.000 in São Paulo is roughly equivalent to ~R$310.000–R$448.000 of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).</p>
+      
+      <p class="trajectory">A big leap in function (ops/portfolio management to medical affairs leadership), now backed by real executive client-facing credibility -- but the medical-degree requirement is likely a hard blocker, so confirm before applying.</p>
+      
+      
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Mexico-Mexico-City/Medical-Director_JR145222" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Mexico-Mexico-City/Medical-Director_JR145222" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Mexico-Mexico-City/Medical-Director_JR145222" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Mexico-Mexico-City/Medical-Director_JR145222" data-status="declined">Decline</button></div>
+    </li>
+
+    <li class="card">
+      <div class="card-top">
+        <span class="score" style="color:#a86a10; background:#fbf1de;">68</span>
+        <div class="titles">
+          <a class="title" href="https://wd1.myworkdaysite.com/recruiting/parexel/Parexel_External_Careers/job/Brazil-Sao-Paulo/Regulatory-Affairs-Consultant---CMC_R0000039962" target="_blank" rel="noopener">Regulatory Affairs Consultant - CMC US/EU - Biological products</a>
+          <span class="company">Parexel · <span class="loc">Brazil-Sao Paulo; Remote, Argentina; Remote, Mexico</span></span>
+        </div>
+        
+      </div>
+      <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#5c635d; background:#eceeec;">Adjacent</span><span class="tag" style="color:#a86a10; background:#fbf1de;">Medium</span></div>
+      <p class="reason">Senior regulatory consultant role; CMC/biologics specialization narrows the fit versus your generalist ops background.</p>
+      <p class="salary estimate">~$55,000–$85,000 USD (estimated — LATAM CRO senior regulatory consultant level, CMC/biologics specialization, not disclosed by employer)</p>
+      <p class="col-note">~R$275.000–R$425.000 in São Paulo is roughly equivalent to ~R$190.000–R$293.000 of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).</p>
+      
+      <p class="trajectory">A pivot into a specialized regulatory consulting function -- consultant-level seniority is a reasonable lateral, but the CMC/biologics depth is a stretch.</p>
+      
+      
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://wd1.myworkdaysite.com/recruiting/parexel/Parexel_External_Careers/job/Brazil-Sao-Paulo/Regulatory-Affairs-Consultant---CMC_R0000039962" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://wd1.myworkdaysite.com/recruiting/parexel/Parexel_External_Careers/job/Brazil-Sao-Paulo/Regulatory-Affairs-Consultant---CMC_R0000039962" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://wd1.myworkdaysite.com/recruiting/parexel/Parexel_External_Careers/job/Brazil-Sao-Paulo/Regulatory-Affairs-Consultant---CMC_R0000039962" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://wd1.myworkdaysite.com/recruiting/parexel/Parexel_External_Careers/job/Brazil-Sao-Paulo/Regulatory-Affairs-Consultant---CMC_R0000039962" data-status="declined">Decline</button></div>
+    </li>
+
+    <li class="card">
+      <div class="card-top">
+        <span class="score" style="color:#a86a10; background:#fbf1de;">68</span>
         <div class="titles">
           <a class="title" href="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Senior-Regulatory-Affairs-Specialist_JR156242" target="_blank" rel="noopener">Senior Regulatory Affairs Specialist</a>
           <span class="company">ICON plc · <span class="loc">Brazil, Sao Paulo</span></span>
@@ -780,30 +852,12 @@
       <p class="trajectory">Lateral pivot into regulatory affairs -- leverages your EMEA regional regulatory-navigation experience even without a dedicated regulatory title history.</p>
       
       
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Senior-Regulatory-Affairs-Specialist_JR156242" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Senior-Regulatory-Affairs-Specialist_JR156242" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Senior-Regulatory-Affairs-Specialist_JR156242" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Senior-Regulatory-Affairs-Specialist_JR156242" data-status="declined">Decline</button></div>
     </li>
 
     <li class="card">
       <div class="card-top">
-        <span class="score" style="color:#a86a10; background:#fbf1de;">66</span>
-        <div class="titles">
-          <a class="title" href="https://fortrea.wd1.myworkdayjobs.com/Fortrea/job/So-Paulo/Patient-Safety-Project-Manager_263218" target="_blank" rel="noopener">Patient Safety Project Manager</a>
-          <span class="company">Fortrea · <span class="loc">São Paulo</span></span>
-        </div>
-        
-      </div>
-      <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#5c635d; background:#eceeec;">Adjacent</span><span class="tag" style="color:#a86a10; background:#fbf1de;">Medium</span></div>
-      <p class="reason">Project-manager level safety function, on-site São Paulo, adjacent to your trial-oversight background.</p>
-      <p class="salary estimate">~$58,000–$86,000 USD (estimated — LATAM CRO/pharma project-manager level, patient safety function, not disclosed by employer)</p>
-      <p class="col-note">~R$290.000–R$430.000 in São Paulo is roughly equivalent to ~R$200.000–R$297.000 of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).</p>
-      
-      <p class="trajectory">Lateral pivot into patient safety project management -- leverages PM-level oversight experience even without a dedicated safety title history.</p>
-      
-      
-    </li>
-
-    <li class="card">
-      <div class="card-top">
-        <span class="score" style="color:#a86a10; background:#fbf1de;">65</span>
+        <span class="score" style="color:#a86a10; background:#fbf1de;">67</span>
         <div class="titles">
           <a class="title" href="https://syneoshealth.wd12.myworkdayjobs.com/Syneos_Health_External_Site/job/ARG-Remote/Regulatory-CMC-Manager-Cell-and-Gene-Therapy_25108926" target="_blank" rel="noopener">Regulatory CMC Manager Cell and Gene Therapy</a>
           <span class="company">Syneos Health · <span class="loc">Remote, Argentina; Remote, Brazil; Remote, Colombia; Remote, Mexico; Remote, Serbia</span></span>
@@ -818,30 +872,52 @@
       <p class="trajectory">Manager-level scope is a lateral fit, but the CGT-specific regulatory depth requirement is likely a hard filter you don&#x27;t clear -- worth a shot only if that depth isn&#x27;t strictly required.</p>
       
       
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://syneoshealth.wd12.myworkdayjobs.com/Syneos_Health_External_Site/job/ARG-Remote/Regulatory-CMC-Manager-Cell-and-Gene-Therapy_25108926" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://syneoshealth.wd12.myworkdayjobs.com/Syneos_Health_External_Site/job/ARG-Remote/Regulatory-CMC-Manager-Cell-and-Gene-Therapy_25108926" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://syneoshealth.wd12.myworkdayjobs.com/Syneos_Health_External_Site/job/ARG-Remote/Regulatory-CMC-Manager-Cell-and-Gene-Therapy_25108926" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://syneoshealth.wd12.myworkdayjobs.com/Syneos_Health_External_Site/job/ARG-Remote/Regulatory-CMC-Manager-Cell-and-Gene-Therapy_25108926" data-status="declined">Decline</button></div>
+    </li>
+
+    <li class="card">
+      <div class="card-top">
+        <span class="score" style="color:#a86a10; background:#fbf1de;">67</span>
+        <div class="titles">
+          <a class="title" href="https://fortrea.wd1.myworkdayjobs.com/Fortrea/job/So-Paulo/Patient-Safety-Project-Manager_263218" target="_blank" rel="noopener">Patient Safety Project Manager</a>
+          <span class="company">Fortrea · <span class="loc">São Paulo</span></span>
+        </div>
+        
+      </div>
+      <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#5c635d; background:#eceeec;">Adjacent</span><span class="tag" style="color:#a86a10; background:#fbf1de;">Medium</span></div>
+      <p class="reason">Project-manager level safety function, on-site São Paulo, adjacent to your trial-oversight background.</p>
+      <p class="salary estimate">~$58,000–$86,000 USD (estimated — LATAM CRO/pharma project-manager level, patient safety function, not disclosed by employer)</p>
+      <p class="col-note">~R$290.000–R$430.000 in São Paulo is roughly equivalent to ~R$200.000–R$297.000 of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).</p>
+      
+      <p class="trajectory">Lateral pivot into patient safety project management -- leverages PM-level oversight experience even without a dedicated safety title history.</p>
+      
+      
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://fortrea.wd1.myworkdayjobs.com/Fortrea/job/So-Paulo/Patient-Safety-Project-Manager_263218" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://fortrea.wd1.myworkdayjobs.com/Fortrea/job/So-Paulo/Patient-Safety-Project-Manager_263218" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://fortrea.wd1.myworkdayjobs.com/Fortrea/job/So-Paulo/Patient-Safety-Project-Manager_263218" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://fortrea.wd1.myworkdayjobs.com/Fortrea/job/So-Paulo/Patient-Safety-Project-Manager_263218" data-status="declined">Decline</button></div>
     </li>
 
     <li class="card">
       <div class="card-top">
         <span class="score" style="color:#a86a10; background:#fbf1de;">65</span>
         <div class="titles">
-          <a class="title" href="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Mexico-Mexico-City/Medical-Director_JR145222" target="_blank" rel="noopener">Medical Director</a>
-          <span class="company">ICON plc · <span class="loc">Mexico, Mexico City; Brazil, Sao Paulo</span></span>
+          <a class="title" href="https://jobs.smartrecruiters.com/PSICRO/744000142960729" target="_blank" rel="noopener">Therapeutic Area Lead (Gastroenterology)</a>
+          <span class="company">PSI CRO · <span class="loc">São Paulo, SP, Brazil</span></span>
         </div>
         
       </div>
-      <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#5c635d; background:#eceeec;">Adjacent</span><span class="tag" style="color:#a8341a; background:#fbe9e6;">Long-shot</span></div>
-      <p class="reason">Director-level medical affairs leadership -- strong seniority match, but this function typically requires an MD/clinical degree you don&#x27;t hold.</p>
-      <p class="salary estimate">~$90,000–$130,000 USD (estimated — LATAM pharma/CRO medical director level, medical affairs leadership, not disclosed by employer)</p>
-      <p class="col-note">~R$450.000–R$650.000 in São Paulo is roughly equivalent to ~R$310.000–R$448.000 of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).</p>
+      <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#a8341a; background:#fbe9e6;">Long-shot</span></div>
+      <p class="reason">Leadership scope fits, and TA leads are often client-facing (your bid-defense/audit experience is relevant), but likely still requires deep GI-specific trial experience you don&#x27;t have.</p>
+      <p class="salary estimate">~$70,000–$105,000 USD (estimated — LATAM CRO therapeutic-area leadership scope, though GI-specific depth requirement raises risk, not disclosed by employer)</p>
+      <p class="col-note">~R$350.000–R$525.000 in São Paulo is roughly equivalent to ~R$241.000–R$362.000 of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).</p>
       
-      <p class="trajectory">A big leap in function (ops/portfolio management to medical affairs leadership) that likely has a hard medical-degree requirement -- worth confirming before applying.</p>
+      <p class="trajectory">A leadership step up in scope, bolstered by real client-facing credibility, but the GI-specific therapeutic depth requirement remains the limiting factor -- worth a shot only if that depth isn&#x27;t a hard requirement.</p>
       
       
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://jobs.smartrecruiters.com/PSICRO/744000142960729" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://jobs.smartrecruiters.com/PSICRO/744000142960729" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://jobs.smartrecruiters.com/PSICRO/744000142960729" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://jobs.smartrecruiters.com/PSICRO/744000142960729" data-status="declined">Decline</button></div>
     </li>
 
     <li class="card">
       <div class="card-top">
-        <span class="score" style="color:#a86a10; background:#fbf1de;">63</span>
+        <span class="score" style="color:#a86a10; background:#fbf1de;">64</span>
         <div class="titles">
           <a class="title" href="https://job-boards.greenhouse.io/careaccess/jobs/4309910009" target="_blank" rel="noopener">Specialist, Quality Assurance</a>
           <span class="company">Care Access · <span class="loc">Brazil-Home Office</span></span>
@@ -856,49 +932,12 @@
       <p class="trajectory">Lateral move into a new function at a lower formal title than your current scope -- worth it if building QA credentials serves your long-term regulatory/quality trajectory.</p>
       
       
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://job-boards.greenhouse.io/careaccess/jobs/4309910009" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://job-boards.greenhouse.io/careaccess/jobs/4309910009" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://job-boards.greenhouse.io/careaccess/jobs/4309910009" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://job-boards.greenhouse.io/careaccess/jobs/4309910009" data-status="declined">Decline</button></div>
     </li>
 
     <li class="card">
       <div class="card-top">
-        <span class="score" style="color:#a86a10; background:#fbf1de;">63</span>
-        <div class="titles">
-          <a class="title" href="https://iqvia.wd1.myworkdayjobs.com/IQVIA/job/Buenos-Aires-Argentina/Centralized-Monitoring-Lead-in-LATAM--Remote-_R1558548" target="_blank" rel="noopener">Centralized Monitoring Lead in LATAM (Remote)</a>
-          <span class="company">IQVIA · <span class="loc">Remote, Argentina; Remote, Brazil; Remote, Chile; Remote, Colombia; Remote, Mexico; Remote, Peru</span></span>
-        </div>
-        
-      </div>
-      <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#a86a10; background:#fbf1de;">Medium</span></div>
-      <p class="reason">Lead-level centralized monitoring oversight across LATAM, remote-eligible -- more specialist than managerial.</p>
-      <p class="salary estimate">~$45,000–$70,000 USD (estimated — LATAM CRO lead-level, centralized monitoring specialist function, not disclosed by employer)</p>
-      
-      
-      <p class="trajectory">A step down in scope from portfolio management into a more specialized monitoring-lead function -- doable, not a direct line.</p>
-      
-      
-    </li>
-
-    <li class="card">
-      <div class="card-top">
-        <span class="score" style="color:#a86a10; background:#fbf1de;">62</span>
-        <div class="titles">
-          <a class="title" href="https://jobs.smartrecruiters.com/PSICRO/744000142960729" target="_blank" rel="noopener">Therapeutic Area Lead (Gastroenterology)</a>
-          <span class="company">PSI CRO · <span class="loc">São Paulo, SP, Brazil</span></span>
-        </div>
-        
-      </div>
-      <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#a8341a; background:#fbe9e6;">Long-shot</span></div>
-      <p class="reason">Leadership scope fits, but likely requires deep GI-specific trial experience you don&#x27;t have (your TAs are Oncology/Autoimmune/Malaria).</p>
-      <p class="salary estimate">~$70,000–$105,000 USD (estimated — LATAM CRO therapeutic-area leadership scope, though GI-specific depth requirement raises risk, not disclosed by employer)</p>
-      <p class="col-note">~R$350.000–R$525.000 in São Paulo is roughly equivalent to ~R$241.000–R$362.000 of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).</p>
-      
-      <p class="trajectory">A leadership step up in scope, but likely requires deep GI-specific trial experience you don&#x27;t have -- worth a shot only if GI depth isn&#x27;t a hard requirement.</p>
-      
-      
-    </li>
-
-    <li class="card">
-      <div class="card-top">
-        <span class="score" style="color:#a86a10; background:#fbf1de;">62</span>
+        <span class="score" style="color:#a86a10; background:#fbf1de;">64</span>
         <div class="titles">
           <a class="title" href="https://iqvia.wd1.myworkdayjobs.com/IQVIA/job/So-Paulo-Brazil/Medical-Science-Liaison--MSL-_R1559518" target="_blank" rel="noopener">Medical Science Liaison (MSL)</a>
           <span class="company">IQVIA · <span class="loc">São Paulo, Brazil</span></span>
@@ -913,30 +952,32 @@
       <p class="trajectory">A pivot into a different clinical function (medical affairs vs. trial operations) -- plausible given your therapeutic-area breadth, but a real functional stretch.</p>
       
       
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://iqvia.wd1.myworkdayjobs.com/IQVIA/job/So-Paulo-Brazil/Medical-Science-Liaison--MSL-_R1559518" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://iqvia.wd1.myworkdayjobs.com/IQVIA/job/So-Paulo-Brazil/Medical-Science-Liaison--MSL-_R1559518" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://iqvia.wd1.myworkdayjobs.com/IQVIA/job/So-Paulo-Brazil/Medical-Science-Liaison--MSL-_R1559518" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://iqvia.wd1.myworkdayjobs.com/IQVIA/job/So-Paulo-Brazil/Medical-Science-Liaison--MSL-_R1559518" data-status="declined">Decline</button></div>
     </li>
 
     <li class="card">
       <div class="card-top">
-        <span class="score" style="color:#a86a10; background:#fbf1de;">62</span>
+        <span class="score" style="color:#a86a10; background:#fbf1de;">64</span>
         <div class="titles">
-          <a class="title" href="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Senior-Site-Partner_JR150380-1" target="_blank" rel="noopener">Senior Study Start Up Associate (Regulatory Submissions)</a>
-          <span class="company">ICON plc · <span class="loc">Brazil, Sao Paulo</span></span>
+          <a class="title" href="https://iqvia.wd1.myworkdayjobs.com/IQVIA/job/Buenos-Aires-Argentina/Centralized-Monitoring-Lead-in-LATAM--Remote-_R1558548" target="_blank" rel="noopener">Centralized Monitoring Lead in LATAM (Remote)</a>
+          <span class="company">IQVIA · <span class="loc">Remote, Argentina; Remote, Brazil; Remote, Chile; Remote, Colombia; Remote, Mexico; Remote, Peru</span></span>
         </div>
         
       </div>
-      <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#5c635d; background:#eceeec;">Adjacent</span><span class="tag" style="color:#a86a10; background:#fbf1de;">Medium</span></div>
-      <p class="reason">Senior-level study start-up/regulatory submissions role, but an individual-contributor &#x27;Associate&#x27; title despite the seniority.</p>
-      <p class="salary estimate">~$45,000–$68,000 USD (estimated — LATAM CRO senior associate level, study start-up/regulatory submissions function, not disclosed by employer)</p>
-      <p class="col-note">~R$225.000–R$340.000 in São Paulo is roughly equivalent to ~R$155.000–R$234.000 of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).</p>
-      
-      <p class="trajectory">A step down in title from your current scope, but Brazil-based and domain-relevant -- worth it as a foothold role if title level isn&#x27;t the priority.</p>
+      <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#a86a10; background:#fbf1de;">Medium</span></div>
+      <p class="reason">Lead-level centralized monitoring oversight across LATAM, remote-eligible -- more specialist than managerial.</p>
+      <p class="salary estimate">~$45,000–$70,000 USD (estimated — LATAM CRO lead-level, centralized monitoring specialist function, not disclosed by employer)</p>
       
       
+      <p class="trajectory">A step down in scope from portfolio management into a more specialized monitoring-lead function -- doable, not a direct line.</p>
+      
+      
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://iqvia.wd1.myworkdayjobs.com/IQVIA/job/Buenos-Aires-Argentina/Centralized-Monitoring-Lead-in-LATAM--Remote-_R1558548" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://iqvia.wd1.myworkdayjobs.com/IQVIA/job/Buenos-Aires-Argentina/Centralized-Monitoring-Lead-in-LATAM--Remote-_R1558548" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://iqvia.wd1.myworkdayjobs.com/IQVIA/job/Buenos-Aires-Argentina/Centralized-Monitoring-Lead-in-LATAM--Remote-_R1558548" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://iqvia.wd1.myworkdayjobs.com/IQVIA/job/Buenos-Aires-Argentina/Centralized-Monitoring-Lead-in-LATAM--Remote-_R1558548" data-status="declined">Decline</button></div>
     </li>
 
     <li class="card">
       <div class="card-top">
-        <span class="score" style="color:#a86a10; background:#fbf1de;">61</span>
+        <span class="score" style="color:#a86a10; background:#fbf1de;">63</span>
         <div class="titles">
           <a class="title" href="https://job-boards.greenhouse.io/precisionmedicinegroup/jobs/6098464004" target="_blank" rel="noopener">Patient Engagement Lead (LATAM)</a>
           <span class="company">Precision Medicine Group + Precision for Medicine · <span class="loc">Remote, Argentina; Remote, Brazil; Remote, Mexico</span></span>
@@ -951,49 +992,32 @@
       <p class="trajectory">Lateral pivot into a more specialized patient-engagement function -- a stretch from your generalist portfolio background but plausible.</p>
       <p class="also-posted">Also posted by: <a href="https://job-boards.greenhouse.io/pfm/jobs/6123054004" target="_blank" rel="noopener">Precision for Medicine</a></p>
       
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://job-boards.greenhouse.io/precisionmedicinegroup/jobs/6098464004" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://job-boards.greenhouse.io/precisionmedicinegroup/jobs/6098464004" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://job-boards.greenhouse.io/precisionmedicinegroup/jobs/6098464004" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://job-boards.greenhouse.io/precisionmedicinegroup/jobs/6098464004" data-status="declined">Decline</button></div>
     </li>
 
     <li class="card">
       <div class="card-top">
-        <span class="score" style="color:#a86a10; background:#fbf1de;">61</span>
+        <span class="score" style="color:#a86a10; background:#fbf1de;">63</span>
         <div class="titles">
-          <a class="title" href="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Mexico-Mexico-City/Senior-Global-Regulatory-Scientist_JR142556" target="_blank" rel="noopener">Senior Global Regulatory Scientist</a>
-          <span class="company">ICON plc · <span class="loc">Mexico, Mexico City; Brazil, Sao Paulo</span></span>
+          <a class="title" href="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Senior-Site-Partner_JR150380-1" target="_blank" rel="noopener">Senior Study Start Up Associate (Regulatory Submissions)</a>
+          <span class="company">ICON plc · <span class="loc">Brazil, Sao Paulo</span></span>
         </div>
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#5c635d; background:#eceeec;">Adjacent</span><span class="tag" style="color:#a86a10; background:#fbf1de;">Medium</span></div>
-      <p class="reason">Senior regulatory scientist role, adjacent to your cross-country regulatory experience but a more scientific/technical specialist track.</p>
-      <p class="salary estimate">~$55,000–$82,000 USD (estimated — LATAM CRO senior scientist level, regulatory science function, not disclosed by employer)</p>
-      <p class="col-note">~R$275.000–R$410.000 in São Paulo is roughly equivalent to ~R$190.000–R$283.000 of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).</p>
+      <p class="reason">Senior-level study start-up/regulatory submissions role, but an individual-contributor &#x27;Associate&#x27; title despite the seniority.</p>
+      <p class="salary estimate">~$45,000–$68,000 USD (estimated — LATAM CRO senior associate level, study start-up/regulatory submissions function, not disclosed by employer)</p>
+      <p class="col-note">~R$225.000–R$340.000 in São Paulo is roughly equivalent to ~R$155.000–R$234.000 of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).</p>
       
-      <p class="trajectory">A pivot into regulatory science -- senior-level scope is a reasonable lateral, though the technical regulatory-writing depth is a stretch from your ops background.</p>
+      <p class="trajectory">A step down in title from your current scope, but Brazil-based and domain-relevant -- worth it as a foothold role if title level isn&#x27;t the priority.</p>
       
       
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Senior-Site-Partner_JR150380-1" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Senior-Site-Partner_JR150380-1" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Senior-Site-Partner_JR150380-1" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Senior-Site-Partner_JR150380-1" data-status="declined">Decline</button></div>
     </li>
 
     <li class="card">
       <div class="card-top">
-        <span class="score" style="color:#a86a10; background:#fbf1de;">60</span>
-        <div class="titles">
-          <a class="title" href="https://job-boards.greenhouse.io/precisionmedicinegroup/jobs/6093242004" target="_blank" rel="noopener">TMF Lead II (LATAM)</a>
-          <span class="company">Precision Medicine Group + Precision for Medicine · <span class="loc">Remote, Brazil; Remote, Mexico</span></span>
-        </div>
-        
-      </div>
-      <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#5c635d; background:#eceeec;">Adjacent</span><span class="tag" style="color:#a86a10; background:#fbf1de;">Medium</span></div>
-      <p class="reason">Trial documentation/compliance oversight is ops-adjacent but more specialist than managerial.</p>
-      <p class="salary estimate">~$35,000–$55,000 USD (estimated — LATAM CRO specialist-level, trial documentation/compliance function, not disclosed by employer)</p>
-      
-      
-      <p class="trajectory">A step down in scope from your current role -- worth it mainly as a Brazil-based foothold, not a growth move.</p>
-      <p class="also-posted">Also posted by: <a href="https://job-boards.greenhouse.io/pfm/jobs/6093245004" target="_blank" rel="noopener">Precision for Medicine</a></p>
-      
-    </li>
-
-    <li class="card">
-      <div class="card-top">
-        <span class="score" style="color:#a86a10; background:#fbf1de;">60</span>
+        <span class="score" style="color:#a86a10; background:#fbf1de;">63</span>
         <div class="titles">
           <a class="title" href="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Senior-Grant-Specialist_JR157503" target="_blank" rel="noopener">Senior Grant Specialist</a>
           <span class="company">ICON plc · <span class="loc">Brazil, Sao Paulo; Argentina, Buenos Aires</span></span>
@@ -1008,6 +1032,47 @@
       <p class="trajectory">A step down from portfolio-level budget oversight into specialist-level grants administration -- leverages relevant experience but not a growth move.</p>
       
       
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Senior-Grant-Specialist_JR157503" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Senior-Grant-Specialist_JR157503" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Senior-Grant-Specialist_JR157503" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Senior-Grant-Specialist_JR157503" data-status="declined">Decline</button></div>
+    </li>
+
+    <li class="card">
+      <div class="card-top">
+        <span class="score" style="color:#a86a10; background:#fbf1de;">62</span>
+        <div class="titles">
+          <a class="title" href="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Mexico-Mexico-City/Senior-Global-Regulatory-Scientist_JR142556" target="_blank" rel="noopener">Senior Global Regulatory Scientist</a>
+          <span class="company">ICON plc · <span class="loc">Mexico, Mexico City; Brazil, Sao Paulo</span></span>
+        </div>
+        
+      </div>
+      <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#5c635d; background:#eceeec;">Adjacent</span><span class="tag" style="color:#a86a10; background:#fbf1de;">Medium</span></div>
+      <p class="reason">Senior regulatory scientist role, adjacent to your cross-country regulatory experience but a more scientific/technical specialist track.</p>
+      <p class="salary estimate">~$55,000–$82,000 USD (estimated — LATAM CRO senior scientist level, regulatory science function, not disclosed by employer)</p>
+      <p class="col-note">~R$275.000–R$410.000 in São Paulo is roughly equivalent to ~R$190.000–R$283.000 of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).</p>
+      
+      <p class="trajectory">A pivot into regulatory science -- senior-level scope is a reasonable lateral, though the technical regulatory-writing depth is a stretch from your ops background.</p>
+      
+      
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Mexico-Mexico-City/Senior-Global-Regulatory-Scientist_JR142556" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Mexico-Mexico-City/Senior-Global-Regulatory-Scientist_JR142556" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Mexico-Mexico-City/Senior-Global-Regulatory-Scientist_JR142556" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Mexico-Mexico-City/Senior-Global-Regulatory-Scientist_JR142556" data-status="declined">Decline</button></div>
+    </li>
+
+    <li class="card">
+      <div class="card-top">
+        <span class="score" style="color:#a86a10; background:#fbf1de;">61</span>
+        <div class="titles">
+          <a class="title" href="https://job-boards.greenhouse.io/precisionmedicinegroup/jobs/6093242004" target="_blank" rel="noopener">TMF Lead II (LATAM)</a>
+          <span class="company">Precision Medicine Group + Precision for Medicine · <span class="loc">Remote, Brazil; Remote, Mexico</span></span>
+        </div>
+        
+      </div>
+      <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#5c635d; background:#eceeec;">Adjacent</span><span class="tag" style="color:#a86a10; background:#fbf1de;">Medium</span></div>
+      <p class="reason">Trial documentation/compliance oversight is ops-adjacent but more specialist than managerial.</p>
+      <p class="salary estimate">~$35,000–$55,000 USD (estimated — LATAM CRO specialist-level, trial documentation/compliance function, not disclosed by employer)</p>
+      
+      
+      <p class="trajectory">A step down in scope from your current role -- worth it mainly as a Brazil-based foothold, not a growth move.</p>
+      <p class="also-posted">Also posted by: <a href="https://job-boards.greenhouse.io/pfm/jobs/6093245004" target="_blank" rel="noopener">Precision for Medicine</a></p>
+      
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://job-boards.greenhouse.io/precisionmedicinegroup/jobs/6093242004" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://job-boards.greenhouse.io/precisionmedicinegroup/jobs/6093242004" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://job-boards.greenhouse.io/precisionmedicinegroup/jobs/6093242004" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://job-boards.greenhouse.io/precisionmedicinegroup/jobs/6093242004" data-status="declined">Decline</button></div>
     </li>
 
     <li class="card">
@@ -1027,6 +1092,7 @@
       <p class="trajectory">A pivot into a specialized writing function -- Lead-level seniority is a reasonable lateral, but the skill set is a real stretch from your operations background.</p>
       
       
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Lead-Medical-Writer_JR155916" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Lead-Medical-Writer_JR155916" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Lead-Medical-Writer_JR155916" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Lead-Medical-Writer_JR155916" data-status="declined">Decline</button></div>
     </li>
 
     <li class="card">
@@ -1046,6 +1112,7 @@
       <p class="trajectory">PM-level title is a reasonable lateral, but the specialized biosampling-logistics scope is a real stretch from your background.</p>
       
       
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Mexico-Mexico-City/Biosampling-Project-Manager_JR156789" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Mexico-Mexico-City/Biosampling-Project-Manager_JR156789" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Mexico-Mexico-City/Biosampling-Project-Manager_JR156789" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Mexico-Mexico-City/Biosampling-Project-Manager_JR156789" data-status="declined">Decline</button></div>
     </li>
         </ul>
       </div>
@@ -1055,7 +1122,7 @@
           
     <li class="card">
       <div class="card-top">
-        <span class="score" style="color:#a86a10; background:#fbf1de;">65</span>
+        <span class="score" style="color:#a86a10; background:#fbf1de;">67</span>
         <div class="titles">
           <a class="title" href="https://synvia.gupy.io/jobs/11724142" target="_blank" rel="noopener">Coordenador de Centro de Pesquisa Clínica</a>
           <span class="company">Synvia · <span class="loc">On-site, Campinas, SP</span></span>
@@ -1070,11 +1137,12 @@
       <p class="trajectory">A step down from portfolio management to single-site leadership, but a legitimate senior local-market ops role -- worth it as a Brazilian-market foothold.</p>
       
       
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://synvia.gupy.io/jobs/11724142" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://synvia.gupy.io/jobs/11724142" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://synvia.gupy.io/jobs/11724142" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://synvia.gupy.io/jobs/11724142" data-status="declined">Decline</button></div>
     </li>
 
     <li class="card">
       <div class="card-top">
-        <span class="score" style="color:#a86a10; background:#fbf1de;">64</span>
+        <span class="score" style="color:#a86a10; background:#fbf1de;">66</span>
         <div class="titles">
           <a class="title" href="https://synvia.gupy.io/jobs/11427954" target="_blank" rel="noopener">Coordenador de Pesquisa Clínica</a>
           <span class="company">Synvia · <span class="loc">On-site, São Paulo, SP</span></span>
@@ -1089,6 +1157,27 @@
       <p class="trajectory">Step down in scope from portfolio management, but a genuine senior local-market operations role and a credible Brazilian-market foothold.</p>
       
       
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://synvia.gupy.io/jobs/11427954" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://synvia.gupy.io/jobs/11427954" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://synvia.gupy.io/jobs/11427954" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://synvia.gupy.io/jobs/11427954" data-status="declined">Decline</button></div>
+    </li>
+
+    <li class="card">
+      <div class="card-top">
+        <span class="score" style="color:#a86a10; background:#fbf1de;">61</span>
+        <div class="titles">
+          <a class="title" href="https://synvia.gupy.io/jobs/11604156" target="_blank" rel="noopener">Analista de Projetos Clínicos Sênior I CRO</a>
+          <span class="company">Synvia · <span class="loc">Remote</span></span>
+        </div>
+        
+      </div>
+      <div class="tags"><span class="tag" style="color:#1d5c8a; background:#e6f0f9;">Brazilian market (local)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#a86a10; background:#fbf1de;">Medium</span></div>
+      <p class="reason">Senior clinical projects analyst at a Brazilian CRO, remote -- individual-contributor level but domain-relevant.</p>
+      <p class="salary estimate">R$6.800–R$10.500/month (estimated — Glassdoor Brazil, Analista de Pesquisa Clínica Sênior, not disclosed by employer)</p>
+      
+      
+      <p class="trajectory">Senior analyst-level, individual-contributor role -- a step down from your management scope, but remote, domain-relevant, and a real local-market foothold.</p>
+      
+      
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://synvia.gupy.io/jobs/11604156" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://synvia.gupy.io/jobs/11604156" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://synvia.gupy.io/jobs/11604156" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://synvia.gupy.io/jobs/11604156" data-status="declined">Decline</button></div>
     </li>
 
     <li class="card">
@@ -1108,30 +1197,12 @@
       <p class="trajectory">Adjacent specialist function without a dedicated data-management history, but senior-level, remote, and strongly paid for the local market.</p>
       
       
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://synvia.gupy.io/jobs/11466199" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://synvia.gupy.io/jobs/11466199" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://synvia.gupy.io/jobs/11466199" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://synvia.gupy.io/jobs/11466199" data-status="declined">Decline</button></div>
     </li>
 
     <li class="card">
       <div class="card-top">
-        <span class="score" style="color:#a86a10; background:#fbf1de;">60</span>
-        <div class="titles">
-          <a class="title" href="https://synvia.gupy.io/jobs/11604156" target="_blank" rel="noopener">Analista de Projetos Clínicos Sênior I CRO</a>
-          <span class="company">Synvia · <span class="loc">Remote</span></span>
-        </div>
-        
-      </div>
-      <div class="tags"><span class="tag" style="color:#1d5c8a; background:#e6f0f9;">Brazilian market (local)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#a86a10; background:#fbf1de;">Medium</span></div>
-      <p class="reason">Senior clinical projects analyst at a Brazilian CRO, remote -- individual-contributor level but domain-relevant.</p>
-      <p class="salary estimate">R$6.800–R$10.500/month (estimated — Glassdoor Brazil, Analista de Pesquisa Clínica Sênior, not disclosed by employer)</p>
-      
-      
-      <p class="trajectory">Senior analyst-level, individual-contributor role -- a step down from your management scope, but remote, domain-relevant, and a real local-market foothold.</p>
-      
-      
-    </li>
-
-    <li class="card">
-      <div class="card-top">
-        <span class="score" style="color:#a86a10; background:#fbf1de;">60</span>
+        <span class="score" style="color:#a86a10; background:#fbf1de;">61</span>
         <div class="titles">
           <a class="title" href="https://idor.gupy.io/jobs/11634980" target="_blank" rel="noopener">Analista em Pesquisa Clínica Sr | IDOR São Paulo</a>
           <span class="company">IDOR · <span class="loc">On-site, São Paulo, SP</span></span>
@@ -1146,6 +1217,7 @@
       <p class="trajectory">Senior clinical-research analyst role at a respected research institute -- individual-contributor level, a step down from portfolio management, but a credible in-field local foothold.</p>
       
       
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://idor.gupy.io/jobs/11634980" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://idor.gupy.io/jobs/11634980" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://idor.gupy.io/jobs/11634980" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://idor.gupy.io/jobs/11634980" data-status="declined">Decline</button></div>
     </li>
 
     <li class="card">
@@ -1165,6 +1237,7 @@
       <p class="trajectory">Senior quality-in-clinical-research analyst role at a respected institute -- adjacent function, individual-contributor level, but a credible local foothold.</p>
       
       
+      <div class="status-actions"><button type="button" class="status-btn" data-url="https://idor.gupy.io/jobs/12090964" data-status="applied">Mark applied</button><button type="button" class="status-btn" data-url="https://idor.gupy.io/jobs/12090964" data-status="interviewing">Mark interviewing</button><button type="button" class="status-btn" data-url="https://idor.gupy.io/jobs/12090964" data-status="interested">Mark interested</button><button type="button" class="status-btn" data-url="https://idor.gupy.io/jobs/12090964" data-status="declined">Decline</button></div>
     </li>
         </ul>
       </div>
@@ -1176,5 +1249,30 @@
       Mark a job's status with: python3 set_status.py &lt;url&gt; applied|interested|interviewing|declined|pass
     </footer>
   </div>
+  <script>
+    document.querySelectorAll(".status-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var cmd = "python3 set_status.py \"" + btn.dataset.url + "\" " + btn.dataset.status;
+        var onDone = function (copied) {
+          var original = btn.textContent;
+          btn.textContent = copied ? "Copied ✓" : "Copy failed — see prompt";
+          btn.classList.add("copied");
+          setTimeout(function () {
+            btn.textContent = original;
+            btn.classList.remove("copied");
+          }, 1600);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(cmd).then(
+            function () { onDone(true); },
+            function () { window.prompt("Copy this command:", cmd); onDone(false); }
+          );
+        } else {
+          window.prompt("Copy this command:", cmd);
+          onDone(false);
+        }
+      });
+    });
+  </script>
 </body>
 </html>

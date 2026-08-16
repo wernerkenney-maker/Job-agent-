@@ -289,8 +289,16 @@ function). The one hard requirement that isn't traded off: the role must
 be workable from Brazil — either explicitly remote/LATAM-inclusive, or
 physically on-site/hybrid anywhere in Brazil (the candidate is based in
 Fortaleza but open to relocating for the right on-site/hybrid role) —
-anything else is capped at 40 regardless of functional fit. See
-`SCORING_INSTRUCTIONS` in `match_jobs.py` for the exact prompt.
+anything else is capped at 40 regardless of functional fit.
+`SCORING_INSTRUCTIONS` also explicitly calls out weighing the
+candidate's real sponsor-facing/commercial credentials (Global Study
+Manager on Novartis's largest Labcorp trial, direct international
+client representation, bid-defense participation) for Director/Country
+Manager-level and other client-facing or business-development-adjacent
+roles specifically, since that's distinct from — and beyond — pure
+operational/trial-management scope. See `SCORING_INSTRUCTIONS` and
+`CANDIDATE_PROFILE` in `match_jobs.py` for the exact prompt/background
+text.
 
 ## Category, probability, and trajectory
 
@@ -382,6 +390,21 @@ and it didn't work out" versus `pass`'s "not interested to begin with."
 
 Re-run `match_jobs.py` / `apply_manual_scores.py` after changing a status
 to refresh the report.
+
+**Updating status from the report itself:** `report.html` is a static
+generated file with no backend, so it can't write to `jobs_state.json`
+directly — there's no real "tick" that persists a status change on its
+own. What it does have: every card carries status buttons (`Mark
+applied` / `Mark interviewing` / `Mark interested` / `Decline`) that
+copy the exact `set_status.py` command for that specific job — URL
+already filled in — to your clipboard via a small inline script (vanilla
+JS, `navigator.clipboard`, with a `window.prompt()` fallback if
+clipboard access is blocked, e.g. some `file://` contexts). Click a
+button, paste into a terminal, run it, then re-run
+`apply_manual_scores.py` / `match_jobs.py` to see it reflected. This
+removes the friction of hunting down the URL yourself, but the actual
+status change still requires running the command — the report cannot
+update itself.
 
 ## Salary
 

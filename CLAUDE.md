@@ -167,6 +167,12 @@ to do all of the following, without asking for confirmation:
    new matches; and a one-line reminder of what `set_status.py` actually
    does. This reminder belongs in the report itself (so it's visible
    every time, not just when asked) via `report.generate_report_html()`.
+   Every card also carries status buttons (`Mark applied` / `Mark
+   interviewing` / `Mark interested` / `Decline`) that copy that job's
+   exact `set_status.py <url> <status>` command to the clipboard —
+   `report.html` has no backend, so this can't write to
+   `jobs_state.json` on its own; it only removes the friction of finding
+   the URL. Be upfront about that limit if asked for a "real" checkbox.
 7. Summarize the results back to the user (what's new since last time,
    any status changes reflected, any cover letters/resume bullets
    drafted, and — if step 2 found anything — the stretch/leadership

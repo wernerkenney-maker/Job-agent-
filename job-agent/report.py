@@ -67,6 +67,17 @@ STATUS_LABELS = {
     "interviewing": ("Interviewing", "#7a3d9e", "#f2e8f9"),
 }
 
+# (status, button label) -- offered on every card except the one matching
+# its current status. report.html has no backend, so these can't write to
+# jobs_state.json directly; clicking one copies the exact set_status.py
+# command (with this job's real URL already filled in) to the clipboard.
+STATUS_ACTIONS = (
+    ("applied", "Mark applied"),
+    ("interviewing", "Mark interviewing"),
+    ("interested", "Mark interested"),
+    ("declined", "Decline"),
+)
+
 CATEGORY_COLORS = {
     "In-field": ("#1a7f5a", "#e6f6ef"),
     "Adjacent": ("#5c635d", "#eceeec"),
@@ -170,6 +181,13 @@ def _job_card(job):
     if job.get("relocation"):
         relocation_html = f'<p class="relocation">&#9992; {html.escape(job["relocation"])}</p>'
 
+    status_actions_html = "".join(
+        f'<button type="button" class="status-btn" data-url="{primary_url}" data-status="{status}">{label}</button>'
+        for status, label in STATUS_ACTIONS
+        if job["status"] != status
+    )
+    status_actions_block = f'<div class="status-actions">{status_actions_html}</div>'
+
     return f"""
     <li class="{card_class}">
       <div class="card-top">
@@ -188,6 +206,7 @@ def _job_card(job):
       {trajectory_html}
       {other_links}
       {drafts_html}
+      {status_actions_block}
     </li>"""
 
 
@@ -517,6 +536,34 @@ def generate_report_html(
     font-weight: 600;
     text-decoration: none;
   }}
+  .status-actions {{
+    margin: 12px 0 0;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }}
+  .status-btn {{
+    font: inherit;
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: var(--text);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 5px 11px;
+    cursor: pointer;
+  }}
+  .status-btn:hover {{
+    border-color: var(--accent);
+    color: var(--accent);
+  }}
+  .status-btn.copied {{
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--surface);
+  }}
   .empty {{
     text-align: center;
     color: var(--text-muted);
@@ -543,7 +590,7 @@ def generate_report_html(
       <div class="applied-progress">
         <span class="pace-figure">{applied_count}</span> applied of <span class="pace-figure">{total_tracked}</span> total matches tracked
       </div>
-      <p class="status-reminder">Mark a job's status with <code>python3 set_status.py &lt;url&gt; applied|interested|interviewing|declined|pass</code> — <strong>applied</strong> moves it to the Applied section below and logs it to your pace count above, <strong>interviewing</strong> keeps it in Applied but flags it (bold title, purple border), <strong>interested</strong> moves it to the Interested section, <strong>declined</strong>/<strong>pass</strong> hide it from every future report for good.</p>
+      <p class="status-reminder">Each card has status buttons that copy the exact <code>set_status.py</code> command (with that job's URL already filled in) to your clipboard — click one, then paste and run it in a terminal to update: <strong>applied</strong> moves it to the Applied section below and logs it to your pace count above, <strong>interviewing</strong> keeps it in Applied but flags it (bold title, purple border), <strong>interested</strong> moves it to the Interested section, <strong>declined</strong> hides it from every future report for good. This is a static file with no backend, so nothing updates until you actually run the copied command.</p>
       <div class="stats">
         <span>{len(new_matches)} new</span>
         <span>{len(applied_matches)} applied</span>
@@ -561,6 +608,31 @@ def generate_report_html(
       Mark a job's status with: python3 set_status.py &lt;url&gt; applied|interested|interviewing|declined|pass
     </footer>
   </div>
+  <script>
+    document.querySelectorAll(".status-btn").forEach(function (btn) {{
+      btn.addEventListener("click", function () {{
+        var cmd = "python3 set_status.py \\"" + btn.dataset.url + "\\" " + btn.dataset.status;
+        var onDone = function (copied) {{
+          var original = btn.textContent;
+          btn.textContent = copied ? "Copied ✓" : "Copy failed — see prompt";
+          btn.classList.add("copied");
+          setTimeout(function () {{
+            btn.textContent = original;
+            btn.classList.remove("copied");
+          }}, 1600);
+        }};
+        if (navigator.clipboard && navigator.clipboard.writeText) {{
+          navigator.clipboard.writeText(cmd).then(
+            function () {{ onDone(true); }},
+            function () {{ window.prompt("Copy this command:", cmd); onDone(false); }}
+          );
+        }} else {{
+          window.prompt("Copy this command:", cmd);
+          onDone(false);
+        }}
+      }});
+    }});
+  </script>
 </body>
 </html>
 """

@@ -41,9 +41,17 @@ from salary_estimate import estimate_salary_via_claude
 CANDIDATE_PROFILE = """
 Portfolio Manager at Labcorp Clinical Laboratory Services (Labcorp CLS),
 overseeing 100+ global clinical studies and $200M+ in annual revenue.
-Previously Global Clinical Study Manager, managing $20M+ trial budgets
-across Oncology, Autoimmune, and Malaria trials. Before that, Regional
-Study Coordinator, EMEA. Certificate in Project Management from Rutgers.
+Serves as an escalation point supporting a team of 100+ project managers
+globally, and personally leads the most complex "giga trials" on the
+portfolio. Global Study Manager on HORIZON, the largest trial Novartis
+runs with Labcorp -- representing Labcorp internationally to Novartis
+in person (London, Basel, and London again), regularly participates in
+client audits, represents Labcorp directly to Novartis's operational
+group, and has participated in 4 bid defenses -- real client-facing and
+commercial credibility, not just internal operational scope. Previously
+Global Clinical Study Manager, managing $20M+ trial budgets across
+Oncology, Autoimmune, and Malaria trials. Before that, Regional Study
+Coordinator, EMEA. Certificate in Project Management from Rutgers.
 Fluent in English and Portuguese; working proficiency in German. Based
 in Fortaleza, Brazil.
 """.strip()
@@ -76,6 +84,15 @@ within Brazil (any city; the candidate is based in Fortaleza but is open
 to relocating for the right on-site/hybrid role). If neither is true,
 score it no higher than 40 regardless of how strong the functional fit
 is.
+
+For Director/Country Manager-level and other client-facing or
+business-development-adjacent roles specifically, weigh the candidate's
+sponsor-facing and commercial credibility explicitly: representing
+Labcorp internationally to a major sponsor (Novartis), regular client
+audit participation, and bid-defense experience are exactly what these
+roles screen for, distinct from (and beyond) pure operational/trial-
+management scope -- don't undercount this dimension for those role
+types.
 
 For each job below, also determine:
 - category: "In-field" if it's direct clinical operations / clinical
