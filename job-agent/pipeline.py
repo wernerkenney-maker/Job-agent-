@@ -23,18 +23,19 @@ def today_str():
     return datetime.now(timezone.utc).date().isoformat()
 
 
-# "confirmed": real disclosed pay found for this exact posting (always
-# wins regardless of what a match supplied -- disclosed pay is
-# authoritative). "estimated": no real data contradicts the estimate.
-# "flagged": real reference data surfaced suggests the estimate may be
-# significantly off. Confirmed sorts before estimated before flagged,
-# ahead of score -- a confirmed 90 outranks a flagged 95.
-SALARY_CONFIDENCE_RANK = {"confirmed": 0, "estimated": 1, "flagged": 2}
+# Score is the primary sort driver, not confidence tier. Confidence only
+# nudges it: "confirmed" (real disclosed pay) gets a modest boost since
+# it's real money, not a guess; "flagged" (an estimate a real
+# contradicting data point calls into doubt) gets a real penalty;
+# "estimated" -- the normal, unremarkable default -- gets no adjustment
+# either way. This is a nudge, not a tier override: a flagged 95 can
+# still outrank a confirmed 80.
+SALARY_CONFIDENCE_ADJUSTMENT = {"confirmed": 4, "estimated": 0, "flagged": -12}
 
 
 def sort_key(job):
-    rank = SALARY_CONFIDENCE_RANK.get(job.get("salary_confidence"), 1)
-    return (rank, -job["score"])
+    adjustment = SALARY_CONFIDENCE_ADJUSTMENT.get(job.get("salary_confidence"), 0)
+    return -(job["score"] + adjustment)
 
 
 def process_run(

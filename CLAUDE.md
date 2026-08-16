@@ -182,14 +182,20 @@ to do all of the following, without asking for confirmation:
      `"confirmed"` (real disclosed pay found for this exact role/company —
      set automatically whenever `salary` is structurally disclosed, never
      hand-set otherwise), `"estimated"` (an estimate with no real data
-     contradicting it — the default), or `"flagged"` (an estimate where
-     real reference data turned up a signal that it may be significantly
-     off, e.g. a title falling back to a loosely-grounded generic band
-     rather than a specific title-matched one). Shown as its own badge
+     contradicting it — the default, and not a strike against a posting),
+     or `"flagged"` (an estimate where a real, specific contradicting data
+     point turned up — e.g. a disclosed comparable role's pay converting
+     to well below the estimate, or a title falling back to a
+     loosely-grounded generic band — never applied just for being
+     unverified, and never used for a functional/scope mismatch, which
+     belongs in the fit reasoning text instead). Shown as its own badge
      next to the score on every card — never buried in the description
-     text. Sort order within every group is `salary_confidence` first
-     (Confirmed, then Estimated, then Flagged) and score second, so a
-     Confirmed 90 ranks above a Flagged 95.
+     text. Score remains the primary sort driver within every group;
+     `salary_confidence` only nudges it — `"confirmed"` gets a modest
+     +3-5 point boost since it's real disclosed money, `"flagged"` gets a
+     real -10-15 point penalty, `"estimated"` gets no adjustment. This is
+     a nudge, not a tier override: a flagged 95 can still outrank a
+     confirmed 80.
    - **Adds a city + cost-of-living note** (`job-agent/cost_of_living.py`):
      extracts the specific city from the location when one is named
      (blank for bare "Remote, Brazil" postings), and — when a salary
@@ -218,8 +224,10 @@ to do all of the following, without asking for confirmation:
    present, Reach matches are sorted into their own labeled block at the
    bottom, separate from and below the realistic Primary matches — never
    interleaved by score alone. Within every such group, cards are sorted
-   by `salary_confidence` first and score second (a Confirmed 90 ranks
-   above a Flagged 95). Whenever a group (Primary or Reach) contains both
+   by score, nudged by `salary_confidence` (Confirmed +3-5, Flagged
+   -10-15, Estimated unchanged) rather than a hard confidence-tier
+   override — a Flagged 95 can still outrank a Confirmed 80. Whenever a
+   group (Primary or Reach) contains both
    markets, it's split into two labeled subsections so international and
    Brazilian-market results can be compared side by side rather than
    interleaved by score.
