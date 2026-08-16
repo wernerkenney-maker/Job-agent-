@@ -276,19 +276,23 @@ goal (none was set).
 `cost_of_living.py` extracts the specific city from a posting's location
 (when one is named — a bare "Remote, Brazil" has none, and the field
 stays blank) and, when a salary figure is available (disclosed or
-estimated), adds a plain-language comparison against Fortaleza, e.g.
-*"São Paulo's cost of living runs roughly 45% higher than Fortaleza
-(rough estimate) — $65,000–$95,000 USD there is roughly equivalent to
-$44,800–$65,500 USD of purchasing power in Fortaleza."* `FORTALEZA_COL_INDEX`
-is a rough, directional index (São Paulo/Rio meaningfully higher,
-southern/southeastern hub cities moderately higher, other northeastern
-cities close to Fortaleza) based on general knowledge, not a live
-cost-of-living dataset — always labeled as a rough estimate. The
-comparison stays in USD (the currency salary figures are already in)
-rather than converting to BRL, which would stack an FX-rate estimate on
-top of an already-approximate COL index; ask if you'd rather see it in
-BRL. Computed deterministically inside `pipeline.process_run()` on every
-run (no API call), so it applies identically to both the live and manual
+estimated), adds a plain-language, **reais-denominated** comparison
+against Fortaleza, e.g. *"~R$325.000–R$475.000 in São Paulo is roughly
+equivalent to ~R$224.000–R$328.000 of purchasing power in Fortaleza
+(São Paulo's cost of living runs roughly 45% higher than Fortaleza; both
+figures rough estimates, using an approximate R$5.00/USD exchange
+rate)."* Two stacked approximations go into this, both called out in the
+note text itself:
+- `FORTALEZA_COL_INDEX` — a rough, directional index (São Paulo/Rio
+  meaningfully higher, southern/southeastern hub cities moderately
+  higher, other northeastern cities close to Fortaleza) based on general
+  knowledge, not a live cost-of-living dataset.
+- `USD_TO_BRL_RATE` — since salary/estimate figures are USD, converting
+  to reais needs an FX rate too; also illustrative, not a live quote
+  (currently 5.00, revisit if it drifts noticeably).
+
+Computed deterministically inside `pipeline.process_run()` on every run
+(no API call), so it applies identically to both the live and manual
 scoring paths and stays fresh if a job's salary/estimate changes.
 
 ## Cover letters & resume bullets

@@ -6,10 +6,11 @@ FORTALEZA_COL_INDEX is a rough, directional index (Fortaleza = 1.00),
 based on general knowledge of regional cost-of-living variance in Brazil
 (São Paulo/Rio meaningfully higher, southern/southeastern hub cities
 moderately higher, other northeastern cities close to Fortaleza) — not
-sourced from a live cost-of-living API/dataset. Comparisons stay in USD
-(the currency our salary/estimate figures are already in) rather than
-converting to BRL, which would additionally require an FX-rate estimate
-stacked on top of an already-approximate COL index.
+sourced from a live cost-of-living API/dataset. Our salary/estimate
+figures are USD, so producing a reais comparison also requires an
+approximate USD/BRL rate (USD_TO_BRL_RATE) — also illustrative, not a
+live quote, and stacks on top of the already-approximate COL index. Both
+approximations are called out in the note text itself.
 
 Only produces a note when a specific city is named in the location text
 and a numeric salary figure is available to compare — never guesses a
@@ -60,6 +61,10 @@ _DISPLAY_NAMES = {
 
 _SALARY_NUMBER_RE = re.compile(r"\$?([\d,]{4,})")
 
+# Illustrative only -- not a live quote, and exchange rates move. Rough
+# midpoint of recent USD/BRL levels; revisit if it drifts noticeably.
+USD_TO_BRL_RATE = 5.00
+
 
 def find_city(location_text):
     """Return the canonical display name of a known Brazilian city
@@ -94,11 +99,15 @@ def parse_salary_figures(salary_text):
     return numbers[0], numbers[1], currency
 
 
+def format_brl(amount):
+    return "R$" + f"{amount:,.0f}".replace(",", ".")
+
+
 def col_comparison_note(city, salary_text):
-    """Build a plain-language cost-of-living note for `city` vs
-    Fortaleza, using whatever numeric salary/estimate is available.
-    Returns None if the city isn't Fortaleza-comparable, is Fortaleza
-    itself, or no usable salary figure exists to compare."""
+    """Build a plain-language, reais-denominated cost-of-living note for
+    `city` vs Fortaleza, using whatever numeric salary/estimate is
+    available. Returns None if the city isn't Fortaleza-comparable, is
+    Fortaleza itself, or no usable salary figure exists to compare."""
     if not city:
         return None
     index = col_index_for(city)
@@ -107,15 +116,24 @@ def col_comparison_note(city, salary_text):
 
     pct = round(abs(index - 1) * 100)
     direction = "higher" if index > 1 else "lower"
-    base = f"{city}'s cost of living runs roughly {pct}% {direction} than Fortaleza (rough estimate)"
+    col_clause = f"{city}'s cost of living runs roughly {pct}% {direction} than Fortaleza"
 
     figures = parse_salary_figures(salary_text)
     if not figures:
-        return base + "."
+        return f"{col_clause} (rough estimate)."
+
     low, high, currency = figures
-    fortaleza_low = int(round(low / index, -2))
-    fortaleza_high = int(round(high / index, -2))
+    if currency != "USD":
+        return f"{col_clause} (rough estimate)."
+
+    low_brl = low * USD_TO_BRL_RATE
+    high_brl = high * USD_TO_BRL_RATE
+    fortaleza_low_brl = round(low_brl / index, -3)
+    fortaleza_high_brl = round(high_brl / index, -3)
+
     return (
-        f"{base} — ${low:,}–${high:,} {currency} there is roughly equivalent to "
-        f"${fortaleza_low:,}–${fortaleza_high:,} {currency} of purchasing power in Fortaleza."
+        f"~{format_brl(low_brl)}–{format_brl(high_brl)} in {city} is roughly equivalent to "
+        f"~{format_brl(fortaleza_low_brl)}–{format_brl(fortaleza_high_brl)} of purchasing power in "
+        f"Fortaleza ({col_clause}; both figures rough estimates, using an approximate "
+        f"R${USD_TO_BRL_RATE:.2f}/USD exchange rate)."
     )
