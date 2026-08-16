@@ -22,6 +22,7 @@ import fetch_smartrecruiters_jobs
 import fetch_workable_jobs
 from cover_letter import generate_cover_letter_via_claude, save_cover_letter
 from pipeline import process_run
+from relocation import detect_relocation_support
 from report import write_report
 from resume_bullets import generate_resume_bullets_via_claude, save_resume_bullets
 from salary import (
@@ -39,7 +40,8 @@ overseeing 100+ global clinical studies and $200M+ in annual revenue.
 Previously Global Clinical Study Manager, managing $20M+ trial budgets
 across Oncology, Autoimmune, and Malaria trials. Before that, Regional
 Study Coordinator, EMEA. Certificate in Project Management from Rutgers.
-Fluent in English and Portuguese; working proficiency in German.
+Fluent in English and Portuguese; working proficiency in German. Based
+in Fortaleza, Brazil.
 """.strip()
 
 MODEL = os.environ.get("CLAUDE_MODEL", "claude-sonnet-5")
@@ -64,10 +66,12 @@ than a narrower title match at a lower level (e.g. a "Consultant" or
 "Associate"-level contract role should score lower than a permanent
 managerial/director-level role, even in a closer-sounding function).
 
-Hard requirement: the role must plausibly be performable remotely from
-Brazil (location explicitly includes Brazil, or a LATAM-inclusive remote
-scope). If it does not, score it no higher than 40 regardless of how
-strong the functional fit is.
+Hard requirement: the role must be workable from Brazil -- either
+explicitly remote/LATAM-inclusive, OR physically located on-site/hybrid
+within Brazil (any city; the candidate is based in Fortaleza but is open
+to relocating for the right on-site/hybrid role). If neither is true,
+score it no higher than 40 regardless of how strong the functional fit
+is.
 
 For each job below, also determine:
 - category: "In-field" if it's direct clinical operations / clinical
@@ -301,6 +305,9 @@ def main():
             return detail.get("descriptionHtml", "")
         return ""
 
+    for job in matches:
+        job["relocation"] = detect_relocation_support(description_html(job["url"], job["source"]))
+
     def cover_letter_fn(state_job):
         url = state_job["postings"][0]["url"]
         source = next((m["source"] for m in matches if m["url"] == url), "greenhouse")
@@ -343,6 +350,10 @@ def main():
         print(f"[{job['score']}] {job['title']} — {job['company']}{location} [{job['category']}, {job['probability']}]")
         print(job["postings"][0]["url"])
         print(f"Salary: {job['salary']}" + (f" (est: {job['salary_estimate']})" if job.get("salary_estimate") else ""))
+        if job.get("relocation"):
+            print(f"Relocation support: {job['relocation']}")
+        if job.get("col_note"):
+            print(f"COL: {job['col_note']}")
         print(job["reason"])
         print(job["trajectory"])
         print()

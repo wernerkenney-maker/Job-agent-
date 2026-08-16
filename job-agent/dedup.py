@@ -46,6 +46,7 @@ def merge_sibling_postings(matches):
             (j["salary"] for j in jobs if j.get("salary") and j["salary"] != "Not disclosed"),
             jobs[0].get("salary", "Not disclosed"),
         )
+        relocation = next((j.get("relocation") for j in jobs if j.get("relocation")), None)
         merged.append(
             {
                 "key": key,
@@ -60,6 +61,7 @@ def merge_sibling_postings(matches):
                 "category": primary.get("category", "Adjacent"),
                 "probability": primary.get("probability", "Medium"),
                 "trajectory": primary.get("trajectory", ""),
+                "relocation": relocation,
             }
         )
     return merged

@@ -8,6 +8,7 @@ paths produce the same report.html shape.
 
 from datetime import datetime, timezone
 
+from cost_of_living import col_comparison_note, find_city
 from cover_letter import COVER_LETTER_SCORE_THRESHOLD as DRAFT_MATERIALS_THRESHOLD
 from dedup import merge_sibling_postings
 from jobs_state import TRACKED_STATUSES, load_state, save_state, update_state
@@ -50,6 +51,13 @@ def process_run(
             estimate = salary_estimate_fn(job)
             if estimate:
                 job["salary_estimate"] = estimate
+
+        # City + cost-of-living comparison are deterministic (no API call),
+        # so recompute on every run rather than backfilling once.
+        city = find_city(job.get("location", ""))
+        job["city"] = city
+        salary_for_comparison = job.get("salary") if job.get("salary") != "Not disclosed" else job.get("salary_estimate")
+        job["col_note"] = col_comparison_note(city, salary_for_comparison) if city else None
 
     save_state(state)
 

@@ -11,6 +11,8 @@ import html
 import os
 from datetime import datetime, timezone
 
+from pace_tracker import total_count, weekly_count
+
 SCORE_BANDS = (
     (85, "#1a7f5a", "#e6f6ef"),  # strong match
     (70, "#0f7ea8", "#e6f3f9"),  # good match
@@ -97,6 +99,14 @@ def _job_card(job):
     trajectory = job.get("trajectory", "")
     trajectory_html = f'<p class="trajectory">{html.escape(trajectory)}</p>' if trajectory else ""
 
+    col_html = ""
+    if job.get("col_note"):
+        col_html = f'<p class="col-note">{html.escape(job["col_note"])}</p>'
+
+    relocation_html = ""
+    if job.get("relocation"):
+        relocation_html = f'<p class="relocation">&#9992; {html.escape(job["relocation"])}</p>'
+
     return f"""
     <li class="card">
       <div class="card-top">
@@ -110,6 +120,8 @@ def _job_card(job):
       {tags_html}
       <p class="reason">{reason}</p>
       <p class="{salary_class}">{salary_text}</p>
+      {col_html}
+      {relocation_html}
       {trajectory_html}
       {other_links}
       {drafts_html}
@@ -136,6 +148,8 @@ def _section(title_text, matches, empty_text):
 def generate_report_html(new_matches, tracked_matches, scored_count, fetched_count, generated_at=None):
     generated_at = generated_at or datetime.now(timezone.utc)
     timestamp = generated_at.strftime("%Y-%m-%d %H:%M UTC")
+    pace_weekly = weekly_count(generated_at)
+    pace_total = total_count()
 
     new_section = _section(
         "New matches",
@@ -205,6 +219,20 @@ def generate_report_html(new_matches, tracked_matches, scored_count, fetched_cou
     font-size: 0.92rem;
     margin: 0 0 14px;
     line-height: 1.5;
+  }}
+  .pace {{
+    display: inline-block;
+    font-size: 0.85rem;
+    color: var(--text);
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+    border-radius: 999px;
+    padding: 6px 14px;
+    margin-bottom: 12px;
+  }}
+  .pace-figure {{
+    font-weight: 700;
+    color: var(--accent);
   }}
   .stats {{
     display: flex;
@@ -323,6 +351,18 @@ def generate_report_html(new_matches, tracked_matches, scored_count, fetched_cou
     font-style: italic;
     color: var(--text-muted);
   }}
+  .col-note {{
+    margin: 6px 0 0;
+    font-size: 0.78rem;
+    font-style: italic;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }}
+  .relocation {{
+    margin: 8px 0 0;
+    font-size: 0.82rem;
+    color: var(--text);
+  }}
   .also-posted {{
     margin: 8px 0 0;
     font-size: 0.78rem;
@@ -362,7 +402,10 @@ def generate_report_html(new_matches, tracked_matches, scored_count, fetched_cou
   <div class="wrap">
     <header>
       <h1>Clinical Ops Job Matches</h1>
-      <p class="subtitle">Clinical operations, quality, regulatory affairs, medical affairs, and adjacent pharma/biotech leadership roles, scored for fit, compensation, and career trajectory against your background — remote-from-Brazil required. Filtered to score 60+, sorted highest first. Sibling postings from the same corporate family are shown once.</p>
+      <p class="subtitle">Clinical operations, quality, regulatory affairs, medical affairs, and adjacent pharma/biotech leadership roles, scored for fit, compensation, and career trajectory against your background — workable from Brazil required (remote, or on-site/hybrid anywhere in Brazil). Filtered to score 60+, sorted highest first. Sibling postings from the same corporate family are shown once.</p>
+      <div class="pace">
+        <span class="pace-figure">{pace_weekly}</span> applied this week &middot; <span class="pace-figure">{pace_total}</span> all-time
+      </div>
       <div class="stats">
         <span>{len(new_matches)} new</span>
         <span>{len(tracked_matches)} tracked</span>

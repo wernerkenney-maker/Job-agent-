@@ -40,13 +40,15 @@ def update_state(state, merged_jobs, today):
                 "salary_estimate": None,
                 "cover_letter_path": None,
                 "resume_bullets_path": None,
+                "city": None,
+                "col_note": None,
             }
             new_keys.append(key)
         else:
             existing = state[key]
             for field in (
                 "title", "company", "companies", "postings", "location", "score", "reason",
-                "salary", "category", "probability", "trajectory",
+                "salary", "category", "probability", "trajectory", "relocation",
             ):
                 existing[field] = job[field]
             existing["last_seen"] = today

@@ -1,8 +1,9 @@
 # job-agent
 
-Tools for finding remote clinical operations / quality / regulatory
-affairs / medical affairs / adjacent pharma-biotech leadership roles
-(work-from-Brazil required).
+Tools for finding clinical operations / quality / regulatory affairs /
+medical affairs / adjacent pharma-biotech leadership roles workable from
+Brazil — remote, or on-site/hybrid anywhere in the country. Candidate is
+based in Fortaleza.
 
 ## Fetching listings
 
@@ -137,9 +138,11 @@ well as (or better than) a narrower title match at a lower level (e.g. a
 "Consultant"/"Associate"-level contract role scores lower than a
 permanent managerial/director-level role, even in a closer-sounding
 function). The one hard requirement that isn't traded off: the role must
-plausibly be performable remotely from Brazil — anything else is capped
-at 40 regardless of functional fit. See `SCORING_INSTRUCTIONS` in
-`match_jobs.py` for the exact prompt.
+be workable from Brazil — either explicitly remote/LATAM-inclusive, or
+physically on-site/hybrid anywhere in Brazil (the candidate is based in
+Fortaleza but open to relocating for the right on-site/hybrid role) —
+anything else is capped at 40 regardless of functional fit. See
+`SCORING_INSTRUCTIONS` in `match_jobs.py` for the exact prompt.
 
 ## Category, probability, and trajectory
 
@@ -244,6 +247,50 @@ Claude directly and recorded in `manual_extras.json`. This is always
 presented as an estimate, styled distinctly (italic) from a real
 disclosed figure, never asserted as fact.
 
+## Relocation support flag
+
+`relocation.py` scans the job description's own text for explicit
+mentions of relocation assistance, a home-office/equipment stipend, or a
+sign-on bonus (regex against phrases like "relocation package", "sign-on
+bonus", "home office stipend") — never inferred from company size, role
+seniority, or anything else. If none of those phrases appear, the field
+stays blank rather than guessing. Computed once per matched job at
+scoring time (live path, from the fetched description) or recorded
+manually per posting in `manual_matches.json` (manual path, after
+actually reading the description) — carried through dedup and state like
+every other field.
+
+## Pace tracker
+
+`pace_tracker.py` logs every job marked `applied` (once per job, even if
+re-marked) to `applications_log.json`, timestamped. `set_status.py` calls
+`log_application()` automatically whenever you run
+`set_status.py <url> applied`. `report.html`'s header shows a running
+"N applied this week · M all-time" count, computed fresh from the log on
+every report generation — meant as a simple, durable way to see pace
+toward an active search over the coming year, not a specific numeric
+goal (none was set).
+
+## City & cost-of-living comparison
+
+`cost_of_living.py` extracts the specific city from a posting's location
+(when one is named — a bare "Remote, Brazil" has none, and the field
+stays blank) and, when a salary figure is available (disclosed or
+estimated), adds a plain-language comparison against Fortaleza, e.g.
+*"São Paulo's cost of living runs roughly 45% higher than Fortaleza
+(rough estimate) — $65,000–$95,000 USD there is roughly equivalent to
+$44,800–$65,500 USD of purchasing power in Fortaleza."* `FORTALEZA_COL_INDEX`
+is a rough, directional index (São Paulo/Rio meaningfully higher,
+southern/southeastern hub cities moderately higher, other northeastern
+cities close to Fortaleza) based on general knowledge, not a live
+cost-of-living dataset — always labeled as a rough estimate. The
+comparison stays in USD (the currency salary figures are already in)
+rather than converting to BRL, which would stack an FX-rate estimate on
+top of an already-approximate COL index; ask if you'd rather see it in
+BRL. Computed deterministically inside `pipeline.process_run()` on every
+run (no API call), so it applies identically to both the live and manual
+scoring paths and stays fresh if a job's salary/estimate changes.
+
 ## Cover letters & resume bullets
 
 For any match scoring 80+, two things get drafted via Claude and saved
@@ -273,11 +320,13 @@ Tracked section.
 ## HTML report
 
 `report.py` renders `report.html` — a single self-contained,
-mobile-friendly page (score badge, clickable title linking straight to
-the posting, company, location, category/probability tags, salary/
-estimate, one-line reason, trajectory callout, sibling links, cover
-letter + resume bullets links, status), styled for light and dark mode,
-no external dependencies.
+mobile-friendly page: a pace-tracker banner (weekly/all-time applied
+count) up top, then per job a score badge, clickable title linking
+straight to the posting, company, location, category/probability tags,
+salary/estimate, cost-of-living note, relocation-support flag, one-line
+reason, trajectory callout, sibling links, cover letter + resume bullets
+links, and status — styled for light and dark mode, no external
+dependencies.
 
 `match_jobs.py` regenerates `report.html` automatically at the end of
 every run, after routing matches through `pipeline.process_run()`
@@ -286,10 +335,12 @@ every run, after routing matches through `pipeline.process_run()`
 When no `ANTHROPIC_API_KEY` is available and scoring is instead done
 manually (e.g. by Claude directly in a chat session): record raw
 per-posting matches in `manual_matches.json` — including a real,
-API-verified `salary` value per posting (never invented) and
-`category`/`probability`/`trajectory` per posting — record any cover
-letter text / resume bullets text / salary estimate figures for this run
-in `manual_extras.json`, then run:
+API-verified `salary` value per posting (never invented),
+`category`/`probability`/`trajectory` per posting, and `relocation` per
+posting (null unless the description actually says so — verify by
+reading it, don't guess) — record any cover letter text / resume bullets
+text / salary estimate figures for this run in `manual_extras.json`, then
+run:
 
 ```
 python3 apply_manual_scores.py

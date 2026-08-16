@@ -1,6 +1,8 @@
 {
   "Care Access::specialist, quality assurance": {
     "category": "Adjacent",
+    "city": null,
+    "col_note": null,
     "companies": [
       "Care Access"
     ],
@@ -19,6 +21,7 @@
     ],
     "probability": "Medium",
     "reason": "Quality function at a clinical trial site network; specialist-level title below your current scope.",
+    "relocation": null,
     "resume_bullets_path": null,
     "salary": "Not disclosed",
     "salary_estimate": "~$40,000\u2013$60,000 USD (estimated \u2014 LATAM clinical site network, specialist (non-senior) level, quality function, not disclosed by employer)",
@@ -29,6 +32,8 @@
   },
   "EDETEK::senior clinical project manager": {
     "category": "In-field",
+    "city": null,
+    "col_note": null,
     "companies": [
       "EDETEK"
     ],
@@ -47,6 +52,7 @@
     ],
     "probability": "High",
     "reason": "Direct match to Global Clinical Study Manager scope -- multi-country CRO project ownership.",
+    "relocation": null,
     "resume_bullets_path": "resume_bullets/edetek-senior-clinical-project-manager.md",
     "salary": "Not disclosed",
     "salary_estimate": "~$65,000\u2013$95,000 USD (estimated \u2014 LATAM CRO senior PM level, slightly above standard Clinical Trial Manager band, not disclosed by employer)",
@@ -57,6 +63,8 @@
   },
   "EDETEK::senior clinical qa specialist": {
     "category": "Adjacent",
+    "city": null,
+    "col_note": null,
     "companies": [
       "EDETEK"
     ],
@@ -75,6 +83,7 @@
     ],
     "probability": "Medium",
     "reason": "Quality function leveraging oversight/compliance experience, no dedicated QA title history.",
+    "relocation": null,
     "resume_bullets_path": null,
     "salary": "Not disclosed",
     "salary_estimate": "~$50,000\u2013$75,000 USD (estimated \u2014 LATAM CRO senior specialist level, quality function, not disclosed by employer)",
@@ -85,6 +94,8 @@
   },
   "PSI CRO::clinical regional project lead": {
     "category": "In-field",
+    "city": "S\u00e3o Paulo",
+    "col_note": "S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza (rough estimate) \u2014 $65,000\u2013$95,000 USD there is roughly equivalent to $44,800\u2013$65,500 USD of purchasing power in Fortaleza.",
     "companies": [
       "PSI CRO"
     ],
@@ -103,6 +114,7 @@
     ],
     "probability": "High",
     "reason": "Mirrors your Regional Study Coordinator EMEA + Global Study Manager background closely.",
+    "relocation": null,
     "resume_bullets_path": "resume_bullets/psi-cro-clinical-regional-project-lead.md",
     "salary": "Not disclosed",
     "salary_estimate": "~$65,000\u2013$95,000 USD (estimated \u2014 LATAM CRO regional-lead level, comparable manager-level scope, not disclosed by employer)",
@@ -113,6 +125,8 @@
   },
   "PSI CRO::lead clinical research associate": {
     "category": "In-field",
+    "city": "S\u00e3o Paulo",
+    "col_note": "S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza (rough estimate) \u2014 $50,000\u2013$75,000 USD there is roughly equivalent to $34,500\u2013$51,700 USD of purchasing power in Fortaleza.",
     "companies": [
       "PSI CRO"
     ],
@@ -131,6 +145,7 @@
     ],
     "probability": "Medium",
     "reason": "Clinical ops leadership, but site-monitoring/CRA track rather than your study/portfolio-management track.",
+    "relocation": null,
     "resume_bullets_path": null,
     "salary": "Not disclosed",
     "salary_estimate": "~$50,000\u2013$75,000 USD (estimated \u2014 LATAM CRO lead-CRA level, site-monitoring leadership track, not disclosed by employer)",
@@ -141,6 +156,8 @@
   },
   "PSI CRO::therapeutic area lead (gastroenterology)": {
     "category": "In-field",
+    "city": "S\u00e3o Paulo",
+    "col_note": "S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza (rough estimate) \u2014 $70,000\u2013$105,000 USD there is roughly equivalent to $48,300\u2013$72,400 USD of purchasing power in Fortaleza.",
     "companies": [
       "PSI CRO"
     ],
@@ -159,6 +176,7 @@
     ],
     "probability": "Long-shot",
     "reason": "Leadership scope fits, but likely requires deep GI-specific trial experience you don't have (your TAs are Oncology/Autoimmune/Malaria).",
+    "relocation": null,
     "resume_bullets_path": null,
     "salary": "Not disclosed",
     "salary_estimate": "~$70,000\u2013$105,000 USD (estimated \u2014 LATAM CRO therapeutic-area leadership scope, though GI-specific depth requirement raises risk, not disclosed by employer)",
@@ -169,6 +187,8 @@
   },
   "Precision Medicine Group family::change order manager": {
     "category": "Adjacent",
+    "city": null,
+    "col_note": null,
     "companies": [
       "Precision Medicine Group",
       "Precision for Medicine"
@@ -193,6 +213,7 @@
     ],
     "probability": "Medium",
     "reason": "Contract & budget-change oversight on trials fits your portfolio-level budget management; Brazil-eligible.",
+    "relocation": null,
     "salary": "Not disclosed",
     "salary_estimate": "~$55,000\u2013$80,000 USD (estimated \u2014 LATAM CRO manager-level, contracts/budget function, not disclosed by employer)",
     "score": 70,
@@ -202,6 +223,8 @@
   },
   "Precision Medicine Group family::clinical trial manager (latam)": {
     "category": "In-field",
+    "city": null,
+    "col_note": null,
     "companies": [
       "Precision Medicine Group",
       "Precision for Medicine"
@@ -226,6 +249,7 @@
     ],
     "probability": "High",
     "reason": "Direct match to your Global Clinical Study Manager trial-management experience, explicitly Brazil-eligible.",
+    "relocation": null,
     "resume_bullets_path": "resume_bullets/precision-medicine-group-clinical-trial-manager-latam.md",
     "salary": "Not disclosed",
     "salary_estimate": "~$60,000\u2013$90,000 USD (estimated \u2014 LATAM CRO manager-level rate; ~45-55% of comparable disclosed US band, not disclosed by employer)",
@@ -236,6 +260,8 @@
   },
   "Precision Medicine Group family::manager, global investigator grants (latam)": {
     "category": "Adjacent",
+    "city": null,
+    "col_note": null,
     "companies": [
       "Precision for Medicine"
     ],
@@ -254,6 +280,7 @@
     ],
     "probability": "Medium",
     "reason": "Adjacent leadership role: grants/budget oversight across trials at manager level, on par with your $20M+ budget scope; Brazil-eligible.",
+    "relocation": null,
     "salary": "Not disclosed",
     "salary_estimate": "~$55,000\u2013$80,000 USD (estimated \u2014 LATAM CRO manager-level, finance/grants-ops function, not disclosed by employer)",
     "score": 76,
@@ -263,6 +290,8 @@
   },
   "Precision Medicine Group family::patient engagement lead (latam)": {
     "category": "Adjacent",
+    "city": null,
+    "col_note": null,
     "companies": [
       "Precision Medicine Group",
       "Precision for Medicine"
@@ -287,6 +316,7 @@
     ],
     "probability": "Medium",
     "reason": "Trial-adjacent site/patient engagement work, decent overlap with regional coordination background.",
+    "relocation": null,
     "salary": "Not disclosed",
     "salary_estimate": "~$40,000\u2013$65,000 USD (estimated \u2014 LATAM CRO lead-level, patient/site engagement function, not disclosed by employer)",
     "score": 61,
@@ -296,6 +326,8 @@
   },
   "Precision Medicine Group family::senior regulatory and start up specialist (brazil)": {
     "category": "Adjacent",
+    "city": null,
+    "col_note": null,
     "companies": [
       "Precision Medicine Group",
       "Precision for Medicine"
@@ -320,6 +352,7 @@
     ],
     "probability": "Medium",
     "reason": "Regulatory/site start-up work mirrors your Regional Study Coordinator EMEA role; Brazil-based.",
+    "relocation": null,
     "salary": "Not disclosed",
     "salary_estimate": "~$45,000\u2013$70,000 USD (estimated \u2014 LATAM CRO senior specialist level, regulatory/start-up function, not disclosed by employer)",
     "score": 74,
@@ -329,6 +362,8 @@
   },
   "Precision Medicine Group family::tmf lead ii (latam)": {
     "category": "Adjacent",
+    "city": null,
+    "col_note": null,
     "companies": [
       "Precision Medicine Group",
       "Precision for Medicine"
@@ -353,6 +388,7 @@
     ],
     "probability": "Medium",
     "reason": "Trial documentation/compliance oversight is ops-adjacent but more specialist than managerial.",
+    "relocation": null,
     "salary": "Not disclosed",
     "salary_estimate": "~$35,000\u2013$55,000 USD (estimated \u2014 LATAM CRO specialist-level, trial documentation/compliance function, not disclosed by employer)",
     "score": 60,
