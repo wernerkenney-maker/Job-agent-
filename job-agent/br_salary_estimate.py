@@ -52,9 +52,13 @@ _BANDS = [
      8000, 13000, "Glassdoor Brazil, senior specialist band, pharma/CRO data functions"),
     (re.compile(r"pesquisa cl[ií]nica", re.I),
      3500, 6500, "Glassdoor Brazil, Analista de Pesquisa Clínica (non-senior)"),
+    (re.compile(r"gerente", re.I),
+     9000, 16000, "Glassdoor Brazil, Gerente (commercial/operations/sales) band, general pharma function"),
+    (re.compile(r"coordenador", re.I),
+     5000, 10000, "Glassdoor Brazil, Coordenador (commercial/operations) band, general pharma function"),
 ]
 
-_DEFAULT_BAND = (4000, 8000, "Glassdoor Brazil, general clinical-research analyst band")
+_DEFAULT_BAND = (4000, 8000, "Glassdoor Brazil, general analyst-level band")
 
 
 def estimate_br_salary(title):

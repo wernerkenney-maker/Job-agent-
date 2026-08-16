@@ -169,6 +169,40 @@
     "title": "Coordenador(a) Planejamento Estrat\u00e9gico",
     "trajectory": "A step down in scope from portfolio management to strategic-planning coordination, but a legitimate senior local-market role."
   },
+  "Fortrea::clinical start-up & trial lead": {
+    "category": "In-field",
+    "city": "S\u00e3o Paulo",
+    "col_note": "~R$325.000\u2013R$475.000 in S\u00e3o Paulo is roughly equivalent to ~R$224.000\u2013R$328.000 of purchasing power in Fortaleza (S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).",
+    "companies": [
+      "Fortrea"
+    ],
+    "company": "Fortrea",
+    "cover_letter_path": "cover_letters/fortrea-clinical-start-up-trial-lead.md",
+    "first_seen": "2026-08-16",
+    "key": "Fortrea::clinical start-up & trial lead",
+    "last_seen": "2026-08-16",
+    "level": "Primary",
+    "location": "S\u00e3o Paulo",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "Fortrea",
+        "location": "S\u00e3o Paulo",
+        "url": "https://fortrea.wd1.myworkdayjobs.com/Fortrea/job/So-Paulo/Clinical-Start-Up---Trial-Lead_254866"
+      }
+    ],
+    "probability": "High",
+    "reason": "Dual start-up + trial-lead role -- end-to-end operational oversight, key escalation point for site-level issues, 6+ years clinical research/CTL experience required -- a strong direct match for your portfolio/trial-management background.",
+    "relocation": null,
+    "resume_bullets_path": "resume_bullets/fortrea-clinical-start-up-trial-lead.md",
+    "salary": "Not disclosed",
+    "salary_estimate": "~$65,000\u2013$95,000 USD (estimated \u2014 Brazil-based dual start-up/CTL role, major global CRO, senior clinical-ops scope, not disclosed by employer)",
+    "score": 88,
+    "status": "new",
+    "tier": null,
+    "title": "Clinical Start-Up & Trial Lead",
+    "trajectory": "A lateral move into a combined start-up/trial-leadership role, close in scope to your current CTM-equivalent responsibilities -- worth pursuing."
+  },
   "Fortrea::clinical trial manager (ctm)": {
     "category": "In-field",
     "city": null,
@@ -305,6 +339,40 @@
     "title": "Sr. Clinical Project Manager or Clinical Project Manager II - Oncology",
     "trajectory": "Lateral to modest step up from your Global Clinical Study Manager role, in a therapeutic area you already have direct experience in -- strong, low-risk fit."
   },
+  "Hypera Pharma::coordenador(a) de administra\u00e7\u00e3o de vendas (intelig\u00eancia comercial)": {
+    "category": "Adjacent",
+    "city": "S\u00e3o Paulo",
+    "col_note": "~R$5.000\u2013R$10.000/month in S\u00e3o Paulo is roughly equivalent to ~R$3.400\u2013R$6.900/month of purchasing power in Fortaleza (S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates).",
+    "companies": [
+      "Hypera Pharma"
+    ],
+    "company": "Hypera Pharma",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-16",
+    "key": "Hypera Pharma::coordenador(a) de administra\u00e7\u00e3o de vendas (intelig\u00eancia comercial)",
+    "last_seen": "2026-08-16",
+    "level": "Primary",
+    "location": "On-site, S\u00e3o Paulo, SP",
+    "market": "Brazilian market (local)",
+    "postings": [
+      {
+        "company": "Hypera Pharma",
+        "location": "On-site, S\u00e3o Paulo, SP",
+        "url": "https://hyperapharma.gupy.io/jobs/11506397"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "Sales administration / commercial intelligence coordination role at a major Brazilian pharma -- some analytical/planning overlap with your portfolio-operations background, though function and scope are a narrower fit than your other matches.",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_estimate": "R$5.000\u2013R$10.000/month (estimated \u2014 Glassdoor Brazil, Coordenador (commercial/operations) band, general pharma function, not disclosed by employer)",
+    "score": 52,
+    "status": "new",
+    "tier": null,
+    "title": "Coordenador(a) de Administra\u00e7\u00e3o de Vendas (Intelig\u00eancia Comercial)",
+    "trajectory": "A step down in scope and a functional pivot into commercial/sales operations support -- a weaker fit than your other Brazilian-market matches."
+  },
   "Hypera Pharma::coordenador(a) de planejamento - mercado institucional": {
     "category": "Adjacent",
     "city": "S\u00e3o Paulo",
@@ -338,6 +406,40 @@
     "tier": null,
     "title": "Coordenador(a) de Planejamento - Mercado Institucional",
     "trajectory": "A step down in scope from portfolio management, but a legitimate senior local-market planning role."
+  },
+  "Hypera Pharma::gerente distrital propaganda m\u00e9dica - dermo - curitiba/pr": {
+    "category": "Adjacent",
+    "city": "Curitiba",
+    "col_note": "~R$9.000\u2013R$16.000/month in Curitiba is roughly equivalent to ~R$7.500\u2013R$13.300/month of purchasing power in Fortaleza (Curitiba's cost of living runs roughly 20% higher than Fortaleza; both figures rough estimates).",
+    "companies": [
+      "Hypera Pharma"
+    ],
+    "company": "Hypera Pharma",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-16",
+    "key": "Hypera Pharma::gerente distrital propaganda m\u00e9dica - dermo - curitiba/pr",
+    "last_seen": "2026-08-16",
+    "level": "Primary",
+    "location": "On-site, Curitiba, PR",
+    "market": "Brazilian market (local)",
+    "postings": [
+      {
+        "company": "Hypera Pharma",
+        "location": "On-site, Curitiba, PR",
+        "url": "https://hyperapharma.gupy.io/jobs/11647448"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "District-level field sales/medical detailing team management at a major Brazilian pharma -- genuine people-management scope, though a different function (pharma sales) from your clinical-ops background.",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_estimate": "R$9.000\u2013R$16.000/month (estimated \u2014 Glassdoor Brazil, Gerente (commercial/operations/sales) band, general pharma function, not disclosed by employer)",
+    "score": 55,
+    "status": "new",
+    "tier": null,
+    "title": "Gerente Distrital Propaganda M\u00e9dica - Dermo - Curitiba/PR",
+    "trajectory": "A lateral pivot into pharma field-sales management -- a real functional shift away from clinical operations, worth considering only if open to a sales-management track."
   },
   "ICON plc::biosampling project manager": {
     "category": "Adjacent",
@@ -1110,6 +1212,40 @@
     "tier": null,
     "title": "Patient Engagement Lead (LATAM)",
     "trajectory": "Lateral pivot into a more specialized patient-engagement function -- a stretch from your generalist portfolio background but plausible."
+  },
+  "Rennova::gerente de assist\u00eancia t\u00e9cnica e servi\u00e7os": {
+    "category": "Adjacent",
+    "city": "S\u00e3o Paulo",
+    "col_note": "~R$9.000\u2013R$16.000/month in S\u00e3o Paulo is roughly equivalent to ~R$6.200\u2013R$11.000/month of purchasing power in Fortaleza (S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates).",
+    "companies": [
+      "Rennova"
+    ],
+    "company": "Rennova",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-16",
+    "key": "Rennova::gerente de assist\u00eancia t\u00e9cnica e servi\u00e7os",
+    "last_seen": "2026-08-16",
+    "level": "Primary",
+    "location": "On-site, S\u00e3o Paulo, SP",
+    "market": "Brazilian market (local)",
+    "postings": [
+      {
+        "company": "Rennova",
+        "location": "On-site, S\u00e3o Paulo, SP",
+        "url": "https://rennova.gupy.io/jobs/11989432"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "Manager-level technical assistance and after-sales services role at a Brazilian pharma -- explicitly strategic scope, team development, and operational efficiency ownership, transferable from your program/operations management background.",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_estimate": "R$9.000\u2013R$16.000/month (estimated \u2014 Glassdoor Brazil, Gerente (commercial/operations/sales) band, general pharma function, not disclosed by employer)",
+    "score": 60,
+    "status": "new",
+    "tier": null,
+    "title": "Gerente de Assist\u00eancia T\u00e9cnica e Servi\u00e7os",
+    "trajectory": "A lateral pivot into technical-services operations management -- different function, but the team-leadership and operational-efficiency scope transfers."
   },
   "Syneos Health::clinical trial manager with focus on project management - sponsor dedicated - brazil home based": {
     "category": "In-field",
