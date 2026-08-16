@@ -63,6 +63,7 @@ def update_state(state, merged_jobs, today):
             for field in (
                 "title", "company", "companies", "postings", "location", "score", "reason",
                 "salary", "category", "level", "probability", "trajectory", "relocation", "market", "tier",
+                "salary_confidence",
             ):
                 existing[field] = job[field]
             existing["last_seen"] = today

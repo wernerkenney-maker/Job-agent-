@@ -23,6 +23,20 @@ def today_str():
     return datetime.now(timezone.utc).date().isoformat()
 
 
+# "confirmed": real disclosed pay found for this exact posting (always
+# wins regardless of what a match supplied -- disclosed pay is
+# authoritative). "estimated": no real data contradicts the estimate.
+# "flagged": real reference data surfaced suggests the estimate may be
+# significantly off. Confirmed sorts before estimated before flagged,
+# ahead of score -- a confirmed 90 outranks a flagged 95.
+SALARY_CONFIDENCE_RANK = {"confirmed": 0, "estimated": 1, "flagged": 2}
+
+
+def sort_key(job):
+    rank = SALARY_CONFIDENCE_RANK.get(job.get("salary_confidence"), 1)
+    return (rank, -job["score"])
+
+
 def process_run(
     raw_matches,
     cover_letter_fn=None,
@@ -61,6 +75,15 @@ def process_run(
             if estimate:
                 job["salary_estimate"] = estimate
 
+        # Disclosed pay is authoritative -- always "confirmed" regardless
+        # of whatever confidence a match supplied. Otherwise fall back to
+        # whatever confidence was set (e.g. "flagged" for a shakily-
+        # grounded estimate), defaulting to "estimated".
+        if job.get("salary") and job["salary"] != "Not disclosed":
+            job["salary_confidence"] = "confirmed"
+        elif not job.get("salary_confidence"):
+            job["salary_confidence"] = "estimated"
+
         # City + cost-of-living comparison are deterministic (no API call),
         # so recompute on every run rather than backfilling once.
         city = find_city(job.get("location", ""))
@@ -77,12 +100,12 @@ def process_run(
     save_state(state)
 
     new_matches = [state[k] for k in new_keys if state[k]["status"] not in EXCLUDED_STATUSES]
-    new_matches.sort(key=lambda j: j["score"], reverse=True)
+    new_matches.sort(key=sort_key)
 
     interested_matches = [v for v in state.values() if v["status"] == "interested"]
-    interested_matches.sort(key=lambda j: j["score"], reverse=True)
+    interested_matches.sort(key=sort_key)
 
     applied_matches = [v for v in state.values() if v["status"] in APPLIED_STATUSES]
-    applied_matches.sort(key=lambda j: j["score"], reverse=True)
+    applied_matches.sort(key=sort_key)
 
     return new_matches, interested_matches, applied_matches, state

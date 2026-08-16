@@ -65,6 +65,7 @@ def merge_sibling_postings(matches):
                 "relocation": relocation,
                 "market": primary.get("market", "International (remote)"),
                 "tier": primary.get("tier"),
+                "salary_confidence": primary.get("salary_confidence", "estimated"),
             }
         )
     return merged

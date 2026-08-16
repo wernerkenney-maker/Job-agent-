@@ -178,6 +178,18 @@ to do all of the following, without asking for confirmation:
      per title cluster (not pure inference), e.g. "R$6.800–R$10.500/month
      (estimated — Glassdoor Brazil, Analista de Pesquisa Clínica Sênior,
      not disclosed by employer)".
+   - **Tags every posting's pay figure with a `salary_confidence`**:
+     `"confirmed"` (real disclosed pay found for this exact role/company —
+     set automatically whenever `salary` is structurally disclosed, never
+     hand-set otherwise), `"estimated"` (an estimate with no real data
+     contradicting it — the default), or `"flagged"` (an estimate where
+     real reference data turned up a signal that it may be significantly
+     off, e.g. a title falling back to a loosely-grounded generic band
+     rather than a specific title-matched one). Shown as its own badge
+     next to the score on every card — never buried in the description
+     text. Sort order within every group is `salary_confidence` first
+     (Confirmed, then Estimated, then Flagged) and score second, so a
+     Confirmed 90 ranks above a Flagged 95.
    - **Adds a city + cost-of-living note** (`job-agent/cost_of_living.py`):
      extracts the specific city from the location when one is named
      (blank for bare "Remote, Brazil" postings), and — when a salary
@@ -196,17 +208,21 @@ to do all of the following, without asking for confirmation:
    model" below — each showing a market tag ("International (remote)" /
    "Brazilian market (local)"), a Stretch/Leadership tag on any job
    tagged that way in step 2, a "Reach — Long Shot" tag on any job with
-   `level: "Reach"`, category/probability tags, salary/estimate,
-   cost-of-living note, relocation-support flag, a trajectory callout,
-   sibling links, status, and cover letter/resume bullets links where
-   applicable) — this happens automatically via `report.write_report()`
-   in both paths above. Within each section, whenever both `level:
-   "Primary"` and `level: "Reach"` matches are present, Reach matches are
-   sorted into their own labeled block at the bottom, separate from and
-   below the realistic Primary matches — never interleaved by score alone.
-   Whenever a group (Primary or Reach) contains both markets, it's split
-   into two labeled subsections so international and Brazilian-market
-   results can be compared side by side rather than interleaved by score.
+   `level: "Reach"`, category/probability tags, a `salary_confidence`
+   badge (Confirmed/Estimated/Flagged) shown plainly next to the score,
+   salary/estimate, cost-of-living note, relocation-support flag, a
+   trajectory callout, sibling links, status, and cover letter/resume
+   bullets links where applicable) — this happens automatically via
+   `report.write_report()` in both paths above. Within each section,
+   whenever both `level: "Primary"` and `level: "Reach"` matches are
+   present, Reach matches are sorted into their own labeled block at the
+   bottom, separate from and below the realistic Primary matches — never
+   interleaved by score alone. Within every such group, cards are sorted
+   by `salary_confidence` first and score second (a Confirmed 90 ranks
+   above a Flagged 95). Whenever a group (Primary or Reach) contains both
+   markets, it's split into two labeled subsections so international and
+   Brazilian-market results can be compared side by side rather than
+   interleaved by score.
    Note: draft links only render for jobs currently in one of those
    sections — a job that already has drafts but has scrolled out of "new"
    (seen before, no status set) still has the files in the repo, just not

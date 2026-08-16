@@ -98,6 +98,12 @@ TIER_COLORS = {
     "Stretch/Leadership": ("#8a4b0f", "#fbeee0"),
 }
 
+SALARY_CONFIDENCE_LABELS = {
+    "confirmed": ("Confirmed", "#1a7f5a", "#e6f6ef"),
+    "estimated": ("Estimated", "#5c635d", "#eceeec"),
+    "flagged": ("Flagged", "#a8341a", "#fbe9e6"),
+}
+
 REACH_COLOR = ("#8a4b0f", "#fbeee0")
 
 
@@ -120,6 +126,10 @@ def _salary_line(job):
 
 def _job_card(job):
     fg, bg = _band_colors(job["score"])
+    conf_label, conf_fg, conf_bg = SALARY_CONFIDENCE_LABELS.get(
+        job.get("salary_confidence"), SALARY_CONFIDENCE_LABELS["estimated"]
+    )
+    confidence_html = f'<span class="confidence" style="color:{conf_fg}; background:{conf_bg};">{conf_label}</span>'
     interviewing = job["status"] == "interviewing"
     card_class = "card interviewing" if interviewing else "card"
     title = html.escape(job["title"])
@@ -199,6 +209,7 @@ def _job_card(job):
     <li class="{card_class}">
       <div class="card-top">
         <span class="score" style="color:{fg}; background:{bg};">{job["score"]}</span>
+        {confidence_html}
         <div class="titles">
           <a class="title" href="{primary_url}" target="_blank" rel="noopener">{title}</a>
           <span class="company">{company_label}{" · " + location_html if location else ""}</span>
@@ -460,6 +471,14 @@ def generate_report_html(
     min-width: 2.4em;
     text-align: center;
   }}
+  .confidence {{
+    flex: 0 0 auto;
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 999px;
+    padding: 4px 9px;
+    white-space: nowrap;
+  }}
   .titles {{
     display: flex;
     flex-direction: column;
@@ -615,7 +634,7 @@ def generate_report_html(
   <div class="wrap">
     <header>
       <h1>Clinical Ops Job Matches</h1>
-      <p class="subtitle">Clinical operations, quality, regulatory affairs, medical affairs, and adjacent pharma/biotech leadership roles, plus capacity-based matches in any industry (large multi-country programs, executive/named-client relationships, bid/proposal leadership, 50+ person team oversight) — scored for fit, compensation, and career trajectory against your background. Manager-level and above only. Workable from Brazil required (remote, or on-site/hybrid anywhere in Brazil). Covers both international remote employers and Brazilian-market employers hiring locally in BRL, tagged and grouped separately for comparison. Senior Manager/Associate Director/Regional Director-equivalent roles are the primary realistic target; Director/VP/Country Manager-equivalent roles stay visible but are tagged "Reach — Long Shot" and sorted separately at the bottom. Filtered to score 60+, sorted highest first within each group. Sibling postings from the same corporate family are shown once.</p>
+      <p class="subtitle">Clinical operations, quality, regulatory affairs, medical affairs, and adjacent pharma/biotech leadership roles, plus capacity-based matches in any industry (large multi-country programs, executive/named-client relationships, bid/proposal leadership, 50+ person team oversight) — scored for fit, compensation, and career trajectory against your background. Manager-level and above only. Workable from Brazil required (remote, or on-site/hybrid anywhere in Brazil). Covers both international remote employers and Brazilian-market employers hiring locally in BRL, tagged and grouped separately for comparison. Senior Manager/Associate Director/Regional Director-equivalent roles are the primary realistic target; Director/VP/Country Manager-equivalent roles stay visible but are tagged "Reach — Long Shot" and sorted separately at the bottom. Filtered to score 60+, sorted by salary confidence first (Confirmed, then Estimated, then Flagged) and score second within each group — a Confirmed 90 outranks a Flagged 95. Sibling postings from the same corporate family are shown once.</p>
       <div class="pace">
         <span class="pace-figure">{pace_weekly}</span> applied this week &middot; <span class="pace-figure">{pace_total}</span> all-time
       </div>
