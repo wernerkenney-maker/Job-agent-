@@ -22,6 +22,17 @@ STATUS_LABELS = {
     "applied": ("Applied", "#1a7f5a", "#e6f6ef"),
 }
 
+CATEGORY_COLORS = {
+    "In-field": ("#1a7f5a", "#e6f6ef"),
+    "Adjacent": ("#5c635d", "#eceeec"),
+}
+
+PROBABILITY_COLORS = {
+    "High": ("#1a7f5a", "#e6f6ef"),
+    "Medium": ("#a86a10", "#fbf1de"),
+    "Long-shot": ("#a8341a", "#fbe9e6"),
+}
+
 
 def _band_colors(score):
     for threshold, fg, bg in SCORE_BANDS:
@@ -73,6 +84,19 @@ def _job_card(job):
         draft_links.append(f'<a href="{path}">Resume bullets &rarr;</a>')
     drafts_html = f'<div class="drafts">{"".join(f"<span>{link}</span>" for link in draft_links)}</div>' if draft_links else ""
 
+    category = job.get("category", "Adjacent")
+    cat_fg, cat_bg = CATEGORY_COLORS.get(category, CATEGORY_COLORS["Adjacent"])
+    probability = job.get("probability", "Medium")
+    prob_fg, prob_bg = PROBABILITY_COLORS.get(probability, PROBABILITY_COLORS["Medium"])
+    tags_html = (
+        '<div class="tags">'
+        f'<span class="tag" style="color:{cat_fg}; background:{cat_bg};">{html.escape(category)}</span>'
+        f'<span class="tag" style="color:{prob_fg}; background:{prob_bg};">{html.escape(probability)}</span>'
+        "</div>"
+    )
+    trajectory = job.get("trajectory", "")
+    trajectory_html = f'<p class="trajectory">{html.escape(trajectory)}</p>' if trajectory else ""
+
     return f"""
     <li class="card">
       <div class="card-top">
@@ -83,8 +107,10 @@ def _job_card(job):
         </div>
         {status_html}
       </div>
+      {tags_html}
       <p class="reason">{reason}</p>
       <p class="{salary_class}">{salary_text}</p>
+      {trajectory_html}
       {other_links}
       {drafts_html}
     </li>"""
@@ -255,11 +281,31 @@ def generate_report_html(new_matches, tracked_matches, scored_count, fetched_cou
     padding: 4px 10px;
     white-space: nowrap;
   }}
+  .tags {{
+    display: flex;
+    gap: 6px;
+    margin: 10px 0 0;
+    flex-wrap: wrap;
+  }}
+  .tag {{
+    font-size: 0.72rem;
+    font-weight: 600;
+    border-radius: 999px;
+    padding: 3px 9px;
+  }}
   .reason {{
     margin: 10px 0 0;
     font-size: 0.9rem;
     color: var(--text-muted);
     line-height: 1.45;
+  }}
+  .trajectory {{
+    margin: 8px 0 0;
+    font-size: 0.85rem;
+    color: var(--text);
+    line-height: 1.4;
+    padding-left: 10px;
+    border-left: 2px solid var(--border);
   }}
   .salary {{
     margin: 8px 0 0;

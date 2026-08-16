@@ -6,7 +6,7 @@ affairs / medical affairs / adjacent pharma-biotech leadership roles
 
 ## Fetching listings
 
-Two provider modules, one per ATS, both with the same shape (`COMPANIES`
+Five provider modules, one per ATS, all with the same shape (`COMPANIES`
 dict of token → display name, plus a `fetch_jobs()`):
 
 - `fetch_greenhouse_jobs.py` — Greenhouse boards:
@@ -19,27 +19,49 @@ dict of token → display name, plus a `fetch_jobs()`):
     Precision Medicine Group family (no Brazil/LATAM roles currently,
     but tracked in case that changes)
   - **ClinChoice** — global CRO with Brazil-based listings
+  - **Care Access** — decentralized clinical trial site network, 2
+    Brazil-based roles (CTMS Operations Analyst, Specialist QA)
 - `fetch_lever_jobs.py` — Lever boards:
   - **Alimentiv** — established CRO (GI/inflammation focus), broad
     international remote hiring (Europe, Africa, India, Canada, US) and
     historical evidence of a LATAM-scoped regulatory posting, though
     none are live as of this check — tracked so future Brazil/LATAM
     postings get caught automatically.
+- `fetch_workable_jobs.py` — Workable boards:
+  - **EDETEK** — eClinical/clinical-data CRO, multiple Brazil/LATAM
+    postings (Clinical Data Manager, Senior Clinical Project Manager,
+    Senior Clinical QA Specialist, etc.). Workable's endpoint 429s
+    without a browser-like `User-Agent` header (and sometimes even with
+    one) — `fetch_jobs()` retries with backoff.
+- `fetch_smartrecruiters_jobs.py` — SmartRecruiters boards:
+  - **PSI CRO** — established (founded 1995, 3,000+ employees), privately
+    held global CRO, 12 Brazil-based postings across a range of seniority
+    levels. The list endpoint doesn't include salary/full description —
+    `fetch_job_detail()` fetches that per matched job, same pattern as
+    Greenhouse.
+- `fetch_ashby_jobs.py` — Ashby boards: `COMPANIES` is currently empty.
+  Checked ~20 candidates (Iambic Therapeutics, myTomorrows, Paradigm,
+  Unlearn, Triomics, and more) — real companies, no Brazil/LATAM-eligible
+  postings as of this check. Ready to fetch (including compensation via
+  `includeCompensation=true`) as soon as a genuine match turns up.
 
 `companies.py` holds `COMPANY_FAMILIES`, mapping sibling boards from the
-same corporate group across *either* provider (currently all three
-Precision entities) so duplicate postings of the same role can be
-deduped — see "Deduplication" below.
+same corporate group across *any* provider (currently all three
+Precision entities, all on Greenhouse) so duplicate postings of the same
+role can be deduped — see "Deduplication" below.
 
 ```
 pip install -r requirements.txt
 python3 fetch_greenhouse_jobs.py
 python3 fetch_lever_jobs.py
+python3 fetch_workable_jobs.py
+python3 fetch_smartrecruiters_jobs.py
+python3 fetch_ashby_jobs.py
 ```
 
 **Note on Thermo Fisher:** its careers site (jobs.thermofisher.com) runs
-on Phenom People, not Greenhouse or Lever, so no matching public-API
-endpoint exists on either provider.
+on Phenom People, not any of the five providers above, so no matching
+public-API endpoint exists.
 
 **Company search notes** (useful context before re-searching):
 
@@ -51,36 +73,60 @@ postings) after an extensive search: major CROs `medable`, `curebase`,
 most large CROs run on Workday/other enterprise ATS. Standalone biotechs
 that *are* on Greenhouse (Natera, Blueprint Medicines, Revolution
 Medicines, Praxis, etc.) have zero Brazil/LATAM-remote postings even when
-sizeable.
+sizeable. **Care Access** was found later, while searching SmartRecruiters
+— worth remembering that a company can surface from a search aimed at a
+different provider.
 
 *Lever* — checked ARTBio, Capstan Medical, Orca Bio, ProTrials: real
 companies, no Lever presence for some, zero Brazil/LATAM signal for the
-rest (mostly US-onsite). Two names that surfaced repeatedly in search
-were deliberately **excluded**, not just unmatched:
-- **Jobgether** (`jobgether`) — not a CRO/biotech/pharma employer; a
-  third-party AI-matching recruiting layer that reposts ~4,000 jobs
-  across every industry and routes applications through its own
-  screening rather than straight to the employer.
-- **Welo Global** (`weloglobal`) — despite a "Life Sciences" business
-  line, its actual Brazil-tagged postings are generic crowdsourced
-  data-annotation/BPO gig work (e.g. "Ads Quality Rater"), not clinical
-  roles.
+rest (mostly US-onsite).
+
+*Workable* — `ethica-cro-inc` is real but has zero open postings.
+
+*SmartRecruiters* — most guessed company identifiers for major CROs
+(`ICON`, `IQVIA`, `Parexel`, `Syneos`, `Medpace`, `WCGClinical`,
+`Advarra`, `Fortrea`, `PPD`, `Covance`, etc.) return `totalFound: 0` —
+either not registered there or a stale/inactive presence. **PSI CRO**
+was the one real hit. Also checked `OnPointClinicalStaffingServices` and
+`IntegratedResourcesINC` (real staffing agencies, zero Brazil postings —
+moot either way) and `M3usa` (healthcare market research, 13 Brazil
+postings but all market-research/qualitative-research/translation gig
+work, not clinical/quality/regulatory/medical-affairs — excluded as
+out-of-scope function, not a fake-employer exclusion like the two below).
+
+*Ashby* — checked ~20 real companies with zero Brazil/LATAM signal (see
+`fetch_ashby_jobs.py`).
+
+Two names that surfaced repeatedly across Lever and Ashby searches were
+deliberately **excluded**, not just unmatched — neither is a real
+CRO/biotech/pharma employer:
+- **Jobgether** (Lever, `jobgether`) — a third-party AI-matching
+  recruiting layer that reposts ~4,000 jobs across every industry and
+  routes applications through its own screening rather than straight to
+  the employer.
+- **Welo Global** (Lever, `weloglobal`) / **The Global Talent Co.**
+  (Ashby, `the-global-talent-co`) — staffing/BPO vendors; their
+  Brazil-tagged postings are generic crowdsourced gig work ("Ads Quality
+  Rater") or unrelated-industry contract roles (music-industry valuation,
+  customer care), not clinical/pharma work.
 
 Genuine Brazil/LATAM remote hiring in this space appears concentrated in
 CROs with an explicit global-delivery staffing model (the Precision
-family, ClinChoice) rather than single-asset biotechs or job-board
-intermediaries.
+family, ClinChoice, EDETEK, PSI CRO, Care Access) rather than
+single-asset biotechs or job-board intermediaries.
 
 ## Resume-based matching
 
-`match_jobs.py` fetches jobs from every company across both providers,
-sends them to Claude in batches to score fit (1-100) against a candidate
-background hardcoded in `CANDIDATE_PROFILE`, keeps jobs scoring 60+
-(`MIN_SCORE`), then runs them through the shared pipeline (dedup, seen-job
-tracking, salary, cover letters — see below) before writing the report.
-Each batch uses its own local integer ids (0, 1, 2, ...) when talking to
-Claude, since Lever ids are UUID strings rather than Greenhouse's
-integers — keeps the scoring prompt/response format identical either way.
+`match_jobs.py` fetches jobs from every company across all five
+providers, sends them to Claude in batches to score fit (1-100) against a
+candidate background hardcoded in `CANDIDATE_PROFILE`, keeps jobs scoring
+60+ (`MIN_SCORE`), then runs them through the shared pipeline (dedup,
+seen-job tracking, salary, cover letters — see below) before writing the
+report. Each batch uses its own local integer ids (0, 1, 2, ...) when
+talking to Claude instead of raw provider ids, since those differ in type
+across providers (Greenhouse/SmartRecruiters use integers, Lever/Ashby
+use UUID strings, Workable uses hex shortcodes) — keeps the scoring
+prompt/response format identical regardless of source.
 
 The scoring rubric is intentionally broader than an exact title match:
 it considers clinical operations, quality, regulatory affairs, medical
@@ -94,6 +140,31 @@ function). The one hard requirement that isn't traded off: the role must
 plausibly be performable remotely from Brazil — anything else is capped
 at 40 regardless of functional fit. See `SCORING_INSTRUCTIONS` in
 `match_jobs.py` for the exact prompt.
+
+## Category, probability, and trajectory
+
+Alongside the score/reason, each match also gets three more fields (from
+the same Claude scoring call, or filled in manually in
+`manual_matches.json` on the manual path):
+- **category** — `"In-field"` (direct clinical operations/trial
+  management work) or `"Adjacent"` (transferable-skills fit elsewhere —
+  regulatory, quality, program/portfolio leadership outside pharma,
+  general operations, etc.).
+- **probability** — `"High"`, `"Medium"`, or `"Long-shot"`, a realistic
+  (not encouraging-by-default) read on how closely the candidate's actual
+  experience maps to what the role likely requires — seniority, domain
+  depth, therapeutic-area fit, language/region fit, etc. A role that
+  *sounds* senior but needs deep therapeutic-area-specific experience the
+  candidate doesn't have (e.g. a Gastroenterology-specific leadership
+  role, when the candidate's therapeutic background is Oncology/
+  Autoimmune/Malaria) should score as `"Long-shot"` even if the title fit
+  looks strong.
+- **trajectory** — one line on whether the role is a lateral move, a step
+  up, or a bigger leap versus the candidate's current role, plus a
+  plain-spoken read on whether it's worth pursuing even as a stretch.
+
+These render as colored tags (category/probability) and a bordered
+callout (trajectory) on each report card.
 
 ```
 export ANTHROPIC_API_KEY=sk-ant-...
@@ -145,10 +216,20 @@ signals from the posting itself:
 - Greenhouse (`extract_salary()`) — a pay-transparency metadata field
   (Precision Medicine Group/Precision for Medicine) or a pay-transparency
   widget embedded in the job description HTML (Iovance Biotherapeutics).
-- Lever (`extract_salary_lever()`) — the native `salaryRange` field Lever
-  exposes directly in the listing (no extra request needed, unlike
-  Greenhouse which requires a per-job detail fetch), falling back to the
-  poster's own `salaryDescription` text field if present.
+  Requires a per-job detail fetch.
+- Lever (`extract_salary_lever()`) — the native `salaryRange` field,
+  available directly in the listing (no extra request), falling back to
+  the poster's own `salaryDescription` text field if present.
+- Workable (`extract_salary_workable()`) — the native `salary_data`
+  field, available directly in the listing.
+- SmartRecruiters (`extract_salary_smartrecruiters()`) — a distinct
+  "Compensation"/"Salary"/"Pay" section in the job ad, if the poster
+  included one (not free text elsewhere in the ad). Requires a per-job
+  detail fetch (the list endpoint doesn't include the full job ad).
+- Ashby (`extract_salary_ashby()`) — the native
+  `compensation.compensationTierSummary` field, available directly in the
+  listing when the request includes `includeCompensation=true` and the
+  employer opted into disclosure.
 
 It never guesses at a number from free-text mentions elsewhere in the
 job description (e.g. budget/revenue figures).
@@ -193,10 +274,10 @@ Tracked section.
 
 `report.py` renders `report.html` — a single self-contained,
 mobile-friendly page (score badge, clickable title linking straight to
-the posting, company, location, salary/estimate, one-line reason, sibling
-links, cover letter + resume bullets links, status), styled for light and
-dark mode, no
-external dependencies.
+the posting, company, location, category/probability tags, salary/
+estimate, one-line reason, trajectory callout, sibling links, cover
+letter + resume bullets links, status), styled for light and dark mode,
+no external dependencies.
 
 `match_jobs.py` regenerates `report.html` automatically at the end of
 every run, after routing matches through `pipeline.process_run()`
@@ -204,10 +285,11 @@ every run, after routing matches through `pipeline.process_run()`
 
 When no `ANTHROPIC_API_KEY` is available and scoring is instead done
 manually (e.g. by Claude directly in a chat session): record raw
-per-posting matches in `manual_matches.json` (including a real,
-API-verified `salary` value per posting — never invented), record any
-cover letter text / salary estimate figures for this run in
-`manual_extras.json`, then run:
+per-posting matches in `manual_matches.json` — including a real,
+API-verified `salary` value per posting (never invented) and
+`category`/`probability`/`trajectory` per posting — record any cover
+letter text / resume bullets text / salary estimate figures for this run
+in `manual_extras.json`, then run:
 
 ```
 python3 apply_manual_scores.py

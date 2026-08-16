@@ -19,6 +19,7 @@ COMPANIES = {
     "pfm": "Precision for Medicine",
     "precisionaq": "Precision AQ",
     "clinchoice": "ClinChoice",
+    "careaccess": "Care Access",
 }
 
 GREENHOUSE_URL_TEMPLATE = "https://boards-api.greenhouse.io/v1/boards/{token}/jobs"

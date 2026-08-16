@@ -9,11 +9,14 @@ affairs / medical affairs / adjacent pharma-biotech leadership roles
 When the user says **"check jobs"**, treat it as the complete instruction
 to do all of the following, without asking for confirmation:
 
-1. Fetch current listings from every company board across both provider
-   modules: `job-agent/fetch_greenhouse_jobs.py`'s `COMPANIES` dict
-   (Greenhouse) and `job-agent/fetch_lever_jobs.py`'s `COMPANIES` dict
-   (Lever). Sibling-family mapping for dedup lives in
-   `job-agent/companies.py` (`COMPANY_FAMILIES`), shared by both.
+1. Fetch current listings from every company board across all five
+   provider modules: `job-agent/fetch_greenhouse_jobs.py`,
+   `job-agent/fetch_lever_jobs.py`, `job-agent/fetch_workable_jobs.py`,
+   `job-agent/fetch_smartrecruiters_jobs.py`,
+   `job-agent/fetch_ashby_jobs.py` (each has its own `COMPANIES` dict;
+   Ashby's is currently empty — see its module docstring/README for
+   search notes before re-searching). Sibling-family mapping for dedup
+   lives in `job-agent/companies.py` (`COMPANY_FAMILIES`), shared by all.
 2. Score each job for fit against `CANDIDATE_PROFILE` in
    `job-agent/match_jobs.py`, using the broadened rubric in
    `SCORING_INSTRUCTIONS`: not limited to an exact title match (clinical
@@ -23,13 +26,21 @@ to do all of the following, without asking for confirmation:
    career trajectory over exact title wording (junior/contract-type
    roles score lower than permanent managerial/director-level roles);
    hard requirement, not traded off: the role must plausibly be
-   performable remotely from Brazil (cap at 40 otherwise).
+   performable remotely from Brazil (cap at 40 otherwise). Also assign,
+   per job: `category` ("In-field" direct clinical-ops/trial-management
+   work, or "Adjacent" transferable-skills fit elsewhere), `probability`
+   ("High"/"Medium"/"Long-shot" — a realistic, not encouraging-by-default
+   read on how closely actual experience maps to what's likely required),
+   and `trajectory` (one line: lateral/step-up/bigger-leap versus the
+   candidate's current role, and whether it's worth pursuing as a
+   stretch).
    - If `ANTHROPIC_API_KEY` is set, run `python3 match_jobs.py` — it
      fetches, scores, and runs the full pipeline (below) itself.
    - If no API key is available, score manually (as Claude, in
      conversation) using the same rubric, record raw per-posting matches
      in `job-agent/manual_matches.json` (with a real, API-verified
-     `salary` per posting — see step 4, never invented), record any
+     `salary` per posting — see step 4, never invented — plus
+     `category`/`probability`/`trajectory` per posting), record any
      cover letter / resume bullets text / salary estimate figures for
      this run in `job-agent/manual_extras.json`, then run
      `python3 apply_manual_scores.py`.
@@ -68,13 +79,14 @@ to do all of the following, without asking for confirmation:
      pay-transparency widget — never inferred from other figures in the
      description).
 4. Update `job-agent/report.html` with the fresh matches (score 60+,
-   "New matches" + "Tracked" sections, each showing salary/estimate,
-   sibling links, status, and cover letter/resume bullets links where
-   applicable) — this happens automatically via `report.write_report()`
-   in both paths above. Note: draft links only render for jobs currently
-   in one of those two sections — a job that already has drafts but has
-   scrolled out of "new" (seen before, no status set) still has the
-   files in the repo, just not linked from the report until it's marked
+   "New matches" + "Tracked" sections, each showing category/probability
+   tags, salary/estimate, a trajectory callout, sibling links, status,
+   and cover letter/resume bullets links where applicable) — this
+   happens automatically via `report.write_report()` in both paths
+   above. Note: draft links only render for jobs currently in one of
+   those two sections — a job that already has drafts but has scrolled
+   out of "new" (seen before, no status set) still has the files in the
+   repo, just not linked from the report until it's marked
    `interested`/`applied`.
 5. `report.html` must keep every job title as its own clickable link
    straight to the (primary) posting.

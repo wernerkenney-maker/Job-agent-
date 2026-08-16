@@ -44,7 +44,10 @@ def update_state(state, merged_jobs, today):
             new_keys.append(key)
         else:
             existing = state[key]
-            for field in ("title", "company", "companies", "postings", "location", "score", "reason", "salary"):
+            for field in (
+                "title", "company", "companies", "postings", "location", "score", "reason",
+                "salary", "category", "probability", "trajectory",
+            ):
                 existing[field] = job[field]
             existing["last_seen"] = today
     return new_keys
