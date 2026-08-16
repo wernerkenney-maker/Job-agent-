@@ -346,17 +346,40 @@ since the last run — a match that scored 60+ before and hasn't been
 acted on doesn't clutter every future report.
 
 Each tracked job has a `status`: `new` (default), `interested`,
-`applied`, or `pass`. Set it with:
+`applied`, `interviewing`, `declined`, or `pass`. Set it with:
 
 ```
-python3 set_status.py <posting-url> applied|interested|pass
+python3 set_status.py <posting-url> applied|interested|interviewing|declined|pass
 ```
 
-(any of a job's apply links works, even after dedup). `report.html` shows
-two sections: **New matches** (first time crossing 60+ this run) and
-**Tracked** (anything marked `interested` or `applied`, so you don't lose
-track of applications in progress). Jobs marked `pass` are hidden from
-the report entirely but stay in `jobs_state.json` for the record.
+(any of a job's apply links works, even after dedup). `report.html`
+shows three sections:
+- **New matches** — first time crossing 60+ this run, status still `new`.
+- **Applied** — anything marked `applied` or `interviewing`. Both share
+  this section since `interviewing` is a later stage of the same active
+  application, not a separate track, but an `interviewing` card is
+  flagged distinctly (bold title, purple border and tag) so you can see
+  what's actively progressing versus a plain "applied and waiting"
+  posting at a glance.
+- **Interested** — anything marked `interested`, kept separate from
+  Applied so you can distinguish "still deciding" from "actually in
+  process."
+
+`applied` and `interviewing` both log to `pace_tracker.py` (once per
+job, deduped by key) — so marking something `interviewing` directly,
+without ever setting `applied` first, still counts correctly toward the
+weekly/all-time pace stats and the header's applied-vs-total count.
+
+Jobs marked `declined` or `pass` are hidden from the report entirely
+(they stay in `jobs_state.json` for the record, just filtered out of
+every rendered section) — and **permanently**: once a job's key exists
+in state, `update_state()` only ever refreshes its live fields
+(score/salary/location/etc.) on a later fetch, never its status, so a
+`declined`/`pass` job can't silently resurface as `new` even if the
+exact same posting is re-fetched on a future run. `declined` and `pass`
+behave identically; `declined` just reads more naturally for "I applied
+and it didn't work out" versus `pass`'s "not interested to begin with."
+
 Re-run `match_jobs.py` / `apply_manual_scores.py` after changing a status
 to refresh the report.
 
@@ -435,28 +458,27 @@ every other field.
 
 ## Pace tracker
 
-`pace_tracker.py` logs every job marked `applied` (once per job, even if
-re-marked) to `applications_log.json`, timestamped. `set_status.py` calls
-`log_application()` automatically whenever you run
-`set_status.py <url> applied`. `report.html`'s header shows a running
-"N applied this week · M all-time" count, computed fresh from the log on
-every report generation — meant as a simple, durable way to see pace
-toward an active search over the coming year, not a specific numeric
-goal (none was set).
+`pace_tracker.py` logs every job marked `applied` or `interviewing`
+(once per job, even if re-marked or marked with both over time) to
+`applications_log.json`, timestamped. `set_status.py` calls
+`log_application()` automatically whenever you run `set_status.py <url>
+applied` or `interviewing` — so jumping straight to `interviewing`
+without ever setting `applied` first still counts correctly.
+`report.html`'s header shows a running "N applied this week · M
+all-time" count, computed fresh from the log on every report generation
+— meant as a simple, durable way to see pace toward an active search
+over the coming year, not a specific numeric goal (none was set).
 
 The header also shows a second, distinct count: "N applied of M total
 matches tracked", computed directly from `jobs_state.json` (every job
 ever recorded, regardless of current status) rather than from the pace
 log — this stays meaningful even on a run with zero new matches or zero
 applications this week, since `total_tracked` doesn't depend on what's
-currently visible in the New/Tracked sections. Right below it, a
-one-line reminder spells out what each status actually does:
-`python3 set_status.py <url> applied|interested|pass` — `applied` logs
-it to both counts above, `interested` keeps it visible in the Tracked
-section, `pass` hides it from future reports for good. This reminder is
-baked into `report.generate_report_html()` itself, so it renders on
-every report regardless of whether anyone asks — not just something
-mentioned in chat once.
+currently visible in the New/Applied/Interested sections. Right below
+it, a one-line reminder spells out what each status actually does. This
+reminder is baked into `report.generate_report_html()` itself, so it
+renders on every report regardless of whether anyone asks — not just
+something mentioned in chat once.
 
 ## City & cost-of-living comparison
 

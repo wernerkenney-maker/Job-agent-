@@ -139,39 +139,61 @@ to do all of the following, without asking for confirmation:
      (`col_comparison_note_brl`). Computed deterministically (no API
      call) on every run.
 5. Update `job-agent/report.html` with the fresh matches (score 60+,
-   "New matches" + "Tracked" sections, each showing a market tag
-   ("International (remote)" / "Brazilian market (local)"), a
-   Stretch/Leadership tag on any job tagged that way in step 2,
-   category/probability tags, salary/estimate, cost-of-living note,
-   relocation-support flag, a trajectory callout, sibling links, status,
-   and cover letter/resume bullets links where applicable) — this happens
-   automatically via `report.write_report()` in both paths above. Whenever
-   a section contains both markets, it's split into two labeled
-   subsections so international and Brazilian-market results can be
-   compared side by side rather than interleaved by score. Note: draft
-   links only render for jobs currently in one of those two sections — a
-   job that already has drafts but has scrolled out of "new" (seen
-   before, no status set) still has the files in the repo, just not
-   linked from the report until it's marked `interested`/`applied`.
+   "New matches" / "Applied" / "Interested" sections — see "Job status
+   model" below — each showing a market tag ("International (remote)" /
+   "Brazilian market (local)"), a Stretch/Leadership tag on any job
+   tagged that way in step 2, category/probability tags, salary/estimate,
+   cost-of-living note, relocation-support flag, a trajectory callout,
+   sibling links, status, and cover letter/resume bullets links where
+   applicable) — this happens automatically via `report.write_report()`
+   in both paths above. Whenever a section contains both markets, it's
+   split into two labeled subsections so international and
+   Brazilian-market results can be compared side by side rather than
+   interleaved by score. Note: draft links only render for jobs currently
+   in one of those sections — a job that already has drafts but has
+   scrolled out of "new" (seen before, no status set) still has the files
+   in the repo, just not linked from the report until it's marked
+   `interested`/`applied`/`interviewing`.
 6. `report.html` must keep every job title as its own clickable link
    straight to the (primary) posting, and its header must show, every
    time the report is generated: the pace tracker (a running "N applied
    this week · M all-time" count from
    `job-agent/applications_log.json`, via `job-agent/pace_tracker.py`,
-   logged automatically whenever `set_status.py <url> applied` is run);
-   a clear applied-vs-total count ("N applied of M total matches
-   tracked", computed from every job ever recorded in
+   logged automatically whenever `set_status.py <url> applied` or
+   `interviewing` is run); a clear applied-vs-total count ("N applied of
+   M total matches tracked", computed from every job ever recorded in
    `job-agent/jobs_state.json` regardless of status — not just this
    run's visible cards) so progress is visible even on a run with zero
    new matches; and a one-line reminder of what `set_status.py` actually
-   does (`python3 set_status.py <url> applied|interested|pass` —
-   `applied` logs it to the pace/applied counts, `interested` keeps it
-   visible in Tracked, `pass` hides it from future reports for good).
-   This reminder belongs in the report itself (so it's visible every
-   time, not just when asked) via `report.generate_report_html()`.
+   does. This reminder belongs in the report itself (so it's visible
+   every time, not just when asked) via `report.generate_report_html()`.
 7. Summarize the results back to the user (what's new since last time,
    any status changes reflected, any cover letters/resume bullets
    drafted, and — if step 2 found anything — the stretch/leadership
    result) and mention the updated report.
+
+## Job status model
+
+Each tracked job has a `status`: `new` (default), `interested`,
+`applied`, `interviewing`, `declined`, or `pass`. `set_status.py <url>
+<status>` sets it:
+- `new` / `interested`: `new` shows in "New matches" until acted on;
+  `interested` moves it to its own "Interested" section.
+- `applied` / `interviewing`: both show together in "Applied" —
+  `interviewing` is a later stage of the same active application, not a
+  separate track, but is flagged distinctly on the card (bold title,
+  purple border/tag) so in-progress interviews stand out from a plain
+  "applied and waiting" posting. Both log to the pace tracker (once per
+  job — jumping straight to `interviewing` without ever setting
+  `applied` still counts correctly).
+- `declined` / `pass`: both permanently exclude the job from every
+  future report section, including if the same posting is re-fetched on
+  a later run — this falls out of `jobs_state.py`'s existing
+  seen-job-tracking design (an existing key's status is never
+  overwritten by a re-fetch, only its live fields like score/salary
+  are), not a separate mechanism. `declined` and `pass` are otherwise
+  interchangeable; `declined` exists as the more natural word for "this
+  specific application didn't work out" versus `pass`'s "not
+  interested in the first place."
 
 See `job-agent/README.md` for full details on each script.

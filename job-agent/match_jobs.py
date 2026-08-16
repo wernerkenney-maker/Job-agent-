@@ -407,12 +407,12 @@ def main():
             print(f"Warning: failed to estimate salary for {state_job['title']}: {exc}", file=sys.stderr)
             return None
 
-    new_matches, tracked_matches, state = process_run(
+    new_matches, interested_matches, applied_matches, state = process_run(
         matches, cover_letter_fn, salary_estimate_fn, resume_bullets_fn
     )
 
-    print(f"{len(new_matches)} new matches this run, {len(tracked_matches)} tracked "
-          f"(out of {len(scored)} scored, {len(all_jobs)} fetched)\n")
+    print(f"{len(new_matches)} new matches this run, {len(applied_matches)} applied, "
+          f"{len(interested_matches)} interested (out of {len(scored)} scored, {len(all_jobs)} fetched)\n")
     for job in new_matches:
         location = f" ({job['location']})" if job["location"] else ""
         print(f"[{job['score']}] {job['title']} — {job['company']}{location} [{job['category']}, {job['probability']}]")
@@ -426,7 +426,9 @@ def main():
         print(job["trajectory"])
         print()
 
-    report_path = write_report(new_matches, tracked_matches, len(scored), len(all_jobs), state)
+    report_path = write_report(
+        new_matches, interested_matches, applied_matches, len(scored), len(all_jobs), state
+    )
     print(f"Report written to {report_path}")
 
 

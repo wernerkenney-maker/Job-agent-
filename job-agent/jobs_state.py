@@ -1,15 +1,29 @@
 #!/usr/bin/env python3
 """Persistent state for tracked job matches: which ones have been seen
 before (so reports only surface new ones), and the user's status on each
-("new", "interested", "applied", "pass").
+("new", "interested", "applied", "interviewing", "declined", "pass").
+
+Status lifecycle for report purposes:
+- "new": shown in the report's "New matches" section until acted on.
+- "interested": shown in "Interested".
+- "applied" / "interviewing": shown together in "Applied", with
+  "interviewing" flagged distinctly on the card (it's a later stage of
+  the same active application, not a separate track).
+- "pass" / "declined": permanently excluded from every report section.
+  "declined" additionally means the same posting must never resurface
+  as "new" even if it's re-fetched later — this falls out naturally
+  from update_state() below: once a key exists in state, re-fetching it
+  only refreshes live fields (score/salary/etc.), never status, so a
+  declined key can't silently flip back to "new".
 """
 
 import json
 import os
 
 STATE_PATH = os.path.join(os.path.dirname(__file__), "jobs_state.json")
-VALID_STATUSES = ("new", "interested", "applied", "pass")
-TRACKED_STATUSES = ("interested", "applied")
+VALID_STATUSES = ("new", "interested", "applied", "interviewing", "declined", "pass")
+APPLIED_STATUSES = ("applied", "interviewing")
+EXCLUDED_STATUSES = ("pass", "declined")
 
 
 def load_state(path=STATE_PATH):

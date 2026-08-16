@@ -16,7 +16,7 @@ from cost_of_living import (
 )
 from cover_letter import COVER_LETTER_SCORE_THRESHOLD as DRAFT_MATERIALS_THRESHOLD
 from dedup import merge_sibling_postings
-from jobs_state import TRACKED_STATUSES, load_state, save_state, update_state
+from jobs_state import APPLIED_STATUSES, EXCLUDED_STATUSES, load_state, save_state, update_state
 
 
 def today_str():
@@ -34,14 +34,18 @@ def process_run(
     reason/salary). cover_letter_fn(job)->rel_path or None,
     resume_bullets_fn(job)->rel_path or None, salary_estimate_fn(job)->
     label string or None; all optional. Returns (new_matches,
-    tracked_matches, state)."""
+    interested_matches, applied_matches, state). Jobs marked "pass" or
+    "declined" are excluded from every returned list and permanently
+    excluded from future reports -- declined never resurfaces as new
+    even if the same posting is re-fetched later, since update_state()
+    only refreshes an existing key's live fields, never its status."""
     today = today or today_str()
     merged = merge_sibling_postings(raw_matches)
     state = load_state()
     new_keys = update_state(state, merged, today)
 
     for job in state.values():
-        if job["status"] == "pass":
+        if job["status"] in EXCLUDED_STATUSES:
             continue
         if job["score"] >= DRAFT_MATERIALS_THRESHOLD:
             if cover_letter_fn and not job.get("cover_letter_path"):
@@ -72,10 +76,13 @@ def process_run(
 
     save_state(state)
 
-    new_matches = [state[k] for k in new_keys if state[k]["status"] != "pass"]
+    new_matches = [state[k] for k in new_keys if state[k]["status"] not in EXCLUDED_STATUSES]
     new_matches.sort(key=lambda j: j["score"], reverse=True)
 
-    tracked_matches = [v for v in state.values() if v["status"] in TRACKED_STATUSES]
-    tracked_matches.sort(key=lambda j: j["score"], reverse=True)
+    interested_matches = [v for v in state.values() if v["status"] == "interested"]
+    interested_matches.sort(key=lambda j: j["score"], reverse=True)
 
-    return new_matches, tracked_matches, state
+    applied_matches = [v for v in state.values() if v["status"] in APPLIED_STATUSES]
+    applied_matches.sort(key=lambda j: j["score"], reverse=True)
+
+    return new_matches, interested_matches, applied_matches, state

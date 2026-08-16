@@ -54,9 +54,14 @@ def salary_estimate_fn(job):
     return format_estimate(figures["low"], figures["high"], figures.get("note", ""))
 
 
-new_matches, tracked_matches, state = process_run(
+new_matches, interested_matches, applied_matches, state = process_run(
     data["matches"], cover_letter_fn, salary_estimate_fn, resume_bullets_fn
 )
 
-report_path = write_report(new_matches, tracked_matches, data["scored_count"], data["fetched_count"], state)
-print(f"Report written to {report_path} ({len(new_matches)} new, {len(tracked_matches)} tracked)")
+report_path = write_report(
+    new_matches, interested_matches, applied_matches, data["scored_count"], data["fetched_count"], state
+)
+print(
+    f"Report written to {report_path} "
+    f"({len(new_matches)} new, {len(applied_matches)} applied, {len(interested_matches)} interested)"
+)
