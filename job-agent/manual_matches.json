@@ -1,6 +1,6 @@
 {
-  "scored_count": 833,
-  "fetched_count": 833,
+  "scored_count": 946,
+  "fetched_count": 946,
   "matches": [
     {
       "title": "Clinical Trial Manager (LATAM)",
@@ -13,7 +13,8 @@
       "category": "In-field",
       "probability": "High",
       "trajectory": "Lateral move at essentially the same level as your Global Clinical Study Manager role -- strong, low-risk fit.",
-      "relocation": null
+      "relocation": null,
+      "market": "International (remote)"
     },
     {
       "title": "Clinical Trial Manager (LATAM)",
@@ -26,7 +27,8 @@
       "category": "In-field",
       "probability": "High",
       "trajectory": "Lateral move at essentially the same level as your Global Clinical Study Manager role -- strong, low-risk fit.",
-      "relocation": null
+      "relocation": null,
+      "market": "International (remote)"
     },
     {
       "title": "Manager, Global Investigator Grants (LATAM)",
@@ -39,7 +41,8 @@
       "category": "Adjacent",
       "probability": "Medium",
       "trajectory": "Lateral move into a specialized adjacent function -- leverages your budget experience, worth pursuing for the LATAM-specific scope.",
-      "relocation": null
+      "relocation": null,
+      "market": "International (remote)"
     },
     {
       "title": "Senior Regulatory and Start Up Specialist (Brazil)",
@@ -52,7 +55,8 @@
       "category": "Adjacent",
       "probability": "Medium",
       "trajectory": "A step down in title from your current scope, but Brazil-based and domain-relevant -- worth it as a foothold role if title level isn't the priority.",
-      "relocation": null
+      "relocation": null,
+      "market": "International (remote)"
     },
     {
       "title": "Senior Regulatory and Start Up Specialist (Brazil)",
@@ -65,7 +69,8 @@
       "category": "Adjacent",
       "probability": "Medium",
       "trajectory": "A step down in title from your current scope, but Brazil-based and domain-relevant -- worth it as a foothold role if title level isn't the priority.",
-      "relocation": null
+      "relocation": null,
+      "market": "International (remote)"
     },
     {
       "title": "Change Order Manager",
@@ -78,7 +83,8 @@
       "category": "Adjacent",
       "probability": "Medium",
       "trajectory": "Lateral move leveraging your budget-management experience into a more specialized contracts function.",
-      "relocation": null
+      "relocation": null,
+      "market": "International (remote)"
     },
     {
       "title": "Change Order Manager",
@@ -91,7 +97,8 @@
       "category": "Adjacent",
       "probability": "Medium",
       "trajectory": "Lateral move leveraging your budget-management experience into a more specialized contracts function.",
-      "relocation": null
+      "relocation": null,
+      "market": "International (remote)"
     },
     {
       "title": "Patient Engagement Lead (LATAM)",
@@ -104,7 +111,8 @@
       "category": "Adjacent",
       "probability": "Medium",
       "trajectory": "Lateral pivot into a more specialized patient-engagement function -- a stretch from your generalist portfolio background but plausible.",
-      "relocation": null
+      "relocation": null,
+      "market": "International (remote)"
     },
     {
       "title": "Patient Engagement Lead (LATAM)",
@@ -117,7 +125,8 @@
       "category": "Adjacent",
       "probability": "Medium",
       "trajectory": "Lateral pivot into a more specialized patient-engagement function -- a stretch from your generalist portfolio background but plausible.",
-      "relocation": null
+      "relocation": null,
+      "market": "International (remote)"
     },
     {
       "title": "TMF Lead II (LATAM)",
@@ -130,7 +139,8 @@
       "category": "Adjacent",
       "probability": "Medium",
       "trajectory": "A step down in scope from your current role -- worth it mainly as a Brazil-based foothold, not a growth move.",
-      "relocation": null
+      "relocation": null,
+      "market": "International (remote)"
     },
     {
       "title": "TMF Lead II (LATAM)",
@@ -143,7 +153,8 @@
       "category": "Adjacent",
       "probability": "Medium",
       "trajectory": "A step down in scope from your current role -- worth it mainly as a Brazil-based foothold, not a growth move.",
-      "relocation": null
+      "relocation": null,
+      "market": "International (remote)"
     },
     {
       "title": "Senior Clinical Project Manager",
@@ -156,7 +167,8 @@
       "category": "In-field",
       "probability": "High",
       "trajectory": "Lateral to modest step up from your Global Clinical Study Manager role -- strong direct fit, high-confidence application.",
-      "relocation": null
+      "relocation": null,
+      "market": "International (remote)"
     },
     {
       "title": "Clinical Regional Project Lead",
@@ -169,7 +181,8 @@
       "category": "In-field",
       "probability": "High",
       "trajectory": "Mirrors your Regional Study Coordinator + Global Study Manager background closely -- strong, low-risk fit worth prioritizing.",
-      "relocation": null
+      "relocation": null,
+      "market": "International (remote)"
     },
     {
       "title": "Lead Clinical Research Associate",
@@ -182,7 +195,8 @@
       "category": "In-field",
       "probability": "Medium",
       "trajectory": "Lateral pivot into site-monitoring leadership (a different track from your study/portfolio-management background) -- doable, not a direct line.",
-      "relocation": null
+      "relocation": null,
+      "market": "International (remote)"
     },
     {
       "title": "Senior Clinical QA Specialist",
@@ -195,7 +209,8 @@
       "category": "Adjacent",
       "probability": "Medium",
       "trajectory": "Lateral pivot into quality -- leverages your oversight/compliance experience even without a dedicated QA title history.",
-      "relocation": null
+      "relocation": null,
+      "market": "International (remote)"
     },
     {
       "title": "Specialist, Quality Assurance",
@@ -208,7 +223,8 @@
       "category": "Adjacent",
       "probability": "Medium",
       "trajectory": "Lateral move into a new function at a lower formal title than your current scope -- worth it if building QA credentials serves your long-term regulatory/quality trajectory.",
-      "relocation": null
+      "relocation": null,
+      "market": "International (remote)"
     },
     {
       "title": "Therapeutic Area Lead (Gastroenterology)",
@@ -221,8 +237,93 @@
       "category": "In-field",
       "probability": "Long-shot",
       "trajectory": "A leadership step up in scope, but likely requires deep GI-specific trial experience you don't have -- worth a shot only if GI depth isn't a hard requirement.",
-      "relocation": null
+      "relocation": null,
+      "market": "International (remote)"
+    },
+    {
+      "title": "Coordenador de Centro de Pesquisa Clínica",
+      "company": "Synvia",
+      "location": "On-site, Campinas, SP",
+      "url": "https://synvia.gupy.io/jobs/11724142",
+      "score": 65,
+      "salary": "Not disclosed",
+      "reason": "Site-level clinical research center leadership at a dedicated Brazilian CRO -- direct operational overlap with your trial-management background.",
+      "category": "In-field",
+      "probability": "Medium",
+      "trajectory": "A step down from portfolio management to single-site leadership, but a legitimate senior local-market ops role -- worth it as a Brazilian-market foothold.",
+      "relocation": null,
+      "market": "Brazilian market (local)"
+    },
+    {
+      "title": "Coordenador de Pesquisa Clínica",
+      "company": "Synvia",
+      "location": "On-site, São Paulo, SP",
+      "url": "https://synvia.gupy.io/jobs/11427954",
+      "score": 64,
+      "salary": "Not disclosed",
+      "reason": "Clinical research coordination at a dedicated Brazilian CRO -- solid operational overlap with your trial-management background.",
+      "category": "In-field",
+      "probability": "Medium",
+      "trajectory": "Step down in scope from portfolio management, but a genuine senior local-market operations role and a credible Brazilian-market foothold.",
+      "relocation": null,
+      "market": "Brazilian market (local)"
+    },
+    {
+      "title": "Analista de Projetos Clínicos Sênior I CRO",
+      "company": "Synvia",
+      "location": "Remote",
+      "url": "https://synvia.gupy.io/jobs/11604156",
+      "score": 60,
+      "salary": "Not disclosed",
+      "reason": "Senior clinical projects analyst at a Brazilian CRO, remote -- individual-contributor level but domain-relevant.",
+      "category": "In-field",
+      "probability": "Medium",
+      "trajectory": "Senior analyst-level, individual-contributor role -- a step down from your management scope, but remote, domain-relevant, and a real local-market foothold.",
+      "relocation": null,
+      "market": "Brazilian market (local)"
+    },
+    {
+      "title": "Especialista de Data Management",
+      "company": "Synvia",
+      "location": "Remote",
+      "url": "https://synvia.gupy.io/jobs/11466199",
+      "score": 61,
+      "salary": "Not disclosed",
+      "reason": "Senior data management specialist role, remote, strongly paid for the local market -- adjacent to your portfolio oversight experience.",
+      "category": "Adjacent",
+      "probability": "Medium",
+      "trajectory": "Adjacent specialist function without a dedicated data-management history, but senior-level, remote, and strongly paid for the local market.",
+      "relocation": null,
+      "market": "Brazilian market (local)"
+    },
+    {
+      "title": "Analista em Pesquisa Clínica Sr | IDOR São Paulo",
+      "company": "IDOR",
+      "location": "On-site, São Paulo, SP",
+      "url": "https://idor.gupy.io/jobs/11634980",
+      "score": 60,
+      "salary": "Not disclosed",
+      "reason": "Senior clinical research analyst at IDOR, a respected Brazilian research institute -- individual-contributor level.",
+      "category": "In-field",
+      "probability": "Medium",
+      "trajectory": "Senior clinical-research analyst role at a respected research institute -- individual-contributor level, a step down from portfolio management, but a credible in-field local foothold.",
+      "relocation": null,
+      "market": "Brazilian market (local)"
+    },
+    {
+      "title": "Analista Sr de Qualidade em Pesquisa Clínica | IDOR São Paulo",
+      "company": "IDOR",
+      "location": "On-site, São Paulo, SP",
+      "url": "https://idor.gupy.io/jobs/12090964",
+      "score": 60,
+      "salary": "Not disclosed",
+      "reason": "Senior quality-in-clinical-research analyst at IDOR -- adjacent function, individual-contributor level.",
+      "category": "Adjacent",
+      "probability": "Medium",
+      "trajectory": "Senior quality-in-clinical-research analyst role at a respected institute -- adjacent function, individual-contributor level, but a credible local foothold.",
+      "relocation": null,
+      "market": "Brazilian market (local)"
     }
   ],
-  "excluded_under_broadened_rubric_note": "Rescreened all Brazil/LATAM-tagged listings across quality, regulatory affairs, and medical affairs (not just clinical ops/trial management) per the broadened rubric. Only additional candidates found were ClinChoice's Brazil-based Safety Officer, Drug Safety Associate, Medical Reviewer, and Regulatory Affairs Analyst roles — all titled 'Consultant' (contract) and/or junior-level, which score below 60 because they don't offer equal-or-better long-term pay/career growth vs. the candidate's current Portfolio Manager role."
+  "excluded_under_broadened_rubric_note": "Rescreened all Brazil/LATAM-tagged listings across quality, regulatory affairs, and medical affairs (not just clinical ops/trial management) per the broadened rubric. Only additional candidates found were ClinChoice's Brazil-based Safety Officer, Drug Safety Associate, Medical Reviewer, and Regulatory Affairs Analyst roles — all titled 'Consultant' (contract) and/or junior-level, which score below 60 because they don't offer equal-or-better long-term pay/career growth vs. the candidate's current Portfolio Manager role. Also searched Brazilian-market employers directly on Gupy (Synvia, IDOR, Eurofarma, Rennova): excluded lab-technician/nursing/finance/QC/pre-clinical-R&D postings as out of scope, and excluded mid-level ('Pleno') and junior/broad-band postings (CRA all-levels, Monitor Sênior individual-contributor site-monitoring, Analista de Assuntos Regulatórios, Analista de Farmacovigilância Sr, Analista de Desenvolvimento Clínico Pleno) that score below 60 once compensation and seniority step-down from a portfolio-management role are weighed honestly. Rede D'Or's main 1,607-job board, Hospital Santa Lucinda, PUCRS, and Cristália/Hypera Pharma were checked and ruled out (wrong function or no current openings) in favor of IDOR (Rede D'Or's dedicated research institute)."
 }

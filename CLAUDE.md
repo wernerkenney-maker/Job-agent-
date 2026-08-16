@@ -10,14 +10,21 @@ Candidate is based in Fortaleza. Code lives in `job-agent/`.
 When the user says **"check jobs"**, treat it as the complete instruction
 to do all of the following, without asking for confirmation:
 
-1. Fetch current listings from every company board across all five
+1. Fetch current listings from every company board across all six
    provider modules: `job-agent/fetch_greenhouse_jobs.py`,
    `job-agent/fetch_lever_jobs.py`, `job-agent/fetch_workable_jobs.py`,
    `job-agent/fetch_smartrecruiters_jobs.py`,
-   `job-agent/fetch_ashby_jobs.py` (each has its own `COMPANIES` dict;
-   Ashby's is currently empty — see its module docstring/README for
-   search notes before re-searching). Sibling-family mapping for dedup
-   lives in `job-agent/companies.py` (`COMPANY_FAMILIES`), shared by all.
+   `job-agent/fetch_ashby_jobs.py`, `job-agent/fetch_gupy_jobs.py` (each
+   has its own `COMPANIES` dict; Ashby's is currently empty — see its
+   module docstring/README for search notes before re-searching). The
+   first five are **international employers** hiring remotely into
+   Brazil (tag every job they produce `"market": "International
+   (remote)"`); Gupy covers **genuinely Brazilian-market employers**
+   hiring locally in BRL (tag its jobs `"market": "Brazilian market
+   (local)"`) — see `job-agent/README.md`'s "International vs. Brazilian
+   market" section for the search methodology and exclusions. Sibling-
+   family mapping for dedup lives in `job-agent/companies.py`
+   (`COMPANY_FAMILIES`), shared by all.
 2. Score each job for fit against `CANDIDATE_PROFILE` in
    `job-agent/match_jobs.py`, using the broadened rubric in
    `SCORING_INSTRUCTIONS`: not limited to an exact title match (clinical
@@ -37,15 +44,22 @@ to do all of the following, without asking for confirmation:
    candidate's current role, and whether it's worth pursuing as a
    stretch), and `relocation` (relocation assistance / home-office
    stipend / sign-on bonus, only if the posting's own text says so —
-   blank, never guessed, otherwise).
+   blank, never guessed, otherwise). For Brazilian-market (Gupy) postings,
+   read titles by local convention, not literal US-title equivalence
+   (e.g. "Coordenador" is typically genuine site/operational-leadership
+   scope locally, not a junior title) — but still score honestly: most
+   currently-open local roles are individual-contributor ("Analista")
+   level, a real step down in scope and pay from the candidate's
+   Portfolio Manager role, and that trade-off belongs in the score and
+   `trajectory` line rather than being smoothed over.
    - If `ANTHROPIC_API_KEY` is set, run `python3 match_jobs.py` — it
      fetches, scores, and runs the full pipeline (below) itself.
    - If no API key is available, score manually (as Claude, in
      conversation) using the same rubric, record raw per-posting matches
      in `job-agent/manual_matches.json` (with a real, API-verified
      `salary` per posting — see step 4, never invented — plus
-     `category`/`probability`/`trajectory` per posting), record any
-     cover letter / resume bullets text / salary estimate figures for
+     `category`/`probability`/`trajectory`/`market` per posting), record
+     any cover letter / resume bullets text / salary estimate figures for
      this run in `job-agent/manual_extras.json`, then run
      `python3 apply_manual_scores.py`.
 3. The pipeline (`job-agent/pipeline.py`, used identically by both paths
@@ -81,26 +95,40 @@ to do all of the following, without asking for confirmation:
      from `job-agent/salary.py` (which only ever reports a number when
      the posting structurally discloses one — metadata field or embedded
      pay-transparency widget — never inferred from other figures in the
-     description).
+     description). Brazilian-market (Gupy) postings never structurally
+     disclose salary at all, so they always go through
+     `job-agent/br_salary_estimate.py` instead — a title-matched table of
+     monthly BRL ranges grounded in real Glassdoor Brasil reference data
+     per title cluster (not pure inference), e.g. "R$6.800–R$10.500/month
+     (estimated — Glassdoor Brazil, Analista de Pesquisa Clínica Sênior,
+     not disclosed by employer)".
    - **Adds a city + cost-of-living note** (`job-agent/cost_of_living.py`):
      extracts the specific city from the location when one is named
      (blank for bare "Remote, Brazil" postings), and — when a salary
      figure (disclosed or estimated) is available — a plain-language,
      clearly-labeled-as-rough comparison against Fortaleza (the
      candidate's home base), e.g. "São Paulo's cost of living runs
-     roughly 45% higher than Fortaleza... $65,000–$95,000 USD there is
-     roughly equivalent to $44,800–$65,500 USD of purchasing power in
-     Fortaleza." Computed deterministically (no API call) on every run.
+     roughly 45% higher than Fortaleza... R$325.000–R$475.000 there is
+     roughly equivalent to R$224.000–R$328.000 of purchasing power in
+     Fortaleza." International (USD) matches convert through an
+     approximate FX rate first (`col_comparison_note`); Brazilian-market
+     matches are already monthly BRL, so no FX step is needed
+     (`col_comparison_note_brl`). Computed deterministically (no API
+     call) on every run.
 4. Update `job-agent/report.html` with the fresh matches (score 60+,
-   "New matches" + "Tracked" sections, each showing category/probability
-   tags, salary/estimate, cost-of-living note, relocation-support flag, a
-   trajectory callout, sibling links, status, and cover letter/resume
-   bullets links where applicable) — this happens automatically via
-   `report.write_report()` in both paths above. Note: draft links only
-   render for jobs currently in one of those two sections — a job that
-   already has drafts but has scrolled out of "new" (seen before, no
-   status set) still has the files in the repo, just not linked from the
-   report until it's marked `interested`/`applied`.
+   "New matches" + "Tracked" sections, each showing a market tag
+   ("International (remote)" / "Brazilian market (local)")
+   category/probability tags, salary/estimate, cost-of-living note,
+   relocation-support flag, a trajectory callout, sibling links, status,
+   and cover letter/resume bullets links where applicable) — this happens
+   automatically via `report.write_report()` in both paths above. Whenever
+   a section contains both markets, it's split into two labeled
+   subsections so international and Brazilian-market results can be
+   compared side by side rather than interleaved by score. Note: draft
+   links only render for jobs currently in one of those two sections — a
+   job that already has drafts but has scrolled out of "new" (seen
+   before, no status set) still has the files in the repo, just not
+   linked from the report until it's marked `interested`/`applied`.
 5. `report.html` must keep every job title as its own clickable link
    straight to the (primary) posting, and its header must show the pace
    tracker: a running "N applied this week · M all-time" count from

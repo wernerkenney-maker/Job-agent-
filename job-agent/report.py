@@ -77,6 +77,11 @@ PROBABILITY_COLORS = {
     "Long-shot": ("#a8341a", "#fbe9e6"),
 }
 
+MARKET_COLORS = {
+    "International (remote)": ("#2f6f4f", "#e6f6ef"),
+    "Brazilian market (local)": ("#1d5c8a", "#e6f0f9"),
+}
+
 
 def _band_colors(score):
     for threshold, fg, bg in SCORE_BANDS:
@@ -132,8 +137,11 @@ def _job_card(job):
     cat_fg, cat_bg = CATEGORY_COLORS.get(category, CATEGORY_COLORS["Adjacent"])
     probability = job.get("probability", "Medium")
     prob_fg, prob_bg = PROBABILITY_COLORS.get(probability, PROBABILITY_COLORS["Medium"])
+    market = job.get("market", "International (remote)")
+    market_fg, market_bg = MARKET_COLORS.get(market, MARKET_COLORS["International (remote)"])
     tags_html = (
         '<div class="tags">'
+        f'<span class="tag" style="color:{market_fg}; background:{market_bg};">{html.escape(market)}</span>'
         f'<span class="tag" style="color:{cat_fg}; background:{cat_bg};">{html.escape(category)}</span>'
         f'<span class="tag" style="color:{prob_fg}; background:{prob_bg};">{html.escape(probability)}</span>'
         "</div>"
@@ -170,6 +178,17 @@ def _job_card(job):
     </li>"""
 
 
+def _market_group(title_text, matches):
+    cards = "\n".join(_job_card(job) for job in matches)
+    return f"""
+      <div class="market-group">
+        <h3>{title_text}</h3>
+        <ul>
+          {cards}
+        </ul>
+      </div>"""
+
+
 def _section(title_text, matches, empty_text):
     if not matches:
         return f"""
@@ -177,13 +196,23 @@ def _section(title_text, matches, empty_text):
       <h2>{title_text}</h2>
       <p class="empty">{empty_text}</p>
     </section>"""
-    cards = "\n".join(_job_card(job) for job in matches)
+
+    intl = [j for j in matches if j.get("market", "International (remote)") != "Brazilian market (local)"]
+    br = [j for j in matches if j.get("market") == "Brazilian market (local)"]
+
+    if intl and br:
+        body = _market_group("International (remote)", intl) + _market_group("Brazilian market (local)", br)
+    else:
+        cards = "\n".join(_job_card(job) for job in matches)
+        body = f"""
+      <ul>
+        {cards}
+      </ul>"""
+
     return f"""
     <section>
       <h2>{title_text}</h2>
-      <ul>
-        {cards}
-      </ul>
+      {body}
     </section>"""
 
 
@@ -253,8 +282,18 @@ def generate_report_html(new_matches, tracked_matches, scored_count, fetched_cou
     font-size: 1.05rem;
     margin: 0 0 12px;
   }}
+  h3 {{
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--text-muted);
+    margin: 0 0 10px;
+  }}
   section + section {{
     margin-top: 30px;
+  }}
+  .market-group + .market-group {{
+    margin-top: 22px;
   }}
   .subtitle {{
     color: var(--text-muted);
@@ -444,7 +483,7 @@ def generate_report_html(new_matches, tracked_matches, scored_count, fetched_cou
   <div class="wrap">
     <header>
       <h1>Clinical Ops Job Matches</h1>
-      <p class="subtitle">Clinical operations, quality, regulatory affairs, medical affairs, and adjacent pharma/biotech leadership roles, scored for fit, compensation, and career trajectory against your background — workable from Brazil required (remote, or on-site/hybrid anywhere in Brazil). Filtered to score 60+, sorted highest first. Sibling postings from the same corporate family are shown once.</p>
+      <p class="subtitle">Clinical operations, quality, regulatory affairs, medical affairs, and adjacent pharma/biotech leadership roles, scored for fit, compensation, and career trajectory against your background — workable from Brazil required (remote, or on-site/hybrid anywhere in Brazil). Covers both international remote employers and Brazilian-market employers hiring locally in BRL, tagged and grouped separately for comparison. Filtered to score 60+, sorted highest first. Sibling postings from the same corporate family are shown once.</p>
       <div class="pace">
         <span class="pace-figure">{pace_weekly}</span> applied this week &middot; <span class="pace-figure">{pace_total}</span> all-time
       </div>

@@ -13,6 +13,7 @@ source.
 
 import json
 
+from br_salary_estimate import estimate_br_salary
 from cover_letter import save_cover_letter
 from pipeline import process_run
 from report import write_report
@@ -45,6 +46,8 @@ def resume_bullets_fn(job):
 
 
 def salary_estimate_fn(job):
+    if job.get("market") == "Brazilian market (local)":
+        return estimate_br_salary(job["title"])
     figures = salary_estimates.get(job["title"])
     if not figures:
         return None

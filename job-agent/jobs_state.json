@@ -12,6 +12,7 @@
     "key": "Care Access::specialist, quality assurance",
     "last_seen": "2026-08-16",
     "location": "Brazil-Home Office",
+    "market": "International (remote)",
     "postings": [
       {
         "company": "Care Access",
@@ -43,6 +44,7 @@
     "key": "EDETEK::senior clinical project manager",
     "last_seen": "2026-08-16",
     "location": "Remote, Brazil",
+    "market": "International (remote)",
     "postings": [
       {
         "company": "EDETEK",
@@ -74,6 +76,7 @@
     "key": "EDETEK::senior clinical qa specialist",
     "last_seen": "2026-08-16",
     "location": "Remote, Brazil",
+    "market": "International (remote)",
     "postings": [
       {
         "company": "EDETEK",
@@ -92,6 +95,70 @@
     "title": "Senior Clinical QA Specialist",
     "trajectory": "Lateral pivot into quality -- leverages your oversight/compliance experience even without a dedicated QA title history."
   },
+  "IDOR::analista em pesquisa cl\u00ednica sr | idor s\u00e3o paulo": {
+    "category": "In-field",
+    "city": "S\u00e3o Paulo",
+    "col_note": "~R$6.800\u2013R$10.500/month in S\u00e3o Paulo is roughly equivalent to ~R$4.700\u2013R$7.200/month of purchasing power in Fortaleza (S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates).",
+    "companies": [
+      "IDOR"
+    ],
+    "company": "IDOR",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-16",
+    "key": "IDOR::analista em pesquisa cl\u00ednica sr | idor s\u00e3o paulo",
+    "last_seen": "2026-08-16",
+    "location": "On-site, S\u00e3o Paulo, SP",
+    "market": "Brazilian market (local)",
+    "postings": [
+      {
+        "company": "IDOR",
+        "location": "On-site, S\u00e3o Paulo, SP",
+        "url": "https://idor.gupy.io/jobs/11634980"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "Senior clinical research analyst at IDOR, a respected Brazilian research institute -- individual-contributor level.",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_estimate": "R$6.800\u2013R$10.500/month (estimated \u2014 Glassdoor Brazil, Analista de Pesquisa Cl\u00ednica S\u00eanior, not disclosed by employer)",
+    "score": 60,
+    "status": "new",
+    "title": "Analista em Pesquisa Cl\u00ednica Sr | IDOR S\u00e3o Paulo",
+    "trajectory": "Senior clinical-research analyst role at a respected research institute -- individual-contributor level, a step down from portfolio management, but a credible in-field local foothold."
+  },
+  "IDOR::analista sr de qualidade em pesquisa cl\u00ednica | idor s\u00e3o paulo": {
+    "category": "Adjacent",
+    "city": "S\u00e3o Paulo",
+    "col_note": "~R$6.800\u2013R$10.500/month in S\u00e3o Paulo is roughly equivalent to ~R$4.700\u2013R$7.200/month of purchasing power in Fortaleza (S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates).",
+    "companies": [
+      "IDOR"
+    ],
+    "company": "IDOR",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-16",
+    "key": "IDOR::analista sr de qualidade em pesquisa cl\u00ednica | idor s\u00e3o paulo",
+    "last_seen": "2026-08-16",
+    "location": "On-site, S\u00e3o Paulo, SP",
+    "market": "Brazilian market (local)",
+    "postings": [
+      {
+        "company": "IDOR",
+        "location": "On-site, S\u00e3o Paulo, SP",
+        "url": "https://idor.gupy.io/jobs/12090964"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "Senior quality-in-clinical-research analyst at IDOR -- adjacent function, individual-contributor level.",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_estimate": "R$6.800\u2013R$10.500/month (estimated \u2014 Glassdoor Brazil, Analista de Pesquisa Cl\u00ednica S\u00eanior band (quality function), not disclosed by employer)",
+    "score": 60,
+    "status": "new",
+    "title": "Analista Sr de Qualidade em Pesquisa Cl\u00ednica | IDOR S\u00e3o Paulo",
+    "trajectory": "Senior quality-in-clinical-research analyst role at a respected institute -- adjacent function, individual-contributor level, but a credible local foothold."
+  },
   "PSI CRO::clinical regional project lead": {
     "category": "In-field",
     "city": "S\u00e3o Paulo",
@@ -105,6 +172,7 @@
     "key": "PSI CRO::clinical regional project lead",
     "last_seen": "2026-08-16",
     "location": "S\u00e3o Paulo, SP, Brazil",
+    "market": "International (remote)",
     "postings": [
       {
         "company": "PSI CRO",
@@ -136,6 +204,7 @@
     "key": "PSI CRO::lead clinical research associate",
     "last_seen": "2026-08-16",
     "location": "S\u00e3o Paulo, SP, Brazil",
+    "market": "International (remote)",
     "postings": [
       {
         "company": "PSI CRO",
@@ -167,6 +236,7 @@
     "key": "PSI CRO::therapeutic area lead (gastroenterology)",
     "last_seen": "2026-08-16",
     "location": "S\u00e3o Paulo, SP, Brazil",
+    "market": "International (remote)",
     "postings": [
       {
         "company": "PSI CRO",
@@ -199,6 +269,7 @@
     "key": "Precision Medicine Group family::change order manager",
     "last_seen": "2026-08-16",
     "location": "Remote, Brazil; Remote, Mexico",
+    "market": "International (remote)",
     "postings": [
       {
         "company": "Precision Medicine Group",
@@ -236,6 +307,7 @@
     "key": "Precision Medicine Group family::clinical trial manager (latam)",
     "last_seen": "2026-08-16",
     "location": "Remote, Argentina; Remote, Brazil; Remote, Mexico",
+    "market": "International (remote)",
     "postings": [
       {
         "company": "Precision Medicine Group",
@@ -272,6 +344,7 @@
     "key": "Precision Medicine Group family::manager, global investigator grants (latam)",
     "last_seen": "2026-08-16",
     "location": "Remote, Argentina; Remote, Brazil; Remote, Mexico",
+    "market": "International (remote)",
     "postings": [
       {
         "company": "Precision for Medicine",
@@ -304,6 +377,7 @@
     "key": "Precision Medicine Group family::patient engagement lead (latam)",
     "last_seen": "2026-08-16",
     "location": "Remote, Argentina; Remote, Brazil; Remote, Mexico",
+    "market": "International (remote)",
     "postings": [
       {
         "company": "Precision Medicine Group",
@@ -341,6 +415,7 @@
     "key": "Precision Medicine Group family::senior regulatory and start up specialist (brazil)",
     "last_seen": "2026-08-16",
     "location": "Remote, Brazil",
+    "market": "International (remote)",
     "postings": [
       {
         "company": "Precision Medicine Group",
@@ -378,6 +453,7 @@
     "key": "Precision Medicine Group family::tmf lead ii (latam)",
     "last_seen": "2026-08-16",
     "location": "Remote, Brazil; Remote, Mexico",
+    "market": "International (remote)",
     "postings": [
       {
         "company": "Precision Medicine Group",
@@ -400,5 +476,133 @@
     "status": "new",
     "title": "TMF Lead II (LATAM)",
     "trajectory": "A step down in scope from your current role -- worth it mainly as a Brazil-based foothold, not a growth move."
+  },
+  "Synvia::analista de projetos cl\u00ednicos s\u00eanior i cro": {
+    "category": "In-field",
+    "city": null,
+    "col_note": null,
+    "companies": [
+      "Synvia"
+    ],
+    "company": "Synvia",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-16",
+    "key": "Synvia::analista de projetos cl\u00ednicos s\u00eanior i cro",
+    "last_seen": "2026-08-16",
+    "location": "Remote",
+    "market": "Brazilian market (local)",
+    "postings": [
+      {
+        "company": "Synvia",
+        "location": "Remote",
+        "url": "https://synvia.gupy.io/jobs/11604156"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "Senior clinical projects analyst at a Brazilian CRO, remote -- individual-contributor level but domain-relevant.",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_estimate": "R$6.800\u2013R$10.500/month (estimated \u2014 Glassdoor Brazil, Analista de Pesquisa Cl\u00ednica S\u00eanior, not disclosed by employer)",
+    "score": 60,
+    "status": "new",
+    "title": "Analista de Projetos Cl\u00ednicos S\u00eanior I CRO",
+    "trajectory": "Senior analyst-level, individual-contributor role -- a step down from your management scope, but remote, domain-relevant, and a real local-market foothold."
+  },
+  "Synvia::coordenador de centro de pesquisa cl\u00ednica": {
+    "category": "In-field",
+    "city": "Campinas",
+    "col_note": "~R$4.500\u2013R$9.800/month in Campinas is roughly equivalent to ~R$3.500\u2013R$7.500/month of purchasing power in Fortaleza (Campinas's cost of living runs roughly 30% higher than Fortaleza; both figures rough estimates).",
+    "companies": [
+      "Synvia"
+    ],
+    "company": "Synvia",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-16",
+    "key": "Synvia::coordenador de centro de pesquisa cl\u00ednica",
+    "last_seen": "2026-08-16",
+    "location": "On-site, Campinas, SP",
+    "market": "Brazilian market (local)",
+    "postings": [
+      {
+        "company": "Synvia",
+        "location": "On-site, Campinas, SP",
+        "url": "https://synvia.gupy.io/jobs/11724142"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "Site-level clinical research center leadership at a dedicated Brazilian CRO -- direct operational overlap with your trial-management background.",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_estimate": "R$4.500\u2013R$9.800/month (estimated \u2014 Glassdoor Brazil, Coordenador de Pesquisa Cl\u00ednica (S\u00e3o Paulo range), not disclosed by employer)",
+    "score": 65,
+    "status": "new",
+    "title": "Coordenador de Centro de Pesquisa Cl\u00ednica",
+    "trajectory": "A step down from portfolio management to single-site leadership, but a legitimate senior local-market ops role -- worth it as a Brazilian-market foothold."
+  },
+  "Synvia::coordenador de pesquisa cl\u00ednica": {
+    "category": "In-field",
+    "city": "S\u00e3o Paulo",
+    "col_note": "~R$4.500\u2013R$9.800/month in S\u00e3o Paulo is roughly equivalent to ~R$3.100\u2013R$6.800/month of purchasing power in Fortaleza (S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates).",
+    "companies": [
+      "Synvia"
+    ],
+    "company": "Synvia",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-16",
+    "key": "Synvia::coordenador de pesquisa cl\u00ednica",
+    "last_seen": "2026-08-16",
+    "location": "On-site, S\u00e3o Paulo, SP",
+    "market": "Brazilian market (local)",
+    "postings": [
+      {
+        "company": "Synvia",
+        "location": "On-site, S\u00e3o Paulo, SP",
+        "url": "https://synvia.gupy.io/jobs/11427954"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "Clinical research coordination at a dedicated Brazilian CRO -- solid operational overlap with your trial-management background.",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_estimate": "R$4.500\u2013R$9.800/month (estimated \u2014 Glassdoor Brazil, Coordenador de Pesquisa Cl\u00ednica (S\u00e3o Paulo range), not disclosed by employer)",
+    "score": 64,
+    "status": "new",
+    "title": "Coordenador de Pesquisa Cl\u00ednica",
+    "trajectory": "Step down in scope from portfolio management, but a genuine senior local-market operations role and a credible Brazilian-market foothold."
+  },
+  "Synvia::especialista de data management": {
+    "category": "Adjacent",
+    "city": null,
+    "col_note": null,
+    "companies": [
+      "Synvia"
+    ],
+    "company": "Synvia",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-16",
+    "key": "Synvia::especialista de data management",
+    "last_seen": "2026-08-16",
+    "location": "Remote",
+    "market": "Brazilian market (local)",
+    "postings": [
+      {
+        "company": "Synvia",
+        "location": "Remote",
+        "url": "https://synvia.gupy.io/jobs/11466199"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "Senior data management specialist role, remote, strongly paid for the local market -- adjacent to your portfolio oversight experience.",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_estimate": "R$8.000\u2013R$13.000/month (estimated \u2014 Glassdoor Brazil, senior specialist band, pharma/CRO data functions, not disclosed by employer)",
+    "score": 61,
+    "status": "new",
+    "title": "Especialista de Data Management",
+    "trajectory": "Adjacent specialist function without a dedicated data-management history, but senior-level, remote, and strongly paid for the local market."
   }
 }

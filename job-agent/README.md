@@ -7,8 +7,12 @@ based in Fortaleza.
 
 ## Fetching listings
 
-Five provider modules, one per ATS, all with the same shape (`COMPANIES`
-dict of token → display name, plus a `fetch_jobs()`):
+Six provider modules, one per ATS, all with the same shape (`COMPANIES`
+dict of token → display name, plus a `fetch_jobs()`). The first five cover
+**international employers** hiring remotely into Brazil (or Brazil/LATAM
+job boards of foreign-HQ CROs/biotechs); the sixth, Gupy, covers
+**genuinely Brazilian-market employers** hiring locally in BRL — see
+"International vs. Brazilian market" below.
 
 - `fetch_greenhouse_jobs.py` — Greenhouse boards:
   - **Iovance Biotherapeutics** — clinical-stage biotech (cell therapy)
@@ -45,6 +49,24 @@ dict of token → display name, plus a `fetch_jobs()`):
   Unlearn, Triomics, and more) — real companies, no Brazil/LATAM-eligible
   postings as of this check. Ready to fetch (including compensation via
   `includeCompensation=true`) as soon as a genuine match turns up.
+- `fetch_gupy_jobs.py` — Gupy boards (Brazil's dominant recruiting
+  platform, used by genuinely **Brazilian-market** employers — see
+  "International vs. Brazilian market" below):
+  - **Synvia** — dedicated Brazilian CRO, the largest/most relevant hit
+  - **IDOR** (Instituto D'Or de Pesquisa e Ensino) — Rede D'Or's research
+    institute
+  - **Eurofarma** — major Brazilian pharma
+  - **Rennova** — aesthetics/medical products company with a clinical
+    research function (no clinical-ops-relevant postings as of this
+    check, kept tracked)
+  Gupy has no documented public read API — `developers.gupy.io` covers
+  only the authenticated employer-side API. Company career pages
+  (`https://{company}.gupy.io/`) are public and server-render the full
+  open-job list into a Next.js `__NEXT_DATA__` script tag; the job detail
+  page (`.../jobs/{id}`) does the same for description/prerequisites/
+  responsibilities text (not present on the list-page job objects). Both
+  are read the same way any visitor's browser would, unauthenticated —
+  same principle as the other five providers' public JSON APIs.
 
 `companies.py` holds `COMPANY_FAMILIES`, mapping sibling boards from the
 same corporate group across *any* provider (currently all three
@@ -58,6 +80,7 @@ python3 fetch_lever_jobs.py
 python3 fetch_workable_jobs.py
 python3 fetch_smartrecruiters_jobs.py
 python3 fetch_ashby_jobs.py
+python3 fetch_gupy_jobs.py
 ```
 
 **Note on Thermo Fisher:** its careers site (jobs.thermofisher.com) runs
@@ -115,6 +138,48 @@ Genuine Brazil/LATAM remote hiring in this space appears concentrated in
 CROs with an explicit global-delivery staffing model (the Precision
 family, ClinChoice, EDETEK, PSI CRO, Care Access) rather than
 single-asset biotechs or job-board intermediaries.
+
+*Gupy* — companies checked and ruled out: Rede D'Or's main job board
+(1,600+ openings, but overwhelmingly clinical-engineering/patient-care
+roles, not clinical-trial work — its dedicated research institute, IDOR,
+is the relevant board instead), Hospital Santa Lucinda (too small, ~6
+open roles, none relevant), a deactivated "icts" group board (0 jobs),
+PUCRS (0 currently-open relevant roles). Cristália and Hypera Pharma are
+real major Brazilian pharma companies but their current Gupy postings are
+pharma R&D/QC/manufacturing, not clinical operations — deprioritized, not
+excluded outright; worth rechecking later. Within each company's board,
+lab-technician, nursing, finance, quality-control, and pre-clinical-R&D
+titles are filtered out as out-of-scope function even when they mention
+"pesquisa clínica" in passing.
+
+## International vs. Brazilian market
+
+Every match carries a `market` field: `"International (remote)"` (the
+first five providers — foreign-HQ employers reaching into Brazil via
+remote/PEO arrangements, generally paying USD) or `"Brazilian market
+(local)"` (Gupy — genuinely Brazilian employers hiring locally, paying
+BRL at local market rates). `report.html` tags every card with its market
+and, whenever a "New matches" or "Tracked" section contains both, splits
+it into two labeled subsections so the two can be compared side by side
+rather than interleaved by score.
+
+Because Gupy postings never structurally disclose salary at all (no
+Brazilian ATS in this pipeline exposes a pay field), Brazilian-market
+matches always go through the salary-estimate fallback below, and their
+estimates are BRL-denominated and monthly (the normal way Brazilian
+salaries are quoted), not USD/annual like the international estimates.
+
+Brazilian CRO/pharma title conventions differ from US ones and are
+scored accordingly rather than read literally: e.g. "Coordenador" is
+typically a genuine site/operational-leadership role locally, not a
+junior title, even though it still sits well below the candidate's
+current portfolio-management scope. Scores for this market honestly
+reflect that most currently-open roles are individual-contributor
+("Analista") level — a real step down in scope and pay from the
+candidate's Portfolio Manager role — while still surfacing the strongest
+options (site/study coordination, senior specialist roles) as legitimate
+local-market footholds rather than inflating or zeroing them out
+wholesale.
 
 ## Resume-based matching
 
@@ -247,6 +312,22 @@ Claude directly and recorded in `manual_extras.json`. This is always
 presented as an estimate, styled distinctly (italic) from a real
 disclosed figure, never asserted as fact.
 
+Brazilian-market (Gupy) matches use `br_salary_estimate.py` instead,
+since Gupy never structurally discloses a salary field at all. Rather
+than a fresh model guess each run, it's a small title-keyword-matched
+table of monthly BRL ranges grounded in real Glassdoor Brasil salary
+pages researched per title cluster (Gerente/Coordenador de Pesquisa
+Clínica, Monitor/CRA, Farmacovigilância, Assuntos Regulatórios, Data
+Management, etc. — see `_BANDS` in `br_salary_estimate.py`, each entry
+citing its source), rather than pure inference — those sites require a
+browser session and block simple scraping, so this is a snapshot revisit
+if the market moves noticeably rather than a live scrape on every run.
+Brazilian titles abbreviate "sênior" as "Sr" at least as often as
+spelling it out, so seniority-band matching checks for both. Output is
+always monthly BRL (e.g. `"R$6.800–R$10.500/month (estimated — Glassdoor
+Brazil, Analista de Pesquisa Clínica Sênior, not disclosed by employer)"`)
+— never annualized, matching Brazilian salary-quoting convention.
+
 ## Relocation support flag
 
 `relocation.py` scans the job description's own text for explicit
@@ -290,6 +371,12 @@ note text itself:
 - `USD_TO_BRL_RATE` — since salary/estimate figures are USD, converting
   to reais needs an FX rate too; also illustrative, not a live quote
   (currently 5.00, revisit if it drifts noticeably).
+
+Brazilian-market matches skip the FX step entirely — their salary/
+estimate figures are already monthly BRL, so `col_comparison_note_brl()`
+just applies the COL ratio directly (`pipeline.py` branches on the job's
+`market` field to pick the right path, parsing the BRL "R$X.XXX" figures
+with `parse_brl_salary_figures()` rather than the USD parser).
 
 Computed deterministically inside `pipeline.process_run()` on every run
 (no API call), so it applies identically to both the live and manual

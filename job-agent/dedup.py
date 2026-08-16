@@ -62,6 +62,7 @@ def merge_sibling_postings(matches):
                 "probability": primary.get("probability", "Medium"),
                 "trajectory": primary.get("trajectory", ""),
                 "relocation": relocation,
+                "market": primary.get("market", "International (remote)"),
             }
         )
     return merged

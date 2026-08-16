@@ -8,7 +8,12 @@ paths produce the same report.html shape.
 
 from datetime import datetime, timezone
 
-from cost_of_living import col_comparison_note, find_city
+from cost_of_living import (
+    col_comparison_note,
+    col_comparison_note_brl,
+    find_city,
+    parse_brl_salary_figures,
+)
 from cover_letter import COVER_LETTER_SCORE_THRESHOLD as DRAFT_MATERIALS_THRESHOLD
 from dedup import merge_sibling_postings
 from jobs_state import TRACKED_STATUSES, load_state, save_state, update_state
@@ -57,7 +62,13 @@ def process_run(
         city = find_city(job.get("location", ""))
         job["city"] = city
         salary_for_comparison = job.get("salary") if job.get("salary") != "Not disclosed" else job.get("salary_estimate")
-        job["col_note"] = col_comparison_note(city, salary_for_comparison) if city else None
+        if not city:
+            job["col_note"] = None
+        elif job.get("market") == "Brazilian market (local)":
+            figures = parse_brl_salary_figures(salary_for_comparison)
+            job["col_note"] = col_comparison_note_brl(city, *figures) if figures else None
+        else:
+            job["col_note"] = col_comparison_note(city, salary_for_comparison)
 
     save_state(state)
 

@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Fetch jobs from the configured Greenhouse, Lever, Workable,
-SmartRecruiters, and Ashby boards, score each one for fit against a
-candidate's background using Claude, dedupe sibling postings, track which
-matches are new since the last run, draft cover letters + tailored resume
-bullets for 80+ scores, estimate salary where undisclosed, and refresh
-report.html.
+SmartRecruiters, Ashby, and Gupy (Brazilian-market) boards, score each one
+for fit against a candidate's background using Claude, dedupe sibling
+postings, track which matches are new since the last run, draft cover
+letters + tailored resume bullets for 80+ scores, estimate salary where
+undisclosed, and refresh report.html.
 
 Requires an Anthropic API key in the ANTHROPIC_API_KEY environment variable.
 """
@@ -17,9 +17,11 @@ import anthropic
 
 import fetch_ashby_jobs
 import fetch_greenhouse_jobs
+import fetch_gupy_jobs
 import fetch_lever_jobs
 import fetch_smartrecruiters_jobs
 import fetch_workable_jobs
+from br_salary_estimate import estimate_br_salary
 from cover_letter import generate_cover_letter_via_claude, save_cover_letter
 from pipeline import process_run
 from relocation import detect_relocation_support
@@ -119,6 +121,7 @@ def collect_all_jobs():
                     "location": (job.get("location") or {}).get("name", ""),
                     "url": job["absolute_url"],
                     "company": company_name,
+                    "market": "International (remote)",
                 }
             )
 
@@ -138,6 +141,7 @@ def collect_all_jobs():
                     "location": fetch_lever_jobs.normalize_location(posting),
                     "url": posting["hostedUrl"],
                     "company": company_name,
+                    "market": "International (remote)",
                 }
             )
 
@@ -157,6 +161,7 @@ def collect_all_jobs():
                     "location": fetch_workable_jobs.normalize_location(job),
                     "url": job["url"],
                     "company": company_name,
+                    "market": "International (remote)",
                 }
             )
 
@@ -178,6 +183,7 @@ def collect_all_jobs():
                         company_id=company_id, posting_id=posting["id"]
                     ),
                     "company": company_name,
+                    "market": "International (remote)",
                 }
             )
 
@@ -197,6 +203,27 @@ def collect_all_jobs():
                     "location": job.get("location", ""),
                     "url": job.get("jobUrl") or job.get("applyUrl"),
                     "company": company_name,
+                    "market": "International (remote)",
+                }
+            )
+
+    for subdomain, company_name in fetch_gupy_jobs.COMPANIES.items():
+        try:
+            jobs = fetch_gupy_jobs.fetch_jobs(subdomain)
+        except Exception as exc:
+            print(f"Failed to fetch {company_name}: {exc}", file=sys.stderr)
+            continue
+        for job in jobs:
+            all_jobs.append(
+                {
+                    "source": "gupy",
+                    "source_id": job["id"],
+                    "subdomain": subdomain,
+                    "title": job["title"],
+                    "location": fetch_gupy_jobs.normalize_location(job),
+                    "url": fetch_gupy_jobs.job_url(subdomain, job["id"]),
+                    "company": company_name,
+                    "market": "Brazilian market (local)",
                 }
             )
 
@@ -286,6 +313,10 @@ def main():
             elif job["source"] == "ashby":
                 detail_cache[job["url"]] = job["raw"]
                 job["salary"] = extract_salary_ashby(job["raw"])
+            elif job["source"] == "gupy":
+                detail = fetch_gupy_jobs.fetch_job_detail(job["subdomain"], job["source_id"])
+                detail_cache[job["url"]] = detail
+                job["salary"] = "Not disclosed"  # Gupy never structurally discloses salary
         except Exception as exc:
             print(f"Warning: failed to fetch salary for {job['title']}: {exc}", file=sys.stderr)
             job["salary"] = "Not disclosed"
@@ -303,6 +334,12 @@ def main():
             return " ".join(s.get("text", "") for s in sections.values())
         if source == "ashby":
             return detail.get("descriptionHtml", "")
+        if source == "gupy":
+            return (
+                detail.get("description", "")
+                + detail.get("prerequisites", "")
+                + detail.get("responsibilities", "")
+            )
         return ""
 
     for job in matches:
@@ -333,6 +370,8 @@ def main():
             return None
 
     def salary_estimate_fn(state_job):
+        if state_job.get("market") == "Brazilian market (local)":
+            return estimate_br_salary(state_job["title"])
         try:
             return estimate_salary_via_claude(client, state_job, MODEL)
         except Exception as exc:
