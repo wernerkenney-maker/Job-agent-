@@ -1054,7 +1054,8 @@
     "city": null,
     "col_note": null,
     "companies": [
-      "Precision Medicine Group"
+      "Precision Medicine Group",
+      "Precision for Medicine"
     ],
     "company": "Precision Medicine Group",
     "cover_letter_path": null,
@@ -1069,6 +1070,11 @@
         "company": "Precision Medicine Group",
         "location": "Remote, Argentina; Remote, Brazil; Remote, Mexico",
         "url": "https://job-boards.greenhouse.io/precisionmedicinegroup/jobs/6137942004"
+      },
+      {
+        "company": "Precision for Medicine",
+        "location": "Remote, Argentina; Remote, Brazil; Remote, Mexico",
+        "url": "https://job-boards.greenhouse.io/pfm/jobs/6138376004"
       }
     ],
     "probability": "Medium",
