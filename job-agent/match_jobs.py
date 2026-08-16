@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Fetch jobs from the configured Greenhouse, Lever, Workable,
-SmartRecruiters, Ashby, and Gupy (Brazilian-market) boards, score each one
-for fit against a candidate's background using Claude, dedupe sibling
-postings, track which matches are new since the last run, draft cover
-letters + tailored resume bullets for 80+ scores, estimate salary where
-undisclosed, and refresh report.html.
+SmartRecruiters, Ashby, Gupy (Brazilian-market), and Workday boards,
+score each one for fit against a candidate's background using Claude,
+dedupe sibling postings, track which matches are new since the last run,
+draft cover letters + tailored resume bullets for 80+ scores, estimate
+salary where undisclosed, and refresh report.html.
 
 Requires an Anthropic API key in the ANTHROPIC_API_KEY environment variable.
 """
@@ -21,6 +21,7 @@ import fetch_gupy_jobs
 import fetch_lever_jobs
 import fetch_smartrecruiters_jobs
 import fetch_workable_jobs
+import fetch_workday_jobs
 from br_salary_estimate import estimate_br_salary
 from cover_letter import generate_cover_letter_via_claude, save_cover_letter
 from pipeline import process_run
@@ -33,6 +34,7 @@ from salary import (
     extract_salary_lever,
     extract_salary_smartrecruiters,
     extract_salary_workable,
+    extract_salary_workday,
 )
 from salary_estimate import estimate_salary_via_claude
 
@@ -227,6 +229,27 @@ def collect_all_jobs():
                 }
             )
 
+    for company_key, company_name in fetch_workday_jobs.COMPANIES.items():
+        try:
+            jobs = fetch_workday_jobs.fetch_jobs(company_key)
+        except Exception as exc:
+            print(f"Failed to fetch {company_name}: {exc}", file=sys.stderr)
+            continue
+        for job in jobs:
+            all_jobs.append(
+                {
+                    "source": "workday",
+                    "source_id": job["externalPath"],
+                    "company_key": company_key,
+                    "external_path": job["externalPath"],
+                    "title": job["title"],
+                    "location": job.get("locationsText", ""),
+                    "url": fetch_workday_jobs.job_url(company_key, job["externalPath"]),
+                    "company": company_name,
+                    "market": "International (remote)",
+                }
+            )
+
     return all_jobs
 
 
@@ -317,6 +340,10 @@ def main():
                 detail = fetch_gupy_jobs.fetch_job_detail(job["subdomain"], job["source_id"])
                 detail_cache[job["url"]] = detail
                 job["salary"] = "Not disclosed"  # Gupy never structurally discloses salary
+            elif job["source"] == "workday":
+                detail = fetch_workday_jobs.fetch_job_detail(job["company_key"], job["external_path"])
+                detail_cache[job["url"]] = detail
+                job["salary"] = extract_salary_workday(detail)
         except Exception as exc:
             print(f"Warning: failed to fetch salary for {job['title']}: {exc}", file=sys.stderr)
             job["salary"] = "Not disclosed"
@@ -340,6 +367,8 @@ def main():
                 + detail.get("prerequisites", "")
                 + detail.get("responsibilities", "")
             )
+        if source == "workday":
+            return detail.get("jobDescription", "")
         return ""
 
     for job in matches:

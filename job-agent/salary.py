@@ -14,6 +14,11 @@ Only reports a range when the posting structurally discloses one:
   job ad, if the poster included one (not free text elsewhere in the ad).
 - Ashby: the native `compensation.compensationTierSummary` field (only
   present when the employer opted into `includeCompensation=true`).
+- Workday: a pay-transparency disclosure in the job description body
+  text, keyed to an explicit "salary range"/"pay range"/"compensation
+  range" label immediately preceding two dollar figures (the format US
+  state pay-transparency laws require) -- not any other dollar figure
+  or generic "competitive salary" boilerplate mentioned elsewhere.
 Never guesses at a figure from free-text mentions elsewhere in the
 description (e.g. budget/revenue numbers) — if no structured signal is
 present, the job is reported as "Not disclosed", which is the norm for
@@ -27,6 +32,12 @@ NOT_DISCLOSED = "Not disclosed"
 
 _PAY_RANGE_DIV_RE = re.compile(
     r'class="pay-range">\s*<span>([^<]+)</span>.*?<span>([^<]+)</span>', re.S
+)
+
+_WORKDAY_PAY_RE = re.compile(
+    r"(?:salary range|pay range|base salary range|compensation range)"
+    r"[^$]{0,40}\$([\d,]+(?:\.\d+)?)\s*(?:to|-|–)\s*\$([\d,]+(?:\.\d+)?)",
+    re.I,
 )
 
 
@@ -100,4 +111,14 @@ def extract_salary_ashby(job):
     compensation = job.get("compensation")
     if compensation and compensation.get("compensationTierSummary"):
         return compensation["compensationTierSummary"]
+    return NOT_DISCLOSED
+
+
+def extract_salary_workday(job_detail):
+    """Workday job detail payload (from
+    fetch_workday_jobs.fetch_job_detail())."""
+    text = _strip_html(job_detail.get("jobDescription") or "")
+    match = _WORKDAY_PAY_RE.search(text)
+    if match:
+        return f"${match.group(1)}–${match.group(2)}"
     return NOT_DISCLOSED

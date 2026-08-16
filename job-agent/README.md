@@ -7,12 +7,12 @@ based in Fortaleza.
 
 ## Fetching listings
 
-Six provider modules, one per ATS, all with the same shape (`COMPANIES`
-dict of token → display name, plus a `fetch_jobs()`). The first five cover
-**international employers** hiring remotely into Brazil (or Brazil/LATAM
-job boards of foreign-HQ CROs/biotechs); the sixth, Gupy, covers
-**genuinely Brazilian-market employers** hiring locally in BRL — see
-"International vs. Brazilian market" below.
+Seven provider modules, one per ATS, all with the same shape (`COMPANIES`
+dict of token → display name, plus a `fetch_jobs()`). Six of the seven
+(all but Gupy) cover **international employers** hiring remotely into
+Brazil (or Brazil/LATAM job boards of foreign-HQ CROs/biotechs); Gupy
+covers **genuinely Brazilian-market employers** hiring locally in BRL —
+see "International vs. Brazilian market" below.
 
 - `fetch_greenhouse_jobs.py` — Greenhouse boards:
   - **Iovance Biotherapeutics** — clinical-stage biotech (cell therapy)
@@ -66,7 +66,43 @@ job boards of foreign-HQ CROs/biotechs); the sixth, Gupy, covers
   page (`.../jobs/{id}`) does the same for description/prerequisites/
   responsibilities text (not present on the list-page job objects). Both
   are read the same way any visitor's browser would, unauthenticated —
-  same principle as the other five providers' public JSON APIs.
+  same principle as the other providers' public JSON APIs.
+- `fetch_workday_jobs.py` — Workday-hosted career sites for major CROs
+  that had no presence on any other provider:
+  - **IQVIA**, **Parexel**, **Syneos Health**, **ICON plc**, **Fortrea**
+  Workday exposes a public, unauthenticated JSON search API per tenant at
+  `https://{host}.myworkdayjobs.com/wday/cxs/{tenant}/{site}/jobs`
+  (POST), plus a matching per-job detail endpoint at
+  `.../job{externalPath}` (GET) — verified directly (curled and confirmed
+  real job data, same as every other provider) before committing to this
+  provider, per the same standard used for Greenhouse/Lever originally.
+  Each tenant's facet configuration differs (IQVIA exposes a
+  `Location_Country` facet; Parexel/Syneos/ICON/Fortrea don't), so rather
+  than depend on facets, `fetch_jobs()` searches Workday's full-text
+  `searchText` for `"Brazil"` and separately `"LATAM"`, merging results
+  (deduped by `externalPath`) — these boards run 300-1,800+ total
+  postings, far too many to fetch in full the way the smaller providers
+  do, so this search-side narrowing is what keeps it practical. Two major
+  CROs were checked and confirmed **not** on Workday, so are not covered
+  by this or any other provider here:
+  - **Medpace** — uses iCIMS (`uscareers-medpace.icims.com`)
+  - **PPD** (the clinical-research business of Thermo Fisher Scientific)
+    — uses Phenom People (`jobs.thermofisher.com`), the same platform
+    already noted as a dead end for standalone Thermo Fisher above.
+
+**Brazilian-native job platforms checked and rejected as providers**
+(Catho, InfoJobs, Vagas.com): none exposes a usable public API or
+structured feed, unlike Gupy. Verified directly rather than assumed —
+fetched each site's search-results HTML and checked for `__NEXT_DATA__`,
+JobPosting JSON-LD, or any embedded JSON: all three are pure
+server-rendered HTML with none of those. Vagas.com's `.rss`/`.xml` URL
+suffixes return HTTP 200, which looked promising, but both just fall
+through to the same HTML search page (the suffix gets treated as part of
+the search term, not a format extension) — not a real feed. Building a
+provider for any of these would mean HTML scraping, a materially more
+fragile approach than every other provider in this pipeline (all of
+which rely on structured JSON) — deliberately not built for that reason.
+If one of these sites adds a real API/feed later, it's worth revisiting.
 
 `companies.py` holds `COMPANY_FAMILIES`, mapping sibling boards from the
 same corporate group across *any* provider (currently all three
@@ -81,6 +117,7 @@ python3 fetch_workable_jobs.py
 python3 fetch_smartrecruiters_jobs.py
 python3 fetch_ashby_jobs.py
 python3 fetch_gupy_jobs.py
+python3 fetch_workday_jobs.py
 ```
 
 **Note on Thermo Fisher:** its careers site (jobs.thermofisher.com) runs
@@ -183,7 +220,7 @@ wholesale.
 
 ## Resume-based matching
 
-`match_jobs.py` fetches jobs from every company across all five
+`match_jobs.py` fetches jobs from every company across all seven
 providers, sends them to Claude in batches to score fit (1-100) against a
 candidate background hardcoded in `CANDIDATE_PROFILE`, keeps jobs scoring
 60+ (`MIN_SCORE`), then runs them through the shared pipeline (dedup,
@@ -298,6 +335,15 @@ signals from the posting itself:
   `compensation.compensationTierSummary` field, available directly in the
   listing when the request includes `includeCompensation=true` and the
   employer opted into disclosure.
+- Workday (`extract_salary_workday()`) — a pay-transparency disclosure in
+  the job description body text, matched only when an explicit "salary
+  range"/"pay range"/"base salary range"/"compensation range" label
+  immediately precedes two dollar figures (the format US state
+  pay-transparency laws require, e.g. `"Salary Range: $95,000.00 -
+  $175,700.00"`) — not any other dollar figure in the description, and
+  not generic "competitive salary" boilerplate that mentions the word
+  "salary" without a number. Requires a per-job detail fetch (the search
+  endpoint doesn't include the description).
 
 It never guesses at a number from free-text mentions elsewhere in the
 job description (e.g. budget/revenue figures).

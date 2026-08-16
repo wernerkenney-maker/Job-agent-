@@ -10,19 +10,23 @@ Candidate is based in Fortaleza. Code lives in `job-agent/`.
 When the user says **"check jobs"**, treat it as the complete instruction
 to do all of the following, without asking for confirmation:
 
-1. Fetch current listings from every company board across all six
+1. Fetch current listings from every company board across all seven
    provider modules: `job-agent/fetch_greenhouse_jobs.py`,
    `job-agent/fetch_lever_jobs.py`, `job-agent/fetch_workable_jobs.py`,
    `job-agent/fetch_smartrecruiters_jobs.py`,
-   `job-agent/fetch_ashby_jobs.py`, `job-agent/fetch_gupy_jobs.py` (each
-   has its own `COMPANIES` dict; Ashby's is currently empty — see its
-   module docstring/README for search notes before re-searching). The
-   first five are **international employers** hiring remotely into
-   Brazil (tag every job they produce `"market": "International
-   (remote)"`); Gupy covers **genuinely Brazilian-market employers**
-   hiring locally in BRL (tag its jobs `"market": "Brazilian market
-   (local)"`) — see `job-agent/README.md`'s "International vs. Brazilian
-   market" section for the search methodology and exclusions. Sibling-
+   `job-agent/fetch_ashby_jobs.py`, `job-agent/fetch_gupy_jobs.py`,
+   `job-agent/fetch_workday_jobs.py` (each has its own `COMPANIES` dict;
+   Ashby's is currently empty — see its module docstring/README for
+   search notes before re-searching). Six of the seven (all but Gupy) are
+   **international employers** hiring remotely into Brazil (tag every job
+   they produce `"market": "International (remote)"`); Gupy covers
+   **genuinely Brazilian-market employers** hiring locally in BRL (tag
+   its jobs `"market": "Brazilian market (local)"`) — see
+   `job-agent/README.md`'s "International vs. Brazilian market" and
+   "Fetching listings" sections for the search methodology and
+   exclusions (including Brazilian-native platforms checked and rejected
+   for lacking a usable public feed: Catho, InfoJobs, Vagas.com; and CROs
+   confirmed not on Workday: Medpace, PPD/Thermo Fisher). Sibling-
    family mapping for dedup lives in `job-agent/companies.py`
    (`COMPANY_FAMILIES`), shared by all.
 2. Score each job for fit against `CANDIDATE_PROFILE` in
