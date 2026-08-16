@@ -82,6 +82,10 @@ MARKET_COLORS = {
     "Brazilian market (local)": ("#1d5c8a", "#e6f0f9"),
 }
 
+TIER_COLORS = {
+    "Stretch/Leadership": ("#8a4b0f", "#fbeee0"),
+}
+
 
 def _band_colors(score):
     for threshold, fg, bg in SCORE_BANDS:
@@ -139,9 +143,15 @@ def _job_card(job):
     prob_fg, prob_bg = PROBABILITY_COLORS.get(probability, PROBABILITY_COLORS["Medium"])
     market = job.get("market", "International (remote)")
     market_fg, market_bg = MARKET_COLORS.get(market, MARKET_COLORS["International (remote)"])
+    tier_tag_html = ""
+    tier = job.get("tier")
+    if tier:
+        tier_fg, tier_bg = TIER_COLORS.get(tier, TIER_COLORS["Stretch/Leadership"])
+        tier_tag_html = f'<span class="tag" style="color:{tier_fg}; background:{tier_bg};">{html.escape(tier)}</span>'
     tags_html = (
         '<div class="tags">'
         f'<span class="tag" style="color:{market_fg}; background:{market_bg};">{html.escape(market)}</span>'
+        f'{tier_tag_html}'
         f'<span class="tag" style="color:{cat_fg}; background:{cat_bg};">{html.escape(category)}</span>'
         f'<span class="tag" style="color:{prob_fg}; background:{prob_bg};">{html.escape(probability)}</span>'
         "</div>"
@@ -216,11 +226,14 @@ def _section(title_text, matches, empty_text):
     </section>"""
 
 
-def generate_report_html(new_matches, tracked_matches, scored_count, fetched_count, generated_at=None):
+def generate_report_html(new_matches, tracked_matches, scored_count, fetched_count, state=None, generated_at=None):
     generated_at = generated_at or datetime.now(timezone.utc)
     timestamp = generated_at.strftime("%Y-%m-%d %H:%M UTC")
     pace_weekly = weekly_count(generated_at)
     pace_total = total_count()
+    state = state or {}
+    applied_count = sum(1 for job in state.values() if job.get("status") == "applied")
+    total_tracked = len(state)
 
     new_section = _section(
         "New matches",
@@ -309,11 +322,35 @@ def generate_report_html(new_matches, tracked_matches, scored_count, fetched_cou
     border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
     border-radius: 999px;
     padding: 6px 14px;
+    margin-bottom: 8px;
+    margin-right: 8px;
+  }}
+  .applied-progress {{
+    display: inline-block;
+    font-size: 0.85rem;
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 6px 14px;
     margin-bottom: 12px;
   }}
   .pace-figure {{
     font-weight: 700;
     color: var(--accent);
+  }}
+  .status-reminder {{
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    line-height: 1.5;
+    margin: 0 0 14px;
+  }}
+  .status-reminder code {{
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-size: 0.78rem;
   }}
   .stats {{
     display: flex;
@@ -487,6 +524,10 @@ def generate_report_html(new_matches, tracked_matches, scored_count, fetched_cou
       <div class="pace">
         <span class="pace-figure">{pace_weekly}</span> applied this week &middot; <span class="pace-figure">{pace_total}</span> all-time
       </div>
+      <div class="applied-progress">
+        <span class="pace-figure">{applied_count}</span> applied of <span class="pace-figure">{total_tracked}</span> total matches tracked
+      </div>
+      <p class="status-reminder">Mark a job's status with <code>python3 set_status.py &lt;url&gt; applied|interested|pass</code> — <strong>applied</strong> logs it here and to your pace count above, <strong>interested</strong> keeps it visible in the Tracked section below, <strong>pass</strong> hides it from future reports for good.</p>
       <div class="stats">
         <span>{len(new_matches)} new</span>
         <span>{len(tracked_matches)} tracked</span>
@@ -507,10 +548,10 @@ def generate_report_html(new_matches, tracked_matches, scored_count, fetched_cou
 """
 
 
-def write_report(new_matches, tracked_matches, scored_count, fetched_count, output_path=None, generated_at=None):
+def write_report(new_matches, tracked_matches, scored_count, fetched_count, state=None, output_path=None, generated_at=None):
     if output_path is None:
         output_path = os.path.join(os.path.dirname(__file__), "report.html")
-    html_content = generate_report_html(new_matches, tracked_matches, scored_count, fetched_count, generated_at)
+    html_content = generate_report_html(new_matches, tracked_matches, scored_count, fetched_count, state, generated_at)
     with open(output_path, "w") as f:
         f.write(html_content)
     return output_path

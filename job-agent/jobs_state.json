@@ -28,6 +28,7 @@
     "salary_estimate": "~$40,000\u2013$60,000 USD (estimated \u2014 LATAM clinical site network, specialist (non-senior) level, quality function, not disclosed by employer)",
     "score": 63,
     "status": "new",
+    "tier": null,
     "title": "Specialist, Quality Assurance",
     "trajectory": "Lateral move into a new function at a lower formal title than your current scope -- worth it if building QA credentials serves your long-term regulatory/quality trajectory."
   },
@@ -60,6 +61,7 @@
     "salary_estimate": "~$65,000\u2013$95,000 USD (estimated \u2014 LATAM CRO senior PM level, slightly above standard Clinical Trial Manager band, not disclosed by employer)",
     "score": 89,
     "status": "new",
+    "tier": null,
     "title": "Senior Clinical Project Manager",
     "trajectory": "Lateral to modest step up from your Global Clinical Study Manager role -- strong direct fit, high-confidence application."
   },
@@ -92,6 +94,7 @@
     "salary_estimate": "~$50,000\u2013$75,000 USD (estimated \u2014 LATAM CRO senior specialist level, quality function, not disclosed by employer)",
     "score": 70,
     "status": "new",
+    "tier": null,
     "title": "Senior Clinical QA Specialist",
     "trajectory": "Lateral pivot into quality -- leverages your oversight/compliance experience even without a dedicated QA title history."
   },
@@ -124,6 +127,7 @@
     "salary_estimate": "~$50,000\u2013$75,000 USD (estimated \u2014 LATAM CRO lead-level, site/study start-up function, not disclosed by employer)",
     "score": 68,
     "status": "new",
+    "tier": null,
     "title": "Clinical Start-Up & Trial Lead",
     "trajectory": "A step down in scope from portfolio management to site/study start-up leadership, but Brazil-based and domain-relevant."
   },
@@ -156,6 +160,7 @@
     "salary_estimate": "~$60,000\u2013$90,000 USD (estimated \u2014 LATAM CRO manager-level rate, not disclosed by employer)",
     "score": 80,
     "status": "new",
+    "tier": null,
     "title": "Clinical Trial Manager (CTM)",
     "trajectory": "Lateral move at essentially the same level as your Global Clinical Study Manager role -- strong, low-risk fit."
   },
@@ -188,6 +193,7 @@
     "salary_estimate": "~$58,000\u2013$86,000 USD (estimated \u2014 LATAM CRO manager-level rate, grants/trial-costing function, not disclosed by employer)",
     "score": 74,
     "status": "new",
+    "tier": null,
     "title": "Investigator Grants Manager / Clinical Trial Costing Manager \u2013 Brazil (Remote)",
     "trajectory": "Lateral move leveraging your budget-management experience into a more specialized grants/costing function."
   },
@@ -220,6 +226,7 @@
     "salary_estimate": "~$58,000\u2013$86,000 USD (estimated \u2014 LATAM CRO/pharma project-manager level, patient safety function, not disclosed by employer)",
     "score": 66,
     "status": "new",
+    "tier": null,
     "title": "Patient Safety Project Manager",
     "trajectory": "Lateral pivot into patient safety project management -- leverages PM-level oversight experience even without a dedicated safety title history."
   },
@@ -252,6 +259,7 @@
     "salary_estimate": "~$65,000\u2013$95,000 USD (estimated \u2014 LATAM CRO senior PM level, oncology therapeutic scope, not disclosed by employer)",
     "score": 88,
     "status": "new",
+    "tier": null,
     "title": "Sr. Clinical Project Manager or Clinical Project Manager II - Oncology",
     "trajectory": "Lateral to modest step up from your Global Clinical Study Manager role, in a therapeutic area you already have direct experience in -- strong, low-risk fit."
   },
@@ -284,6 +292,7 @@
     "salary_estimate": "~$55,000\u2013$82,000 USD (estimated \u2014 LATAM CRO project-manager level, specialized biosampling logistics function, not disclosed by employer)",
     "score": 60,
     "status": "new",
+    "tier": null,
     "title": "Biosampling Project Manager",
     "trajectory": "PM-level title is a reasonable lateral, but the specialized biosampling-logistics scope is a real stretch from your background."
   },
@@ -316,6 +325,7 @@
     "salary_estimate": "~$62,000\u2013$92,000 USD (estimated \u2014 LATAM CRO country-level project manager rate, not disclosed by employer)",
     "score": 84,
     "status": "new",
+    "tier": null,
     "title": "Clinical Project Manager - Brazil",
     "trajectory": "Lateral move into country-level clinical project management at a major CRO -- strong, direct fit."
   },
@@ -348,6 +358,7 @@
     "salary_estimate": "~$65,000\u2013$95,000 USD (estimated \u2014 LATAM CRO manager-level rate, specialized rare disease/CNS therapeutic scope, not disclosed by employer)",
     "score": 74,
     "status": "new",
+    "tier": null,
     "title": "Clinical Project Manager - Rare Diseases / CNS",
     "trajectory": "A leadership-level lateral move, but the CNS/rare-disease therapeutic depth is outside your background -- worth pursuing if that depth isn't a hard requirement."
   },
@@ -380,6 +391,7 @@
     "salary_estimate": "~$60,000\u2013$90,000 USD (estimated \u2014 LATAM CRO manager-level rate, not disclosed by employer)",
     "score": 80,
     "status": "new",
+    "tier": null,
     "title": "Clinical Trial Manager",
     "trajectory": "Lateral move at essentially the same level as your Global Clinical Study Manager role -- strong, low-risk fit."
   },
@@ -412,6 +424,7 @@
     "salary_estimate": "~$50,000\u2013$75,000 USD (estimated \u2014 LATAM CRO lead-level, medical writing specialist function, not disclosed by employer)",
     "score": 60,
     "status": "new",
+    "tier": null,
     "title": "Lead Medical Writer",
     "trajectory": "A pivot into a specialized writing function -- Lead-level seniority is a reasonable lateral, but the skill set is a real stretch from your operations background."
   },
@@ -444,6 +457,7 @@
     "salary_estimate": "~$90,000\u2013$130,000 USD (estimated \u2014 LATAM pharma/CRO medical director level, medical affairs leadership, not disclosed by employer)",
     "score": 65,
     "status": "new",
+    "tier": null,
     "title": "Medical Director",
     "trajectory": "A big leap in function (ops/portfolio management to medical affairs leadership) that likely has a hard medical-degree requirement -- worth confirming before applying."
   },
@@ -476,6 +490,7 @@
     "salary_estimate": "~$65,000\u2013$95,000 USD (estimated \u2014 LATAM CRO senior manager level, not disclosed by employer)",
     "score": 86,
     "status": "new",
+    "tier": null,
     "title": "Senior Clinical Trial Manager",
     "trajectory": "Lateral to modest step up from your Global Clinical Study Manager role -- strong, low-risk fit."
   },
@@ -508,6 +523,7 @@
     "salary_estimate": "~$55,000\u2013$82,000 USD (estimated \u2014 LATAM CRO senior scientist level, regulatory science function, not disclosed by employer)",
     "score": 61,
     "status": "new",
+    "tier": null,
     "title": "Senior Global Regulatory Scientist",
     "trajectory": "A pivot into regulatory science -- senior-level scope is a reasonable lateral, though the technical regulatory-writing depth is a stretch from your ops background."
   },
@@ -540,6 +556,7 @@
     "salary_estimate": "~$45,000\u2013$68,000 USD (estimated \u2014 LATAM CRO senior specialist level, grants/budget function, not disclosed by employer)",
     "score": 60,
     "status": "new",
+    "tier": null,
     "title": "Senior Grant Specialist",
     "trajectory": "A step down from portfolio-level budget oversight into specialist-level grants administration -- leverages relevant experience but not a growth move."
   },
@@ -572,6 +589,7 @@
     "salary_estimate": "~$50,000\u2013$75,000 USD (estimated \u2014 LATAM CRO senior specialist level, regulatory function, not disclosed by employer)",
     "score": 66,
     "status": "new",
+    "tier": null,
     "title": "Senior Regulatory Affairs Specialist",
     "trajectory": "Lateral pivot into regulatory affairs -- leverages your EMEA regional regulatory-navigation experience even without a dedicated regulatory title history."
   },
@@ -604,6 +622,7 @@
     "salary_estimate": "~$45,000\u2013$68,000 USD (estimated \u2014 LATAM CRO senior associate level, study start-up/regulatory submissions function, not disclosed by employer)",
     "score": 62,
     "status": "new",
+    "tier": null,
     "title": "Senior Study Start Up Associate (Regulatory Submissions)",
     "trajectory": "A step down in title from your current scope, but Brazil-based and domain-relevant -- worth it as a foothold role if title level isn't the priority."
   },
@@ -636,6 +655,7 @@
     "salary_estimate": "R$6.800\u2013R$10.500/month (estimated \u2014 Glassdoor Brazil, Analista de Pesquisa Cl\u00ednica S\u00eanior, not disclosed by employer)",
     "score": 60,
     "status": "new",
+    "tier": null,
     "title": "Analista em Pesquisa Cl\u00ednica Sr | IDOR S\u00e3o Paulo",
     "trajectory": "Senior clinical-research analyst role at a respected research institute -- individual-contributor level, a step down from portfolio management, but a credible in-field local foothold."
   },
@@ -668,6 +688,7 @@
     "salary_estimate": "R$6.800\u2013R$10.500/month (estimated \u2014 Glassdoor Brazil, Analista de Pesquisa Cl\u00ednica S\u00eanior band (quality function), not disclosed by employer)",
     "score": 60,
     "status": "new",
+    "tier": null,
     "title": "Analista Sr de Qualidade em Pesquisa Cl\u00ednica | IDOR S\u00e3o Paulo",
     "trajectory": "Senior quality-in-clinical-research analyst role at a respected institute -- adjacent function, individual-contributor level, but a credible local foothold."
   },
@@ -700,6 +721,7 @@
     "salary_estimate": "~$45,000\u2013$70,000 USD (estimated \u2014 LATAM CRO lead-level, centralized monitoring specialist function, not disclosed by employer)",
     "score": 63,
     "status": "new",
+    "tier": null,
     "title": "Centralized Monitoring Lead in LATAM (Remote)",
     "trajectory": "A step down in scope from portfolio management into a more specialized monitoring-lead function -- doable, not a direct line."
   },
@@ -732,6 +754,7 @@
     "salary_estimate": "~$60,000\u2013$90,000 USD (estimated \u2014 LATAM CRO manager-level rate, sponsor-dedicated, not disclosed by employer)",
     "score": 90,
     "status": "new",
+    "tier": null,
     "title": "Clinical Trial Manager - Sponsor Dedicated",
     "trajectory": "Lateral to your Global Clinical Study Manager role at one of the largest global CROs -- strong, low-risk fit."
   },
@@ -764,6 +787,7 @@
     "salary_estimate": "~$55,000\u2013$80,000 USD (estimated \u2014 LATAM pharma/CRO MSL-level, medical affairs function, not disclosed by employer)",
     "score": 62,
     "status": "new",
+    "tier": null,
     "title": "Medical Science Liaison (MSL)",
     "trajectory": "A pivot into a different clinical function (medical affairs vs. trial operations) -- plausible given your therapeutic-area breadth, but a real functional stretch."
   },
@@ -796,6 +820,7 @@
     "salary_estimate": "~$65,000\u2013$95,000 USD (estimated \u2014 LATAM CRO regional-lead level, comparable manager-level scope, not disclosed by employer)",
     "score": 87,
     "status": "new",
+    "tier": null,
     "title": "Clinical Regional Project Lead",
     "trajectory": "Mirrors your Regional Study Coordinator + Global Study Manager background closely -- strong, low-risk fit worth prioritizing."
   },
@@ -828,6 +853,7 @@
     "salary_estimate": "~$50,000\u2013$75,000 USD (estimated \u2014 LATAM CRO lead-CRA level, site-monitoring leadership track, not disclosed by employer)",
     "score": 70,
     "status": "new",
+    "tier": null,
     "title": "Lead Clinical Research Associate",
     "trajectory": "Lateral pivot into site-monitoring leadership (a different track from your study/portfolio-management background) -- doable, not a direct line."
   },
@@ -860,6 +886,7 @@
     "salary_estimate": "~$70,000\u2013$105,000 USD (estimated \u2014 LATAM CRO therapeutic-area leadership scope, though GI-specific depth requirement raises risk, not disclosed by employer)",
     "score": 62,
     "status": "new",
+    "tier": null,
     "title": "Therapeutic Area Lead (Gastroenterology)",
     "trajectory": "A leadership step up in scope, but likely requires deep GI-specific trial experience you don't have -- worth a shot only if GI depth isn't a hard requirement."
   },
@@ -892,6 +919,7 @@
     "salary_estimate": "~$60,000\u2013$90,000 USD (estimated \u2014 LATAM CRO country-manager level, FSP model, not disclosed by employer)",
     "score": 80,
     "status": "new",
+    "tier": null,
     "title": "Country Operations Manager - FSP",
     "trajectory": "Lateral move into country-level operations leadership at a major CRO -- strong, direct fit."
   },
@@ -924,6 +952,7 @@
     "salary_estimate": "~$55,000\u2013$85,000 USD (estimated \u2014 LATAM CRO country-manager level, FSP model, not disclosed by employer)",
     "score": 76,
     "status": "new",
+    "tier": null,
     "title": "Country Study Operations Manager I - FSP",
     "trajectory": "Lateral move into country-level study operations -- solid fit, slightly narrower geographic remit than your current portfolio role."
   },
@@ -956,6 +985,7 @@
     "salary_estimate": "~$65,000\u2013$95,000 USD (estimated \u2014 LATAM CRO senior manager level, FSP model, not disclosed by employer)",
     "score": 88,
     "status": "new",
+    "tier": null,
     "title": "Global Study Manager II - FSP",
     "trajectory": "Lateral move to a near-identical prior title (Global Study Manager) at a major CRO -- strong, low-risk fit."
   },
@@ -988,6 +1018,7 @@
     "salary_estimate": "~$55,000\u2013$85,000 USD (estimated \u2014 LATAM CRO senior regulatory consultant level, CMC/biologics specialization, not disclosed by employer)",
     "score": 66,
     "status": "new",
+    "tier": null,
     "title": "Regulatory Affairs Consultant - CMC US/EU - Biological products",
     "trajectory": "A pivot into a specialized regulatory consulting function -- consultant-level seniority is a reasonable lateral, but the CMC/biologics depth is a stretch."
   },
@@ -1026,6 +1057,7 @@
     "salary_estimate": "~$55,000\u2013$80,000 USD (estimated \u2014 LATAM CRO manager-level, contracts/budget function, not disclosed by employer)",
     "score": 70,
     "status": "new",
+    "tier": null,
     "title": "Change Order Manager",
     "trajectory": "Lateral move leveraging your budget-management experience into a more specialized contracts function."
   },
@@ -1064,6 +1096,7 @@
     "salary_estimate": "~$60,000\u2013$90,000 USD (estimated \u2014 LATAM CRO manager-level rate; ~45-55% of comparable disclosed US band, not disclosed by employer)",
     "score": 92,
     "status": "new",
+    "tier": null,
     "title": "Clinical Trial Manager (LATAM)",
     "trajectory": "Lateral move at essentially the same level as your Global Clinical Study Manager role -- strong, low-risk fit."
   },
@@ -1096,6 +1129,7 @@
     "salary_estimate": "~$55,000\u2013$80,000 USD (estimated \u2014 LATAM CRO manager-level, finance/grants-ops function, not disclosed by employer)",
     "score": 76,
     "status": "new",
+    "tier": null,
     "title": "Manager, Global Investigator Grants (LATAM)",
     "trajectory": "Lateral move into a specialized adjacent function -- leverages your budget experience, worth pursuing for the LATAM-specific scope."
   },
@@ -1134,6 +1168,7 @@
     "salary_estimate": "~$40,000\u2013$65,000 USD (estimated \u2014 LATAM CRO lead-level, patient/site engagement function, not disclosed by employer)",
     "score": 61,
     "status": "new",
+    "tier": null,
     "title": "Patient Engagement Lead (LATAM)",
     "trajectory": "Lateral pivot into a more specialized patient-engagement function -- a stretch from your generalist portfolio background but plausible."
   },
@@ -1172,6 +1207,7 @@
     "salary_estimate": "~$45,000\u2013$70,000 USD (estimated \u2014 LATAM CRO senior specialist level, regulatory/start-up function, not disclosed by employer)",
     "score": 74,
     "status": "new",
+    "tier": null,
     "title": "Senior Regulatory and Start Up Specialist (Brazil)",
     "trajectory": "A step down in title from your current scope, but Brazil-based and domain-relevant -- worth it as a foothold role if title level isn't the priority."
   },
@@ -1210,6 +1246,7 @@
     "salary_estimate": "~$35,000\u2013$55,000 USD (estimated \u2014 LATAM CRO specialist-level, trial documentation/compliance function, not disclosed by employer)",
     "score": 60,
     "status": "new",
+    "tier": null,
     "title": "TMF Lead II (LATAM)",
     "trajectory": "A step down in scope from your current role -- worth it mainly as a Brazil-based foothold, not a growth move."
   },
@@ -1242,6 +1279,7 @@
     "salary_estimate": "~$60,000\u2013$90,000 USD (estimated \u2014 LATAM CRO manager-level rate, sponsor-dedicated, Brazil home-based, not disclosed by employer)",
     "score": 84,
     "status": "new",
+    "tier": null,
     "title": "Clinical Trial Manager with focus on Project Management - Sponsor dedicated - Brazil Home Based",
     "trajectory": "Lateral move at essentially the same level as your Global Clinical Study Manager role -- strong, low-risk fit."
   },
@@ -1274,6 +1312,7 @@
     "salary_estimate": "~$62,000\u2013$92,000 USD (estimated \u2014 LATAM CRO senior CTM level, client-dedicated, not disclosed by employer)",
     "score": 78,
     "status": "new",
+    "tier": null,
     "title": "CTM II - Sr CTM assigned to client LAtam (USA scope or local scope) - Mexico, Argentina, Brasil, Chile, Colombia",
     "trajectory": "Lateral to modest step up from your Global Clinical Study Manager role -- strong direct fit."
   },
@@ -1306,6 +1345,7 @@
     "salary_estimate": "~$50,000\u2013$75,000 USD (estimated \u2014 LATAM CRO lead-level, feasibility/strategy analytics function, not disclosed by employer)",
     "score": 66,
     "status": "new",
+    "tier": null,
     "title": "Feasibility Strategy Analytics Lead (Sponsor dedicated) - Argentina, Brazil and Mexico Home Based",
     "trajectory": "A pivot into feasibility strategy/analytics -- leverages portfolio-level planning experience, though it's a distinct specialist track."
   },
@@ -1338,6 +1378,7 @@
     "salary_estimate": "~$65,000\u2013$95,000 USD (estimated \u2014 LATAM CRO manager-level, specialized cell & gene therapy regulatory function, not disclosed by employer)",
     "score": 65,
     "status": "new",
+    "tier": null,
     "title": "Regulatory CMC Manager Cell and Gene Therapy",
     "trajectory": "Manager-level scope is a lateral fit, but the CGT-specific regulatory depth requirement is likely a hard filter you don't clear -- worth a shot only if that depth isn't strictly required."
   },
@@ -1370,6 +1411,7 @@
     "salary_estimate": "R$6.800\u2013R$10.500/month (estimated \u2014 Glassdoor Brazil, Analista de Pesquisa Cl\u00ednica S\u00eanior, not disclosed by employer)",
     "score": 60,
     "status": "new",
+    "tier": null,
     "title": "Analista de Projetos Cl\u00ednicos S\u00eanior I CRO",
     "trajectory": "Senior analyst-level, individual-contributor role -- a step down from your management scope, but remote, domain-relevant, and a real local-market foothold."
   },
@@ -1402,6 +1444,7 @@
     "salary_estimate": "R$4.500\u2013R$9.800/month (estimated \u2014 Glassdoor Brazil, Coordenador de Pesquisa Cl\u00ednica (S\u00e3o Paulo range), not disclosed by employer)",
     "score": 65,
     "status": "new",
+    "tier": null,
     "title": "Coordenador de Centro de Pesquisa Cl\u00ednica",
     "trajectory": "A step down from portfolio management to single-site leadership, but a legitimate senior local-market ops role -- worth it as a Brazilian-market foothold."
   },
@@ -1434,6 +1477,7 @@
     "salary_estimate": "R$4.500\u2013R$9.800/month (estimated \u2014 Glassdoor Brazil, Coordenador de Pesquisa Cl\u00ednica (S\u00e3o Paulo range), not disclosed by employer)",
     "score": 64,
     "status": "new",
+    "tier": null,
     "title": "Coordenador de Pesquisa Cl\u00ednica",
     "trajectory": "Step down in scope from portfolio management, but a genuine senior local-market operations role and a credible Brazilian-market foothold."
   },
@@ -1466,6 +1510,7 @@
     "salary_estimate": "R$8.000\u2013R$13.000/month (estimated \u2014 Glassdoor Brazil, senior specialist band, pharma/CRO data functions, not disclosed by employer)",
     "score": 61,
     "status": "new",
+    "tier": null,
     "title": "Especialista de Data Management",
     "trajectory": "Adjacent specialist function without a dedicated data-management history, but senior-level, remote, and strongly paid for the local market."
   }

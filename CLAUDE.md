@@ -29,7 +29,26 @@ to do all of the following, without asking for confirmation:
    confirmed not on Workday: Medpace, PPD/Thermo Fisher). Sibling-
    family mapping for dedup lives in `job-agent/companies.py`
    (`COMPANY_FAMILIES`), shared by all.
-2. Score each job for fit against `CANDIDATE_PROFILE` in
+2. Search for Director/Country Manager-level "stretch" leadership
+   openings at major Brazilian pharma/healthcare employers — Aché, EMS,
+   Hypera, Eurofarma (via Gupy where the company has a working board —
+   see `job-agent/README.md`'s "Fetching listings" for confirmed
+   subdomains and EMS's unconfirmed status) — plus a manual check of
+   LinkedIn and Indeed. LinkedIn and Indeed are **not** automated
+   providers: both explicitly disallow job-search scraping in
+   `robots.txt`, so this step is a manual/WebSearch-assisted lookup each
+   time, not a `fetch_*.py` script. Verify any candidate found is
+   genuinely live before including it (LinkedIn search results
+   frequently surface expired postings that 404 when opened directly —
+   check before trusting a snippet). Tag any genuine match
+   `"tier": "Stretch/Leadership"` (rendered as its own tag in the
+   report, alongside category/probability/market). It's normal and
+   expected for this search to turn up nothing on a given run —
+   director-level roles are typically filled through executive search
+   rather than public postings — report that honestly ("checked, nothing
+   open right now") rather than skipping the step silently or padding it
+   with an unverified/stale listing.
+3. Score each job for fit against `CANDIDATE_PROFILE` in
    `job-agent/match_jobs.py`, using the broadened rubric in
    `SCORING_INSTRUCTIONS`: not limited to an exact title match (clinical
    operations, quality, regulatory affairs, medical affairs, and other
@@ -61,12 +80,12 @@ to do all of the following, without asking for confirmation:
    - If no API key is available, score manually (as Claude, in
      conversation) using the same rubric, record raw per-posting matches
      in `job-agent/manual_matches.json` (with a real, API-verified
-     `salary` per posting — see step 4, never invented — plus
+     `salary` per posting — see step 5, never invented — plus
      `category`/`probability`/`trajectory`/`market` per posting), record
      any cover letter / resume bullets text / salary estimate figures for
      this run in `job-agent/manual_extras.json`, then run
      `python3 apply_manual_scores.py`.
-3. The pipeline (`job-agent/pipeline.py`, used identically by both paths
+4. The pipeline (`job-agent/pipeline.py`, used identically by both paths
    above) then:
    - **Dedupes sibling postings** (`job-agent/dedup.py`): the same role
      posted on multiple boards from the same corporate family (per
@@ -119,9 +138,10 @@ to do all of the following, without asking for confirmation:
      matches are already monthly BRL, so no FX step is needed
      (`col_comparison_note_brl`). Computed deterministically (no API
      call) on every run.
-4. Update `job-agent/report.html` with the fresh matches (score 60+,
+5. Update `job-agent/report.html` with the fresh matches (score 60+,
    "New matches" + "Tracked" sections, each showing a market tag
-   ("International (remote)" / "Brazilian market (local)")
+   ("International (remote)" / "Brazilian market (local)"), a
+   Stretch/Leadership tag on any job tagged that way in step 2,
    category/probability tags, salary/estimate, cost-of-living note,
    relocation-support flag, a trajectory callout, sibling links, status,
    and cover letter/resume bullets links where applicable) — this happens
@@ -133,13 +153,25 @@ to do all of the following, without asking for confirmation:
    job that already has drafts but has scrolled out of "new" (seen
    before, no status set) still has the files in the repo, just not
    linked from the report until it's marked `interested`/`applied`.
-5. `report.html` must keep every job title as its own clickable link
-   straight to the (primary) posting, and its header must show the pace
-   tracker: a running "N applied this week · M all-time" count from
-   `job-agent/applications_log.json` (`job-agent/pace_tracker.py`),
-   logged automatically whenever `set_status.py <url> applied` is run.
-6. Summarize the results back to the user (what's new since last time,
+6. `report.html` must keep every job title as its own clickable link
+   straight to the (primary) posting, and its header must show, every
+   time the report is generated: the pace tracker (a running "N applied
+   this week · M all-time" count from
+   `job-agent/applications_log.json`, via `job-agent/pace_tracker.py`,
+   logged automatically whenever `set_status.py <url> applied` is run);
+   a clear applied-vs-total count ("N applied of M total matches
+   tracked", computed from every job ever recorded in
+   `job-agent/jobs_state.json` regardless of status — not just this
+   run's visible cards) so progress is visible even on a run with zero
+   new matches; and a one-line reminder of what `set_status.py` actually
+   does (`python3 set_status.py <url> applied|interested|pass` —
+   `applied` logs it to the pace/applied counts, `interested` keeps it
+   visible in Tracked, `pass` hides it from future reports for good).
+   This reminder belongs in the report itself (so it's visible every
+   time, not just when asked) via `report.generate_report_html()`.
+7. Summarize the results back to the user (what's new since last time,
    any status changes reflected, any cover letters/resume bullets
-   drafted) and mention the updated report.
+   drafted, and — if step 2 found anything — the stretch/leadership
+   result) and mention the updated report.
 
 See `job-agent/README.md` for full details on each script.

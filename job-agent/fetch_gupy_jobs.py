@@ -10,6 +10,15 @@ authenticated employer-side API only). Company career pages
 job list into a Next.js __NEXT_DATA__ script tag -- this is the same
 data any visitor's browser receives unauthenticated, so reading it here
 follows the same principle as the other providers' public JSON APIs.
+
+COMPANIES covers every confirmed genuinely Brazilian-market employer on
+Gupy checked so far -- both the clinical operations/trial management
+companies from the original search and the major Brazilian pharma
+companies added for the Director/Country Manager "stretch/leadership"
+search (see README's "Stretch/leadership search" section). Not every
+company here currently has clinical-ops-relevant or leadership-level
+postings open; that's expected and reassessed at scoring time each run,
+not filtered out here.
 """
 
 import json
@@ -17,14 +26,22 @@ import re
 
 import requests
 
-# All confirmed genuinely Brazilian-market employers (not international
-# remote) with clinical operations/trial management-relevant postings:
 COMPANIES = {
-    "synvia": "Synvia",  # dedicated Brazilian CRO -- largest, most relevant hit
+    "synvia": "Synvia",  # dedicated Brazilian CRO -- largest, most relevant clinical-ops hit
     "idor": "IDOR",  # Instituto D'Or de Pesquisa e Ensino (Rede D'Or's research institute)
     "eurofarma": "Eurofarma",  # major Brazilian pharma
     "rennova": "Rennova",  # aesthetics/medical products co. with a clinical research function
+    "vagasache": "Aché",  # major Brazilian pharma, added for the leadership/stretch search
+    "hyperapharma": "Hypera Pharma",  # major Brazilian pharma, added for the leadership/stretch search
 }
+
+# EMS Farmacêutica: could NOT confirm a working Gupy subdomain. "ems" is a
+# genuine Gupy-hosted 404 (not a DNS failure), and several plausible
+# alternates (emsfarmaceutica, gruponc, vagasems, etc.) also 404. Multiple
+# secondary sources claim ems.gupy.io is correct, so this may be a
+# recently deactivated/migrated board rather than never-existed -- worth
+# re-checking on a future search rather than treating as permanently ruled
+# out.
 
 HEADERS = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"}
 _NEXT_DATA_RE = re.compile(r'<script id="__NEXT_DATA__"[^>]*>(.*?)</script>', re.S)

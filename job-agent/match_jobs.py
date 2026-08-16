@@ -426,7 +426,7 @@ def main():
         print(job["trajectory"])
         print()
 
-    report_path = write_report(new_matches, tracked_matches, len(scored), len(all_jobs))
+    report_path = write_report(new_matches, tracked_matches, len(scored), len(all_jobs), state)
     print(f"Report written to {report_path}")
 
 

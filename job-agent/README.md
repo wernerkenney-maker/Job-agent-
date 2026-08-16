@@ -53,12 +53,23 @@ see "International vs. Brazilian market" below.
   platform, used by genuinely **Brazilian-market** employers — see
   "International vs. Brazilian market" below):
   - **Synvia** — dedicated Brazilian CRO, the largest/most relevant hit
+    for clinical operations
   - **IDOR** (Instituto D'Or de Pesquisa e Ensino) — Rede D'Or's research
     institute
   - **Eurofarma** — major Brazilian pharma
   - **Rennova** — aesthetics/medical products company with a clinical
     research function (no clinical-ops-relevant postings as of this
     check, kept tracked)
+  - **Aché** (subdomain `vagasache`) — major Brazilian pharma, added for
+    the Director/Country Manager stretch/leadership search (see below)
+  - **Hypera Pharma** (subdomain `hyperapharma`) — major Brazilian
+    pharma, added for the same reason
+  - **EMS Farmacêutica** — could **not** confirm a working subdomain.
+    `ems.gupy.io` returns a genuine Gupy-hosted 404 (not a DNS failure),
+    and plausible alternates (`emsfarmaceutica`, `gruponc`, `vagasems`,
+    etc.) also 404, despite several secondary sources naming
+    `ems.gupy.io` as correct — possibly a recently deactivated/migrated
+    board. Not in `COMPANIES`; worth re-checking on a future search.
   Gupy has no documented public read API — `developers.gupy.io` covers
   only the authenticated employer-side API. Company career pages
   (`https://{company}.gupy.io/`) are public and server-render the full
@@ -217,6 +228,41 @@ candidate's Portfolio Manager role — while still surfacing the strongest
 options (site/study coordination, senior specialist roles) as legitimate
 local-market footholds rather than inflating or zeroing them out
 wholesale.
+
+## Stretch/leadership search
+
+Alongside the regular clinical-ops/quality/regulatory/medical-affairs
+matching, each run also searches specifically for Director/Country
+Manager-level pharma/healthcare openings — a deliberately higher-reach
+"stretch" search rather than a close functional-fit search. Any genuine
+match gets `"tier": "Stretch/Leadership"`, rendered as its own tag on
+the report card (alongside market/category/probability).
+
+Two sources:
+- **Gupy** (automated): Aché, EMS (unconfirmed — see above), Hypera
+  Pharma, and Eurofarma's full job lists (not just the clinical-ops
+  subset) are scanned for Director/Country Manager/VP-level titles at
+  scoring time, same mechanism as every other Gupy search.
+- **LinkedIn and Indeed** (manual, every run): both explicitly disallow
+  job-search scraping in `robots.txt` (`Disallow: /jobs?runSearch*`,
+  `/jobs-guest/`, `/api/jobPostings/jobs*` on LinkedIn; similar on
+  Indeed), so this is a WebSearch-assisted manual lookup each time, not
+  an automated `fetch_*.py` provider — and isn't going to become one.
+  Verify a candidate is actually live before including it: search
+  results for both sites frequently surface expired listings (one
+  checked while building this feature was a real-looking "Director,
+  Clinical Operations" posting whose direct URL 404'd) — never include
+  one without opening the direct link and confirming it's still posted.
+
+It's normal and expected for this search to come up empty on a given
+run — checked at launch across Aché, Hypera Pharma, and Eurofarma's
+full Gupy boards (title-scanned in full, not just keyword-filtered) plus
+a LinkedIn/Indeed pass, and found zero genuinely open Director/Country
+Manager roles at any of them. Director-level pharma hires in Brazil are
+typically filled through executive search firms/headhunters rather than
+posted on public job boards, which is the likely explanation. Report
+this honestly ("checked, nothing open") rather than skipping the step
+or padding it with a stale/unverified listing.
 
 ## Resume-based matching
 
@@ -397,6 +443,20 @@ re-marked) to `applications_log.json`, timestamped. `set_status.py` calls
 every report generation — meant as a simple, durable way to see pace
 toward an active search over the coming year, not a specific numeric
 goal (none was set).
+
+The header also shows a second, distinct count: "N applied of M total
+matches tracked", computed directly from `jobs_state.json` (every job
+ever recorded, regardless of current status) rather than from the pace
+log — this stays meaningful even on a run with zero new matches or zero
+applications this week, since `total_tracked` doesn't depend on what's
+currently visible in the New/Tracked sections. Right below it, a
+one-line reminder spells out what each status actually does:
+`python3 set_status.py <url> applied|interested|pass` — `applied` logs
+it to both counts above, `interested` keeps it visible in the Tracked
+section, `pass` hides it from future reports for good. This reminder is
+baked into `report.generate_report_html()` itself, so it renders on
+every report regardless of whether anyone asks — not just something
+mentioned in chat once.
 
 ## City & cost-of-living comparison
 
