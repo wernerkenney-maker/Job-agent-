@@ -30,6 +30,8 @@ _BANDS = [
      14000, 19000, "Glassdoor Brazil, Gerente de Pesquisa Clínica (São Paulo)"),
     (re.compile(r"coordenador.*(pesquisa cl[ií]nica|centro de pesquisa)", re.I),
      4500, 9800, "Glassdoor Brazil, Coordenador de Pesquisa Clínica (São Paulo range)"),
+    (re.compile(r"coordenador.*planejamento|planejamento.*coordenador", re.I),
+     6000, 12000, "Glassdoor Brazil, Coordenador de Planejamento (general/pharma, non-clinical)"),
     (re.compile(rf"(monitor|\bcra\b).*{_SENIOR}|{_SENIOR}.*(monitor|\bcra\b)", re.I),
      9500, 13200, "Glassdoor Brazil, Monitor de Pesquisa Clínica Sênior (ICON reference)"),
     (re.compile(r"(monitor|\bcra\b)", re.I),

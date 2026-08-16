@@ -135,6 +135,40 @@
     "title": "Senior Clinical Project Manager",
     "trajectory": "Lateral to modest step up from your Global Clinical Study Manager role -- strong direct fit, now backed by real executive client-facing credibility."
   },
+  "Eurofarma::coordenador(a) planejamento estrat\u00e9gico": {
+    "category": "Adjacent",
+    "city": "S\u00e3o Paulo",
+    "col_note": "~R$6.000\u2013R$12.000/month in S\u00e3o Paulo is roughly equivalent to ~R$4.100\u2013R$8.300/month of purchasing power in Fortaleza (S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates).",
+    "companies": [
+      "Eurofarma"
+    ],
+    "company": "Eurofarma",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-16",
+    "key": "Eurofarma::coordenador(a) planejamento estrat\u00e9gico",
+    "last_seen": "2026-08-16",
+    "level": "Primary",
+    "location": "Hybrid, S\u00e3o Paulo, SP",
+    "market": "Brazilian market (local)",
+    "postings": [
+      {
+        "company": "Eurofarma",
+        "location": "Hybrid, S\u00e3o Paulo, SP",
+        "url": "https://eurofarma.gupy.io/jobs/11873611"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "Strategic planning coordination at a major Brazilian pharma -- genuine site/functional-leadership scope locally, relevant to your portfolio-planning background.",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_estimate": "R$6.000\u2013R$12.000/month (estimated \u2014 Glassdoor Brazil, Coordenador de Planejamento (general/pharma, non-clinical), not disclosed by employer)",
+    "score": 62,
+    "status": "new",
+    "tier": null,
+    "title": "Coordenador(a) Planejamento Estrat\u00e9gico",
+    "trajectory": "A step down in scope from portfolio management to strategic-planning coordination, but a legitimate senior local-market role."
+  },
   "Fortrea::clinical trial manager (ctm)": {
     "category": "In-field",
     "city": null,
@@ -270,6 +304,40 @@
     "tier": null,
     "title": "Sr. Clinical Project Manager or Clinical Project Manager II - Oncology",
     "trajectory": "Lateral to modest step up from your Global Clinical Study Manager role, in a therapeutic area you already have direct experience in -- strong, low-risk fit."
+  },
+  "Hypera Pharma::coordenador(a) de planejamento - mercado institucional": {
+    "category": "Adjacent",
+    "city": "S\u00e3o Paulo",
+    "col_note": "~R$6.000\u2013R$12.000/month in S\u00e3o Paulo is roughly equivalent to ~R$4.100\u2013R$8.300/month of purchasing power in Fortaleza (S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates).",
+    "companies": [
+      "Hypera Pharma"
+    ],
+    "company": "Hypera Pharma",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-16",
+    "key": "Hypera Pharma::coordenador(a) de planejamento - mercado institucional",
+    "last_seen": "2026-08-16",
+    "level": "Primary",
+    "location": "On-site, S\u00e3o Paulo, SP",
+    "market": "Brazilian market (local)",
+    "postings": [
+      {
+        "company": "Hypera Pharma",
+        "location": "On-site, S\u00e3o Paulo, SP",
+        "url": "https://hyperapharma.gupy.io/jobs/11582071"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "Institutional-market planning coordination at a major Brazilian pharma -- genuine local operational-leadership scope, adjacent to your planning/portfolio background.",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_estimate": "R$6.000\u2013R$12.000/month (estimated \u2014 Glassdoor Brazil, Coordenador de Planejamento (general/pharma, non-clinical), not disclosed by employer)",
+    "score": 60,
+    "status": "new",
+    "tier": null,
+    "title": "Coordenador(a) de Planejamento - Mercado Institucional",
+    "trajectory": "A step down in scope from portfolio management, but a legitimate senior local-market planning role."
   },
   "ICON plc::biosampling project manager": {
     "category": "Adjacent",
@@ -543,6 +611,40 @@
     "title": "Clinical Trial Manager - Sponsor Dedicated",
     "trajectory": "Lateral to your Global Clinical Study Manager role at one of the largest global CROs, reinforced by real sponsor-facing credibility -- strong, low-risk fit."
   },
+  "IQVIA::coordenador de opera\u00e7\u00f5es de neg\u00f3cios": {
+    "category": "Adjacent",
+    "city": "S\u00e3o Paulo",
+    "col_note": "~R$225.000\u2013R$340.000 in S\u00e3o Paulo is roughly equivalent to ~R$155.000\u2013R$234.000 of purchasing power in Fortaleza (S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).",
+    "companies": [
+      "IQVIA"
+    ],
+    "company": "IQVIA",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-16",
+    "key": "IQVIA::coordenador de opera\u00e7\u00f5es de neg\u00f3cios",
+    "last_seen": "2026-08-16",
+    "level": "Primary",
+    "location": "S\u00e3o Paulo, Brazil",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "IQVIA",
+        "location": "S\u00e3o Paulo, Brazil",
+        "url": "https://iqvia.wd1.myworkdayjobs.com/IQVIA/job/So-Paulo-Brazil/Coordenador-a--de-Business-Operations---Projects_R1563217"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "Business operations coordination at a major global CRO -- genuine site/operational-leadership scope, relevant to your portfolio-operations background.",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_estimate": "~$45,000\u2013$68,000 USD (estimated \u2014 Brazil-based business operations coordinator, major global CRO, not disclosed by employer)",
+    "score": 61,
+    "status": "new",
+    "tier": null,
+    "title": "Coordenador de Opera\u00e7\u00f5es de Neg\u00f3cios",
+    "trajectory": "A step down in scope from portfolio management to operations coordination, but a legitimate operational-leadership role at a major CRO."
+  },
   "Kyndryl::customer partner": {
     "category": "Adjacent",
     "city": "S\u00e3o Paulo",
@@ -610,6 +712,40 @@
     "tier": null,
     "title": "Director, Customer Unit Leader",
     "trajectory": "A genuine reach into Director-level, P&L-owning account leadership in a new industry -- your client-facing and bid-defense experience are real assets, but this is a bigger leap than your current title reflects."
+  },
+  "Kyndryl::project manager": {
+    "category": "Adjacent",
+    "city": "S\u00e3o Paulo",
+    "col_note": "~R$275.000\u2013R$425.000 in S\u00e3o Paulo is roughly equivalent to ~R$190.000\u2013R$293.000 of purchasing power in Fortaleza (S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).",
+    "companies": [
+      "Kyndryl"
+    ],
+    "company": "Kyndryl",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-16",
+    "key": "Kyndryl::project manager",
+    "last_seen": "2026-08-16",
+    "level": "Primary",
+    "location": "Hortolandia, S\u00e3o Paulo, Brazil",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "Kyndryl",
+        "location": "Hortolandia, S\u00e3o Paulo, Brazil",
+        "url": "https://kyndryl.wd5.myworkdayjobs.com/KyndrylProfessionalCareers/job/Hortolandia-So-Paulo-Brazil/Project-Manager_R-61643-1"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "Client-facing program delivery role -- \"single point of contact to the client,\" owns scope/schedule/budget -- relevant capacity match, though a generic Project Manager title below your current program-leadership scope.",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_estimate": "~$55,000\u2013$85,000 USD (estimated \u2014 Brazil-based project manager, major global IT services firm, not disclosed by employer)",
+    "score": 62,
+    "status": "new",
+    "tier": null,
+    "title": "Project Manager",
+    "trajectory": "A lateral-to-step-down move into IT-services project delivery -- the client-facing program ownership transfers, though the title/scope is narrower than your current role."
   },
   "PSI CRO::clinical regional project lead": {
     "category": "In-field",
@@ -781,6 +917,40 @@
     "title": "Global Study Manager II - FSP",
     "trajectory": "Lateral move to a near-identical role you already hold (Global Study Manager) at a major CRO -- strong, low-risk fit, reinforced by real client-facing credibility."
   },
+  "Precision Medicine Group family::account development manager": {
+    "category": "Adjacent",
+    "city": null,
+    "col_note": null,
+    "companies": [
+      "Precision Medicine Group"
+    ],
+    "company": "Precision Medicine Group",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-16",
+    "key": "Precision Medicine Group family::account development manager",
+    "last_seen": "2026-08-16",
+    "level": "Primary",
+    "location": "Remote, Argentina; Remote, Brazil; Remote, Mexico",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "Precision Medicine Group",
+        "location": "Remote, Argentina; Remote, Brazil; Remote, Mexico",
+        "url": "https://job-boards.greenhouse.io/precisionmedicinegroup/jobs/6137942004"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "Business-development/client-relationship management role, explicitly Brazil-eligible -- relevant to your bid-defense and client-facing experience, though a step down from portfolio-level scope.",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_estimate": "~$55,000\u2013$80,000 USD (estimated \u2014 LATAM CRO manager-level, business development/account function, not disclosed by employer)",
+    "score": 66,
+    "status": "new",
+    "tier": null,
+    "title": "Account Development Manager",
+    "trajectory": "A lateral pivot into dedicated account/business development -- leverages your client-facing experience, though narrower in scope than your current role."
+  },
   "Precision Medicine Group family::change order manager": {
     "category": "Adjacent",
     "city": null,
@@ -866,6 +1036,7 @@
     "city": null,
     "col_note": null,
     "companies": [
+      "Precision Medicine Group",
       "Precision for Medicine"
     ],
     "company": "Precision for Medicine",
@@ -881,6 +1052,11 @@
         "company": "Precision for Medicine",
         "location": "Remote, Argentina; Remote, Brazil; Remote, Mexico",
         "url": "https://job-boards.greenhouse.io/pfm/jobs/6120144004"
+      },
+      {
+        "company": "Precision Medicine Group",
+        "location": "Remote, Mexico",
+        "url": "https://job-boards.greenhouse.io/precisionmedicinegroup/jobs/6120120004"
       }
     ],
     "probability": "High",

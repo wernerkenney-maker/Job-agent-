@@ -219,6 +219,21 @@
       "low": 65000,
       "high": 100000,
       "note": "Brazil-based senior account management level at a major global IT services firm"
+    },
+    "Account Development Manager": {
+      "low": 55000,
+      "high": 80000,
+      "note": "LATAM CRO manager-level, business development/account function"
+    },
+    "Project Manager": {
+      "low": 55000,
+      "high": 85000,
+      "note": "Brazil-based project manager, major global IT services firm"
+    },
+    "Coordenador de Operações de Negócios": {
+      "low": 45000,
+      "high": 68000,
+      "note": "Brazil-based business operations coordinator, major global CRO"
     }
   },
   "cover_letters": {
