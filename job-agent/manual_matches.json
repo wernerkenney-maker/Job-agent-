@@ -1,34 +1,51 @@
 {
-  "scored_count": 1372,
-  "fetched_count": 1372,
+  "scored_count": 1500,
+  "fetched_count": 1500,
   "matches": [
     {
       "title": "Clinical Trial Manager (LATAM)",
       "company": "Precision Medicine Group",
       "location": "Remote, Argentina; Remote, Brazil; Remote, Mexico",
       "url": "https://job-boards.greenhouse.io/precisionmedicinegroup/jobs/6108448004",
-      "score": 95,
+      "score": 97,
       "salary": "Not disclosed",
-      "reason": "Direct match to your Global Study Manager background on Novartis's largest Labcorp trial (HORIZON) -- explicitly Brazil-eligible.",
+      "reason": "Direct match to your Global Study Manager background on Novartis's largest Labcorp trial (HORIZON) -- explicitly Brazil-eligible. Trilingual capacity (EN/PT/DE) is a genuine plus for this multi-country LATAM remit.",
       "category": "In-field",
       "probability": "High",
       "trajectory": "Lateral move at the same level as your current Global Study Manager role, reinforced by real client-facing/bid-defense credibility -- strong, low-risk fit.",
       "relocation": null,
-      "market": "International (remote)"
+      "market": "International (remote)",
+      "level": "Primary"
     },
     {
       "title": "Clinical Trial Manager (LATAM)",
       "company": "Precision for Medicine",
       "location": "Remote, Argentina; Remote, Brazil; Remote, Mexico",
       "url": "https://job-boards.greenhouse.io/pfm/jobs/6108451004",
-      "score": 95,
+      "score": 97,
       "salary": "Not disclosed",
-      "reason": "Direct match to your Global Study Manager background on Novartis's largest Labcorp trial (HORIZON) -- explicitly Brazil-eligible.",
+      "reason": "Direct match to your Global Study Manager background on Novartis's largest Labcorp trial (HORIZON) -- explicitly Brazil-eligible. Trilingual capacity (EN/PT/DE) is a genuine plus for this multi-country LATAM remit.",
       "category": "In-field",
       "probability": "High",
       "trajectory": "Lateral move at the same level as your current Global Study Manager role, reinforced by real client-facing/bid-defense credibility -- strong, low-risk fit.",
       "relocation": null,
-      "market": "International (remote)"
+      "market": "International (remote)",
+      "level": "Primary"
+    },
+    {
+      "title": "Global Study Manager II - FSP",
+      "company": "Parexel",
+      "location": "Remote, Mexico; Remote, Argentina; Remote, Brazil",
+      "url": "https://wd1.myworkdaysite.com/recruiting/parexel/Parexel_External_Careers/job/Mexico-Remote/Global-Study-Manager-II---FSP_R0000044322-1",
+      "score": 95,
+      "salary": "Not disclosed",
+      "reason": "Title and scope essentially match your prior Global Clinical Study Manager role -- and you currently serve as Global Study Manager on HORIZON, Novartis's largest trial with Labcorp, with direct sponsor-facing and bid-defense experience. Trilingual capacity (EN/PT/DE) is a genuine plus across this Mexico/Argentina/Brazil remit.",
+      "category": "In-field",
+      "probability": "High",
+      "trajectory": "Lateral move to a near-identical role you already hold (Global Study Manager) at a major CRO -- strong, low-risk fit, reinforced by real client-facing credibility.",
+      "relocation": null,
+      "market": "International (remote)",
+      "level": "Primary"
     },
     {
       "title": "Clinical Trial Manager - Sponsor Dedicated",
@@ -42,21 +59,8 @@
       "probability": "High",
       "trajectory": "Lateral to your Global Clinical Study Manager role at one of the largest global CROs, reinforced by real sponsor-facing credibility -- strong, low-risk fit.",
       "relocation": null,
-      "market": "International (remote)"
-    },
-    {
-      "title": "Global Study Manager II - FSP",
-      "company": "Parexel",
-      "location": "Remote, Mexico; Remote, Argentina; Remote, Brazil",
-      "url": "https://wd1.myworkdaysite.com/recruiting/parexel/Parexel_External_Careers/job/Mexico-Remote/Global-Study-Manager-II---FSP_R0000044322-1",
-      "score": 93,
-      "salary": "Not disclosed",
-      "reason": "Title and scope essentially match your prior Global Clinical Study Manager role -- and you currently serve as Global Study Manager on HORIZON, Novartis's largest trial with Labcorp, with direct sponsor-facing and bid-defense experience.",
-      "category": "In-field",
-      "probability": "High",
-      "trajectory": "Lateral move to a near-identical role you already hold (Global Study Manager) at a major CRO -- strong, low-risk fit, reinforced by real client-facing credibility.",
-      "relocation": null,
-      "market": "International (remote)"
+      "market": "International (remote)",
+      "level": "Primary"
     },
     {
       "title": "Senior Clinical Project Manager",
@@ -70,7 +74,8 @@
       "probability": "High",
       "trajectory": "Lateral to modest step up from your Global Clinical Study Manager role -- strong direct fit, now backed by real executive client-facing credibility.",
       "relocation": null,
-      "market": "International (remote)"
+      "market": "International (remote)",
+      "level": "Primary"
     },
     {
       "title": "Sr. Clinical Project Manager or Clinical Project Manager II - Oncology",
@@ -84,7 +89,8 @@
       "probability": "High",
       "trajectory": "Lateral to modest step up from your Global Clinical Study Manager role, in a therapeutic area you already have direct experience in -- strong, low-risk fit.",
       "relocation": null,
-      "market": "International (remote)"
+      "market": "International (remote)",
+      "level": "Primary"
     },
     {
       "title": "Clinical Regional Project Lead",
@@ -98,7 +104,8 @@
       "probability": "High",
       "trajectory": "Mirrors your Regional Study Coordinator + Global Study Manager background closely, now reinforced by real international client-facing experience -- strong, low-risk fit worth prioritizing.",
       "relocation": null,
-      "market": "International (remote)"
+      "market": "International (remote)",
+      "level": "Primary"
     },
     {
       "title": "Senior Clinical Trial Manager",
@@ -112,7 +119,8 @@
       "probability": "High",
       "trajectory": "Lateral to modest step up from your Global Clinical Study Manager role -- strong, low-risk fit.",
       "relocation": null,
-      "market": "International (remote)"
+      "market": "International (remote)",
+      "level": "Primary"
     },
     {
       "title": "Clinical Trial Manager with focus on Project Management - Sponsor dedicated - Brazil Home Based",
@@ -126,7 +134,8 @@
       "probability": "High",
       "trajectory": "Lateral move at essentially the same level as your Global Clinical Study Manager role -- strong, low-risk fit.",
       "relocation": null,
-      "market": "International (remote)"
+      "market": "International (remote)",
+      "level": "Primary"
     },
     {
       "title": "Clinical Project Manager - Brazil",
@@ -140,7 +149,8 @@
       "probability": "High",
       "trajectory": "Lateral move into country-level clinical project management at a major CRO -- strong, direct fit.",
       "relocation": null,
-      "market": "International (remote)"
+      "market": "International (remote)",
+      "level": "Primary"
     },
     {
       "title": "Country Operations Manager - FSP",
@@ -154,7 +164,23 @@
       "probability": "High",
       "trajectory": "Lateral move into country-level operations leadership at a major CRO, reinforced by real international sponsor-facing experience -- strong, direct fit.",
       "relocation": null,
-      "market": "International (remote)"
+      "market": "International (remote)",
+      "level": "Primary"
+    },
+    {
+      "title": "CTM II - Sr CTM assigned to client LAtam (USA scope or local scope) - Mexico, Argentina, Brasil, Chile, Colombia",
+      "company": "Syneos Health",
+      "location": "Remote, Argentina; Remote, Brazil; Remote, Chile; Remote, Colombia; Remote, Mexico; Remote, Peru",
+      "url": "https://syneoshealth.wd12.myworkdayjobs.com/Syneos_Health_External_Site/job/ARG-Remote/CTM-II---Sr-CTM-assigned-to-client-LAtam--USA-scope-_25107944",
+      "score": 85,
+      "salary": "Not disclosed",
+      "reason": "Senior client-dedicated Clinical Trial Manager role across LATAM -- direct match to your trial-management background and your real experience managing a direct client relationship (Novartis) at scale. Trilingual capacity (EN/PT/DE) is a real plus managing a client relationship across 5 LATAM countries.",
+      "category": "In-field",
+      "probability": "High",
+      "trajectory": "Lateral to modest step up from your Global Clinical Study Manager role -- strong direct fit.",
+      "relocation": null,
+      "market": "International (remote)",
+      "level": "Primary"
     },
     {
       "title": "Clinical Trial Manager",
@@ -168,7 +194,8 @@
       "probability": "High",
       "trajectory": "Lateral move at essentially the same level as your Global Clinical Study Manager role -- strong, low-risk fit.",
       "relocation": null,
-      "market": "International (remote)"
+      "market": "International (remote)",
+      "level": "Primary"
     },
     {
       "title": "Clinical Trial Manager (CTM)",
@@ -182,47 +209,51 @@
       "probability": "High",
       "trajectory": "Lateral move at essentially the same level as your Global Clinical Study Manager role -- strong, low-risk fit.",
       "relocation": null,
-      "market": "International (remote)"
-    },
-    {
-      "title": "CTM II - Sr CTM assigned to client LAtam (USA scope or local scope) - Mexico, Argentina, Brasil, Chile, Colombia",
-      "company": "Syneos Health",
-      "location": "Remote, Argentina; Remote, Brazil; Remote, Chile; Remote, Colombia; Remote, Mexico; Remote, Peru",
-      "url": "https://syneoshealth.wd12.myworkdayjobs.com/Syneos_Health_External_Site/job/ARG-Remote/CTM-II---Sr-CTM-assigned-to-client-LAtam--USA-scope-_25107944",
-      "score": 83,
-      "salary": "Not disclosed",
-      "reason": "Senior client-dedicated Clinical Trial Manager role across LATAM -- direct match to your trial-management background and your real experience managing a direct client relationship (Novartis) at scale.",
-      "category": "In-field",
-      "probability": "High",
-      "trajectory": "Lateral to modest step up from your Global Clinical Study Manager role -- strong direct fit.",
-      "relocation": null,
-      "market": "International (remote)"
+      "market": "International (remote)",
+      "level": "Primary"
     },
     {
       "title": "Manager, Global Investigator Grants (LATAM)",
       "company": "Precision for Medicine",
       "location": "Remote, Argentina; Remote, Brazil; Remote, Mexico",
       "url": "https://job-boards.greenhouse.io/pfm/jobs/6120144004",
-      "score": 81,
+      "score": 83,
       "salary": "Not disclosed",
-      "reason": "Grants/investigator relationship management at manager level -- your bid-defense and direct sponsor-facing experience with Novartis is a strong match for this stakeholder-facing function.",
+      "reason": "Grants/investigator relationship management at manager level -- your bid-defense and direct sponsor-facing experience with Novartis is a strong match for this stakeholder-facing function. Trilingual capacity (EN/PT/DE) adds real value across this LATAM-wide remit.",
       "category": "Adjacent",
       "probability": "High",
       "trajectory": "Lateral move into a specialized adjacent function, strengthened by real client-facing credibility from representing Labcorp to Novartis -- worth pursuing.",
       "relocation": null,
-      "market": "International (remote)"
+      "market": "International (remote)",
+      "level": "Primary"
     },
     {
       "title": "Country Study Operations Manager I - FSP",
       "company": "Parexel",
       "location": "Brazil-Remote",
       "url": "https://wd1.myworkdaysite.com/recruiting/parexel/Parexel_External_Careers/job/Brazil-Remote/Country-Study-Operations-Manager-I---FSP_R0000040522",
-      "score": 81,
+      "score": 83,
       "salary": "Not disclosed",
-      "reason": "Country-level study operations management, strong overlap with your regional coordination and study-management background -- reinforced by direct sponsor-facing experience representing Labcorp to Novartis.",
+      "reason": "Country-level study operations management, strong overlap with your regional coordination and study-management background -- reinforced by direct sponsor-facing experience representing Labcorp to Novartis. Trilingual capacity (EN/PT/DE) is a genuine plus across this multi-country remit.",
       "category": "In-field",
       "probability": "High",
       "trajectory": "Lateral move into country-level study operations, strengthened by real international client-facing credibility -- solid fit.",
+      "relocation": null,
+      "market": "International (remote)",
+      "level": "Primary"
+    },
+    {
+      "title": "Associate Director – Talent & Organization (Business Development e AI Adoption)",
+      "company": "Accenture",
+      "location": "Sao Paulo, Torre Paineira",
+      "url": "https://accenture.wd103.myworkdayjobs.com/AccentureCareers/job/Sao-Paulo-Torre-Paineira/Associate-Director---Talent---Organization--Business-Development-e-AI-Adoption-_14516657",
+      "score": 80,
+      "salary": "Not disclosed",
+      "reason": "Associate Director role explicitly combining C-level client relationships, full consultative sales-cycle ownership, and technical/commercial proposal leadership (scope, pricing) -- outside pharma, but a very strong capacity match.",
+      "category": "Adjacent",
+      "level": "Primary",
+      "probability": "Medium",
+      "trajectory": "A genuine industry pivot into management consulting, but the bid-leadership, C-level client-facing, and large-program-delivery skills transfer directly -- worth serious consideration.",
       "relocation": null,
       "market": "International (remote)"
     },
@@ -238,35 +269,8 @@
       "probability": "High",
       "trajectory": "Lateral move leveraging your budget-management experience into a more specialized grants/costing function.",
       "relocation": null,
-      "market": "International (remote)"
-    },
-    {
-      "title": "Senior Regulatory and Start Up Specialist (Brazil)",
-      "company": "Precision Medicine Group",
-      "location": "Remote, Brazil",
-      "url": "https://job-boards.greenhouse.io/precisionmedicinegroup/jobs/6135868004",
-      "score": 77,
-      "salary": "Not disclosed",
-      "reason": "Regulatory/site start-up work mirrors your Regional Study Coordinator EMEA role; your client-audit and sponsor-facing experience adds real credibility; Brazil-based.",
-      "category": "Adjacent",
-      "probability": "Medium",
-      "trajectory": "A step down in title from your current scope, but Brazil-based, domain-relevant, and backed by real sponsor-facing credibility -- worth it as a foothold role.",
-      "relocation": null,
-      "market": "International (remote)"
-    },
-    {
-      "title": "Senior Regulatory and Start Up Specialist (Brazil)",
-      "company": "Precision for Medicine",
-      "location": "Remote, Brazil",
-      "url": "https://job-boards.greenhouse.io/pfm/jobs/6135871004",
-      "score": 77,
-      "salary": "Not disclosed",
-      "reason": "Regulatory/site start-up work mirrors your Regional Study Coordinator EMEA role; your client-audit and sponsor-facing experience adds real credibility; Brazil-based.",
-      "category": "Adjacent",
-      "probability": "Medium",
-      "trajectory": "A step down in title from your current scope, but Brazil-based, domain-relevant, and backed by real sponsor-facing credibility -- worth it as a foothold role.",
-      "relocation": null,
-      "market": "International (remote)"
+      "market": "International (remote)",
+      "level": "Primary"
     },
     {
       "title": "Clinical Project Manager - Rare Diseases / CNS",
@@ -280,7 +284,8 @@
       "probability": "Medium",
       "trajectory": "A leadership-level lateral move, but the CNS/rare-disease therapeutic depth is outside your background -- worth pursuing if that depth isn't a hard requirement.",
       "relocation": null,
-      "market": "International (remote)"
+      "market": "International (remote)",
+      "level": "Primary"
     },
     {
       "title": "Change Order Manager",
@@ -294,7 +299,8 @@
       "probability": "Medium",
       "trajectory": "Lateral move leveraging your budget-management experience into a more specialized contracts function.",
       "relocation": null,
-      "market": "International (remote)"
+      "market": "International (remote)",
+      "level": "Primary"
     },
     {
       "title": "Change Order Manager",
@@ -308,61 +314,51 @@
       "probability": "Medium",
       "trajectory": "Lateral move leveraging your budget-management experience into a more specialized contracts function.",
       "relocation": null,
-      "market": "International (remote)"
+      "market": "International (remote)",
+      "level": "Primary"
     },
     {
-      "title": "Lead Clinical Research Associate",
-      "company": "PSI CRO",
-      "location": "São Paulo, SP, Brazil",
-      "url": "https://jobs.smartrecruiters.com/PSICRO/744000141567109",
-      "score": 71,
+      "title": "Director, Customer Unit Leader",
+      "company": "Kyndryl",
+      "location": "Sao Paulo, Brazil",
+      "url": "https://kyndryl.wd5.myworkdayjobs.com/KyndrylProfessionalCareers/job/Sao-Paulo-Brazil/Director--Customer-Unit-Leader_R-59605",
+      "score": 72,
       "salary": "Not disclosed",
-      "reason": "Clinical ops leadership, but site-monitoring/CRA track rather than your study/portfolio-management track.",
-      "category": "In-field",
-      "probability": "Medium",
-      "trajectory": "Lateral pivot into site-monitoring leadership (a different track from your study/portfolio-management background) -- doable, not a direct line.",
-      "relocation": null,
-      "market": "International (remote)"
-    },
-    {
-      "title": "Senior Clinical QA Specialist",
-      "company": "EDETEK",
-      "location": "Remote, Brazil",
-      "url": "https://apply.workable.com/j/51F3AC7BD4",
-      "score": 71,
-      "salary": "Not disclosed",
-      "reason": "Quality function leveraging oversight/compliance experience, no dedicated QA title history.",
+      "reason": "Director-level, P&L-owning leadership of a customer account portfolio with direct C-suite engagement -- strong capacity alignment with your Novartis relationship and bid-defense experience, but a genuine Director-level reach.",
       "category": "Adjacent",
-      "probability": "Medium",
-      "trajectory": "Lateral pivot into quality -- leverages your oversight/compliance experience even without a dedicated QA title history.",
+      "level": "Reach",
+      "probability": "Long-shot",
+      "trajectory": "A genuine reach into Director-level, P&L-owning account leadership in a new industry -- your client-facing and bid-defense experience are real assets, but this is a bigger leap than your current title reflects.",
       "relocation": null,
       "market": "International (remote)"
     },
     {
-      "title": "Clinical Start-Up & Trial Lead",
-      "company": "Fortrea",
-      "location": "São Paulo",
-      "url": "https://fortrea.wd1.myworkdayjobs.com/Fortrea/job/So-Paulo/Clinical-Start-Up---Trial-Lead_254866",
-      "score": 71,
-      "salary": "Not disclosed",
-      "reason": "Lead-level site/study start-up role, on-site São Paulo, decent overlap with your trial-management background.",
-      "category": "In-field",
-      "probability": "Medium",
-      "trajectory": "A step down in scope from portfolio management to site/study start-up leadership, but Brazil-based and domain-relevant.",
-      "relocation": null,
-      "market": "International (remote)"
-    },
-    {
-      "title": "Feasibility Strategy Analytics Lead (Sponsor dedicated) - Argentina, Brazil and Mexico Home Based",
+      "title": "Regulatory CMC Manager Cell and Gene Therapy",
       "company": "Syneos Health",
-      "location": "Remote, Argentina; Remote, Brazil; Remote, Mexico",
-      "url": "https://syneoshealth.wd12.myworkdayjobs.com/Syneos_Health_External_Site/job/ARG-Remote/Feasibility-Strategy-Analytics-Lead--Sponsor-dedicated----Argentina--Brazil-and-Mexico-Home-Based_25109911",
-      "score": 69,
+      "location": "Remote, Argentina; Remote, Brazil; Remote, Colombia; Remote, Mexico; Remote, Serbia",
+      "url": "https://syneoshealth.wd12.myworkdayjobs.com/Syneos_Health_External_Site/job/ARG-Remote/Regulatory-CMC-Manager-Cell-and-Gene-Therapy_25108926",
+      "score": 70,
       "salary": "Not disclosed",
-      "reason": "Lead-level feasibility/strategy analytics role, adjacent to trial planning rather than direct execution.",
+      "reason": "Manager-level regulatory role, but highly specialized cell & gene therapy CMC domain you don't have direct depth in. This role spans LATAM and Serbia (EMEA) -- your trilingual capacity (EN/PT/DE), including working German, is a specific and genuine differentiator here, not just generic language skill.",
       "category": "Adjacent",
+      "probability": "Long-shot",
+      "trajectory": "Manager-level scope is a lateral fit, but the CGT-specific regulatory depth requirement is likely a hard filter you don't clear -- worth a shot only if that depth isn't strictly required.",
+      "relocation": null,
+      "market": "International (remote)",
+      "level": "Primary"
+    },
+    {
+      "title": "Customer Partner",
+      "company": "Kyndryl",
+      "location": "Sao Paulo, Brazil",
+      "url": "https://kyndryl.wd5.myworkdayjobs.com/KyndrylProfessionalCareers/job/Sao-Paulo-Brazil/Customer-Partner_R-53476",
+      "score": 70,
+      "salary": "Not disclosed",
+      "reason": "Senior account-relationship role owning growth/retention strategy for top-tier accounts with executive-level engagement -- your C-level client-facing experience (Novartis) transfers directly, though the industry itself is new.",
+      "category": "Adjacent",
+      "level": "Primary",
       "probability": "Medium",
-      "trajectory": "A pivot into feasibility strategy/analytics -- leverages portfolio-level planning experience, though it's a distinct specialist track.",
+      "trajectory": "A lateral pivot from clinical trial/portfolio management into IT-services account relationship management -- the client-facing skill set transfers directly, though the industry is new.",
       "relocation": null,
       "market": "International (remote)"
     },
@@ -378,33 +374,21 @@
       "probability": "Long-shot",
       "trajectory": "A big leap in function (ops/portfolio management to medical affairs leadership), now backed by real executive client-facing credibility -- but the medical-degree requirement is likely a hard blocker, so confirm before applying.",
       "relocation": null,
-      "market": "International (remote)"
+      "market": "International (remote)",
+      "level": "Reach"
     },
     {
-      "title": "Regulatory Affairs Consultant - CMC US/EU - Biological products",
-      "company": "Parexel",
-      "location": "Brazil-Sao Paulo; Remote, Argentina; Remote, Mexico",
-      "url": "https://wd1.myworkdaysite.com/recruiting/parexel/Parexel_External_Careers/job/Brazil-Sao-Paulo/Regulatory-Affairs-Consultant---CMC_R0000039962",
+      "title": "Gerente Associado de Propostas Comerciais – Híbrido – Inglês Avançado",
+      "company": "Accenture",
+      "location": "Rio de Janeiro, Rio Metropolitan Center; Minas Gerais - Nova Lima; São Paulo - Sao Paulo",
+      "url": "https://accenture.wd103.myworkdayjobs.com/AccentureCareers/job/Rio-de-Janeiro-Rio-Metropolitan-Center/Especialista-de-Propostas-Comerciais---Hbrido---Ingls-Avanado_R00346489",
       "score": 68,
       "salary": "Not disclosed",
-      "reason": "Senior regulatory consultant role; CMC/biologics specialization narrows the fit versus your generalist ops background.",
+      "reason": "Leads mid-to-large commercial opportunities through the full RFI/RFP/BAFO response cycle -- direct match to your 4 bid defenses, though a narrower specialist bid-management function than your current program scope.",
       "category": "Adjacent",
+      "level": "Primary",
       "probability": "Medium",
-      "trajectory": "A pivot into a specialized regulatory consulting function -- consultant-level seniority is a reasonable lateral, but the CMC/biologics depth is a stretch.",
-      "relocation": null,
-      "market": "International (remote)"
-    },
-    {
-      "title": "Senior Regulatory Affairs Specialist",
-      "company": "ICON plc",
-      "location": "Brazil, Sao Paulo",
-      "url": "https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Senior-Regulatory-Affairs-Specialist_JR156242",
-      "score": 68,
-      "salary": "Not disclosed",
-      "reason": "Regulatory function leveraging your cross-country regulatory-variation experience from Regional Study Coordinator EMEA.",
-      "category": "Adjacent",
-      "probability": "Medium",
-      "trajectory": "Lateral pivot into regulatory affairs -- leverages your EMEA regional regulatory-navigation experience even without a dedicated regulatory title history.",
+      "trajectory": "A lateral pivot from trial/program management into dedicated bid & proposal management -- your bid-defense experience is directly relevant, though narrower in scope than your current portfolio role.",
       "relocation": null,
       "market": "International (remote)"
     },
@@ -420,21 +404,8 @@
       "probability": "Medium",
       "trajectory": "A step down from portfolio management to single-site leadership, but a legitimate senior local-market ops role -- worth it as a Brazilian-market foothold.",
       "relocation": null,
-      "market": "Brazilian market (local)"
-    },
-    {
-      "title": "Regulatory CMC Manager Cell and Gene Therapy",
-      "company": "Syneos Health",
-      "location": "Remote, Argentina; Remote, Brazil; Remote, Colombia; Remote, Mexico; Remote, Serbia",
-      "url": "https://syneoshealth.wd12.myworkdayjobs.com/Syneos_Health_External_Site/job/ARG-Remote/Regulatory-CMC-Manager-Cell-and-Gene-Therapy_25108926",
-      "score": 67,
-      "salary": "Not disclosed",
-      "reason": "Manager-level regulatory role, but highly specialized cell & gene therapy CMC domain you don't have direct depth in.",
-      "category": "Adjacent",
-      "probability": "Long-shot",
-      "trajectory": "Manager-level scope is a lateral fit, but the CGT-specific regulatory depth requirement is likely a hard filter you don't clear -- worth a shot only if that depth isn't strictly required.",
-      "relocation": null,
-      "market": "International (remote)"
+      "market": "Brazilian market (local)",
+      "level": "Primary"
     },
     {
       "title": "Patient Safety Project Manager",
@@ -448,7 +419,8 @@
       "probability": "Medium",
       "trajectory": "Lateral pivot into patient safety project management -- leverages PM-level oversight experience even without a dedicated safety title history.",
       "relocation": null,
-      "market": "International (remote)"
+      "market": "International (remote)",
+      "level": "Primary"
     },
     {
       "title": "Coordenador de Pesquisa Clínica",
@@ -462,7 +434,38 @@
       "probability": "Medium",
       "trajectory": "Step down in scope from portfolio management, but a genuine senior local-market operations role and a credible Brazilian-market foothold.",
       "relocation": null,
-      "market": "Brazilian market (local)"
+      "market": "Brazilian market (local)",
+      "level": "Primary"
+    },
+    {
+      "title": "Centralized Monitoring Lead in LATAM (Remote)",
+      "company": "IQVIA",
+      "location": "Remote, Argentina; Remote, Brazil; Remote, Chile; Remote, Colombia; Remote, Mexico; Remote, Peru",
+      "url": "https://iqvia.wd1.myworkdayjobs.com/IQVIA/job/Buenos-Aires-Argentina/Centralized-Monitoring-Lead-in-LATAM--Remote-_R1558548",
+      "score": 66,
+      "salary": "Not disclosed",
+      "reason": "Lead-level centralized monitoring oversight across LATAM, remote-eligible -- more specialist than managerial. Trilingual capacity (EN/PT/DE) is a genuine plus across this 6-country LATAM remit.",
+      "category": "In-field",
+      "probability": "Medium",
+      "trajectory": "A step down in scope from portfolio management into a more specialized monitoring-lead function -- doable, not a direct line.",
+      "relocation": null,
+      "market": "International (remote)",
+      "level": "Primary"
+    },
+    {
+      "title": "Consultor de Gestão de Propostas Comerciais – Híbrido – Inglês Fluente",
+      "company": "Accenture",
+      "location": "Rio de Janeiro, Rio Metropolitan Center; Minas Gerais - Nova Lima; São Paulo - Sao Paulo",
+      "url": "https://accenture.wd103.myworkdayjobs.com/AccentureCareers/job/Rio-de-Janeiro-Rio-Metropolitan-Center/Consultor-de-Gesto-de-Propostas-Comerciais---Hbrido---Ingls-Fluente_R00346492",
+      "score": 66,
+      "salary": "Not disclosed",
+      "reason": "Manages complex proposals end-to-end -- governance, cross-functional coordination, compliance -- directly relevant to your bid-defense experience, though a narrower specialist function than program/portfolio leadership.",
+      "category": "Adjacent",
+      "level": "Primary",
+      "probability": "Medium",
+      "trajectory": "A lateral pivot into dedicated proposal management -- your bid-defense experience transfers well, though this is a narrower specialist track than your current role.",
+      "relocation": null,
+      "market": "International (remote)"
     },
     {
       "title": "Therapeutic Area Lead (Gastroenterology)",
@@ -476,217 +479,38 @@
       "probability": "Long-shot",
       "trajectory": "A leadership step up in scope, bolstered by real client-facing credibility, but the GI-specific therapeutic depth requirement remains the limiting factor -- worth a shot only if that depth isn't a hard requirement.",
       "relocation": null,
-      "market": "International (remote)"
-    },
-    {
-      "title": "Specialist, Quality Assurance",
-      "company": "Care Access",
-      "location": "Brazil-Home Office",
-      "url": "https://job-boards.greenhouse.io/careaccess/jobs/4309910009",
-      "score": 64,
-      "salary": "Not disclosed",
-      "reason": "Quality function at a clinical trial site network; specialist-level title below your current scope.",
-      "category": "Adjacent",
-      "probability": "Medium",
-      "trajectory": "Lateral move into a new function at a lower formal title than your current scope -- worth it if building QA credentials serves your long-term regulatory/quality trajectory.",
-      "relocation": null,
-      "market": "International (remote)"
-    },
-    {
-      "title": "Medical Science Liaison (MSL)",
-      "company": "IQVIA",
-      "location": "São Paulo, Brazil",
-      "url": "https://iqvia.wd1.myworkdayjobs.com/IQVIA/job/So-Paulo-Brazil/Medical-Science-Liaison--MSL-_R1559518",
-      "score": 64,
-      "salary": "Not disclosed",
-      "reason": "Senior medical-affairs role, but a distinct scientific-liaison track rather than your ops/portfolio-management track.",
-      "category": "Adjacent",
-      "probability": "Medium",
-      "trajectory": "A pivot into a different clinical function (medical affairs vs. trial operations) -- plausible given your therapeutic-area breadth, but a real functional stretch.",
-      "relocation": null,
-      "market": "International (remote)"
-    },
-    {
-      "title": "Centralized Monitoring Lead in LATAM (Remote)",
-      "company": "IQVIA",
-      "location": "Remote, Argentina; Remote, Brazil; Remote, Chile; Remote, Colombia; Remote, Mexico; Remote, Peru",
-      "url": "https://iqvia.wd1.myworkdayjobs.com/IQVIA/job/Buenos-Aires-Argentina/Centralized-Monitoring-Lead-in-LATAM--Remote-_R1558548",
-      "score": 64,
-      "salary": "Not disclosed",
-      "reason": "Lead-level centralized monitoring oversight across LATAM, remote-eligible -- more specialist than managerial.",
-      "category": "In-field",
-      "probability": "Medium",
-      "trajectory": "A step down in scope from portfolio management into a more specialized monitoring-lead function -- doable, not a direct line.",
-      "relocation": null,
-      "market": "International (remote)"
+      "market": "International (remote)",
+      "level": "Primary"
     },
     {
       "title": "Patient Engagement Lead (LATAM)",
       "company": "Precision Medicine Group",
       "location": "Remote, Argentina; Remote, Brazil; Remote, Mexico",
       "url": "https://job-boards.greenhouse.io/precisionmedicinegroup/jobs/6098464004",
-      "score": 63,
+      "score": 65,
       "salary": "Not disclosed",
-      "reason": "Trial-adjacent site/patient engagement work, decent overlap with regional coordination background.",
+      "reason": "Trial-adjacent site/patient engagement work, decent overlap with regional coordination background. Trilingual capacity (EN/PT/DE) is a genuine plus across this multi-country LATAM remit.",
       "category": "Adjacent",
       "probability": "Medium",
       "trajectory": "Lateral pivot into a more specialized patient-engagement function -- a stretch from your generalist portfolio background but plausible.",
       "relocation": null,
-      "market": "International (remote)"
+      "market": "International (remote)",
+      "level": "Primary"
     },
     {
       "title": "Patient Engagement Lead (LATAM)",
       "company": "Precision for Medicine",
       "location": "Remote, Argentina; Remote, Brazil; Remote, Mexico",
       "url": "https://job-boards.greenhouse.io/pfm/jobs/6123054004",
-      "score": 63,
+      "score": 65,
       "salary": "Not disclosed",
-      "reason": "Trial-adjacent site/patient engagement work, decent overlap with regional coordination background.",
+      "reason": "Trial-adjacent site/patient engagement work, decent overlap with regional coordination background. Trilingual capacity (EN/PT/DE) is a genuine plus across this multi-country LATAM remit.",
       "category": "Adjacent",
       "probability": "Medium",
       "trajectory": "Lateral pivot into a more specialized patient-engagement function -- a stretch from your generalist portfolio background but plausible.",
       "relocation": null,
-      "market": "International (remote)"
-    },
-    {
-      "title": "Senior Study Start Up Associate (Regulatory Submissions)",
-      "company": "ICON plc",
-      "location": "Brazil, Sao Paulo",
-      "url": "https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Senior-Site-Partner_JR150380-1",
-      "score": 63,
-      "salary": "Not disclosed",
-      "reason": "Senior-level study start-up/regulatory submissions role, but an individual-contributor 'Associate' title despite the seniority.",
-      "category": "Adjacent",
-      "probability": "Medium",
-      "trajectory": "A step down in title from your current scope, but Brazil-based and domain-relevant -- worth it as a foothold role if title level isn't the priority.",
-      "relocation": null,
-      "market": "International (remote)"
-    },
-    {
-      "title": "Senior Grant Specialist",
-      "company": "ICON plc",
-      "location": "Brazil, Sao Paulo; Argentina, Buenos Aires",
-      "url": "https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Senior-Grant-Specialist_JR157503",
-      "score": 63,
-      "salary": "Not disclosed",
-      "reason": "Grants/budget specialist role, relates to your $20M+ trial-budget management experience, but a narrower specialist function.",
-      "category": "Adjacent",
-      "probability": "Medium",
-      "trajectory": "A step down from portfolio-level budget oversight into specialist-level grants administration -- leverages relevant experience but not a growth move.",
-      "relocation": null,
-      "market": "International (remote)"
-    },
-    {
-      "title": "Senior Global Regulatory Scientist",
-      "company": "ICON plc",
-      "location": "Mexico, Mexico City; Brazil, Sao Paulo",
-      "url": "https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Mexico-Mexico-City/Senior-Global-Regulatory-Scientist_JR142556",
-      "score": 62,
-      "salary": "Not disclosed",
-      "reason": "Senior regulatory scientist role, adjacent to your cross-country regulatory experience but a more scientific/technical specialist track.",
-      "category": "Adjacent",
-      "probability": "Medium",
-      "trajectory": "A pivot into regulatory science -- senior-level scope is a reasonable lateral, though the technical regulatory-writing depth is a stretch from your ops background.",
-      "relocation": null,
-      "market": "International (remote)"
-    },
-    {
-      "title": "TMF Lead II (LATAM)",
-      "company": "Precision Medicine Group",
-      "location": "Remote, Brazil; Remote, Mexico",
-      "url": "https://job-boards.greenhouse.io/precisionmedicinegroup/jobs/6093242004",
-      "score": 61,
-      "salary": "Not disclosed",
-      "reason": "Trial documentation/compliance oversight is ops-adjacent but more specialist than managerial.",
-      "category": "Adjacent",
-      "probability": "Medium",
-      "trajectory": "A step down in scope from your current role -- worth it mainly as a Brazil-based foothold, not a growth move.",
-      "relocation": null,
-      "market": "International (remote)"
-    },
-    {
-      "title": "TMF Lead II (LATAM)",
-      "company": "Precision for Medicine",
-      "location": "Remote, Brazil; Remote, Mexico",
-      "url": "https://job-boards.greenhouse.io/pfm/jobs/6093245004",
-      "score": 61,
-      "salary": "Not disclosed",
-      "reason": "Trial documentation/compliance oversight is ops-adjacent but more specialist than managerial.",
-      "category": "Adjacent",
-      "probability": "Medium",
-      "trajectory": "A step down in scope from your current role -- worth it mainly as a Brazil-based foothold, not a growth move.",
-      "relocation": null,
-      "market": "International (remote)"
-    },
-    {
-      "title": "Analista de Projetos Clínicos Sênior I CRO",
-      "company": "Synvia",
-      "location": "Remote",
-      "url": "https://synvia.gupy.io/jobs/11604156",
-      "score": 61,
-      "salary": "Not disclosed",
-      "reason": "Senior clinical projects analyst at a Brazilian CRO, remote -- individual-contributor level but domain-relevant.",
-      "category": "In-field",
-      "probability": "Medium",
-      "trajectory": "Senior analyst-level, individual-contributor role -- a step down from your management scope, but remote, domain-relevant, and a real local-market foothold.",
-      "relocation": null,
-      "market": "Brazilian market (local)"
-    },
-    {
-      "title": "Especialista de Data Management",
-      "company": "Synvia",
-      "location": "Remote",
-      "url": "https://synvia.gupy.io/jobs/11466199",
-      "score": 61,
-      "salary": "Not disclosed",
-      "reason": "Senior data management specialist role, remote, strongly paid for the local market -- adjacent to your portfolio oversight experience.",
-      "category": "Adjacent",
-      "probability": "Medium",
-      "trajectory": "Adjacent specialist function without a dedicated data-management history, but senior-level, remote, and strongly paid for the local market.",
-      "relocation": null,
-      "market": "Brazilian market (local)"
-    },
-    {
-      "title": "Analista em Pesquisa Clínica Sr | IDOR São Paulo",
-      "company": "IDOR",
-      "location": "On-site, São Paulo, SP",
-      "url": "https://idor.gupy.io/jobs/11634980",
-      "score": 61,
-      "salary": "Not disclosed",
-      "reason": "Senior clinical research analyst at IDOR, a respected Brazilian research institute -- individual-contributor level.",
-      "category": "In-field",
-      "probability": "Medium",
-      "trajectory": "Senior clinical-research analyst role at a respected research institute -- individual-contributor level, a step down from portfolio management, but a credible in-field local foothold.",
-      "relocation": null,
-      "market": "Brazilian market (local)"
-    },
-    {
-      "title": "Analista Sr de Qualidade em Pesquisa Clínica | IDOR São Paulo",
-      "company": "IDOR",
-      "location": "On-site, São Paulo, SP",
-      "url": "https://idor.gupy.io/jobs/12090964",
-      "score": 60,
-      "salary": "Not disclosed",
-      "reason": "Senior quality-in-clinical-research analyst at IDOR -- adjacent function, individual-contributor level.",
-      "category": "Adjacent",
-      "probability": "Medium",
-      "trajectory": "Senior quality-in-clinical-research analyst role at a respected institute -- adjacent function, individual-contributor level, but a credible local foothold.",
-      "relocation": null,
-      "market": "Brazilian market (local)"
-    },
-    {
-      "title": "Lead Medical Writer",
-      "company": "ICON plc",
-      "location": "Brazil, Sao Paulo; Spain, Madrid",
-      "url": "https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Lead-Medical-Writer_JR155916",
-      "score": 60,
-      "salary": "Not disclosed",
-      "reason": "Lead-level role, but medical writing is a distinct specialist skill outside your operations/portfolio-management background.",
-      "category": "Adjacent",
-      "probability": "Medium",
-      "trajectory": "A pivot into a specialized writing function -- Lead-level seniority is a reasonable lateral, but the skill set is a real stretch from your operations background.",
-      "relocation": null,
-      "market": "International (remote)"
+      "market": "International (remote)",
+      "level": "Primary"
     },
     {
       "title": "Biosampling Project Manager",
@@ -700,8 +524,9 @@
       "probability": "Medium",
       "trajectory": "PM-level title is a reasonable lateral, but the specialized biosampling-logistics scope is a real stretch from your background.",
       "relocation": null,
-      "market": "International (remote)"
+      "market": "International (remote)",
+      "level": "Primary"
     }
   ],
-  "excluded_under_broadened_rubric_note": "Rescreened all Brazil/LATAM-tagged listings across quality, regulatory affairs, and medical affairs (not just clinical ops/trial management) per the broadened rubric. Only additional candidates found were ClinChoice's Brazil-based Safety Officer, Drug Safety Associate, Medical Reviewer, and Regulatory Affairs Analyst roles — all titled 'Consultant' (contract) and/or junior-level, which score below 60 because they don't offer equal-or-better long-term pay/career growth vs. the candidate's current Portfolio Manager role. Also searched Brazilian-market employers directly on Gupy (Synvia, IDOR, Eurofarma, Rennova): excluded lab-technician/nursing/finance/QC/pre-clinical-R&D postings as out of scope, and excluded mid-level ('Pleno') and junior/broad-band postings (CRA all-levels, Monitor Sênior individual-contributor site-monitoring, Analista de Assuntos Regulatórios, Analista de Farmacovigilância Sr, Analista de Desenvolvimento Clínico Pleno) that score below 60 once compensation and seniority step-down from a portfolio-management role are weighed honestly. Rede D'Or's main 1,607-job board, Hospital Santa Lucinda, PUCRS, and Cristália/Hypera Pharma were checked and ruled out (wrong function or no current openings) in favor of IDOR (Rede D'Or's dedicated research institute). Checked three additional Brazilian-native job platforms (Catho, InfoJobs, Vagas.com) for a usable public API or structured feed like Gupy's: none exists -- all three are pure server-rendered HTML with no embedded JSON (no __NEXT_DATA__, no JobPosting JSON-LD, no genuine RSS/XML feed -- the .rss/.xml URL suffixes on Vagas.com just fall through to the same HTML page), so none were added as a provider; scraping raw HTML would be materially more fragile than every other provider in this pipeline and was deliberately not built. Added a 7th provider, Workday, after confirming a public unauthenticated JSON search API (wday/cxs/{tenant}/{site}/jobs) for IQVIA, Parexel, Syneos Health, ICON plc, and Fortrea -- the major CROs previously missing entirely. Medpace (uses iCIMS, uscareers-medpace.icims.com) and PPD/Thermo Fisher clinical research (uses Phenom People, jobs.thermofisher.com) were confirmed NOT on Workday and are not covered by any provider in this pipeline. From ~303 Workday postings matched by searchText 'Brazil'/'LATAM' across the five companies, excluded the large majority as generic CRA/coordinator/associate-level individual-contributor roles (consistent with how plain CRA/Analista-level roles are scored elsewhere), out-of-function roles (software engineering, sales/commercial, legal, HR, logistics, translators), and a few Manager/Director-level roles that on closer inspection (job-detail location check) turned out to be Mexico-only remote, not actually Brazil-eligible (Syneos Health's Mgr/Sr Regulatory CMC Consultant, ICON's Medical Director (Endocrinology)) -- both excluded under the hard Brazil-workability requirement despite matching the LATAM text search. Added a Director/Country Manager 'stretch/leadership' search (tagged `tier: Stretch/Leadership` when found): confirmed working Gupy boards for Aché (vagasache.gupy.io) and Hypera Pharma (hyperapharma.gupy.io) and added both to fetch_gupy_jobs.py's COMPANIES (previously Hypera was checked once and deprioritized for lacking clinical-ops-relevant postings -- now tracked for leadership-level ones too); could not confirm a working Gupy subdomain for EMS Farmacêutica despite several guesses and secondary sources naming ems.gupy.io (genuine 404, not DNS failure -- possibly deactivated/migrated). Full title lists (not just keyword-filtered) for Aché, Hypera Pharma, and Eurofarma's Gupy boards were scanned for Director/Country Manager/VP-level titles: zero found. Checked LinkedIn and Indeed manually (both explicitly disallow job-search scraping in robots.txt, so no automated provider was built for either): one plausible-looking result (a 'Director, Clinical Operations' posting at Sun Pharma) turned out to be expired (404) when opened directly, confirming these platforms' search results can't be trusted as live without individual verification -- no LinkedIn/Indeed-sourced entries were added this round since nothing verifiably live and Brazil-relevant was found."
+  "excluded_under_broadened_rubric_note": "Rescreened all Brazil/LATAM-tagged listings across quality, regulatory affairs, and medical affairs (not just clinical ops/trial management) per the broadened rubric. Only additional candidates found were ClinChoice's Brazil-based Safety Officer, Drug Safety Associate, Medical Reviewer, and Regulatory Affairs Analyst roles — all titled 'Consultant' (contract) and/or junior-level, which score below 60 because they don't offer equal-or-better long-term pay/career growth vs. the candidate's current Portfolio Manager role. Also searched Brazilian-market employers directly on Gupy (Synvia, IDOR, Eurofarma, Rennova): excluded lab-technician/nursing/finance/QC/pre-clinical-R&D postings as out of scope, and excluded mid-level ('Pleno') and junior/broad-band postings (CRA all-levels, Monitor Sênior individual-contributor site-monitoring, Analista de Assuntos Regulatórios, Analista de Farmacovigilância Sr, Analista de Desenvolvimento Clínico Pleno) that score below 60 once compensation and seniority step-down from a portfolio-management role are weighed honestly. Rede D'Or's main 1,607-job board, Hospital Santa Lucinda, PUCRS, and Cristália/Hypera Pharma were checked and ruled out (wrong function or no current openings) in favor of IDOR (Rede D'Or's dedicated research institute). Checked three additional Brazilian-native job platforms (Catho, InfoJobs, Vagas.com) for a usable public API or structured feed like Gupy's: none exists -- all three are pure server-rendered HTML with no embedded JSON (no __NEXT_DATA__, no JobPosting JSON-LD, no genuine RSS/XML feed -- the .rss/.xml URL suffixes on Vagas.com just fall through to the same HTML page), so none were added as a provider; scraping raw HTML would be materially more fragile than every other provider in this pipeline and was deliberately not built. Added a 7th provider, Workday, after confirming a public unauthenticated JSON search API (wday/cxs/{tenant}/{site}/jobs) for IQVIA, Parexel, Syneos Health, ICON plc, and Fortrea -- the major CROs previously missing entirely. Medpace (uses iCIMS, uscareers-medpace.icims.com) and PPD/Thermo Fisher clinical research (uses Phenom People, jobs.thermofisher.com) were confirmed NOT on Workday and are not covered by any provider in this pipeline. From ~303 Workday postings matched by searchText 'Brazil'/'LATAM' across the five companies, excluded the large majority as generic CRA/coordinator/associate-level individual-contributor roles (consistent with how plain CRA/Analista-level roles are scored elsewhere), out-of-function roles (software engineering, sales/commercial, legal, HR, logistics, translators), and a few Manager/Director-level roles that on closer inspection (job-detail location check) turned out to be Mexico-only remote, not actually Brazil-eligible (Syneos Health's Mgr/Sr Regulatory CMC Consultant, ICON's Medical Director (Endocrinology)) -- both excluded under the hard Brazil-workability requirement despite matching the LATAM text search. Added a Director/Country Manager 'stretch/leadership' search (tagged `tier: Stretch/Leadership` when found): confirmed working Gupy boards for Aché (vagasache.gupy.io) and Hypera Pharma (hyperapharma.gupy.io) and added both to fetch_gupy_jobs.py's COMPANIES (previously Hypera was checked once and deprioritized for lacking clinical-ops-relevant postings -- now tracked for leadership-level ones too); could not confirm a working Gupy subdomain for EMS Farmacêutica despite several guesses and secondary sources naming ems.gupy.io (genuine 404, not DNS failure -- possibly deactivated/migrated). Full title lists (not just keyword-filtered) for Aché, Hypera Pharma, and Eurofarma's Gupy boards were scanned for Director/Country Manager/VP-level titles: zero found. Checked LinkedIn and Indeed manually (both explicitly disallow job-search scraping in robots.txt, so no automated provider was built for either): one plausible-looking result (a 'Director, Clinical Operations' posting at Sun Pharma) turned out to be expired (404) when opened directly, confirming these platforms' search results can't be trusted as live without individual verification -- no LinkedIn/Indeed-sourced entries were added this round since nothing verifiably live and Brazil-relevant was found. Recalibrated the whole dataset to a stricter level model this round: added a Manager-level floor (excluding individual-contributor/analyst/associate/specialist/consultant-titled roles even when the function was a strong fit -- e.g. Senior Regulatory and Start Up Specialist, Lead Clinical Research Associate, Senior Clinical QA Specialist, MSL, TMF Lead II, and all Analista/Especialista-titled Gupy roles -- 20 entries removed in total), and split the survivors into level: \"Primary\" (Senior Manager/Associate Director/Regional Director-equivalent scope, matching the candidate's actual 5.5 years of experience) versus level: \"Reach\" (Director/VP/Country-Manager-equivalent scope, tagged \"Reach — Long Shot\" and sorted separately in the report) -- only ICON's Medical Director qualified as Reach among existing matches. Applied a modest score bump plus a reason note to genuinely LATAM/EMEA-spanning roles (e.g. Syneos Regulatory CMC Manager CGT spans LATAM and Serbia) where the candidate's trilingual capacity (EN C2/PT C2/DE B1) is a specific, named differentiator, not just generic language skill. Broadened the search beyond pharma/CRO entirely for capacity-based matches (large multi-country programs, executive/named-client relationships, bid/proposal leadership, 50+ person team oversight) in any industry: confirmed Accenture and Kyndryl on Workday with real Sao Paulo/Rio-based Director/Associate-Director/bid-leadership roles (5 added, one -- Kyndryl's Director, Customer Unit Leader -- tagged Reach); checked and found no usable public ATS API for Globant, EPAM Systems, Endava, Capgemini, DXC Technology, NTT Data, Cognizant, Wipro, Infosys, TCS, IBM, AECOM, Jacobs Engineering, WSP Global, Fluor, and Bechtel (most run custom/proprietary career portals); TELUS Digital Brazil has a Greenhouse board (telusdigitalbr) with no live postings, and Thoughtworks is on Greenhouse with 46 jobs but none Brazil-eligible/senior enough as of this check."
 }

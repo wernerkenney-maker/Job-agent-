@@ -1,36 +1,105 @@
 {
-  "Care Access::specialist, quality assurance": {
+  "Accenture::associate director \u2013 talent & organization (business development e ai adoption)": {
     "category": "Adjacent",
-    "city": null,
-    "col_note": null,
+    "city": "S\u00e3o Paulo",
+    "col_note": "~R$375.000\u2013R$575.000 in S\u00e3o Paulo is roughly equivalent to ~R$259.000\u2013R$397.000 of purchasing power in Fortaleza (S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).",
     "companies": [
-      "Care Access"
+      "Accenture"
     ],
-    "company": "Care Access",
-    "cover_letter_path": null,
+    "company": "Accenture",
+    "cover_letter_path": "cover_letters/accenture-associate-director-talent-organization-business-development-e-ai-adoption.md",
     "first_seen": "2026-08-16",
-    "key": "Care Access::specialist, quality assurance",
+    "key": "Accenture::associate director \u2013 talent & organization (business development e ai adoption)",
     "last_seen": "2026-08-16",
-    "location": "Brazil-Home Office",
+    "level": "Primary",
+    "location": "Sao Paulo, Torre Paineira",
     "market": "International (remote)",
     "postings": [
       {
-        "company": "Care Access",
-        "location": "Brazil-Home Office",
-        "url": "https://job-boards.greenhouse.io/careaccess/jobs/4309910009"
+        "company": "Accenture",
+        "location": "Sao Paulo, Torre Paineira",
+        "url": "https://accenture.wd103.myworkdayjobs.com/AccentureCareers/job/Sao-Paulo-Torre-Paineira/Associate-Director---Talent---Organization--Business-Development-e-AI-Adoption-_14516657"
       }
     ],
     "probability": "Medium",
-    "reason": "Quality function at a clinical trial site network; specialist-level title below your current scope.",
+    "reason": "Associate Director role explicitly combining C-level client relationships, full consultative sales-cycle ownership, and technical/commercial proposal leadership (scope, pricing) -- outside pharma, but a very strong capacity match.",
+    "relocation": null,
+    "resume_bullets_path": "resume_bullets/accenture-associate-director-talent-organization-business-development-e-ai-adoption.md",
+    "salary": "Not disclosed",
+    "salary_estimate": "~$75,000\u2013$115,000 USD (estimated \u2014 Brazil-based Associate Director, major global consulting firm, Strategy & Consulting practice, not disclosed by employer)",
+    "score": 80,
+    "status": "new",
+    "tier": null,
+    "title": "Associate Director \u2013 Talent & Organization (Business Development e AI Adoption)",
+    "trajectory": "A genuine industry pivot into management consulting, but the bid-leadership, C-level client-facing, and large-program-delivery skills transfer directly -- worth serious consideration."
+  },
+  "Accenture::consultor de gest\u00e3o de propostas comerciais \u2013 h\u00edbrido \u2013 ingl\u00eas fluente": {
+    "category": "Adjacent",
+    "city": "Rio de Janeiro",
+    "col_note": "~R$240.000\u2013R$375.000 in Rio de Janeiro is roughly equivalent to ~R$178.000\u2013R$278.000 of purchasing power in Fortaleza (Rio de Janeiro's cost of living runs roughly 35% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).",
+    "companies": [
+      "Accenture"
+    ],
+    "company": "Accenture",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-16",
+    "key": "Accenture::consultor de gest\u00e3o de propostas comerciais \u2013 h\u00edbrido \u2013 ingl\u00eas fluente",
+    "last_seen": "2026-08-16",
+    "level": "Primary",
+    "location": "Rio de Janeiro, Rio Metropolitan Center; Minas Gerais - Nova Lima; S\u00e3o Paulo - Sao Paulo",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "Accenture",
+        "location": "Rio de Janeiro, Rio Metropolitan Center; Minas Gerais - Nova Lima; S\u00e3o Paulo - Sao Paulo",
+        "url": "https://accenture.wd103.myworkdayjobs.com/AccentureCareers/job/Rio-de-Janeiro-Rio-Metropolitan-Center/Consultor-de-Gesto-de-Propostas-Comerciais---Hbrido---Ingls-Fluente_R00346492"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "Manages complex proposals end-to-end -- governance, cross-functional coordination, compliance -- directly relevant to your bid-defense experience, though a narrower specialist function than program/portfolio leadership.",
     "relocation": null,
     "resume_bullets_path": null,
     "salary": "Not disclosed",
-    "salary_estimate": "~$40,000\u2013$60,000 USD (estimated \u2014 LATAM clinical site network, specialist (non-senior) level, quality function, not disclosed by employer)",
-    "score": 64,
+    "salary_estimate": "~$48,000\u2013$75,000 USD (estimated \u2014 Brazil-based consultant level, proposal management function at a major global consulting firm, not disclosed by employer)",
+    "score": 66,
     "status": "new",
     "tier": null,
-    "title": "Specialist, Quality Assurance",
-    "trajectory": "Lateral move into a new function at a lower formal title than your current scope -- worth it if building QA credentials serves your long-term regulatory/quality trajectory."
+    "title": "Consultor de Gest\u00e3o de Propostas Comerciais \u2013 H\u00edbrido \u2013 Ingl\u00eas Fluente",
+    "trajectory": "A lateral pivot into dedicated proposal management -- your bid-defense experience transfers well, though this is a narrower specialist track than your current role."
+  },
+  "Accenture::gerente associado de propostas comerciais \u2013 h\u00edbrido \u2013 ingl\u00eas avan\u00e7ado": {
+    "category": "Adjacent",
+    "city": "Rio de Janeiro",
+    "col_note": "~R$250.000\u2013R$400.000 in Rio de Janeiro is roughly equivalent to ~R$185.000\u2013R$296.000 of purchasing power in Fortaleza (Rio de Janeiro's cost of living runs roughly 35% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).",
+    "companies": [
+      "Accenture"
+    ],
+    "company": "Accenture",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-16",
+    "key": "Accenture::gerente associado de propostas comerciais \u2013 h\u00edbrido \u2013 ingl\u00eas avan\u00e7ado",
+    "last_seen": "2026-08-16",
+    "level": "Primary",
+    "location": "Rio de Janeiro, Rio Metropolitan Center; Minas Gerais - Nova Lima; S\u00e3o Paulo - Sao Paulo",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "Accenture",
+        "location": "Rio de Janeiro, Rio Metropolitan Center; Minas Gerais - Nova Lima; S\u00e3o Paulo - Sao Paulo",
+        "url": "https://accenture.wd103.myworkdayjobs.com/AccentureCareers/job/Rio-de-Janeiro-Rio-Metropolitan-Center/Especialista-de-Propostas-Comerciais---Hbrido---Ingls-Avanado_R00346489"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "Leads mid-to-large commercial opportunities through the full RFI/RFP/BAFO response cycle -- direct match to your 4 bid defenses, though a narrower specialist bid-management function than your current program scope.",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_estimate": "~$50,000\u2013$80,000 USD (estimated \u2014 Brazil-based associate manager level, bid/proposal management function at a major global consulting firm, not disclosed by employer)",
+    "score": 68,
+    "status": "new",
+    "tier": null,
+    "title": "Gerente Associado de Propostas Comerciais \u2013 H\u00edbrido \u2013 Ingl\u00eas Avan\u00e7ado",
+    "trajectory": "A lateral pivot from trial/program management into dedicated bid & proposal management -- your bid-defense experience is directly relevant, though narrower in scope than your current portfolio role."
   },
   "EDETEK::senior clinical project manager": {
     "category": "In-field",
@@ -44,6 +113,7 @@
     "first_seen": "2026-08-16",
     "key": "EDETEK::senior clinical project manager",
     "last_seen": "2026-08-16",
+    "level": "Primary",
     "location": "Remote, Brazil",
     "market": "International (remote)",
     "postings": [
@@ -65,72 +135,6 @@
     "title": "Senior Clinical Project Manager",
     "trajectory": "Lateral to modest step up from your Global Clinical Study Manager role -- strong direct fit, now backed by real executive client-facing credibility."
   },
-  "EDETEK::senior clinical qa specialist": {
-    "category": "Adjacent",
-    "city": null,
-    "col_note": null,
-    "companies": [
-      "EDETEK"
-    ],
-    "company": "EDETEK",
-    "cover_letter_path": null,
-    "first_seen": "2026-08-16",
-    "key": "EDETEK::senior clinical qa specialist",
-    "last_seen": "2026-08-16",
-    "location": "Remote, Brazil",
-    "market": "International (remote)",
-    "postings": [
-      {
-        "company": "EDETEK",
-        "location": "Remote, Brazil",
-        "url": "https://apply.workable.com/j/51F3AC7BD4"
-      }
-    ],
-    "probability": "Medium",
-    "reason": "Quality function leveraging oversight/compliance experience, no dedicated QA title history.",
-    "relocation": null,
-    "resume_bullets_path": null,
-    "salary": "Not disclosed",
-    "salary_estimate": "~$50,000\u2013$75,000 USD (estimated \u2014 LATAM CRO senior specialist level, quality function, not disclosed by employer)",
-    "score": 71,
-    "status": "new",
-    "tier": null,
-    "title": "Senior Clinical QA Specialist",
-    "trajectory": "Lateral pivot into quality -- leverages your oversight/compliance experience even without a dedicated QA title history."
-  },
-  "Fortrea::clinical start-up & trial lead": {
-    "category": "In-field",
-    "city": "S\u00e3o Paulo",
-    "col_note": "~R$250.000\u2013R$375.000 in S\u00e3o Paulo is roughly equivalent to ~R$172.000\u2013R$259.000 of purchasing power in Fortaleza (S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).",
-    "companies": [
-      "Fortrea"
-    ],
-    "company": "Fortrea",
-    "cover_letter_path": null,
-    "first_seen": "2026-08-16",
-    "key": "Fortrea::clinical start-up & trial lead",
-    "last_seen": "2026-08-16",
-    "location": "S\u00e3o Paulo",
-    "market": "International (remote)",
-    "postings": [
-      {
-        "company": "Fortrea",
-        "location": "S\u00e3o Paulo",
-        "url": "https://fortrea.wd1.myworkdayjobs.com/Fortrea/job/So-Paulo/Clinical-Start-Up---Trial-Lead_254866"
-      }
-    ],
-    "probability": "Medium",
-    "reason": "Lead-level site/study start-up role, on-site S\u00e3o Paulo, decent overlap with your trial-management background.",
-    "relocation": null,
-    "resume_bullets_path": null,
-    "salary": "Not disclosed",
-    "salary_estimate": "~$50,000\u2013$75,000 USD (estimated \u2014 LATAM CRO lead-level, site/study start-up function, not disclosed by employer)",
-    "score": 71,
-    "status": "new",
-    "tier": null,
-    "title": "Clinical Start-Up & Trial Lead",
-    "trajectory": "A step down in scope from portfolio management to site/study start-up leadership, but Brazil-based and domain-relevant."
-  },
   "Fortrea::clinical trial manager (ctm)": {
     "category": "In-field",
     "city": null,
@@ -143,6 +147,7 @@
     "first_seen": "2026-08-16",
     "key": "Fortrea::clinical trial manager (ctm)",
     "last_seen": "2026-08-16",
+    "level": "Primary",
     "location": "Remote, Mexico; Remote, Brazil",
     "market": "International (remote)",
     "postings": [
@@ -176,6 +181,7 @@
     "first_seen": "2026-08-16",
     "key": "Fortrea::investigator grants manager / clinical trial costing manager \u2013 brazil (remote)",
     "last_seen": "2026-08-16",
+    "level": "Primary",
     "location": "S\u00e3o Paulo; Remote, Brazil",
     "market": "International (remote)",
     "postings": [
@@ -209,6 +215,7 @@
     "first_seen": "2026-08-16",
     "key": "Fortrea::patient safety project manager",
     "last_seen": "2026-08-16",
+    "level": "Primary",
     "location": "S\u00e3o Paulo",
     "market": "International (remote)",
     "postings": [
@@ -242,6 +249,7 @@
     "first_seen": "2026-08-16",
     "key": "Fortrea::sr. clinical project manager or clinical project manager ii - oncology",
     "last_seen": "2026-08-16",
+    "level": "Primary",
     "location": "Remote, Brazil; Remote, Argentina; Remote, Chile; Remote, Colombia; Remote, Mexico; Remote, Peru",
     "market": "International (remote)",
     "postings": [
@@ -275,6 +283,7 @@
     "first_seen": "2026-08-16",
     "key": "ICON plc::biosampling project manager",
     "last_seen": "2026-08-16",
+    "level": "Primary",
     "location": "Mexico, Mexico City; Brazil, Sao Paulo",
     "market": "International (remote)",
     "postings": [
@@ -308,6 +317,7 @@
     "first_seen": "2026-08-16",
     "key": "ICON plc::clinical project manager - brazil",
     "last_seen": "2026-08-16",
+    "level": "Primary",
     "location": "Brazil, Sao Paulo",
     "market": "International (remote)",
     "postings": [
@@ -341,6 +351,7 @@
     "first_seen": "2026-08-16",
     "key": "ICON plc::clinical project manager - rare diseases / cns",
     "last_seen": "2026-08-16",
+    "level": "Primary",
     "location": "Brazil, Sao Paulo",
     "market": "International (remote)",
     "postings": [
@@ -374,6 +385,7 @@
     "first_seen": "2026-08-16",
     "key": "ICON plc::clinical trial manager",
     "last_seen": "2026-08-16",
+    "level": "Primary",
     "location": "Brazil, Sao Paulo",
     "market": "International (remote)",
     "postings": [
@@ -395,39 +407,6 @@
     "title": "Clinical Trial Manager",
     "trajectory": "Lateral move at essentially the same level as your Global Clinical Study Manager role -- strong, low-risk fit."
   },
-  "ICON plc::lead medical writer": {
-    "category": "Adjacent",
-    "city": "S\u00e3o Paulo",
-    "col_note": "~R$250.000\u2013R$375.000 in S\u00e3o Paulo is roughly equivalent to ~R$172.000\u2013R$259.000 of purchasing power in Fortaleza (S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).",
-    "companies": [
-      "ICON plc"
-    ],
-    "company": "ICON plc",
-    "cover_letter_path": null,
-    "first_seen": "2026-08-16",
-    "key": "ICON plc::lead medical writer",
-    "last_seen": "2026-08-16",
-    "location": "Brazil, Sao Paulo; Spain, Madrid",
-    "market": "International (remote)",
-    "postings": [
-      {
-        "company": "ICON plc",
-        "location": "Brazil, Sao Paulo; Spain, Madrid",
-        "url": "https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Lead-Medical-Writer_JR155916"
-      }
-    ],
-    "probability": "Medium",
-    "reason": "Lead-level role, but medical writing is a distinct specialist skill outside your operations/portfolio-management background.",
-    "relocation": null,
-    "resume_bullets_path": null,
-    "salary": "Not disclosed",
-    "salary_estimate": "~$50,000\u2013$75,000 USD (estimated \u2014 LATAM CRO lead-level, medical writing specialist function, not disclosed by employer)",
-    "score": 60,
-    "status": "new",
-    "tier": null,
-    "title": "Lead Medical Writer",
-    "trajectory": "A pivot into a specialized writing function -- Lead-level seniority is a reasonable lateral, but the skill set is a real stretch from your operations background."
-  },
   "ICON plc::medical director": {
     "category": "Adjacent",
     "city": "S\u00e3o Paulo",
@@ -440,6 +419,7 @@
     "first_seen": "2026-08-16",
     "key": "ICON plc::medical director",
     "last_seen": "2026-08-16",
+    "level": "Reach",
     "location": "Mexico, Mexico City; Brazil, Sao Paulo",
     "market": "International (remote)",
     "postings": [
@@ -473,6 +453,7 @@
     "first_seen": "2026-08-16",
     "key": "ICON plc::senior clinical trial manager",
     "last_seen": "2026-08-16",
+    "level": "Primary",
     "location": "Brazil, Sao Paulo",
     "market": "International (remote)",
     "postings": [
@@ -494,204 +475,6 @@
     "title": "Senior Clinical Trial Manager",
     "trajectory": "Lateral to modest step up from your Global Clinical Study Manager role -- strong, low-risk fit."
   },
-  "ICON plc::senior global regulatory scientist": {
-    "category": "Adjacent",
-    "city": "S\u00e3o Paulo",
-    "col_note": "~R$275.000\u2013R$410.000 in S\u00e3o Paulo is roughly equivalent to ~R$190.000\u2013R$283.000 of purchasing power in Fortaleza (S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).",
-    "companies": [
-      "ICON plc"
-    ],
-    "company": "ICON plc",
-    "cover_letter_path": null,
-    "first_seen": "2026-08-16",
-    "key": "ICON plc::senior global regulatory scientist",
-    "last_seen": "2026-08-16",
-    "location": "Mexico, Mexico City; Brazil, Sao Paulo",
-    "market": "International (remote)",
-    "postings": [
-      {
-        "company": "ICON plc",
-        "location": "Mexico, Mexico City; Brazil, Sao Paulo",
-        "url": "https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Mexico-Mexico-City/Senior-Global-Regulatory-Scientist_JR142556"
-      }
-    ],
-    "probability": "Medium",
-    "reason": "Senior regulatory scientist role, adjacent to your cross-country regulatory experience but a more scientific/technical specialist track.",
-    "relocation": null,
-    "resume_bullets_path": null,
-    "salary": "Not disclosed",
-    "salary_estimate": "~$55,000\u2013$82,000 USD (estimated \u2014 LATAM CRO senior scientist level, regulatory science function, not disclosed by employer)",
-    "score": 62,
-    "status": "new",
-    "tier": null,
-    "title": "Senior Global Regulatory Scientist",
-    "trajectory": "A pivot into regulatory science -- senior-level scope is a reasonable lateral, though the technical regulatory-writing depth is a stretch from your ops background."
-  },
-  "ICON plc::senior grant specialist": {
-    "category": "Adjacent",
-    "city": "S\u00e3o Paulo",
-    "col_note": "~R$225.000\u2013R$340.000 in S\u00e3o Paulo is roughly equivalent to ~R$155.000\u2013R$234.000 of purchasing power in Fortaleza (S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).",
-    "companies": [
-      "ICON plc"
-    ],
-    "company": "ICON plc",
-    "cover_letter_path": null,
-    "first_seen": "2026-08-16",
-    "key": "ICON plc::senior grant specialist",
-    "last_seen": "2026-08-16",
-    "location": "Brazil, Sao Paulo; Argentina, Buenos Aires",
-    "market": "International (remote)",
-    "postings": [
-      {
-        "company": "ICON plc",
-        "location": "Brazil, Sao Paulo; Argentina, Buenos Aires",
-        "url": "https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Senior-Grant-Specialist_JR157503"
-      }
-    ],
-    "probability": "Medium",
-    "reason": "Grants/budget specialist role, relates to your $20M+ trial-budget management experience, but a narrower specialist function.",
-    "relocation": null,
-    "resume_bullets_path": null,
-    "salary": "Not disclosed",
-    "salary_estimate": "~$45,000\u2013$68,000 USD (estimated \u2014 LATAM CRO senior specialist level, grants/budget function, not disclosed by employer)",
-    "score": 63,
-    "status": "new",
-    "tier": null,
-    "title": "Senior Grant Specialist",
-    "trajectory": "A step down from portfolio-level budget oversight into specialist-level grants administration -- leverages relevant experience but not a growth move."
-  },
-  "ICON plc::senior regulatory affairs specialist": {
-    "category": "Adjacent",
-    "city": "S\u00e3o Paulo",
-    "col_note": "~R$250.000\u2013R$375.000 in S\u00e3o Paulo is roughly equivalent to ~R$172.000\u2013R$259.000 of purchasing power in Fortaleza (S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).",
-    "companies": [
-      "ICON plc"
-    ],
-    "company": "ICON plc",
-    "cover_letter_path": null,
-    "first_seen": "2026-08-16",
-    "key": "ICON plc::senior regulatory affairs specialist",
-    "last_seen": "2026-08-16",
-    "location": "Brazil, Sao Paulo",
-    "market": "International (remote)",
-    "postings": [
-      {
-        "company": "ICON plc",
-        "location": "Brazil, Sao Paulo",
-        "url": "https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Senior-Regulatory-Affairs-Specialist_JR156242"
-      }
-    ],
-    "probability": "Medium",
-    "reason": "Regulatory function leveraging your cross-country regulatory-variation experience from Regional Study Coordinator EMEA.",
-    "relocation": null,
-    "resume_bullets_path": null,
-    "salary": "Not disclosed",
-    "salary_estimate": "~$50,000\u2013$75,000 USD (estimated \u2014 LATAM CRO senior specialist level, regulatory function, not disclosed by employer)",
-    "score": 68,
-    "status": "new",
-    "tier": null,
-    "title": "Senior Regulatory Affairs Specialist",
-    "trajectory": "Lateral pivot into regulatory affairs -- leverages your EMEA regional regulatory-navigation experience even without a dedicated regulatory title history."
-  },
-  "ICON plc::senior study start up associate (regulatory submissions)": {
-    "category": "Adjacent",
-    "city": "S\u00e3o Paulo",
-    "col_note": "~R$225.000\u2013R$340.000 in S\u00e3o Paulo is roughly equivalent to ~R$155.000\u2013R$234.000 of purchasing power in Fortaleza (S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).",
-    "companies": [
-      "ICON plc"
-    ],
-    "company": "ICON plc",
-    "cover_letter_path": null,
-    "first_seen": "2026-08-16",
-    "key": "ICON plc::senior study start up associate (regulatory submissions)",
-    "last_seen": "2026-08-16",
-    "location": "Brazil, Sao Paulo",
-    "market": "International (remote)",
-    "postings": [
-      {
-        "company": "ICON plc",
-        "location": "Brazil, Sao Paulo",
-        "url": "https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Senior-Site-Partner_JR150380-1"
-      }
-    ],
-    "probability": "Medium",
-    "reason": "Senior-level study start-up/regulatory submissions role, but an individual-contributor 'Associate' title despite the seniority.",
-    "relocation": null,
-    "resume_bullets_path": null,
-    "salary": "Not disclosed",
-    "salary_estimate": "~$45,000\u2013$68,000 USD (estimated \u2014 LATAM CRO senior associate level, study start-up/regulatory submissions function, not disclosed by employer)",
-    "score": 63,
-    "status": "new",
-    "tier": null,
-    "title": "Senior Study Start Up Associate (Regulatory Submissions)",
-    "trajectory": "A step down in title from your current scope, but Brazil-based and domain-relevant -- worth it as a foothold role if title level isn't the priority."
-  },
-  "IDOR::analista em pesquisa cl\u00ednica sr | idor s\u00e3o paulo": {
-    "category": "In-field",
-    "city": "S\u00e3o Paulo",
-    "col_note": "~R$6.800\u2013R$10.500/month in S\u00e3o Paulo is roughly equivalent to ~R$4.700\u2013R$7.200/month of purchasing power in Fortaleza (S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates).",
-    "companies": [
-      "IDOR"
-    ],
-    "company": "IDOR",
-    "cover_letter_path": null,
-    "first_seen": "2026-08-16",
-    "key": "IDOR::analista em pesquisa cl\u00ednica sr | idor s\u00e3o paulo",
-    "last_seen": "2026-08-16",
-    "location": "On-site, S\u00e3o Paulo, SP",
-    "market": "Brazilian market (local)",
-    "postings": [
-      {
-        "company": "IDOR",
-        "location": "On-site, S\u00e3o Paulo, SP",
-        "url": "https://idor.gupy.io/jobs/11634980"
-      }
-    ],
-    "probability": "Medium",
-    "reason": "Senior clinical research analyst at IDOR, a respected Brazilian research institute -- individual-contributor level.",
-    "relocation": null,
-    "resume_bullets_path": null,
-    "salary": "Not disclosed",
-    "salary_estimate": "R$6.800\u2013R$10.500/month (estimated \u2014 Glassdoor Brazil, Analista de Pesquisa Cl\u00ednica S\u00eanior, not disclosed by employer)",
-    "score": 61,
-    "status": "new",
-    "tier": null,
-    "title": "Analista em Pesquisa Cl\u00ednica Sr | IDOR S\u00e3o Paulo",
-    "trajectory": "Senior clinical-research analyst role at a respected research institute -- individual-contributor level, a step down from portfolio management, but a credible in-field local foothold."
-  },
-  "IDOR::analista sr de qualidade em pesquisa cl\u00ednica | idor s\u00e3o paulo": {
-    "category": "Adjacent",
-    "city": "S\u00e3o Paulo",
-    "col_note": "~R$6.800\u2013R$10.500/month in S\u00e3o Paulo is roughly equivalent to ~R$4.700\u2013R$7.200/month of purchasing power in Fortaleza (S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates).",
-    "companies": [
-      "IDOR"
-    ],
-    "company": "IDOR",
-    "cover_letter_path": null,
-    "first_seen": "2026-08-16",
-    "key": "IDOR::analista sr de qualidade em pesquisa cl\u00ednica | idor s\u00e3o paulo",
-    "last_seen": "2026-08-16",
-    "location": "On-site, S\u00e3o Paulo, SP",
-    "market": "Brazilian market (local)",
-    "postings": [
-      {
-        "company": "IDOR",
-        "location": "On-site, S\u00e3o Paulo, SP",
-        "url": "https://idor.gupy.io/jobs/12090964"
-      }
-    ],
-    "probability": "Medium",
-    "reason": "Senior quality-in-clinical-research analyst at IDOR -- adjacent function, individual-contributor level.",
-    "relocation": null,
-    "resume_bullets_path": null,
-    "salary": "Not disclosed",
-    "salary_estimate": "R$6.800\u2013R$10.500/month (estimated \u2014 Glassdoor Brazil, Analista de Pesquisa Cl\u00ednica S\u00eanior band (quality function), not disclosed by employer)",
-    "score": 60,
-    "status": "new",
-    "tier": null,
-    "title": "Analista Sr de Qualidade em Pesquisa Cl\u00ednica | IDOR S\u00e3o Paulo",
-    "trajectory": "Senior quality-in-clinical-research analyst role at a respected institute -- adjacent function, individual-contributor level, but a credible local foothold."
-  },
   "IQVIA::centralized monitoring lead in latam (remote)": {
     "category": "In-field",
     "city": null,
@@ -704,6 +487,7 @@
     "first_seen": "2026-08-16",
     "key": "IQVIA::centralized monitoring lead in latam (remote)",
     "last_seen": "2026-08-16",
+    "level": "Primary",
     "location": "Remote, Argentina; Remote, Brazil; Remote, Chile; Remote, Colombia; Remote, Mexico; Remote, Peru",
     "market": "International (remote)",
     "postings": [
@@ -714,12 +498,12 @@
       }
     ],
     "probability": "Medium",
-    "reason": "Lead-level centralized monitoring oversight across LATAM, remote-eligible -- more specialist than managerial.",
+    "reason": "Lead-level centralized monitoring oversight across LATAM, remote-eligible -- more specialist than managerial. Trilingual capacity (EN/PT/DE) is a genuine plus across this 6-country LATAM remit.",
     "relocation": null,
     "resume_bullets_path": null,
     "salary": "Not disclosed",
     "salary_estimate": "~$45,000\u2013$70,000 USD (estimated \u2014 LATAM CRO lead-level, centralized monitoring specialist function, not disclosed by employer)",
-    "score": 64,
+    "score": 66,
     "status": "new",
     "tier": null,
     "title": "Centralized Monitoring Lead in LATAM (Remote)",
@@ -737,6 +521,7 @@
     "first_seen": "2026-08-16",
     "key": "IQVIA::clinical trial manager - sponsor dedicated",
     "last_seen": "2026-08-16",
+    "level": "Primary",
     "location": "S\u00e3o Paulo, Brazil",
     "market": "International (remote)",
     "postings": [
@@ -758,38 +543,73 @@
     "title": "Clinical Trial Manager - Sponsor Dedicated",
     "trajectory": "Lateral to your Global Clinical Study Manager role at one of the largest global CROs, reinforced by real sponsor-facing credibility -- strong, low-risk fit."
   },
-  "IQVIA::medical science liaison (msl)": {
+  "Kyndryl::customer partner": {
     "category": "Adjacent",
     "city": "S\u00e3o Paulo",
-    "col_note": "~R$275.000\u2013R$400.000 in S\u00e3o Paulo is roughly equivalent to ~R$190.000\u2013R$276.000 of purchasing power in Fortaleza (S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).",
+    "col_note": "~R$325.000\u2013R$500.000 in S\u00e3o Paulo is roughly equivalent to ~R$224.000\u2013R$345.000 of purchasing power in Fortaleza (S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).",
     "companies": [
-      "IQVIA"
+      "Kyndryl"
     ],
-    "company": "IQVIA",
+    "company": "Kyndryl",
     "cover_letter_path": null,
     "first_seen": "2026-08-16",
-    "key": "IQVIA::medical science liaison (msl)",
+    "key": "Kyndryl::customer partner",
     "last_seen": "2026-08-16",
-    "location": "S\u00e3o Paulo, Brazil",
+    "level": "Primary",
+    "location": "Sao Paulo, Brazil",
     "market": "International (remote)",
     "postings": [
       {
-        "company": "IQVIA",
-        "location": "S\u00e3o Paulo, Brazil",
-        "url": "https://iqvia.wd1.myworkdayjobs.com/IQVIA/job/So-Paulo-Brazil/Medical-Science-Liaison--MSL-_R1559518"
+        "company": "Kyndryl",
+        "location": "Sao Paulo, Brazil",
+        "url": "https://kyndryl.wd5.myworkdayjobs.com/KyndrylProfessionalCareers/job/Sao-Paulo-Brazil/Customer-Partner_R-53476"
       }
     ],
     "probability": "Medium",
-    "reason": "Senior medical-affairs role, but a distinct scientific-liaison track rather than your ops/portfolio-management track.",
+    "reason": "Senior account-relationship role owning growth/retention strategy for top-tier accounts with executive-level engagement -- your C-level client-facing experience (Novartis) transfers directly, though the industry itself is new.",
     "relocation": null,
     "resume_bullets_path": null,
     "salary": "Not disclosed",
-    "salary_estimate": "~$55,000\u2013$80,000 USD (estimated \u2014 LATAM pharma/CRO MSL-level, medical affairs function, not disclosed by employer)",
-    "score": 64,
+    "salary_estimate": "~$65,000\u2013$100,000 USD (estimated \u2014 Brazil-based senior account management level at a major global IT services firm, not disclosed by employer)",
+    "score": 70,
     "status": "new",
     "tier": null,
-    "title": "Medical Science Liaison (MSL)",
-    "trajectory": "A pivot into a different clinical function (medical affairs vs. trial operations) -- plausible given your therapeutic-area breadth, but a real functional stretch."
+    "title": "Customer Partner",
+    "trajectory": "A lateral pivot from clinical trial/portfolio management into IT-services account relationship management -- the client-facing skill set transfers directly, though the industry is new."
+  },
+  "Kyndryl::director, customer unit leader": {
+    "category": "Adjacent",
+    "city": "S\u00e3o Paulo",
+    "col_note": "~R$450.000\u2013R$700.000 in S\u00e3o Paulo is roughly equivalent to ~R$310.000\u2013R$483.000 of purchasing power in Fortaleza (S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).",
+    "companies": [
+      "Kyndryl"
+    ],
+    "company": "Kyndryl",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-16",
+    "key": "Kyndryl::director, customer unit leader",
+    "last_seen": "2026-08-16",
+    "level": "Reach",
+    "location": "Sao Paulo, Brazil",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "Kyndryl",
+        "location": "Sao Paulo, Brazil",
+        "url": "https://kyndryl.wd5.myworkdayjobs.com/KyndrylProfessionalCareers/job/Sao-Paulo-Brazil/Director--Customer-Unit-Leader_R-59605"
+      }
+    ],
+    "probability": "Long-shot",
+    "reason": "Director-level, P&L-owning leadership of a customer account portfolio with direct C-suite engagement -- strong capacity alignment with your Novartis relationship and bid-defense experience, but a genuine Director-level reach.",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_estimate": "~$90,000\u2013$140,000 USD (estimated \u2014 Brazil-based Director level, P&L-owning account leadership at a major global IT services firm, not disclosed by employer)",
+    "score": 72,
+    "status": "new",
+    "tier": null,
+    "title": "Director, Customer Unit Leader",
+    "trajectory": "A genuine reach into Director-level, P&L-owning account leadership in a new industry -- your client-facing and bid-defense experience are real assets, but this is a bigger leap than your current title reflects."
   },
   "PSI CRO::clinical regional project lead": {
     "category": "In-field",
@@ -803,6 +623,7 @@
     "first_seen": "2026-08-16",
     "key": "PSI CRO::clinical regional project lead",
     "last_seen": "2026-08-16",
+    "level": "Primary",
     "location": "S\u00e3o Paulo, SP, Brazil",
     "market": "International (remote)",
     "postings": [
@@ -824,39 +645,6 @@
     "title": "Clinical Regional Project Lead",
     "trajectory": "Mirrors your Regional Study Coordinator + Global Study Manager background closely, now reinforced by real international client-facing experience -- strong, low-risk fit worth prioritizing."
   },
-  "PSI CRO::lead clinical research associate": {
-    "category": "In-field",
-    "city": "S\u00e3o Paulo",
-    "col_note": "~R$250.000\u2013R$375.000 in S\u00e3o Paulo is roughly equivalent to ~R$172.000\u2013R$259.000 of purchasing power in Fortaleza (S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).",
-    "companies": [
-      "PSI CRO"
-    ],
-    "company": "PSI CRO",
-    "cover_letter_path": null,
-    "first_seen": "2026-08-16",
-    "key": "PSI CRO::lead clinical research associate",
-    "last_seen": "2026-08-16",
-    "location": "S\u00e3o Paulo, SP, Brazil",
-    "market": "International (remote)",
-    "postings": [
-      {
-        "company": "PSI CRO",
-        "location": "S\u00e3o Paulo, SP, Brazil",
-        "url": "https://jobs.smartrecruiters.com/PSICRO/744000141567109"
-      }
-    ],
-    "probability": "Medium",
-    "reason": "Clinical ops leadership, but site-monitoring/CRA track rather than your study/portfolio-management track.",
-    "relocation": null,
-    "resume_bullets_path": null,
-    "salary": "Not disclosed",
-    "salary_estimate": "~$50,000\u2013$75,000 USD (estimated \u2014 LATAM CRO lead-CRA level, site-monitoring leadership track, not disclosed by employer)",
-    "score": 71,
-    "status": "new",
-    "tier": null,
-    "title": "Lead Clinical Research Associate",
-    "trajectory": "Lateral pivot into site-monitoring leadership (a different track from your study/portfolio-management background) -- doable, not a direct line."
-  },
   "PSI CRO::therapeutic area lead (gastroenterology)": {
     "category": "In-field",
     "city": "S\u00e3o Paulo",
@@ -869,6 +657,7 @@
     "first_seen": "2026-08-16",
     "key": "PSI CRO::therapeutic area lead (gastroenterology)",
     "last_seen": "2026-08-16",
+    "level": "Primary",
     "location": "S\u00e3o Paulo, SP, Brazil",
     "market": "International (remote)",
     "postings": [
@@ -902,6 +691,7 @@
     "first_seen": "2026-08-16",
     "key": "Parexel::country operations manager - fsp",
     "last_seen": "2026-08-16",
+    "level": "Primary",
     "location": "Brazil-Remote",
     "market": "International (remote)",
     "postings": [
@@ -935,6 +725,7 @@
     "first_seen": "2026-08-16",
     "key": "Parexel::country study operations manager i - fsp",
     "last_seen": "2026-08-16",
+    "level": "Primary",
     "location": "Brazil-Remote",
     "market": "International (remote)",
     "postings": [
@@ -945,12 +736,12 @@
       }
     ],
     "probability": "High",
-    "reason": "Country-level study operations management, strong overlap with your regional coordination and study-management background -- reinforced by direct sponsor-facing experience representing Labcorp to Novartis.",
+    "reason": "Country-level study operations management, strong overlap with your regional coordination and study-management background -- reinforced by direct sponsor-facing experience representing Labcorp to Novartis. Trilingual capacity (EN/PT/DE) is a genuine plus across this multi-country remit.",
     "relocation": null,
     "resume_bullets_path": "resume_bullets/parexel-country-study-operations-manager-i-fsp.md",
     "salary": "Not disclosed",
     "salary_estimate": "~$55,000\u2013$85,000 USD (estimated \u2014 LATAM CRO country-manager level, FSP model, not disclosed by employer)",
-    "score": 81,
+    "score": 83,
     "status": "new",
     "tier": null,
     "title": "Country Study Operations Manager I - FSP",
@@ -968,6 +759,7 @@
     "first_seen": "2026-08-16",
     "key": "Parexel::global study manager ii - fsp",
     "last_seen": "2026-08-16",
+    "level": "Primary",
     "location": "Remote, Mexico; Remote, Argentina; Remote, Brazil",
     "market": "International (remote)",
     "postings": [
@@ -978,49 +770,16 @@
       }
     ],
     "probability": "High",
-    "reason": "Title and scope essentially match your prior Global Clinical Study Manager role -- and you currently serve as Global Study Manager on HORIZON, Novartis's largest trial with Labcorp, with direct sponsor-facing and bid-defense experience.",
+    "reason": "Title and scope essentially match your prior Global Clinical Study Manager role -- and you currently serve as Global Study Manager on HORIZON, Novartis's largest trial with Labcorp, with direct sponsor-facing and bid-defense experience. Trilingual capacity (EN/PT/DE) is a genuine plus across this Mexico/Argentina/Brazil remit.",
     "relocation": null,
     "resume_bullets_path": "resume_bullets/parexel-global-study-manager-ii-fsp.md",
     "salary": "Not disclosed",
     "salary_estimate": "~$65,000\u2013$95,000 USD (estimated \u2014 LATAM CRO senior manager level, FSP model, not disclosed by employer)",
-    "score": 93,
+    "score": 95,
     "status": "new",
     "tier": null,
     "title": "Global Study Manager II - FSP",
     "trajectory": "Lateral move to a near-identical role you already hold (Global Study Manager) at a major CRO -- strong, low-risk fit, reinforced by real client-facing credibility."
-  },
-  "Parexel::regulatory affairs consultant - cmc us/eu - biological products": {
-    "category": "Adjacent",
-    "city": "S\u00e3o Paulo",
-    "col_note": "~R$275.000\u2013R$425.000 in S\u00e3o Paulo is roughly equivalent to ~R$190.000\u2013R$293.000 of purchasing power in Fortaleza (S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).",
-    "companies": [
-      "Parexel"
-    ],
-    "company": "Parexel",
-    "cover_letter_path": null,
-    "first_seen": "2026-08-16",
-    "key": "Parexel::regulatory affairs consultant - cmc us/eu - biological products",
-    "last_seen": "2026-08-16",
-    "location": "Brazil-Sao Paulo; Remote, Argentina; Remote, Mexico",
-    "market": "International (remote)",
-    "postings": [
-      {
-        "company": "Parexel",
-        "location": "Brazil-Sao Paulo; Remote, Argentina; Remote, Mexico",
-        "url": "https://wd1.myworkdaysite.com/recruiting/parexel/Parexel_External_Careers/job/Brazil-Sao-Paulo/Regulatory-Affairs-Consultant---CMC_R0000039962"
-      }
-    ],
-    "probability": "Medium",
-    "reason": "Senior regulatory consultant role; CMC/biologics specialization narrows the fit versus your generalist ops background.",
-    "relocation": null,
-    "resume_bullets_path": null,
-    "salary": "Not disclosed",
-    "salary_estimate": "~$55,000\u2013$85,000 USD (estimated \u2014 LATAM CRO senior regulatory consultant level, CMC/biologics specialization, not disclosed by employer)",
-    "score": 68,
-    "status": "new",
-    "tier": null,
-    "title": "Regulatory Affairs Consultant - CMC US/EU - Biological products",
-    "trajectory": "A pivot into a specialized regulatory consulting function -- consultant-level seniority is a reasonable lateral, but the CMC/biologics depth is a stretch."
   },
   "Precision Medicine Group family::change order manager": {
     "category": "Adjacent",
@@ -1035,6 +794,7 @@
     "first_seen": "2026-08-16",
     "key": "Precision Medicine Group family::change order manager",
     "last_seen": "2026-08-16",
+    "level": "Primary",
     "location": "Remote, Brazil; Remote, Mexico",
     "market": "International (remote)",
     "postings": [
@@ -1074,6 +834,7 @@
     "first_seen": "2026-08-16",
     "key": "Precision Medicine Group family::clinical trial manager (latam)",
     "last_seen": "2026-08-16",
+    "level": "Primary",
     "location": "Remote, Argentina; Remote, Brazil; Remote, Mexico",
     "market": "International (remote)",
     "postings": [
@@ -1089,12 +850,12 @@
       }
     ],
     "probability": "High",
-    "reason": "Direct match to your Global Study Manager background on Novartis's largest Labcorp trial (HORIZON) -- explicitly Brazil-eligible.",
+    "reason": "Direct match to your Global Study Manager background on Novartis's largest Labcorp trial (HORIZON) -- explicitly Brazil-eligible. Trilingual capacity (EN/PT/DE) is a genuine plus for this multi-country LATAM remit.",
     "relocation": null,
     "resume_bullets_path": "resume_bullets/precision-medicine-group-clinical-trial-manager-latam.md",
     "salary": "Not disclosed",
     "salary_estimate": "~$60,000\u2013$90,000 USD (estimated \u2014 LATAM CRO manager-level rate; ~45-55% of comparable disclosed US band, not disclosed by employer)",
-    "score": 95,
+    "score": 97,
     "status": "new",
     "tier": null,
     "title": "Clinical Trial Manager (LATAM)",
@@ -1112,6 +873,7 @@
     "first_seen": "2026-08-16",
     "key": "Precision Medicine Group family::manager, global investigator grants (latam)",
     "last_seen": "2026-08-16",
+    "level": "Primary",
     "location": "Remote, Argentina; Remote, Brazil; Remote, Mexico",
     "market": "International (remote)",
     "postings": [
@@ -1122,12 +884,12 @@
       }
     ],
     "probability": "High",
-    "reason": "Grants/investigator relationship management at manager level -- your bid-defense and direct sponsor-facing experience with Novartis is a strong match for this stakeholder-facing function.",
+    "reason": "Grants/investigator relationship management at manager level -- your bid-defense and direct sponsor-facing experience with Novartis is a strong match for this stakeholder-facing function. Trilingual capacity (EN/PT/DE) adds real value across this LATAM-wide remit.",
     "relocation": null,
     "resume_bullets_path": "resume_bullets/precision-for-medicine-manager-global-investigator-grants-latam.md",
     "salary": "Not disclosed",
     "salary_estimate": "~$55,000\u2013$80,000 USD (estimated \u2014 LATAM CRO manager-level, finance/grants-ops function, not disclosed by employer)",
-    "score": 81,
+    "score": 83,
     "status": "new",
     "tier": null,
     "title": "Manager, Global Investigator Grants (LATAM)",
@@ -1146,6 +908,7 @@
     "first_seen": "2026-08-16",
     "key": "Precision Medicine Group family::patient engagement lead (latam)",
     "last_seen": "2026-08-16",
+    "level": "Primary",
     "location": "Remote, Argentina; Remote, Brazil; Remote, Mexico",
     "market": "International (remote)",
     "postings": [
@@ -1161,94 +924,16 @@
       }
     ],
     "probability": "Medium",
-    "reason": "Trial-adjacent site/patient engagement work, decent overlap with regional coordination background.",
+    "reason": "Trial-adjacent site/patient engagement work, decent overlap with regional coordination background. Trilingual capacity (EN/PT/DE) is a genuine plus across this multi-country LATAM remit.",
     "relocation": null,
     "resume_bullets_path": null,
     "salary": "Not disclosed",
     "salary_estimate": "~$40,000\u2013$65,000 USD (estimated \u2014 LATAM CRO lead-level, patient/site engagement function, not disclosed by employer)",
-    "score": 63,
+    "score": 65,
     "status": "new",
     "tier": null,
     "title": "Patient Engagement Lead (LATAM)",
     "trajectory": "Lateral pivot into a more specialized patient-engagement function -- a stretch from your generalist portfolio background but plausible."
-  },
-  "Precision Medicine Group family::senior regulatory and start up specialist (brazil)": {
-    "category": "Adjacent",
-    "city": null,
-    "col_note": null,
-    "companies": [
-      "Precision Medicine Group",
-      "Precision for Medicine"
-    ],
-    "company": "Precision Medicine Group",
-    "cover_letter_path": null,
-    "first_seen": "2026-08-16",
-    "key": "Precision Medicine Group family::senior regulatory and start up specialist (brazil)",
-    "last_seen": "2026-08-16",
-    "location": "Remote, Brazil",
-    "market": "International (remote)",
-    "postings": [
-      {
-        "company": "Precision Medicine Group",
-        "location": "Remote, Brazil",
-        "url": "https://job-boards.greenhouse.io/precisionmedicinegroup/jobs/6135868004"
-      },
-      {
-        "company": "Precision for Medicine",
-        "location": "Remote, Brazil",
-        "url": "https://job-boards.greenhouse.io/pfm/jobs/6135871004"
-      }
-    ],
-    "probability": "Medium",
-    "reason": "Regulatory/site start-up work mirrors your Regional Study Coordinator EMEA role; your client-audit and sponsor-facing experience adds real credibility; Brazil-based.",
-    "relocation": null,
-    "resume_bullets_path": null,
-    "salary": "Not disclosed",
-    "salary_estimate": "~$45,000\u2013$70,000 USD (estimated \u2014 LATAM CRO senior specialist level, regulatory/start-up function, not disclosed by employer)",
-    "score": 77,
-    "status": "new",
-    "tier": null,
-    "title": "Senior Regulatory and Start Up Specialist (Brazil)",
-    "trajectory": "A step down in title from your current scope, but Brazil-based, domain-relevant, and backed by real sponsor-facing credibility -- worth it as a foothold role."
-  },
-  "Precision Medicine Group family::tmf lead ii (latam)": {
-    "category": "Adjacent",
-    "city": null,
-    "col_note": null,
-    "companies": [
-      "Precision Medicine Group",
-      "Precision for Medicine"
-    ],
-    "company": "Precision Medicine Group",
-    "cover_letter_path": null,
-    "first_seen": "2026-08-16",
-    "key": "Precision Medicine Group family::tmf lead ii (latam)",
-    "last_seen": "2026-08-16",
-    "location": "Remote, Brazil; Remote, Mexico",
-    "market": "International (remote)",
-    "postings": [
-      {
-        "company": "Precision Medicine Group",
-        "location": "Remote, Brazil; Remote, Mexico",
-        "url": "https://job-boards.greenhouse.io/precisionmedicinegroup/jobs/6093242004"
-      },
-      {
-        "company": "Precision for Medicine",
-        "location": "Remote, Brazil; Remote, Mexico",
-        "url": "https://job-boards.greenhouse.io/pfm/jobs/6093245004"
-      }
-    ],
-    "probability": "Medium",
-    "reason": "Trial documentation/compliance oversight is ops-adjacent but more specialist than managerial.",
-    "relocation": null,
-    "resume_bullets_path": null,
-    "salary": "Not disclosed",
-    "salary_estimate": "~$35,000\u2013$55,000 USD (estimated \u2014 LATAM CRO specialist-level, trial documentation/compliance function, not disclosed by employer)",
-    "score": 61,
-    "status": "new",
-    "tier": null,
-    "title": "TMF Lead II (LATAM)",
-    "trajectory": "A step down in scope from your current role -- worth it mainly as a Brazil-based foothold, not a growth move."
   },
   "Syneos Health::clinical trial manager with focus on project management - sponsor dedicated - brazil home based": {
     "category": "In-field",
@@ -1262,6 +947,7 @@
     "first_seen": "2026-08-16",
     "key": "Syneos Health::clinical trial manager with focus on project management - sponsor dedicated - brazil home based",
     "last_seen": "2026-08-16",
+    "level": "Primary",
     "location": "BRA-Remote",
     "market": "International (remote)",
     "postings": [
@@ -1295,6 +981,7 @@
     "first_seen": "2026-08-16",
     "key": "Syneos Health::ctm ii - sr ctm assigned to client latam (usa scope or local scope) - mexico, argentina, brasil, chile, colombia",
     "last_seen": "2026-08-16",
+    "level": "Primary",
     "location": "Remote, Argentina; Remote, Brazil; Remote, Chile; Remote, Colombia; Remote, Mexico; Remote, Peru",
     "market": "International (remote)",
     "postings": [
@@ -1305,49 +992,16 @@
       }
     ],
     "probability": "High",
-    "reason": "Senior client-dedicated Clinical Trial Manager role across LATAM -- direct match to your trial-management background and your real experience managing a direct client relationship (Novartis) at scale.",
+    "reason": "Senior client-dedicated Clinical Trial Manager role across LATAM -- direct match to your trial-management background and your real experience managing a direct client relationship (Novartis) at scale. Trilingual capacity (EN/PT/DE) is a real plus managing a client relationship across 5 LATAM countries.",
     "relocation": null,
     "resume_bullets_path": "resume_bullets/syneos-health-ctm-ii-sr-ctm-assigned-to-client-latam-usa-scope-or-local-scope-mexico-argentina-brasil-chile-colombia.md",
     "salary": "Not disclosed",
     "salary_estimate": "~$62,000\u2013$92,000 USD (estimated \u2014 LATAM CRO senior CTM level, client-dedicated, not disclosed by employer)",
-    "score": 83,
+    "score": 85,
     "status": "new",
     "tier": null,
     "title": "CTM II - Sr CTM assigned to client LAtam (USA scope or local scope) - Mexico, Argentina, Brasil, Chile, Colombia",
     "trajectory": "Lateral to modest step up from your Global Clinical Study Manager role -- strong direct fit."
-  },
-  "Syneos Health::feasibility strategy analytics lead (sponsor dedicated) - argentina, brazil and mexico home based": {
-    "category": "Adjacent",
-    "city": null,
-    "col_note": null,
-    "companies": [
-      "Syneos Health"
-    ],
-    "company": "Syneos Health",
-    "cover_letter_path": null,
-    "first_seen": "2026-08-16",
-    "key": "Syneos Health::feasibility strategy analytics lead (sponsor dedicated) - argentina, brazil and mexico home based",
-    "last_seen": "2026-08-16",
-    "location": "Remote, Argentina; Remote, Brazil; Remote, Mexico",
-    "market": "International (remote)",
-    "postings": [
-      {
-        "company": "Syneos Health",
-        "location": "Remote, Argentina; Remote, Brazil; Remote, Mexico",
-        "url": "https://syneoshealth.wd12.myworkdayjobs.com/Syneos_Health_External_Site/job/ARG-Remote/Feasibility-Strategy-Analytics-Lead--Sponsor-dedicated----Argentina--Brazil-and-Mexico-Home-Based_25109911"
-      }
-    ],
-    "probability": "Medium",
-    "reason": "Lead-level feasibility/strategy analytics role, adjacent to trial planning rather than direct execution.",
-    "relocation": null,
-    "resume_bullets_path": null,
-    "salary": "Not disclosed",
-    "salary_estimate": "~$50,000\u2013$75,000 USD (estimated \u2014 LATAM CRO lead-level, feasibility/strategy analytics function, not disclosed by employer)",
-    "score": 69,
-    "status": "new",
-    "tier": null,
-    "title": "Feasibility Strategy Analytics Lead (Sponsor dedicated) - Argentina, Brazil and Mexico Home Based",
-    "trajectory": "A pivot into feasibility strategy/analytics -- leverages portfolio-level planning experience, though it's a distinct specialist track."
   },
   "Syneos Health::regulatory cmc manager cell and gene therapy": {
     "category": "Adjacent",
@@ -1361,6 +1015,7 @@
     "first_seen": "2026-08-16",
     "key": "Syneos Health::regulatory cmc manager cell and gene therapy",
     "last_seen": "2026-08-16",
+    "level": "Primary",
     "location": "Remote, Argentina; Remote, Brazil; Remote, Colombia; Remote, Mexico; Remote, Serbia",
     "market": "International (remote)",
     "postings": [
@@ -1371,49 +1026,16 @@
       }
     ],
     "probability": "Long-shot",
-    "reason": "Manager-level regulatory role, but highly specialized cell & gene therapy CMC domain you don't have direct depth in.",
+    "reason": "Manager-level regulatory role, but highly specialized cell & gene therapy CMC domain you don't have direct depth in. This role spans LATAM and Serbia (EMEA) -- your trilingual capacity (EN/PT/DE), including working German, is a specific and genuine differentiator here, not just generic language skill.",
     "relocation": null,
     "resume_bullets_path": null,
     "salary": "Not disclosed",
     "salary_estimate": "~$65,000\u2013$95,000 USD (estimated \u2014 LATAM CRO manager-level, specialized cell & gene therapy regulatory function, not disclosed by employer)",
-    "score": 67,
+    "score": 70,
     "status": "new",
     "tier": null,
     "title": "Regulatory CMC Manager Cell and Gene Therapy",
     "trajectory": "Manager-level scope is a lateral fit, but the CGT-specific regulatory depth requirement is likely a hard filter you don't clear -- worth a shot only if that depth isn't strictly required."
-  },
-  "Synvia::analista de projetos cl\u00ednicos s\u00eanior i cro": {
-    "category": "In-field",
-    "city": null,
-    "col_note": null,
-    "companies": [
-      "Synvia"
-    ],
-    "company": "Synvia",
-    "cover_letter_path": null,
-    "first_seen": "2026-08-16",
-    "key": "Synvia::analista de projetos cl\u00ednicos s\u00eanior i cro",
-    "last_seen": "2026-08-16",
-    "location": "Remote",
-    "market": "Brazilian market (local)",
-    "postings": [
-      {
-        "company": "Synvia",
-        "location": "Remote",
-        "url": "https://synvia.gupy.io/jobs/11604156"
-      }
-    ],
-    "probability": "Medium",
-    "reason": "Senior clinical projects analyst at a Brazilian CRO, remote -- individual-contributor level but domain-relevant.",
-    "relocation": null,
-    "resume_bullets_path": null,
-    "salary": "Not disclosed",
-    "salary_estimate": "R$6.800\u2013R$10.500/month (estimated \u2014 Glassdoor Brazil, Analista de Pesquisa Cl\u00ednica S\u00eanior, not disclosed by employer)",
-    "score": 61,
-    "status": "new",
-    "tier": null,
-    "title": "Analista de Projetos Cl\u00ednicos S\u00eanior I CRO",
-    "trajectory": "Senior analyst-level, individual-contributor role -- a step down from your management scope, but remote, domain-relevant, and a real local-market foothold."
   },
   "Synvia::coordenador de centro de pesquisa cl\u00ednica": {
     "category": "In-field",
@@ -1427,6 +1049,7 @@
     "first_seen": "2026-08-16",
     "key": "Synvia::coordenador de centro de pesquisa cl\u00ednica",
     "last_seen": "2026-08-16",
+    "level": "Primary",
     "location": "On-site, Campinas, SP",
     "market": "Brazilian market (local)",
     "postings": [
@@ -1460,6 +1083,7 @@
     "first_seen": "2026-08-16",
     "key": "Synvia::coordenador de pesquisa cl\u00ednica",
     "last_seen": "2026-08-16",
+    "level": "Primary",
     "location": "On-site, S\u00e3o Paulo, SP",
     "market": "Brazilian market (local)",
     "postings": [
@@ -1480,38 +1104,5 @@
     "tier": null,
     "title": "Coordenador de Pesquisa Cl\u00ednica",
     "trajectory": "Step down in scope from portfolio management, but a genuine senior local-market operations role and a credible Brazilian-market foothold."
-  },
-  "Synvia::especialista de data management": {
-    "category": "Adjacent",
-    "city": null,
-    "col_note": null,
-    "companies": [
-      "Synvia"
-    ],
-    "company": "Synvia",
-    "cover_letter_path": null,
-    "first_seen": "2026-08-16",
-    "key": "Synvia::especialista de data management",
-    "last_seen": "2026-08-16",
-    "location": "Remote",
-    "market": "Brazilian market (local)",
-    "postings": [
-      {
-        "company": "Synvia",
-        "location": "Remote",
-        "url": "https://synvia.gupy.io/jobs/11466199"
-      }
-    ],
-    "probability": "Medium",
-    "reason": "Senior data management specialist role, remote, strongly paid for the local market -- adjacent to your portfolio oversight experience.",
-    "relocation": null,
-    "resume_bullets_path": null,
-    "salary": "Not disclosed",
-    "salary_estimate": "R$8.000\u2013R$13.000/month (estimated \u2014 Glassdoor Brazil, senior specialist band, pharma/CRO data functions, not disclosed by employer)",
-    "score": 61,
-    "status": "new",
-    "tier": null,
-    "title": "Especialista de Data Management",
-    "trajectory": "Adjacent specialist function without a dedicated data-management history, but senior-level, remote, and strongly paid for the local market."
   }
 }

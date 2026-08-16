@@ -1,8 +1,14 @@
 # job-agent
 
 Job search tooling for clinical operations / quality / regulatory affairs
-/ medical affairs / adjacent pharma-biotech leadership roles workable
-from Brazil — remote, or on-site/hybrid anywhere in the country.
+/ medical affairs / adjacent pharma-biotech leadership roles, plus
+capacity-based matches in any other industry (large multi-country
+programs, executive/named-client relationships, bid/proposal leadership,
+50+ person distributed team oversight), workable from Brazil — remote,
+or on-site/hybrid anywhere in the country. Manager-level and above only;
+Senior Manager/Associate Director/Regional Director-equivalent scope is
+the realistic primary target (the candidate's actual level), Director/VP/
+Country Manager-equivalent scope is a tagged, separately-sorted "reach."
 Candidate is based in Fortaleza. Code lives in `job-agent/`.
 
 ## "check jobs" shorthand
@@ -17,7 +23,11 @@ to do all of the following, without asking for confirmation:
    `job-agent/fetch_ashby_jobs.py`, `job-agent/fetch_gupy_jobs.py`,
    `job-agent/fetch_workday_jobs.py` (each has its own `COMPANIES` dict;
    Ashby's is currently empty — see its module docstring/README for
-   search notes before re-searching). Six of the seven (all but Gupy) are
+   search notes before re-searching). `fetch_workday_jobs.py` now also
+   covers non-pharma employers for the capacity-based search (Accenture,
+   Kyndryl confirmed with real Brazil-based Director/Associate-Director/
+   bid-leadership roles) — see its module docstring for companies checked
+   and not found on any supported ATS. Six of the seven (all but Gupy) are
    **international employers** hiring remotely into Brazil (tag every job
    they produce `"market": "International (remote)"`); Gupy covers
    **genuinely Brazilian-market employers** hiring locally in BRL (tag
@@ -42,25 +52,65 @@ to do all of the following, without asking for confirmation:
    frequently surface expired postings that 404 when opened directly —
    check before trusting a snippet). Tag any genuine match
    `"tier": "Stretch/Leadership"` (rendered as its own tag in the
-   report, alongside category/probability/market). It's normal and
-   expected for this search to turn up nothing on a given run —
-   director-level roles are typically filled through executive search
-   rather than public postings — report that honestly ("checked, nothing
-   open right now") rather than skipping the step silently or padding it
-   with an unverified/stale listing.
+   report, alongside category/probability/market) — separate from, and
+   in addition to, the `level: "Reach"` tagging every Director/VP/
+   Country-Manager-equivalent match gets regardless of source (see step
+   3): `tier` marks a match as having come from this specific
+   Director-level search sweep, `level` is the universal seniority
+   classification applied to every match. It's normal and expected for
+   this search to turn up nothing on a given run — director-level roles
+   are typically filled through executive search rather than public
+   postings — report that honestly ("checked, nothing open right now")
+   rather than skipping the step silently or padding it with an
+   unverified/stale listing.
 3. Score each job for fit against `CANDIDATE_PROFILE` in
    `job-agent/match_jobs.py`, using the broadened rubric in
-   `SCORING_INSTRUCTIONS`: not limited to an exact title match (clinical
-   operations, quality, regulatory affairs, medical affairs, and other
-   pharma/biotech leadership functions are all in scope where experience
-   is a strong transferable fit); prioritize compensation and long-term
-   career trajectory over exact title wording (junior/contract-type
-   roles score lower than permanent managerial/director-level roles);
-   hard requirement, not traded off: the role must be workable from
-   Brazil — either explicitly remote/LATAM-inclusive, or physically
-   on-site/hybrid anywhere in Brazil (cap at 40 otherwise). Also assign,
-   per job: `category` ("In-field" direct clinical-ops/trial-management
-   work, or "Adjacent" transferable-skills fit elsewhere), `probability`
+   `SCORING_INSTRUCTIONS`: not limited to an exact title match or to
+   pharma/CRO employers. Two overlapping lanes are in scope: (a) clinical
+   operations, quality, regulatory affairs, medical affairs, or other
+   pharma/biotech leadership functions where trial/portfolio management
+   experience is a strong transferable fit; (b) capacity-based matches in
+   ANY other industry — large multi-country program management ($100M+
+   scope), executive/named-client relationship ownership, bid/proposal
+   leadership, or 50+ person distributed team oversight — the sector
+   doesn't matter, the actual scope/seniority demands do. Prioritize
+   compensation and long-term career trajectory over exact title wording.
+
+   Hard requirements, not traded off:
+   - Workable from Brazil — either explicitly remote/LATAM-inclusive, or
+     physically on-site/hybrid anywhere in Brazil (cap at 40 otherwise).
+   - Manager-level or above only. Never surface individual-contributor,
+     analyst, associate, or specialist/consultant-titled roles even when
+     the function is a strong fit (cap at 30) — a "Coordenador"/
+     "Coordinator" title with genuine site/team leadership scope, not
+     just individual task execution, is the one judged-by-real-scope
+     exception, same as the existing Brazilian-market-title-convention
+     note below.
+   - Level calibration matches the candidate's actual level (5.5 years,
+     fast trajectory, no prior Director title), not aspiration: Senior
+     Manager, Associate Director, and Regional Director (or equivalent
+     scope in non-pharma industries) are the realistic primary target,
+     scored normally. Full Director, VP, Country Manager, or higher (or
+     equivalent scope) get `level: "Reach"` regardless of score, and lean
+     toward "Long-shot" probability unless the specific posting's actual
+     requirements (not just the title) plausibly fit 5.5 years of
+     experience.
+
+   For Director/Country Manager-level and other client-facing or
+   business-development-adjacent roles specifically (whether "Reach" or
+   not), weigh the candidate's sponsor-facing and commercial credibility
+   explicitly: representing Labcorp internationally to a major sponsor
+   (Novartis), regular client audit participation, and 4 bid defenses are
+   exactly what these roles screen for. The candidate is trilingual
+   (English C2, Portuguese C2, German B1) — factor this in specifically,
+   beyond the baseline Brazil-eligibility requirement, for roles that
+   explicitly span EMEA/LATAM or explicitly value multilingual
+   client-facing work.
+
+   Also assign, per job: `category` ("In-field" direct clinical-ops/
+   trial-management work, or "Adjacent" transferable-skills fit
+   elsewhere, including non-pharma capacity-based matches), `level`
+   ("Primary" or "Reach", per the calibration above), `probability`
    ("High"/"Medium"/"Long-shot" — a realistic, not encouraging-by-default
    read on how closely actual experience maps to what's likely required),
    `trajectory` (one line: lateral/step-up/bigger-leap versus the
@@ -72,15 +122,16 @@ to do all of the following, without asking for confirmation:
    (e.g. "Coordenador" is typically genuine site/operational-leadership
    scope locally, not a junior title) — but still score honestly: most
    currently-open local roles are individual-contributor ("Analista")
-   level, a real step down in scope and pay from the candidate's
-   Portfolio Manager role, and that trade-off belongs in the score and
+   level (now excluded entirely under the Manager-level floor above), and
+   any real step-down in scope/pay from the candidate's Portfolio Manager
+   role that a surfaced match does carry belongs in the score and
    `trajectory` line rather than being smoothed over.
    - If `ANTHROPIC_API_KEY` is set, run `python3 match_jobs.py` — it
      fetches, scores, and runs the full pipeline (below) itself.
    - If no API key is available, score manually (as Claude, in
      conversation) using the same rubric, record raw per-posting matches
      in `job-agent/manual_matches.json` (with a real, API-verified
-     `salary` per posting — see step 5, never invented — plus
+     `salary` per posting — see step 4, never invented — plus
      `category`/`probability`/`trajectory`/`market` per posting), record
      any cover letter / resume bullets text / salary estimate figures for
      this run in `job-agent/manual_extras.json`, then run
@@ -95,11 +146,13 @@ to do all of the following, without asking for confirmation:
    - **Tracks seen jobs** (`job-agent/jobs_state.py`,
      `job-agent/jobs_state.json`): only matches new since the last check
      are surfaced as "New matches" in the report. Anything the user has
-     marked `interested` or `applied` (via `set_status.py`) stays visible
-     in a "Tracked" section regardless of whether it's new this run.
-     Anything marked `pass` is hidden from the report entirely. A match
-     that scored 60+ before and was never actioned does not resurface —
-     don't re-show the same jobs every day.
+     marked `interested`, `applied`, or `interviewing` (via
+     `set_status.py`) stays visible in its own section ("Interested" or
+     "Applied") regardless of whether it's new this run — see "Job status
+     model" below. Anything marked `declined` or `pass` is hidden from
+     the report entirely, permanently. A match that scored 60+ before and
+     was never actioned does not resurface — don't re-show the same jobs
+     every day.
    - **Drafts cover letters and resume bullet adjustments** for any match
      scoring 80+ that doesn't have them yet (`job-agent/cover_letter.py`,
      `job-agent/resume_bullets.py`), saved to
@@ -142,18 +195,23 @@ to do all of the following, without asking for confirmation:
    "New matches" / "Applied" / "Interested" sections — see "Job status
    model" below — each showing a market tag ("International (remote)" /
    "Brazilian market (local)"), a Stretch/Leadership tag on any job
-   tagged that way in step 2, category/probability tags, salary/estimate,
+   tagged that way in step 2, a "Reach — Long Shot" tag on any job with
+   `level: "Reach"`, category/probability tags, salary/estimate,
    cost-of-living note, relocation-support flag, a trajectory callout,
    sibling links, status, and cover letter/resume bullets links where
    applicable) — this happens automatically via `report.write_report()`
-   in both paths above. Whenever a section contains both markets, it's
-   split into two labeled subsections so international and
-   Brazilian-market results can be compared side by side rather than
-   interleaved by score. Note: draft links only render for jobs currently
-   in one of those sections — a job that already has drafts but has
-   scrolled out of "new" (seen before, no status set) still has the files
-   in the repo, just not linked from the report until it's marked
-   `interested`/`applied`/`interviewing`.
+   in both paths above. Within each section, whenever both `level:
+   "Primary"` and `level: "Reach"` matches are present, Reach matches are
+   sorted into their own labeled block at the bottom, separate from and
+   below the realistic Primary matches — never interleaved by score alone.
+   Whenever a group (Primary or Reach) contains both markets, it's split
+   into two labeled subsections so international and Brazilian-market
+   results can be compared side by side rather than interleaved by score.
+   Note: draft links only render for jobs currently in one of those
+   sections — a job that already has drafts but has scrolled out of "new"
+   (seen before, no status set) still has the files in the repo, just not
+   linked from the report until it's marked `interested`/`applied`/
+   `interviewing`.
 6. `report.html` must keep every job title as its own clickable link
    straight to the (primary) posting, and its header must show, every
    time the report is generated: the pace tracker (a running "N applied

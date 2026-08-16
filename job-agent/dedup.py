@@ -59,6 +59,7 @@ def merge_sibling_postings(matches):
                 "reason": primary["reason"],
                 "salary": salary,
                 "category": primary.get("category", "Adjacent"),
+                "level": primary.get("level", "Primary"),
                 "probability": primary.get("probability", "Medium"),
                 "trajectory": primary.get("trajectory", ""),
                 "relocation": relocation,

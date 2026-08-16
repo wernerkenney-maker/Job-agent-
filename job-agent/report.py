@@ -98,6 +98,8 @@ TIER_COLORS = {
     "Stretch/Leadership": ("#8a4b0f", "#fbeee0"),
 }
 
+REACH_COLOR = ("#8a4b0f", "#fbeee0")
+
 
 def _band_colors(score):
     for threshold, fg, bg in SCORE_BANDS:
@@ -162,9 +164,14 @@ def _job_card(job):
     if tier:
         tier_fg, tier_bg = TIER_COLORS.get(tier, TIER_COLORS["Stretch/Leadership"])
         tier_tag_html = f'<span class="tag" style="color:{tier_fg}; background:{tier_bg};">{html.escape(tier)}</span>'
+    reach_tag_html = ""
+    if job.get("level") == "Reach":
+        reach_fg, reach_bg = REACH_COLOR
+        reach_tag_html = f'<span class="tag" style="color:{reach_fg}; background:{reach_bg};">Reach — Long Shot</span>'
     tags_html = (
         '<div class="tags">'
         f'<span class="tag" style="color:{market_fg}; background:{market_bg};">{html.escape(market)}</span>'
+        f'{reach_tag_html}'
         f'{tier_tag_html}'
         f'<span class="tag" style="color:{cat_fg}; background:{cat_bg};">{html.escape(category)}</span>'
         f'<span class="tag" style="color:{prob_fg}; background:{prob_bg};">{html.escape(probability)}</span>'
@@ -221,6 +228,20 @@ def _market_group(title_text, matches):
       </div>"""
 
 
+def _market_split_body(matches):
+    intl = [j for j in matches if j.get("market", "International (remote)") != "Brazilian market (local)"]
+    br = [j for j in matches if j.get("market") == "Brazilian market (local)"]
+
+    if intl and br:
+        return _market_group("International (remote)", intl) + _market_group("Brazilian market (local)", br)
+
+    cards = "\n".join(_job_card(job) for job in matches)
+    return f"""
+      <ul>
+        {cards}
+      </ul>"""
+
+
 def _section(title_text, matches, empty_text):
     if not matches:
         return f"""
@@ -229,17 +250,17 @@ def _section(title_text, matches, empty_text):
       <p class="empty">{empty_text}</p>
     </section>"""
 
-    intl = [j for j in matches if j.get("market", "International (remote)") != "Brazilian market (local)"]
-    br = [j for j in matches if j.get("market") == "Brazilian market (local)"]
+    primary = [j for j in matches if j.get("level") != "Reach"]
+    reach = [j for j in matches if j.get("level") == "Reach"]
 
-    if intl and br:
-        body = _market_group("International (remote)", intl) + _market_group("Brazilian market (local)", br)
-    else:
-        cards = "\n".join(_job_card(job) for job in matches)
-        body = f"""
-      <ul>
-        {cards}
-      </ul>"""
+    body = _market_split_body(primary) if primary else ""
+    if reach:
+        body += f"""
+      <div class="reach-group">
+        <h3>Reach — Long Shot (Director / VP / Country Manager-level)</h3>
+        <p class="reach-note">Full Director/VP/Country Manager-equivalent roles — a genuine stretch versus your current level, kept visible but sorted separately from realistic matches above.</p>
+        {_market_split_body(reach)}
+      </div>"""
 
     return f"""
     <section>
@@ -334,6 +355,17 @@ def generate_report_html(
   }}
   .market-group + .market-group {{
     margin-top: 22px;
+  }}
+  .reach-group {{
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 2px dashed var(--border);
+  }}
+  .reach-note {{
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    line-height: 1.4;
+    margin: 0 0 12px;
   }}
   .subtitle {{
     color: var(--text-muted);
@@ -583,7 +615,7 @@ def generate_report_html(
   <div class="wrap">
     <header>
       <h1>Clinical Ops Job Matches</h1>
-      <p class="subtitle">Clinical operations, quality, regulatory affairs, medical affairs, and adjacent pharma/biotech leadership roles, scored for fit, compensation, and career trajectory against your background — workable from Brazil required (remote, or on-site/hybrid anywhere in Brazil). Covers both international remote employers and Brazilian-market employers hiring locally in BRL, tagged and grouped separately for comparison. Filtered to score 60+, sorted highest first. Sibling postings from the same corporate family are shown once.</p>
+      <p class="subtitle">Clinical operations, quality, regulatory affairs, medical affairs, and adjacent pharma/biotech leadership roles, plus capacity-based matches in any industry (large multi-country programs, executive/named-client relationships, bid/proposal leadership, 50+ person team oversight) — scored for fit, compensation, and career trajectory against your background. Manager-level and above only. Workable from Brazil required (remote, or on-site/hybrid anywhere in Brazil). Covers both international remote employers and Brazilian-market employers hiring locally in BRL, tagged and grouped separately for comparison. Senior Manager/Associate Director/Regional Director-equivalent roles are the primary realistic target; Director/VP/Country Manager-equivalent roles stay visible but are tagged "Reach — Long Shot" and sorted separately at the bottom. Filtered to score 60+, sorted highest first within each group. Sibling postings from the same corporate family are shown once.</p>
       <div class="pace">
         <span class="pace-figure">{pace_weekly}</span> applied this week &middot; <span class="pace-figure">{pace_total}</span> all-time
       </div>

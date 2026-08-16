@@ -52,8 +52,9 @@ commercial credibility, not just internal operational scope. Previously
 Global Clinical Study Manager, managing $20M+ trial budgets across
 Oncology, Autoimmune, and Malaria trials. Before that, Regional Study
 Coordinator, EMEA. Certificate in Project Management from Rutgers.
-Fluent in English and Portuguese; working proficiency in German. Based
-in Fortaleza, Brazil.
+Trilingual: English (C2), Portuguese (C2), German (B1). 5.5 years of
+progressively senior experience, on a fast trajectory but not yet
+holding a prior Director-level title. Based in Fortaleza, Brazil.
 """.strip()
 
 MODEL = os.environ.get("CLAUDE_MODEL", "claude-sonnet-5")
@@ -66,39 +67,77 @@ You are screening job listings for fit against a candidate's background.
 Candidate background:
 {profile}
 
-The candidate is not limited to their exact current title. Score roles
-across clinical operations, quality, regulatory affairs, medical affairs,
-or other pharma/biotech leadership functions where their experience
-(large-scale trial/portfolio management, multi-million dollar budgets,
-cross-functional and cross-regional leadership) is a strong transferable
-fit. Prioritize compensation and long-term career trajectory over an
-exact title match: a role in an adjacent function at equal-or-better
-seniority, pay, and growth potential should score as well as or better
-than a narrower title match at a lower level (e.g. a "Consultant" or
-"Associate"-level contract role should score lower than a permanent
-managerial/director-level role, even in a closer-sounding function).
+The candidate is not limited to their exact current title or to pharma/
+CRO employers. Score roles in two overlapping lanes:
+1. Pharma/biotech: clinical operations, quality, regulatory affairs,
+   medical affairs, or other pharma/biotech leadership functions where
+   their trial/portfolio management experience is a strong transferable
+   fit.
+2. ANY other industry, on a capacity basis: large, complex, multi-country
+   program management ($100M+ scope), executive/named-client relationship
+   ownership, bid or proposal leadership, or oversight of 50+ person
+   distributed teams. The function/industry doesn't need to resemble
+   pharma at all -- what matters is that the role's actual demands
+   (program scale, client-facing seniority, distributed team leadership)
+   match what the candidate already does, regardless of sector.
 
-Hard requirement: the role must be workable from Brazil -- either
-explicitly remote/LATAM-inclusive, OR physically located on-site/hybrid
-within Brazil (any city; the candidate is based in Fortaleza but is open
-to relocating for the right on-site/hybrid role). If neither is true,
-score it no higher than 40 regardless of how strong the functional fit
-is.
+Prioritize compensation and long-term career trajectory over an exact
+title match: a role in an adjacent function or industry at
+equal-or-better seniority, pay, and growth potential should score as
+well as or better than a narrower title match at a lower level (e.g. a
+"Consultant" or "Associate"-level contract role should score lower than
+a permanent managerial role, even in a closer-sounding function).
+
+Hard requirements, not traded off:
+- Workable from Brazil -- either explicitly remote/LATAM-inclusive, OR
+  physically located on-site/hybrid within Brazil (any city; the
+  candidate is based in Fortaleza but open to relocating for the right
+  on-site/hybrid role). If neither is true, score no higher than 40
+  regardless of how strong the functional fit is.
+- Manager-level or above ONLY. Never surface individual-contributor,
+  analyst, associate, or coordinator-level roles, even if the function
+  is a strong fit -- score these no higher than 30 regardless of
+  functional fit. (A role titled "Coordenador"/"Coordinator" that
+  genuinely carries site/team leadership scope, not just individual
+  task execution, is the one borderline exception -- judge by real
+  scope, not the bare word.)
+
+Level calibration -- this is the candidate's actual level, not aspiration:
+5.5 years of progressively senior experience, fast trajectory, but no
+prior Director-level title. Senior Manager, Associate Director, and
+Regional Director (or equivalent titles/scope in non-pharma industries)
+are the PRIMARY realistic target level -- score these on their merits
+using the normal 1-100 scale. Full Director, VP, Country Manager, or
+higher (or equivalent scope) are a genuine reach: still score them
+honestly on fit, but set level: "Reach" for these regardless of score,
+and lean toward "Long-shot" probability unless the specific posting's
+own requirements (not just title) plausibly match 5.5 years of
+experience -- don't inflate probability just because the fit narrative
+sounds good.
 
 For Director/Country Manager-level and other client-facing or
-business-development-adjacent roles specifically, weigh the candidate's
-sponsor-facing and commercial credibility explicitly: representing
-Labcorp internationally to a major sponsor (Novartis), regular client
-audit participation, and bid-defense experience are exactly what these
-roles screen for, distinct from (and beyond) pure operational/trial-
-management scope -- don't undercount this dimension for those role
-types.
+business-development-adjacent roles specifically (whether "Reach" or
+not), weigh the candidate's sponsor-facing and commercial credibility
+explicitly: representing Labcorp internationally to a major sponsor
+(Novartis), regular client audit participation, and bid-defense
+experience are exactly what these roles screen for, distinct from (and
+beyond) pure operational/trial-management scope -- don't undercount this
+dimension for those role types.
+
+The candidate is trilingual (English C2, Portuguese C2, German B1).
+Factor this in specifically -- beyond the baseline Brazil-eligibility
+requirement -- for roles that explicitly span EMEA/LATAM or explicitly
+value multilingual client-facing work; it's a genuine differentiator
+there, not just a generic nice-to-have.
 
 For each job below, also determine:
 - category: "In-field" if it's direct clinical operations / clinical
   trial management work, or "Adjacent" if it's a transferable-skills fit
-  outside that (regulatory, quality, program/portfolio leadership outside
-  pharma, general operations, etc.).
+  elsewhere (regulatory, quality, program/portfolio leadership outside
+  pharma -- including non-pharma industries scored under lane 2 above).
+- level: "Primary" for Senior Manager/Associate Director/Regional
+  Director-equivalent scope, or "Reach" for Director/VP/Country
+  Manager-equivalent scope or higher.
 - probability: a realistic "High", "Medium", or "Long-shot" assessment of
   the candidate's odds, based on how closely their actual experience maps
   to what the role likely requires (seniority, domain depth, therapeutic
@@ -116,7 +155,7 @@ Jobs:
 {jobs}
 
 Respond with ONLY a JSON array, no other text, in this exact form:
-[{{"id": <batch-local integer id>, "score": <integer 1-100>, "reason": "<one-line reason, under 20 words>", "category": "In-field|Adjacent", "probability": "High|Medium|Long-shot", "trajectory": "<one-line note, under 20 words>"}}, ...]
+[{{"id": <batch-local integer id>, "score": <integer 1-100>, "reason": "<one-line reason, under 20 words>", "category": "In-field|Adjacent", "level": "Primary|Reach", "probability": "High|Medium|Long-shot", "trajectory": "<one-line note, under 20 words>"}}, ...]
 Include exactly one entry per job listed above, in any order.
 """
 
@@ -325,6 +364,7 @@ def main():
                     "score": result["score"],
                     "reason": result["reason"],
                     "category": result.get("category", "Adjacent"),
+                    "level": result.get("level", "Primary"),
                     "probability": result.get("probability", "Medium"),
                     "trajectory": result.get("trajectory", ""),
                 }

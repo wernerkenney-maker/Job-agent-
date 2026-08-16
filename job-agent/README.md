@@ -78,9 +78,15 @@ see "International vs. Brazilian market" below.
   responsibilities text (not present on the list-page job objects). Both
   are read the same way any visitor's browser would, unauthenticated —
   same principle as the other providers' public JSON APIs.
-- `fetch_workday_jobs.py` — Workday-hosted career sites for major CROs
-  that had no presence on any other provider:
-  - **IQVIA**, **Parexel**, **Syneos Health**, **ICON plc**, **Fortrea**
+- `fetch_workday_jobs.py` — Workday-hosted career sites. Originally built
+  for major CROs missing from every other provider, later extended to
+  large non-pharma employers for the capacity-based (industry-agnostic)
+  search — see "Industry scope" below:
+  - Pharma/CRO: **IQVIA**, **Parexel**, **Syneos Health**, **ICON plc**,
+    **Fortrea**
+  - Non-pharma: **Accenture**, **Kyndryl** (IBM's IT-infrastructure
+    spinoff) — confirmed with real São Paulo/Rio-based Director/
+    Associate-Director/bid-proposal-leadership roles
   Workday exposes a public, unauthenticated JSON search API per tenant at
   `https://{host}.myworkdayjobs.com/wday/cxs/{tenant}/{site}/jobs`
   (POST), plus a matching per-job detail endpoint at
@@ -88,18 +94,31 @@ see "International vs. Brazilian market" below.
   real job data, same as every other provider) before committing to this
   provider, per the same standard used for Greenhouse/Lever originally.
   Each tenant's facet configuration differs (IQVIA exposes a
-  `Location_Country` facet; Parexel/Syneos/ICON/Fortrea don't), so rather
-  than depend on facets, `fetch_jobs()` searches Workday's full-text
-  `searchText` for `"Brazil"` and separately `"LATAM"`, merging results
-  (deduped by `externalPath`) — these boards run 300-1,800+ total
-  postings, far too many to fetch in full the way the smaller providers
-  do, so this search-side narrowing is what keeps it practical. Two major
-  CROs were checked and confirmed **not** on Workday, so are not covered
-  by this or any other provider here:
-  - **Medpace** — uses iCIMS (`uscareers-medpace.icims.com`)
+  `Location_Country` facet; most others don't), so rather than depend on
+  facets, `fetch_jobs()` searches Workday's full-text `searchText` per
+  tenant, merging results (deduped by `externalPath`). Pharma CRO boards
+  run 300-1,800+ total postings; Accenture/Kyndryl run into the
+  thousands across every function and seniority level, so their search
+  terms (`search_terms` per tenant in `_TENANTS`, see the module) combine
+  a location signal with a seniority/capacity signal (e.g. `"Sao Paulo
+  Director"`, `"Propostas Comerciais"`) rather than relying on location
+  text alone — fetching everything and filtering client-side, as the
+  smaller providers do, isn't practical at this scale.
+  - **Medpace** — uses iCIMS (`uscareers-medpace.icims.com`), confirmed
+    **not** on Workday.
   - **PPD** (the clinical-research business of Thermo Fisher Scientific)
     — uses Phenom People (`jobs.thermofisher.com`), the same platform
-    already noted as a dead end for standalone Thermo Fisher above.
+    already noted as a dead end for standalone Thermo Fisher above,
+    confirmed **not** on Workday.
+  - Checked for a public ATS on any provider this pipeline supports (not
+    just Workday) and **not found** — most run custom/proprietary career
+    portals: Globant, EPAM Systems, Endava, Capgemini, DXC Technology,
+    NTT Data, Cognizant, Wipro, Infosys, TCS, IBM, AECOM, Jacobs
+    Engineering, WSP Global, Fluor, Bechtel.
+  - **TELUS Digital Brazil** has a Greenhouse board (`telusdigitalbr`)
+    but no live postings as of this check.
+  - **Thoughtworks** is on Greenhouse (confirmed, 46 jobs) but none are
+    Brazil-eligible/senior enough as of this check.
 
 **Brazilian-native job platforms checked and rejected as providers**
 (Catho, InfoJobs, Vagas.com): none exposes a usable public API or
@@ -264,6 +283,61 @@ posted on public job boards, which is the likely explanation. Report
 this honestly ("checked, nothing open") rather than skipping the step
 or padding it with a stale/unverified listing.
 
+## Industry scope (capacity-based matches)
+
+Alongside pharma/CRO matching, each run also searches for capacity-based
+matches in any other industry: large multi-country program management
+($100M+ scope), executive/named-client relationship ownership, bid/
+proposal leadership, or 50+ person distributed team oversight. The
+sector doesn't matter — what matters is whether the role's actual scope
+and seniority demands match what the candidate already does. This is a
+separate mechanism from the pharma-specific stretch/leadership search
+above (which stays scoped to Gupy pharma companies + LinkedIn/Indeed);
+industry-broadened matches come through `fetch_workday_jobs.py`'s
+non-pharma tenants (Accenture, Kyndryl — see "Fetching listings" above
+for the full list of companies checked and not found on a public ATS).
+
+Found 5 genuine matches on the first pass: an Associate Director role at
+Accenture (Talent & Organization, explicitly combining C-level client
+relationships with technical/commercial proposal leadership), two
+Accenture bid/proposal-management roles in Rio de Janeiro, and two
+Kyndryl account-leadership roles in São Paulo (one Director-level, one
+senior-manager-level). All scored `category: "Adjacent"` (non-pharma
+function) and honestly reflect that this is a genuine industry pivot —
+`probability` stays "Medium" even for strong capacity matches, since
+domain knowledge in the new industry is untested, not just the
+transferable skills.
+
+## Level calibration (Primary vs Reach)
+
+Every match gets a `level`: `"Primary"` or `"Reach"`, reflecting the
+candidate's actual level (5.5 years of progressively senior experience,
+fast trajectory, but no prior Director-level title) rather than
+aspiration:
+- **Primary** — Senior Manager, Associate Director, or Regional
+  Director-equivalent scope (in pharma or the broadened industries
+  above). This is the realistic target band and where most matches
+  should land.
+- **Reach** — full Director, VP, Country Manager, or higher-equivalent
+  scope. Kept visible (never filtered out), but tagged "Reach — Long
+  Shot" on the card and sorted into its own labeled block at the bottom
+  of each report section (`report._section()`), below the Primary
+  matches — never interleaved by score alone. `probability` leans
+  "Long-shot" for these unless the specific posting's actual
+  requirements (not just the title) plausibly fit 5.5 years of
+  experience — a strong fit narrative doesn't override the level gap.
+
+A hard Manager-level floor applies underneath both bands: individual-
+contributor, analyst, associate, and specialist/consultant-titled roles
+are excluded entirely, even when the function is a strong fit (this
+removed 20 previously-surfaced matches in one pass when the floor was
+introduced — Analista/Especialista-titled Gupy roles, Lead Clinical
+Research Associate, Senior Clinical QA Specialist, MSL, TMF Lead II,
+and similar). The one scope-over-title exception: a "Coordenador"/
+"Coordinator"-titled role that genuinely carries site/team leadership,
+not just individual task execution, is judged on that real scope —
+consistent with the Brazilian-market title-convention note above.
+
 ## Resume-based matching
 
 `match_jobs.py` fetches jobs from every company across all seven
@@ -302,13 +376,14 @@ text.
 
 ## Category, probability, and trajectory
 
-Alongside the score/reason, each match also gets three more fields (from
+Alongside the score/reason, each match also gets four more fields (from
 the same Claude scoring call, or filled in manually in
 `manual_matches.json` on the manual path):
 - **category** — `"In-field"` (direct clinical operations/trial
   management work) or `"Adjacent"` (transferable-skills fit elsewhere —
   regulatory, quality, program/portfolio leadership outside pharma,
-  general operations, etc.).
+  general operations, non-pharma capacity-based matches, etc.).
+- **level** — `"Primary"` or `"Reach"`, per "Level calibration" above.
 - **probability** — `"High"`, `"Medium"`, or `"Long-shot"`, a realistic
   (not encouraging-by-default) read on how closely the candidate's actual
   experience maps to what the role likely requires — seniority, domain
@@ -317,12 +392,20 @@ the same Claude scoring call, or filled in manually in
   candidate doesn't have (e.g. a Gastroenterology-specific leadership
   role, when the candidate's therapeutic background is Oncology/
   Autoimmune/Malaria) should score as `"Long-shot"` even if the title fit
-  looks strong.
+  looks strong. `level: "Reach"` matches lean "Long-shot" for the same
+  reason unless the posting's actual requirements plausibly fit 5.5
+  years of experience.
 - **trajectory** — one line on whether the role is a lateral move, a step
   up, or a bigger leap versus the candidate's current role, plus a
   plain-spoken read on whether it's worth pursuing even as a stretch.
 
-These render as colored tags (category/probability) and a bordered
+The candidate is trilingual (English C2, Portuguese C2, German B1);
+`SCORING_INSTRUCTIONS` calls this out as a specific, weighted factor —
+not just generic language skill — for roles that explicitly span EMEA/
+LATAM or explicitly value multilingual client-facing work, beyond the
+baseline Brazil-eligibility requirement every match already needs.
+
+These render as colored tags (category/level/probability) and a bordered
 callout (trajectory) on each report card.
 
 ```
