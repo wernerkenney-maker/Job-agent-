@@ -12,6 +12,7 @@
     --text: #1f2420;
     --text-muted: #5c635d;
     --accent: #2f6f4f;
+    --danger: #a8341a;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -21,6 +22,7 @@
       --text: #eceeec;
       --text-muted: #a3aaa5;
       --accent: #6fbf95;
+      --danger: #e0785c;
     }
   }
   * { box-sizing: border-box; }
@@ -151,6 +153,19 @@
   }
   .card.interviewing .title {
     font-weight: 800;
+  }
+  .card.expired {
+    opacity: 0.6;
+  }
+  .card.expired .title {
+    text-decoration: line-through;
+    text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
+  }
+  .expired-note {
+    margin: 8px 0 0;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--danger);
   }
   .card-top {
     display: flex;
@@ -329,7 +344,7 @@
   <div class="wrap">
     <header>
       <h1>Clinical Ops Job Matches</h1>
-      <p class="subtitle">Clinical operations, quality, regulatory affairs, medical affairs, and adjacent pharma/biotech leadership roles, plus capacity-based matches in any industry (large multi-country programs, executive/named-client relationships, bid/proposal leadership, 50+ person team oversight) — scored for fit, compensation, and career trajectory against your background. Manager-level and above only. Workable from Brazil required (remote, or on-site/hybrid anywhere in Brazil). Covers both international remote employers and Brazilian-market employers hiring locally in BRL, tagged and grouped separately for comparison. Senior Manager/Associate Director/Regional Director-equivalent roles are the primary realistic target; Director/VP/Country Manager-equivalent roles stay visible but are tagged "Reach — Long Shot" and sorted separately at the bottom. Filtered to score 60+, sorted by score within each group, with a modest boost for Confirmed disclosed pay and a real penalty for Flagged salary risk (Estimated, the default, gets no adjustment) — a nudge, not a tier override, so a Flagged 95 can still outrank a Confirmed 80. Sibling postings from the same corporate family are shown once.</p>
+      <p class="subtitle">Clinical operations, quality, regulatory affairs, medical affairs, and adjacent pharma/biotech leadership roles, plus capacity-based matches in any industry (large multi-country programs, executive/named-client relationships, bid/proposal leadership, 50+ person team oversight) — scored for fit, compensation, and career trajectory against your background. Manager-level and above only. Workable from Brazil required (remote, or on-site/hybrid anywhere in Brazil). Covers both international remote employers and Brazilian-market employers hiring locally in BRL, tagged and grouped separately for comparison. Senior Manager/Associate Director/Regional Director-equivalent roles are the primary realistic target; Director/VP/Country Manager-equivalent roles stay visible but are tagged "Reach — Long Shot" and sorted separately at the bottom. Filtered to score 60+, sorted by score within each group, with a modest boost for Confirmed disclosed pay and a real penalty for Flagged salary risk (Estimated, the default, gets no adjustment) — a nudge, not a tier override, so a Flagged 95 can still outrank a Confirmed 80. Sibling postings from the same corporate family are shown once. Every tracked posting's link is also re-checked on each scan — one that now errors or redirects to a "not found" page gets a &#9888; Expired tag and a muted, struck-through card, since it's likely been filled or pulled.</p>
       <div class="pace">
         <span class="pace-figure">0</span> applied this week &middot; <span class="pace-figure">0</span> all-time
       </div>
@@ -343,7 +358,7 @@
         <span>0 interested</span>
         <span>6849 scored</span>
         <span>6849 fetched</span>
-        <span>updated 2026-08-16 22:51 UTC</span>
+        <span>updated 2026-08-16 23:00 UTC</span>
       </div>
     </header>
     
@@ -365,6 +380,7 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">High</span></div>
+      
       <p class="reason">Direct match to your Global Study Manager background on Novartis&#x27;s largest Labcorp trial (HORIZON) -- explicitly Brazil-eligible. Trilingual capacity (EN/PT/DE) is a genuine plus for this multi-country LATAM remit.</p>
       <p class="salary estimate">~$60,000–$90,000 USD (estimated — LATAM CRO manager-level rate; ~45-55% of comparable disclosed US band, not disclosed by employer)</p>
       
@@ -386,6 +402,7 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">High</span></div>
+      
       <p class="reason">Direct match to Global Clinical Study Manager scope -- multi-country CRO project ownership, reinforced by your role as Global Study Manager on Novartis&#x27;s largest Labcorp trial and direct bid-defense experience.</p>
       <p class="salary">$92,600–$146,400/year (disclosed by employer — explicitly the same band for US, Argentina, and Brazil candidates)</p>
       
@@ -407,6 +424,7 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">High</span></div>
+      
       <p class="reason">Direct match to your Global Clinical Study Manager trial-management scope, sponsor-dedicated -- you already represent Labcorp directly to a major sponsor (Novartis) in exactly this kind of role.</p>
       <p class="salary estimate">~$60,000–$90,000 USD (estimated — LATAM CRO manager-level rate, sponsor-dedicated, not disclosed by employer)</p>
       <p class="col-note">~R$300.000–R$450.000 in São Paulo is roughly equivalent to ~R$207.000–R$310.000 of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).</p>
@@ -428,6 +446,7 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">High</span></div>
+      
       <p class="reason">Oncology-specific role directly matches one of your actual therapeutic areas -- and your Global Study Manager role on Novartis&#x27;s largest Labcorp trial (HORIZON), plus direct bid-defense experience, strengthens this further.</p>
       <p class="salary estimate">~$65,000–$95,000 USD (estimated — LATAM CRO senior PM level, oncology therapeutic scope, not disclosed by employer)</p>
       
@@ -449,6 +468,7 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">High</span></div>
+      
       <p class="reason">Mirrors your Regional Study Coordinator EMEA + Global Study Manager background closely -- and your direct client representation to Novartis (London/Basel) strengthens the regional-leadership case.</p>
       <p class="salary estimate">~$65,000–$95,000 USD (estimated — LATAM CRO regional-lead level, comparable manager-level scope, not disclosed by employer)</p>
       <p class="col-note">~R$325.000–R$475.000 in São Paulo is roughly equivalent to ~R$224.000–R$328.000 of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).</p>
@@ -470,6 +490,7 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">High</span></div>
+      
       <p class="reason">Direct match to your Global Clinical Study Manager trial-management experience, senior level -- and your Global Study Manager role on Novartis&#x27;s largest Labcorp trial (HORIZON) strengthens this further.</p>
       <p class="salary estimate">~$65,000–$95,000 USD (estimated — LATAM CRO senior manager level, not disclosed by employer)</p>
       <p class="col-note">~R$325.000–R$475.000 in São Paulo is roughly equivalent to ~R$224.000–R$328.000 of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).</p>
@@ -491,6 +512,7 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">High</span></div>
+      
       <p class="reason">Dual start-up + trial-lead role -- end-to-end operational oversight, key escalation point for site-level issues, 6+ years clinical research/CTL experience required -- a strong direct match for your portfolio/trial-management background.</p>
       <p class="salary estimate">~$65,000–$95,000 USD (estimated — Brazil-based dual start-up/CTL role, major global CRO, senior clinical-ops scope, not disclosed by employer)</p>
       <p class="col-note">~R$325.000–R$475.000 in São Paulo is roughly equivalent to ~R$224.000–R$328.000 of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).</p>
@@ -512,6 +534,7 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">High</span></div>
+      
       <p class="reason">Direct match to your Global Clinical Study Manager trial-management experience, sponsor-dedicated -- exactly the kind of direct sponsor relationship you already hold with Novartis on HORIZON.</p>
       <p class="salary estimate">~$60,000–$90,000 USD (estimated — LATAM CRO manager-level rate, sponsor-dedicated, Brazil home-based, not disclosed by employer)</p>
       
@@ -533,6 +556,7 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">High</span></div>
+      
       <p class="reason">Country-level clinical project management, direct match to your study/portfolio-management background -- reinforced by real client-facing credibility representing Labcorp to Novartis.</p>
       <p class="salary estimate">~$62,000–$92,000 USD (estimated — LATAM CRO country-level project manager rate, not disclosed by employer)</p>
       <p class="col-note">~R$310.000–R$460.000 in São Paulo is roughly equivalent to ~R$214.000–R$317.000 of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).</p>
@@ -554,6 +578,7 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">High</span></div>
+      
       <p class="reason">Country-level operations management closely mirrors your portfolio/operations leadership background -- and your direct client-facing role representing Labcorp to Novartis (including in person in London/Basel) is exactly the credibility this country-lead role screens for.</p>
       <p class="salary estimate">~$60,000–$90,000 USD (estimated — LATAM CRO country-manager level, FSP model, not disclosed by employer)</p>
       
@@ -575,6 +600,7 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">High</span></div>
+      
       <p class="reason">Senior client-dedicated Clinical Trial Manager role across LATAM -- direct match to your trial-management background and your real experience managing a direct client relationship (Novartis) at scale. Trilingual capacity (EN/PT/DE) is a real plus managing a client relationship across 5 LATAM countries.</p>
       <p class="salary estimate">~$62,000–$92,000 USD (estimated — LATAM CRO senior CTM level, client-dedicated, not disclosed by employer)</p>
       
@@ -596,6 +622,7 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">High</span></div>
+      
       <p class="reason">Direct match to your Global Clinical Study Manager trial-management experience, reinforced by real sponsor-facing/bid-defense credibility.</p>
       <p class="salary estimate">~$60,000–$90,000 USD (estimated — LATAM CRO manager-level rate, not disclosed by employer)</p>
       
@@ -617,6 +644,7 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">High</span></div>
+      
       <p class="reason">Direct match to your Global Clinical Study Manager trial-management experience, reinforced by real sponsor-facing/bid-defense credibility.</p>
       <p class="salary estimate">~$60,000–$90,000 USD (estimated — LATAM CRO manager-level rate, not disclosed by employer)</p>
       <p class="col-note">~R$300.000–R$450.000 in São Paulo is roughly equivalent to ~R$207.000–R$310.000 of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).</p>
@@ -638,6 +666,7 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">High</span></div>
+      
       <p class="reason">Country-level study operations management, strong overlap with your regional coordination and study-management background -- reinforced by direct sponsor-facing experience representing Labcorp to Novartis. Trilingual capacity (EN/PT/DE) is a genuine plus across this multi-country remit.</p>
       <p class="salary estimate">~$55,000–$85,000 USD (estimated — LATAM CRO country-manager level, FSP model, not disclosed by employer)</p>
       
@@ -659,6 +688,7 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">High</span></div>
+      
       <p class="reason">Title and scope essentially match your prior Global Clinical Study Manager role -- and you currently serve as Global Study Manager on HORIZON, Novartis&#x27;s largest trial with Labcorp, with direct sponsor-facing and bid-defense experience. Trilingual capacity (EN/PT/DE) is a genuine plus across this Mexico/Argentina/Brazil remit.</p>
       <p class="salary estimate">~$65,000–$95,000 USD (estimated — LATAM CRO senior manager level, FSP model -- flagged: a comparable Parexel PM role&#x27;s disclosed LATAM (Argentina) comp converts to roughly $20,000-$30,000/yr, well below this range, not disclosed by employer)</p>
       
@@ -680,6 +710,7 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#5c635d; background:#eceeec;">Adjacent</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">High</span></div>
+      
       <p class="reason">Grants/investigator relationship management at manager level -- your bid-defense and direct sponsor-facing experience with Novartis is a strong match for this stakeholder-facing function. Trilingual capacity (EN/PT/DE) adds real value across this LATAM-wide remit.</p>
       <p class="salary estimate">~$55,000–$80,000 USD (estimated — LATAM CRO manager-level, finance/grants-ops function, not disclosed by employer)</p>
       
@@ -701,6 +732,7 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#5c635d; background:#eceeec;">Adjacent</span><span class="tag" style="color:#a86a10; background:#fbf1de;">Medium</span></div>
+      
       <p class="reason">Associate Director role explicitly combining C-level client relationships, full consultative sales-cycle ownership, and technical/commercial proposal leadership (scope, pricing) -- outside pharma, but a very strong capacity match.</p>
       <p class="salary estimate">~$75,000–$115,000 USD (estimated — Brazil-based Associate Director, major global consulting firm, Strategy &amp; Consulting practice, not disclosed by employer)</p>
       <p class="col-note">~R$375.000–R$575.000 in São Paulo is roughly equivalent to ~R$259.000–R$397.000 of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).</p>
@@ -722,6 +754,7 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#5c635d; background:#eceeec;">Adjacent</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">High</span></div>
+      
       <p class="reason">Manager-level grants/trial-costing role -- matches your $20M+ budget management and your direct experience managing investigator/site relationships in bid-defense contexts.</p>
       <p class="salary estimate">~$58,000–$86,000 USD (estimated — LATAM CRO manager-level rate, grants/trial-costing function, not disclosed by employer)</p>
       <p class="col-note">~R$290.000–R$430.000 in São Paulo is roughly equivalent to ~R$200.000–R$297.000 of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).</p>
@@ -743,6 +776,7 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#a86a10; background:#fbf1de;">Medium</span></div>
+      
       <p class="reason">Manager-level scope fits well and your leadership/client-facing credentials strengthen the case, but likely still requires deep Rare Disease/CNS-specific trial experience you don&#x27;t have.</p>
       <p class="salary estimate">~$65,000–$95,000 USD (estimated — LATAM CRO manager-level rate, specialized rare disease/CNS therapeutic scope, not disclosed by employer)</p>
       <p class="col-note">~R$325.000–R$475.000 in São Paulo is roughly equivalent to ~R$224.000–R$328.000 of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).</p>
@@ -764,6 +798,7 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#5c635d; background:#eceeec;">Adjacent</span><span class="tag" style="color:#a86a10; background:#fbf1de;">Medium</span></div>
+      
       <p class="reason">Contract &amp; budget-change oversight on trials fits your portfolio-level budget management and site/sponsor-facing negotiation experience; Brazil-eligible.</p>
       <p class="salary estimate">~$55,000–$80,000 USD (estimated — LATAM CRO manager-level, contracts/budget function, not disclosed by employer)</p>
       
@@ -785,6 +820,7 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#5c635d; background:#eceeec;">Adjacent</span><span class="tag" style="color:#a86a10; background:#fbf1de;">Medium</span></div>
+      
       <p class="reason">Senior account-relationship role owning growth/retention strategy for top-tier accounts with executive-level engagement -- your C-level client-facing experience (Novartis) transfers directly, though the industry itself is new.</p>
       <p class="salary estimate">~$65,000–$100,000 USD (estimated — Brazil-based senior account management level at a major global IT services firm, not disclosed by employer)</p>
       <p class="col-note">~R$325.000–R$500.000 in São Paulo is roughly equivalent to ~R$224.000–R$345.000 of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).</p>
@@ -806,6 +842,7 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#5c635d; background:#eceeec;">Adjacent</span><span class="tag" style="color:#a8341a; background:#fbe9e6;">Long-shot</span></div>
+      
       <p class="reason">Manager-level regulatory role, but highly specialized cell &amp; gene therapy CMC domain you don&#x27;t have direct depth in. This role spans LATAM and Serbia (EMEA) -- your trilingual capacity (EN/PT/DE), including working German, is a specific and genuine differentiator here, not just generic language skill.</p>
       <p class="salary estimate">~$65,000–$95,000 USD (estimated — LATAM CRO manager-level, specialized cell &amp; gene therapy regulatory function, not disclosed by employer)</p>
       
@@ -827,6 +864,7 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#5c635d; background:#eceeec;">Adjacent</span><span class="tag" style="color:#a86a10; background:#fbf1de;">Medium</span></div>
+      
       <p class="reason">Leads mid-to-large commercial opportunities through the full RFI/RFP/BAFO response cycle -- direct match to your 4 bid defenses, though a narrower specialist bid-management function than your current program scope.</p>
       <p class="salary estimate">~$50,000–$80,000 USD (estimated — Brazil-based associate manager level, bid/proposal management function at a major global consulting firm, not disclosed by employer)</p>
       <p class="col-note">~R$250.000–R$400.000 in Rio de Janeiro is roughly equivalent to ~R$185.000–R$296.000 of purchasing power in Fortaleza (Rio de Janeiro&#x27;s cost of living runs roughly 35% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).</p>
@@ -848,6 +886,7 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#5c635d; background:#eceeec;">Adjacent</span><span class="tag" style="color:#a86a10; background:#fbf1de;">Medium</span></div>
+      
       <p class="reason">Project-manager level safety function, on-site São Paulo, adjacent to your trial-oversight background.</p>
       <p class="salary estimate">~$58,000–$86,000 USD (estimated — LATAM CRO/pharma project-manager level, patient safety function, not disclosed by employer)</p>
       <p class="col-note">~R$290.000–R$430.000 in São Paulo is roughly equivalent to ~R$200.000–R$297.000 of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).</p>
@@ -869,6 +908,7 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#5c635d; background:#eceeec;">Adjacent</span><span class="tag" style="color:#a86a10; background:#fbf1de;">Medium</span></div>
+      
       <p class="reason">Manages complex proposals end-to-end -- governance, cross-functional coordination, compliance -- directly relevant to your bid-defense experience, though a narrower specialist function than program/portfolio leadership.</p>
       <p class="salary estimate">~$48,000–$75,000 USD (estimated — Brazil-based consultant level, proposal management function at a major global consulting firm, not disclosed by employer)</p>
       <p class="col-note">~R$240.000–R$375.000 in Rio de Janeiro is roughly equivalent to ~R$178.000–R$278.000 of purchasing power in Fortaleza (Rio de Janeiro&#x27;s cost of living runs roughly 35% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).</p>
@@ -890,6 +930,7 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#a86a10; background:#fbf1de;">Medium</span></div>
+      
       <p class="reason">Lead-level centralized monitoring oversight across LATAM, remote-eligible -- more specialist than managerial. Trilingual capacity (EN/PT/DE) is a genuine plus across this 6-country LATAM remit.</p>
       <p class="salary estimate">~$45,000–$70,000 USD (estimated — LATAM CRO lead-level, centralized monitoring specialist function, not disclosed by employer)</p>
       
@@ -911,6 +952,7 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#5c635d; background:#eceeec;">Adjacent</span><span class="tag" style="color:#a86a10; background:#fbf1de;">Medium</span></div>
+      
       <p class="reason">Business-development/client-relationship management role, explicitly Brazil-eligible -- relevant to your bid-defense and client-facing experience, though a step down from portfolio-level scope.</p>
       <p class="salary estimate">~$55,000–$80,000 USD (estimated — LATAM CRO manager-level, business development/account function, not disclosed by employer)</p>
       
@@ -932,6 +974,7 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#a8341a; background:#fbe9e6;">Long-shot</span></div>
+      
       <p class="reason">Leadership scope fits, and TA leads are often client-facing (your bid-defense/audit experience is relevant), but likely still requires deep GI-specific trial experience you don&#x27;t have.</p>
       <p class="salary estimate">~$70,000–$105,000 USD (estimated — LATAM CRO therapeutic-area leadership scope, though GI-specific depth requirement raises risk, not disclosed by employer)</p>
       <p class="col-note">~R$350.000–R$525.000 in São Paulo is roughly equivalent to ~R$241.000–R$362.000 of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).</p>
@@ -953,6 +996,7 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#5c635d; background:#eceeec;">Adjacent</span><span class="tag" style="color:#a86a10; background:#fbf1de;">Medium</span></div>
+      
       <p class="reason">Trial-adjacent site/patient engagement work, decent overlap with regional coordination background. Trilingual capacity (EN/PT/DE) is a genuine plus across this multi-country LATAM remit.</p>
       <p class="salary estimate">~$40,000–$65,000 USD (estimated — LATAM CRO lead-level, patient/site engagement function, not disclosed by employer)</p>
       
@@ -974,6 +1018,7 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#5c635d; background:#eceeec;">Adjacent</span><span class="tag" style="color:#a86a10; background:#fbf1de;">Medium</span></div>
+      
       <p class="reason">Client-facing program delivery role -- &quot;single point of contact to the client,&quot; owns scope/schedule/budget -- relevant capacity match, though a generic Project Manager title below your current program-leadership scope.</p>
       <p class="salary estimate">~$55,000–$85,000 USD (estimated — Brazil-based project manager, major global IT services firm, not disclosed by employer)</p>
       <p class="col-note">~R$275.000–R$425.000 in São Paulo is roughly equivalent to ~R$190.000–R$293.000 of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).</p>
@@ -995,6 +1040,7 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#5c635d; background:#eceeec;">Adjacent</span><span class="tag" style="color:#a86a10; background:#fbf1de;">Medium</span></div>
+      
       <p class="reason">Business operations coordination at a major global CRO -- genuine site/operational-leadership scope, relevant to your portfolio-operations background.</p>
       <p class="salary estimate">~$45,000–$68,000 USD (estimated — Brazil-based business operations coordinator, major global CRO, not disclosed by employer)</p>
       <p class="col-note">~R$225.000–R$340.000 in São Paulo is roughly equivalent to ~R$155.000–R$234.000 of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).</p>
@@ -1016,6 +1062,7 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#5c635d; background:#eceeec;">Adjacent</span><span class="tag" style="color:#a86a10; background:#fbf1de;">Medium</span></div>
+      
       <p class="reason">Project-manager level, but a narrow specialized biosampling-logistics function outside your generalist trial-operations background.</p>
       <p class="salary estimate">~$55,000–$82,000 USD (estimated — LATAM CRO project-manager level, specialized biosampling logistics function, not disclosed by employer)</p>
       <p class="col-note">~R$275.000–R$410.000 in São Paulo is roughly equivalent to ~R$190.000–R$283.000 of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).</p>
@@ -1042,6 +1089,7 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#1d5c8a; background:#e6f0f9;">Brazilian market (local)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#a86a10; background:#fbf1de;">Medium</span></div>
+      
       <p class="reason">Site-level clinical research center leadership at a dedicated Brazilian CRO -- direct operational overlap with your trial-management background.</p>
       <p class="salary estimate">R$4.500–R$9.800/month (estimated — Glassdoor Brazil, Coordenador de Pesquisa Clínica (São Paulo range), not disclosed by employer)</p>
       <p class="col-note">~R$4.500–R$9.800/month in Campinas is roughly equivalent to ~R$3.500–R$7.500/month of purchasing power in Fortaleza (Campinas&#x27;s cost of living runs roughly 30% higher than Fortaleza; both figures rough estimates).</p>
@@ -1063,6 +1111,7 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#1d5c8a; background:#e6f0f9;">Brazilian market (local)</span><span class="tag" style="color:#1a7f5a; background:#e6f6ef;">In-field</span><span class="tag" style="color:#a86a10; background:#fbf1de;">Medium</span></div>
+      
       <p class="reason">Clinical research coordination at a dedicated Brazilian CRO -- solid operational overlap with your trial-management background.</p>
       <p class="salary estimate">R$4.500–R$9.800/month (estimated — Glassdoor Brazil, Coordenador de Pesquisa Clínica (São Paulo range), not disclosed by employer)</p>
       <p class="col-note">~R$4.500–R$9.800/month in São Paulo is roughly equivalent to ~R$3.100–R$6.800/month of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates).</p>
@@ -1084,6 +1133,7 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#1d5c8a; background:#e6f0f9;">Brazilian market (local)</span><span class="tag" style="color:#5c635d; background:#eceeec;">Adjacent</span><span class="tag" style="color:#a86a10; background:#fbf1de;">Medium</span></div>
+      
       <p class="reason">Strategic planning coordination at a major Brazilian pharma -- genuine site/functional-leadership scope locally, relevant to your portfolio-planning background.</p>
       <p class="salary estimate">R$6.000–R$12.000/month (estimated — Glassdoor Brazil, Coordenador de Planejamento (general/pharma, non-clinical), not disclosed by employer)</p>
       <p class="col-note">~R$6.000–R$12.000/month in São Paulo is roughly equivalent to ~R$4.100–R$8.300/month of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates).</p>
@@ -1105,6 +1155,7 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#1d5c8a; background:#e6f0f9;">Brazilian market (local)</span><span class="tag" style="color:#5c635d; background:#eceeec;">Adjacent</span><span class="tag" style="color:#a86a10; background:#fbf1de;">Medium</span></div>
+      
       <p class="reason">Institutional-market planning coordination at a major Brazilian pharma -- genuine local operational-leadership scope, adjacent to your planning/portfolio background.</p>
       <p class="salary estimate">R$6.000–R$12.000/month (estimated — Glassdoor Brazil, Coordenador de Planejamento (general/pharma, non-clinical), not disclosed by employer)</p>
       <p class="col-note">~R$6.000–R$12.000/month in São Paulo is roughly equivalent to ~R$4.100–R$8.300/month of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates).</p>
@@ -1126,6 +1177,7 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#1d5c8a; background:#e6f0f9;">Brazilian market (local)</span><span class="tag" style="color:#5c635d; background:#eceeec;">Adjacent</span><span class="tag" style="color:#a86a10; background:#fbf1de;">Medium</span></div>
+      
       <p class="reason">Manager-level technical assistance and after-sales services role at a Brazilian pharma -- explicitly strategic scope, team development, and operational efficiency ownership, transferable from your program/operations management background.</p>
       <p class="salary estimate">R$9.000–R$16.000/month (estimated — Glassdoor Brazil, Gerente (commercial/operations/sales) band, general pharma function, not disclosed by employer)</p>
       <p class="col-note">~R$9.000–R$16.000/month in São Paulo is roughly equivalent to ~R$6.200–R$11.000/month of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates).</p>
@@ -1147,6 +1199,7 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#1d5c8a; background:#e6f0f9;">Brazilian market (local)</span><span class="tag" style="color:#5c635d; background:#eceeec;">Adjacent</span><span class="tag" style="color:#a86a10; background:#fbf1de;">Medium</span></div>
+      
       <p class="reason">District-level field sales/medical detailing team management at a major Brazilian pharma -- genuine people-management scope, though a different function (pharma sales) from your clinical-ops background.</p>
       <p class="salary estimate">R$9.000–R$16.000/month (estimated — Glassdoor Brazil, Gerente (commercial/operations/sales) band, general pharma function, not disclosed by employer)</p>
       <p class="col-note">~R$9.000–R$16.000/month in Curitiba is roughly equivalent to ~R$7.500–R$13.300/month of purchasing power in Fortaleza (Curitiba&#x27;s cost of living runs roughly 20% higher than Fortaleza; both figures rough estimates).</p>
@@ -1168,6 +1221,7 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#1d5c8a; background:#e6f0f9;">Brazilian market (local)</span><span class="tag" style="color:#5c635d; background:#eceeec;">Adjacent</span><span class="tag" style="color:#a86a10; background:#fbf1de;">Medium</span></div>
+      
       <p class="reason">Sales administration / commercial intelligence coordination role at a major Brazilian pharma -- some analytical/planning overlap with your portfolio-operations background, though function and scope are a narrower fit than your other matches.</p>
       <p class="salary estimate">R$5.000–R$10.000/month (estimated — Glassdoor Brazil, Coordenador (commercial/operations) band, general pharma function, not disclosed by employer)</p>
       <p class="col-note">~R$5.000–R$10.000/month in São Paulo is roughly equivalent to ~R$3.400–R$6.900/month of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates).</p>
@@ -1196,6 +1250,7 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#8a4b0f; background:#fbeee0;">Reach — Long Shot</span><span class="tag" style="color:#5c635d; background:#eceeec;">Adjacent</span><span class="tag" style="color:#a8341a; background:#fbe9e6;">Long-shot</span></div>
+      
       <p class="reason">Director-level, P&amp;L-owning leadership of a customer account portfolio with direct C-suite engagement -- strong capacity alignment with your Novartis relationship and bid-defense experience, but a genuine Director-level reach.</p>
       <p class="salary estimate">~$90,000–$140,000 USD (estimated — Brazil-based Director level, P&amp;L-owning account leadership at a major global IT services firm, not disclosed by employer)</p>
       <p class="col-note">~R$450.000–R$700.000 in São Paulo is roughly equivalent to ~R$310.000–R$483.000 of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).</p>
@@ -1217,6 +1272,7 @@
         
       </div>
       <div class="tags"><span class="tag" style="color:#2f6f4f; background:#e6f6ef;">International (remote)</span><span class="tag" style="color:#8a4b0f; background:#fbeee0;">Reach — Long Shot</span><span class="tag" style="color:#5c635d; background:#eceeec;">Adjacent</span><span class="tag" style="color:#a8341a; background:#fbe9e6;">Long-shot</span></div>
+      
       <p class="reason">Director-level medical affairs leadership -- your direct client-facing/bid-defense credibility (representing Labcorp to Novartis internationally) is a strong signal for this kind of role, though it typically still requires an MD/clinical degree you don&#x27;t hold.</p>
       <p class="salary estimate">~$90,000–$130,000 USD (estimated — LATAM pharma/CRO medical director level, medical affairs leadership, not disclosed by employer)</p>
       <p class="col-note">~R$450.000–R$650.000 in São Paulo is roughly equivalent to ~R$310.000–R$448.000 of purchasing power in Fortaleza (São Paulo&#x27;s cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).</p>

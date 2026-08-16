@@ -15,6 +15,14 @@ Status lifecycle for report purposes:
   from update_state() below: once a key exists in state, re-fetching it
   only refreshes live fields (score/salary/etc.), never status, so a
   declined key can't silently flip back to "new".
+
+Separately, each entry also carries `link_status` ("live", by default,
+or "expired") and `link_checked_at`, set by link_check.py's daily scan
+of *existing* tracked postings' URLs -- distinct from the above status,
+which is the user's own decision about a posting; link_status is a fact
+about whether the posting itself still resolves. Not part of the
+update_state() refresh-on-refetch field list below, since it's set by a
+separate live-URL check, not by re-scoring/re-fetching listings.
 """
 
 import json
@@ -56,6 +64,8 @@ def update_state(state, merged_jobs, today):
                 "resume_bullets_path": None,
                 "city": None,
                 "col_note": None,
+                "link_status": "live",
+                "link_checked_at": today,
             }
             new_keys.append(key)
         else:

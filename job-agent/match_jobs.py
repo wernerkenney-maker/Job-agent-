@@ -24,7 +24,7 @@ import fetch_workable_jobs
 import fetch_workday_jobs
 from br_salary_estimate import estimate_br_salary
 from cover_letter import generate_cover_letter_via_claude, save_cover_letter
-from pipeline import process_run
+from pipeline import check_expired_links, process_run
 from relocation import detect_relocation_support
 from report import write_report
 from resume_bullets import generate_resume_bullets_via_claude, save_resume_bullets
@@ -468,8 +468,11 @@ def main():
         matches, cover_letter_fn, salary_estimate_fn, resume_bullets_fn
     )
 
+    newly_expired = check_expired_links(state)
+
     print(f"{len(new_matches)} new matches this run, {len(applied_matches)} applied, "
-          f"{len(interested_matches)} interested (out of {len(scored)} scored, {len(all_jobs)} fetched)\n")
+          f"{len(interested_matches)} interested, {len(newly_expired)} newly expired "
+          f"(out of {len(scored)} scored, {len(all_jobs)} fetched)\n")
     for job in new_matches:
         location = f" ({job['location']})" if job["location"] else ""
         print(f"[{job['score']}] {job['title']} — {job['company']}{location} [{job['category']}, {job['probability']}]")

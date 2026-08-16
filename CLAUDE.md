@@ -153,6 +153,23 @@ to do all of the following, without asking for confirmation:
      the report entirely, permanently. A match that scored 60+ before and
      was never actioned does not resurface — don't re-show the same jobs
      every day.
+   - **Checks every tracked posting's live link** (`job-agent/link_check.py`,
+     called by `job-agent/pipeline.py`'s `check_expired_links()`): this is
+     a separate check on *existing* tracked matches, not on new fetches —
+     re-requests each job's primary URL and flags `link_status: "expired"`
+     if it now 404s/410s or redirects to the job board's own "not found"
+     page (a plain status-code check isn't enough — Greenhouse in
+     particular 200s a dead job URL, redirecting to the board root with
+     `?error=true`, so the check also inspects the final URL and page
+     text for known "gone" signals). A network failure (timeout, DNS)
+     never flips a posting to expired — that returns "unknown" and the
+     prior status is left alone, since a transient failure isn't evidence
+     the posting is gone. Expired postings stay visible in the report
+     (never silently removed) but get a "⚠ Expired" tag and a muted,
+     struck-through card so they read as likely filled/pulled; they're
+     also skipped for cover letter/resume bullet drafting going forward.
+     Declined/passed jobs aren't checked (the user's already done with
+     those).
    - **Drafts cover letters and resume bullet adjustments** for any match
      scoring 80+ that doesn't have them yet (`job-agent/cover_letter.py`,
      `job-agent/resume_bullets.py`), saved to

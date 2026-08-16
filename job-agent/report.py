@@ -106,6 +106,8 @@ SALARY_CONFIDENCE_LABELS = {
 
 REACH_COLOR = ("#8a4b0f", "#fbeee0")
 
+EXPIRED_COLOR = ("#a8341a", "#fbe9e6")
+
 
 def _band_colors(score):
     for threshold, fg, bg in SCORE_BANDS:
@@ -131,7 +133,12 @@ def _job_card(job):
     )
     confidence_html = f'<span class="confidence" style="color:{conf_fg}; background:{conf_bg};">{conf_label}</span>'
     interviewing = job["status"] == "interviewing"
-    card_class = "card interviewing" if interviewing else "card"
+    expired = job.get("link_status") == "expired"
+    card_class = "card"
+    if interviewing:
+        card_class += " interviewing"
+    if expired:
+        card_class += " expired"
     title = html.escape(job["title"])
     location = html.escape(job.get("location", ""))
     reason = html.escape(job["reason"])
@@ -178,8 +185,13 @@ def _job_card(job):
     if job.get("level") == "Reach":
         reach_fg, reach_bg = REACH_COLOR
         reach_tag_html = f'<span class="tag" style="color:{reach_fg}; background:{reach_bg};">Reach — Long Shot</span>'
+    expired_tag_html = ""
+    if expired:
+        exp_fg, exp_bg = EXPIRED_COLOR
+        expired_tag_html = f'<span class="tag" style="color:{exp_fg}; background:{exp_bg};">⚠ Expired</span>'
     tags_html = (
         '<div class="tags">'
+        f'{expired_tag_html}'
         f'<span class="tag" style="color:{market_fg}; background:{market_bg};">{html.escape(market)}</span>'
         f'{reach_tag_html}'
         f'{tier_tag_html}'
@@ -187,6 +199,13 @@ def _job_card(job):
         f'<span class="tag" style="color:{prob_fg}; background:{prob_bg};">{html.escape(probability)}</span>'
         "</div>"
     )
+    expired_note_html = ""
+    if expired:
+        checked = job.get("link_checked_at", "")
+        expired_note_html = (
+            f'<p class="expired-note">This posting no longer resolves (checked {checked}) — '
+            "likely filled or pulled. Probably not worth applying to.</p>"
+        )
     trajectory = job.get("trajectory", "")
     trajectory_html = f'<p class="trajectory">{html.escape(trajectory)}</p>' if trajectory else ""
 
@@ -217,6 +236,7 @@ def _job_card(job):
         {status_html}
       </div>
       {tags_html}
+      {expired_note_html}
       <p class="reason">{reason}</p>
       <p class="{salary_class}">{salary_text}</p>
       {col_html}
@@ -317,6 +337,7 @@ def generate_report_html(
     --text: #1f2420;
     --text-muted: #5c635d;
     --accent: #2f6f4f;
+    --danger: #a8341a;
   }}
   @media (prefers-color-scheme: dark) {{
     :root {{
@@ -326,6 +347,7 @@ def generate_report_html(
       --text: #eceeec;
       --text-muted: #a3aaa5;
       --accent: #6fbf95;
+      --danger: #e0785c;
     }}
   }}
   * {{ box-sizing: border-box; }}
@@ -456,6 +478,19 @@ def generate_report_html(
   }}
   .card.interviewing .title {{
     font-weight: 800;
+  }}
+  .card.expired {{
+    opacity: 0.6;
+  }}
+  .card.expired .title {{
+    text-decoration: line-through;
+    text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
+  }}
+  .expired-note {{
+    margin: 8px 0 0;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--danger);
   }}
   .card-top {{
     display: flex;
@@ -634,7 +669,7 @@ def generate_report_html(
   <div class="wrap">
     <header>
       <h1>Clinical Ops Job Matches</h1>
-      <p class="subtitle">Clinical operations, quality, regulatory affairs, medical affairs, and adjacent pharma/biotech leadership roles, plus capacity-based matches in any industry (large multi-country programs, executive/named-client relationships, bid/proposal leadership, 50+ person team oversight) — scored for fit, compensation, and career trajectory against your background. Manager-level and above only. Workable from Brazil required (remote, or on-site/hybrid anywhere in Brazil). Covers both international remote employers and Brazilian-market employers hiring locally in BRL, tagged and grouped separately for comparison. Senior Manager/Associate Director/Regional Director-equivalent roles are the primary realistic target; Director/VP/Country Manager-equivalent roles stay visible but are tagged "Reach — Long Shot" and sorted separately at the bottom. Filtered to score 60+, sorted by score within each group, with a modest boost for Confirmed disclosed pay and a real penalty for Flagged salary risk (Estimated, the default, gets no adjustment) — a nudge, not a tier override, so a Flagged 95 can still outrank a Confirmed 80. Sibling postings from the same corporate family are shown once.</p>
+      <p class="subtitle">Clinical operations, quality, regulatory affairs, medical affairs, and adjacent pharma/biotech leadership roles, plus capacity-based matches in any industry (large multi-country programs, executive/named-client relationships, bid/proposal leadership, 50+ person team oversight) — scored for fit, compensation, and career trajectory against your background. Manager-level and above only. Workable from Brazil required (remote, or on-site/hybrid anywhere in Brazil). Covers both international remote employers and Brazilian-market employers hiring locally in BRL, tagged and grouped separately for comparison. Senior Manager/Associate Director/Regional Director-equivalent roles are the primary realistic target; Director/VP/Country Manager-equivalent roles stay visible but are tagged "Reach — Long Shot" and sorted separately at the bottom. Filtered to score 60+, sorted by score within each group, with a modest boost for Confirmed disclosed pay and a real penalty for Flagged salary risk (Estimated, the default, gets no adjustment) — a nudge, not a tier override, so a Flagged 95 can still outrank a Confirmed 80. Sibling postings from the same corporate family are shown once. Every tracked posting's link is also re-checked on each scan — one that now errors or redirects to a "not found" page gets a &#9888; Expired tag and a muted, struck-through card, since it's likely been filled or pulled.</p>
       <div class="pace">
         <span class="pace-figure">{pace_weekly}</span> applied this week &middot; <span class="pace-figure">{pace_total}</span> all-time
       </div>

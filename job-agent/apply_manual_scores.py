@@ -15,7 +15,7 @@ import json
 
 from br_salary_estimate import estimate_br_salary
 from cover_letter import save_cover_letter
-from pipeline import process_run
+from pipeline import check_expired_links, process_run
 from report import write_report
 from resume_bullets import save_resume_bullets
 from salary_estimate import format_estimate
@@ -58,10 +58,16 @@ new_matches, interested_matches, applied_matches, state = process_run(
     data["matches"], cover_letter_fn, salary_estimate_fn, resume_bullets_fn
 )
 
+newly_expired = check_expired_links(state)
+
 report_path = write_report(
     new_matches, interested_matches, applied_matches, data["scored_count"], data["fetched_count"], state
 )
 print(
     f"Report written to {report_path} "
-    f"({len(new_matches)} new, {len(applied_matches)} applied, {len(interested_matches)} interested)"
+    f"({len(new_matches)} new, {len(applied_matches)} applied, {len(interested_matches)} interested, "
+    f"{len(newly_expired)} newly expired)"
 )
+if newly_expired:
+    for key in newly_expired:
+        print(f"  expired: {key}")

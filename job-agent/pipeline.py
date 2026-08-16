@@ -17,6 +17,7 @@ from cost_of_living import (
 from cover_letter import COVER_LETTER_SCORE_THRESHOLD as DRAFT_MATERIALS_THRESHOLD
 from dedup import merge_sibling_postings
 from jobs_state import APPLIED_STATUSES, EXCLUDED_STATUSES, load_state, save_state, update_state
+from link_check import check_link_status
 
 
 def today_str():
@@ -62,7 +63,10 @@ def process_run(
     for job in state.values():
         if job["status"] in EXCLUDED_STATUSES:
             continue
-        if job["score"] >= DRAFT_MATERIALS_THRESHOLD:
+        # No point drafting materials for a posting that's already gone --
+        # but still refresh its salary/col-note fields below like any
+        # other tracked job.
+        if job["score"] >= DRAFT_MATERIALS_THRESHOLD and job.get("link_status") != "expired":
             if cover_letter_fn and not job.get("cover_letter_path"):
                 path = cover_letter_fn(job)
                 if path:
@@ -110,3 +114,33 @@ def process_run(
     applied_matches.sort(key=sort_key)
 
     return new_matches, interested_matches, applied_matches, state
+
+
+def check_expired_links(state, checker=check_link_status, today=None):
+    """Daily-scan companion to process_run(): fetch every *existing*
+    tracked job's primary posting URL and flag it "expired" if it now
+    404s or redirects to a job-board's own "not found" page -- catching
+    postings that were filled/pulled since they were first seen, not just
+    finding newly-posted ones. Skips declined/passed jobs (the user's
+    already done with those). A network failure never flips a job to
+    expired -- check_link_status() returns "unknown" for that, which is
+    left alone here. Mutates and saves state; returns the list of keys
+    newly found expired this run (already-expired keys aren't repeated)."""
+    today = today or today_str()
+    newly_expired = []
+    for key, job in state.items():
+        if job["status"] in EXCLUDED_STATUSES:
+            continue
+        postings = job.get("postings") or []
+        if not postings:
+            continue
+        result = checker(postings[0]["url"])
+        if result == "unknown":
+            continue
+        was_expired = job.get("link_status") == "expired"
+        job["link_status"] = result
+        job["link_checked_at"] = today
+        if result == "expired" and not was_expired:
+            newly_expired.append(key)
+    save_state(state)
+    return newly_expired
