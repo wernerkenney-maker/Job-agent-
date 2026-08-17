@@ -13,6 +13,7 @@ import subprocess
 from datetime import datetime, timezone
 
 from pace_tracker import total_count, weekly_count
+from pipeline import sort_key
 
 _REPO_DIR = os.path.dirname(__file__)
 
@@ -65,6 +66,8 @@ STATUS_LABELS = {
     "interested": ("Interested", "#0f7ea8", "#e6f3f9"),
     "applied": ("Applied", "#1a7f5a", "#e6f6ef"),
     "interviewing": ("Interviewing", "#7a3d9e", "#f2e8f9"),
+    "declined": ("Declined", "#5c635d", "#eceeec"),
+    "pass": ("Passed", "#5c635d", "#eceeec"),
 }
 
 # (status, button label) -- offered on every card except the one matching
@@ -96,6 +99,7 @@ MARKET_COLORS = {
 
 TIER_COLORS = {
     "Stretch/Leadership": ("#8a4b0f", "#fbeee0"),
+    "Capacity Search": ("#5c3d8a", "#efe8f9"),
 }
 
 SALARY_CONFIDENCE_LABELS = {
@@ -134,11 +138,14 @@ def _job_card(job):
     confidence_html = f'<span class="confidence" style="color:{conf_fg}; background:{conf_bg};">{conf_label}</span>'
     interviewing = job["status"] == "interviewing"
     expired = job.get("link_status") == "expired"
+    declined = job["status"] in ("declined", "pass")
     card_class = "card"
     if interviewing:
         card_class += " interviewing"
     if expired:
         card_class += " expired"
+    if declined:
+        card_class += " declined"
     title = html.escape(job["title"])
     location = html.escape(job.get("location", ""))
     reason = html.escape(job["reason"])
@@ -273,11 +280,13 @@ def _market_split_body(matches):
       </ul>"""
 
 
-def _section(title_text, matches, empty_text):
+def _section(title_text, matches, empty_text, intro=""):
+    intro_html = f'<p class="section-intro">{intro}</p>' if intro else ""
     if not matches:
         return f"""
     <section>
       <h2>{title_text}</h2>
+      {intro_html}
       <p class="empty">{empty_text}</p>
     </section>"""
 
@@ -296,6 +305,7 @@ def _section(title_text, matches, empty_text):
     return f"""
     <section>
       <h2>{title_text}</h2>
+      {intro_html}
       {body}
     </section>"""
 
@@ -322,6 +332,22 @@ def generate_report_html(
     interested_section = ""
     if interested_matches:
         interested_section = _section("Interested", interested_matches, "")
+
+    # Every match ever scored 60+ lives here permanently, regardless of
+    # status -- including ones that scrolled out of "New matches" without
+    # being actioned, and declined/passed ones (visibly flagged via their
+    # status badge, not hidden). Nothing is ever silently dropped from the
+    # report; a job's only way out of view is not being tracked at all.
+    archive_matches = sorted(state.values(), key=sort_key)
+    archive_section = _section(
+        "All Matches Archive",
+        archive_matches,
+        "Nothing tracked yet.",
+        intro="Every match ever scored 60+, permanently — including ones that have "
+        "scrolled out of \"New matches\" without being actioned, and anything marked "
+        "Declined/Passed (kept visible here, tagged, rather than deleted). Nothing is "
+        "ever silently dropped; a job's only way out of this list is not being tracked at all.",
+    )
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -399,6 +425,12 @@ def generate_report_html(
     font-size: 0.82rem;
     line-height: 1.4;
     margin: 0 0 12px;
+  }}
+  .section-intro {{
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    line-height: 1.4;
+    margin: 0 0 14px;
   }}
   .subtitle {{
     color: var(--text-muted);
@@ -485,6 +517,9 @@ def generate_report_html(
   .card.expired .title {{
     text-decoration: line-through;
     text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
+  }}
+  .card.declined {{
+    opacity: 0.55;
   }}
   .expired-note {{
     margin: 8px 0 0;
@@ -669,14 +704,14 @@ def generate_report_html(
   <div class="wrap">
     <header>
       <h1>Clinical Ops Job Matches</h1>
-      <p class="subtitle">Clinical operations, quality, regulatory affairs, medical affairs, and adjacent pharma/biotech leadership roles, plus capacity-based matches in any industry (large multi-country programs, executive/named-client relationships, bid/proposal leadership, 50+ person team oversight) — scored for fit, compensation, and career trajectory against your background. Manager-level and above only. Workable from Brazil required (remote, or on-site/hybrid anywhere in Brazil). Covers both international remote employers and Brazilian-market employers hiring locally in BRL, tagged and grouped separately for comparison. Senior Manager/Associate Director/Regional Director-equivalent roles are the primary realistic target; Director/VP/Country Manager-equivalent roles stay visible but are tagged "Reach — Long Shot" and sorted separately at the bottom. Filtered to score 60+, sorted by score within each group, with a modest boost for Confirmed disclosed pay and a real penalty for Flagged salary risk (Estimated, the default, gets no adjustment) — a nudge, not a tier override, so a Flagged 95 can still outrank a Confirmed 80. Sibling postings from the same corporate family are shown once. Every tracked posting's link is also re-checked on each scan — one that now errors or redirects to a "not found" page gets a &#9888; Expired tag and a muted, struck-through card, since it's likely been filled or pulled.</p>
+      <p class="subtitle">Clinical operations, quality, regulatory affairs, medical affairs, and adjacent pharma/biotech leadership roles, plus capacity-based matches in any industry (large multi-country programs, executive/named-client relationships, bid/proposal leadership, 50+ person team oversight) — scored for fit, compensation, and career trajectory against your background. Manager-level and above only. Workable from Brazil required (remote, or on-site/hybrid anywhere in Brazil). Covers both international remote employers and Brazilian-market employers hiring locally in BRL, tagged and grouped separately for comparison. Senior Manager/Associate Director/Regional Director-equivalent roles are the primary realistic target; Director/VP/Country Manager-equivalent roles stay visible but are tagged "Reach — Long Shot" and sorted separately at the bottom. Filtered to score 60+, sorted by score within each group, with a modest boost for Confirmed disclosed pay and a real penalty for Flagged salary risk (Estimated, the default, gets no adjustment) — a nudge, not a tier override, so a Flagged 95 can still outrank a Confirmed 80. Sibling postings from the same corporate family are shown once. Every tracked posting's link is also re-checked on each scan — one that now errors or redirects to a "not found" page gets a &#9888; Expired tag and a muted, struck-through card, since it's likely been filled or pulled. Every match ever scored 60+ also stays permanently visible in the "All Matches Archive" section at the bottom, including Declined/Passed ones (tagged, not deleted) and anything that scrolled out of "New matches" without being actioned — nothing is ever silently dropped.</p>
       <div class="pace">
         <span class="pace-figure">{pace_weekly}</span> applied this week &middot; <span class="pace-figure">{pace_total}</span> all-time
       </div>
       <div class="applied-progress">
         <span class="pace-figure">{applied_count}</span> applied of <span class="pace-figure">{total_tracked}</span> total matches tracked
       </div>
-      <p class="status-reminder">Each card has status buttons that copy the exact <code>set_status.py</code> command (with that job's URL already filled in) to your clipboard — click one, then paste and run it in a terminal to update: <strong>applied</strong> moves it to the Applied section below and logs it to your pace count above, <strong>interviewing</strong> keeps it in Applied but flags it (bold title, purple border), <strong>interested</strong> moves it to the Interested section, <strong>declined</strong> hides it from every future report for good. This is a static file with no backend, so nothing updates until you actually run the copied command.</p>
+      <p class="status-reminder">Each card has status buttons that copy the exact <code>set_status.py</code> command (with that job's URL already filled in) to your clipboard — click one, then paste and run it in a terminal to update: <strong>applied</strong> moves it to the Applied section below and logs it to your pace count above, <strong>interviewing</strong> keeps it in Applied but flags it (bold title, purple border), <strong>interested</strong> moves it to the Interested section, <strong>declined</strong> removes it from the active sections above and tags it in the All Matches Archive below (never deleted — reversible any time via the same command with a different status). This is a static file with no backend, so nothing updates until you actually run the copied command.</p>
       <div class="stats">
         <span>{len(new_matches)} new</span>
         <span>{len(applied_matches)} applied</span>
@@ -689,6 +724,7 @@ def generate_report_html(
     {new_section}
     {applied_section}
     {interested_section}
+    {archive_section}
     <footer>
       Generated by match_jobs.py / manual scoring &middot; job-agent<br>
       Mark a job's status with: python3 set_status.py &lt;url&gt; applied|interested|interviewing|declined|pass

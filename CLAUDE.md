@@ -79,7 +79,7 @@ to do all of the following, without asking for confirmation:
    report, alongside category/probability/market) — separate from, and
    in addition to, the `level: "Reach"` tagging every Director/VP/
    Country-Manager-equivalent match gets regardless of source (see step
-   3): `tier` marks a match as having come from this specific
+   4): `tier` marks a match as having come from this specific
    Director-level search sweep, `level` is the universal seniority
    classification applied to every match. It's normal and expected for
    this search to turn up nothing on a given run — director-level roles
@@ -87,7 +87,31 @@ to do all of the following, without asking for confirmation:
    postings — report that honestly ("checked, nothing open right now")
    rather than skipping the step silently or padding it with an
    unverified/stale listing.
-3. Score each job for fit against `CANDIDATE_PROFILE` in
+3. **Open capacity search — not limited to the fixed company list.**
+   Steps 1-2 only ever find postings at companies already enumerated in
+   a `fetch_*.py` module's `COMPANIES` dict or Gupy's board list — a
+   structural ceiling regardless of how good the scoring is. This step
+   searches by capacity-defining *role type* instead, open to any
+   company, any industry, anywhere in Brazil or remote-eligible:
+   "Senior Program Manager," "Director of Program Management," "Head of
+   PMO," "Portfolio Director," "Transformation Director," "VP Program
+   Management" (combined with "Brazil"/"remote Brazil"/"LATAM" search
+   terms). Like step 2, this is WebSearch-driven, not a `fetch_*.py`
+   script — there's no structured API for an open, company-agnostic job
+   search, so every candidate must be individually verified live
+   (fetch the posting directly; don't trust a search snippet) before
+   being scored. Score strictly on actual responsibilities — portfolio/
+   program scope, $100M+ (ideally $200M+) budget oversight, matrix
+   stakeholder management, bid-defense/client-relationship ownership,
+   multi-country coordination — never on industry or title match; a
+   genuine capacity match at a bank, logistics company, or tech firm
+   counts exactly as much as one at a CRO. Tag any genuine match `"tier":
+   "Capacity Search"` (its own tag in the report, same mechanism as
+   `"Stretch/Leadership"` from step 2 — a match can't carry both tags
+   since they mark different search origins, but both are independent of
+   `level`, which still applies normally). As with step 2, a quiet run is
+   expected and should be reported honestly, not padded.
+4. Score each job for fit against `CANDIDATE_PROFILE` in
    `job-agent/match_jobs.py`, using the broadened rubric in
    `SCORING_INSTRUCTIONS`: not limited to an exact title match or to
    pharma/CRO employers. Two overlapping lanes are in scope: (a) clinical
@@ -155,12 +179,12 @@ to do all of the following, without asking for confirmation:
    - If no API key is available, score manually (as Claude, in
      conversation) using the same rubric, record raw per-posting matches
      in `job-agent/manual_matches.json` (with a real, API-verified
-     `salary` per posting — see step 4, never invented — plus
+     `salary` per posting — see step 5, never invented — plus
      `category`/`probability`/`trajectory`/`market` per posting), record
      any cover letter / resume bullets text / salary estimate figures for
      this run in `job-agent/manual_extras.json`, then run
      `python3 apply_manual_scores.py`.
-4. The pipeline (`job-agent/pipeline.py`, used identically by both paths
+5. The pipeline (`job-agent/pipeline.py`, used identically by both paths
    above) then:
    - **Dedupes sibling postings** (`job-agent/dedup.py`): the same role
      posted on multiple boards from the same corporate family (per
@@ -173,10 +197,15 @@ to do all of the following, without asking for confirmation:
      marked `interested`, `applied`, or `interviewing` (via
      `set_status.py`) stays visible in its own section ("Interested" or
      "Applied") regardless of whether it's new this run — see "Job status
-     model" below. Anything marked `declined` or `pass` is hidden from
-     the report entirely, permanently. A match that scored 60+ before and
-     was never actioned does not resurface — don't re-show the same jobs
-     every day.
+     model" below. A match that scored 60+ before and was never actioned
+     does not resurface in "New matches" — don't re-show the same jobs
+     every day there. But **nothing tracked is ever silently dropped from
+     the report as a whole**: every match ever scored 60+, regardless of
+     status (including `declined`/`pass`, visibly tagged rather than
+     hidden), stays permanently visible in the "All Matches Archive"
+     section at the bottom of every report — see "Job status model"
+     below. A job's only way out of view entirely is not being tracked at
+     all.
    - **Checks every tracked posting's live link** (`job-agent/link_check.py`,
      called by `job-agent/pipeline.py`'s `check_expired_links()`): this is
      a separate check on *existing* tracked matches, not on new fetches —
@@ -250,11 +279,14 @@ to do all of the following, without asking for confirmation:
      matches are already monthly BRL, so no FX step is needed
      (`col_comparison_note_brl`). Computed deterministically (no API
      call) on every run.
-5. Update `job-agent/report.html` with the fresh matches (score 60+,
-   "New matches" / "Applied" / "Interested" sections — see "Job status
-   model" below — each showing a market tag ("International (remote)" /
-   "Brazilian market (local)"), a Stretch/Leadership tag on any job
-   tagged that way in step 2, a "Reach — Long Shot" tag on any job with
+6. Update `job-agent/report.html` with the fresh matches (score 60+,
+   "New matches" / "Applied" / "Interested" sections, plus the "All
+   Matches Archive" section that always shows every tracked match
+   regardless of status — see "Job status model" below — each showing a
+   market tag ("International (remote)" / "Brazilian market (local)"), a
+   Stretch/Leadership tag on any job tagged that way in step 2, a
+   Capacity Search tag on any job tagged that way in step 3, a
+   "Reach — Long Shot" tag on any job with
    `level: "Reach"`, category/probability tags, a `salary_confidence`
    badge (Confirmed/Estimated/Flagged) shown plainly next to the score,
    salary/estimate, cost-of-living note, relocation-support flag, a
@@ -277,7 +309,7 @@ to do all of the following, without asking for confirmation:
    (seen before, no status set) still has the files in the repo, just not
    linked from the report until it's marked `interested`/`applied`/
    `interviewing`.
-6. `report.html` must keep every job title as its own clickable link
+7. `report.html` must keep every job title as its own clickable link
    straight to the (primary) posting, and its header must show, every
    time the report is generated: the pace tracker (a running "N applied
    this week · M all-time" count from
@@ -296,10 +328,10 @@ to do all of the following, without asking for confirmation:
    `report.html` has no backend, so this can't write to
    `jobs_state.json` on its own; it only removes the friction of finding
    the URL. Be upfront about that limit if asked for a "real" checkbox.
-7. Summarize the results back to the user (what's new since last time,
+8. Summarize the results back to the user (what's new since last time,
    any status changes reflected, any cover letters/resume bullets
-   drafted, and — if step 2 found anything — the stretch/leadership
-   result) and mention the updated report.
+   drafted, and — if steps 2/3 found anything — the stretch/leadership
+   and open-capacity-search results) and mention the updated report.
 
 ## Job status model
 
@@ -315,14 +347,28 @@ Each tracked job has a `status`: `new` (default), `interested`,
   "applied and waiting" posting. Both log to the pace tracker (once per
   job — jumping straight to `interviewing` without ever setting
   `applied` still counts correctly).
-- `declined` / `pass`: both permanently exclude the job from every
-  future report section, including if the same posting is re-fetched on
-  a later run — this falls out of `jobs_state.py`'s existing
-  seen-job-tracking design (an existing key's status is never
-  overwritten by a re-fetch, only its live fields like score/salary
-  are), not a separate mechanism. `declined` and `pass` are otherwise
-  interchangeable; `declined` exists as the more natural word for "this
-  specific application didn't work out" versus `pass`'s "not
-  interested in the first place."
+- `declined` / `pass`: both exclude the job from every *active* section
+  ("New matches"/"Interested"/"Applied") — including if the same
+  posting is re-fetched on a later run, since an existing key's status
+  is never overwritten by a re-fetch, only its live fields like
+  score/salary are. They do **not**, however, remove the job from the
+  report entirely: it stays visible in the "All Matches Archive"
+  section, tagged "Declined"/"Passed" and shown at reduced opacity, so
+  the user can always find it again (including to reverse the decision
+  via `set_status.py <url> new`/`interested`) rather than losing it for
+  good. `declined` and `pass` are otherwise interchangeable; `declined`
+  exists as the more natural word for "this specific application didn't
+  work out" versus `pass`'s "not interested in the first place."
+
+Every match ever scored 60+, regardless of status, is permanently
+visible somewhere in the report — see the "All Matches Archive" section
+(`report.py`'s `generate_report_html()`, sorted the same
+confidence-nudged-by-score way as every other section, with the same
+Primary/Reach and market splits). A posting whose live status changes
+(link goes dead, salary gets reassessed) is flagged in place on its
+existing entry — `link_status`/`salary_confidence` update the same
+tracked record — never deleted and re-added. The only way a job stops
+appearing anywhere in the report is if it stops being tracked at all
+(which nothing in this pipeline currently does).
 
 See `job-agent/README.md` for full details on each script.
