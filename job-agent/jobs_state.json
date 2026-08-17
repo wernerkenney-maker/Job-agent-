@@ -443,6 +443,43 @@
     "title": "Coordenador(a) de Planejamento - Mercado Institucional",
     "trajectory": "A step down in scope from portfolio management, but a legitimate senior local-market planning role."
   },
+  "Hypera Pharma::coordenador(a) inova\u00e7\u00e3o - dermo": {
+    "category": "Adjacent",
+    "city": "S\u00e3o Paulo",
+    "col_note": "~R$5.000\u2013R$10.000/month in S\u00e3o Paulo is roughly equivalent to ~R$3.400\u2013R$6.900/month of purchasing power in Fortaleza (S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates).",
+    "companies": [
+      "Hypera Pharma"
+    ],
+    "company": "Hypera Pharma",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-17",
+    "key": "Hypera Pharma::coordenador(a) inova\u00e7\u00e3o - dermo",
+    "last_seen": "2026-08-17",
+    "level": "Primary",
+    "link_checked_at": "2026-08-17",
+    "link_status": "live",
+    "location": "On-site, S\u00e3o Paulo, SP",
+    "market": "Brazilian market (local)",
+    "postings": [
+      {
+        "company": "Hypera Pharma",
+        "location": "On-site, S\u00e3o Paulo, SP",
+        "url": "https://hyperapharma.gupy.io/jobs/11714087"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "Innovation coordination for Hypera's dermocosmetics line -- genuine Coordenador-level scope at a major Brazilian pharma, though product/innovation function is a narrower fit than your portfolio/trial-management background.",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_confidence": "estimated",
+    "salary_estimate": "R$5.000\u2013R$10.000/month (estimated \u2014 Glassdoor Brazil, Coordenador (commercial/operations) band, general pharma function, not disclosed by employer)",
+    "score": 55,
+    "status": "new",
+    "tier": null,
+    "title": "Coordenador(a) Inova\u00e7\u00e3o - DERMO",
+    "trajectory": "A functional pivot into product/innovation coordination -- narrower fit than portfolio management, but a legitimate senior local-market role."
+  },
   "Hypera Pharma::gerente distrital propaganda m\u00e9dica - dermo - curitiba/pr": {
     "category": "Adjacent",
     "city": "Curitiba",
@@ -1545,5 +1582,42 @@
     "tier": null,
     "title": "Coordenador de Pesquisa Cl\u00ednica",
     "trajectory": "Step down in scope from portfolio management, but a genuine senior local-market operations role and a credible Brazilian-market foothold."
+  },
+  "Synvia::gerente de relacionamento m\u00e9dico e institucional": {
+    "category": "In-field",
+    "city": "Campinas",
+    "col_note": "~R$9.000\u2013R$16.000/month in Campinas is roughly equivalent to ~R$6.900\u2013R$12.300/month of purchasing power in Fortaleza (Campinas's cost of living runs roughly 30% higher than Fortaleza; both figures rough estimates).",
+    "companies": [
+      "Synvia"
+    ],
+    "company": "Synvia",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-17",
+    "key": "Synvia::gerente de relacionamento m\u00e9dico e institucional",
+    "last_seen": "2026-08-17",
+    "level": "Primary",
+    "link_checked_at": "2026-08-17",
+    "link_status": "live",
+    "location": "On-site, Campinas, SP",
+    "market": "Brazilian market (local)",
+    "postings": [
+      {
+        "company": "Synvia",
+        "location": "On-site, Campinas, SP",
+        "url": "https://synvia.gupy.io/jobs/12031356"
+      }
+    ],
+    "probability": "High",
+    "reason": "Strategic leadership of medical/institutional relationships at a dedicated Brazilian CRO's clinical research center -- develops physician/institution/partner networks, drives new-business partnerships, and owns study-execution excellence via people/process management. Directly overlaps with your client-facing, bid-defense, and sponsor-relationship background.",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_confidence": "estimated",
+    "salary_estimate": "R$9.000\u2013R$16.000/month (estimated \u2014 Glassdoor Brazil, Gerente (commercial/operations/sales) band, general pharma function, not disclosed by employer)",
+    "score": 70,
+    "status": "new",
+    "tier": null,
+    "title": "Gerente de Relacionamento M\u00e9dico e Institucional",
+    "trajectory": "A step down in scope from portfolio management, but a genuine strategic client/institutional-relationship leadership role at a dedicated CRO -- leverages your real bid-defense and relationship-management experience directly."
   }
 }
