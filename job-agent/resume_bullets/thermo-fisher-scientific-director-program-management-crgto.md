@@ -1,6 +1,6 @@
 # Resume bullet adjustments — Director Program Management CRGTO (Thermo Fisher Scientific)
 
-- Serve as Global Study Manager on HORIZON, the largest trial Novartis runs with Labcorp -- representing Labcorp internationally to Novartis in person (London, Basel, London again) and participating in 4 bid defenses.
-- Currently oversee a portfolio of 100+ concurrent global clinical studies representing $200M+ in annual revenue as Portfolio Manager at Labcorp Clinical Laboratory Services, serving as an escalation point for 100+ project managers globally.
-- Directs a $200M+, 100+ study portfolio and serves as escalation point for 100+ project managers globally, mirroring cross-functional program governance at Director scope.
-- Managed clinical trial budgets exceeding $20M across Oncology, Autoimmune, and Malaria indications as Global Clinical Study Manager.
+- Direct a portfolio of 100+ concurrent global programs representing $200M+ in annual revenue as Portfolio Manager at Labcorp Clinical Laboratory Services.
+- Serve as strategic escalation point for 100+ project managers globally, establishing the governance that keeps a portfolio of that size legible and decision-ready.
+- Partner with senior client executives directly: in-person representation of Labcorp to Novartis (London, Basel, London again), regular client audits, 4 bid defenses.
+- Personally lead the portfolio's most complex "giga trials"; Certificate in Project Management, Rutgers; trilingual EN C2 / PT C2 / DE B1.

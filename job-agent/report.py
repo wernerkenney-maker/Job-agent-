@@ -313,6 +313,11 @@ def _section(title_text, matches, empty_text, intro=""):
 def generate_report_html(
     new_matches, interested_matches, applied_matches, scored_count, fetched_count, state=None, generated_at=None
 ):
+    # `scored_count` is accepted for call-signature compatibility but is no
+    # longer displayed: it accumulated across runs while reading as a
+    # this-run figure, and it counted postings *fetched*, not scored -- only
+    # the location-eligible subset is ever actually scored. `fetched_count`
+    # is genuinely cumulative and is now labeled as such.
     generated_at = generated_at or datetime.now(timezone.utc)
     timestamp = generated_at.strftime("%Y-%m-%d %H:%M UTC")
     pace_weekly = weekly_count(generated_at)
@@ -718,8 +723,7 @@ def generate_report_html(
         <span>{len(new_matches)} new</span>
         <span>{len(applied_matches)} applied</span>
         <span>{len(interested_matches)} interested</span>
-        <span>{scored_count} scored</span>
-        <span>{fetched_count} fetched</span>
+        <span>{fetched_count:,} postings fetched (all-time)</span>
         <span>updated {timestamp}</span>
       </div>
     </header>

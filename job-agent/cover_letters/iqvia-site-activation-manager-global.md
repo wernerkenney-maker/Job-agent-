@@ -2,15 +2,13 @@
 
 Dear Hiring Manager,
 
-I'm writing to apply for the Site Activation Manager (Global) role at IQVIA. As Portfolio Manager at Labcorp Clinical Laboratory Services, I oversee 100+ global clinical studies representing $200M+ in annual revenue, serve as an escalation point for a team of 100+ project managers globally, and personally lead the portfolio's most complex "giga trials."
+I'm applying for the Site Activation Manager (Global) role at IQVIA. Three things in the posting map directly onto what I do now: owning the strategic, operational *and financial* delivery of activation; supporting business development including bid defense and client engagement; and mentoring team members.
 
-I'm also Global Study Manager on HORIZON, the largest trial Novartis runs with Labcorp -- representing Labcorp internationally to Novartis in person (London, Basel, and again London this September), participating regularly in client audits, and engaging directly with Novartis's operational group. I've participated in four bid defenses -- real, tested client-facing and commercial credibility. Site activation is core to what I already do -- driving fast, compliant study start-up while managing sponsor expectations.
+The financial and client-facing halves are where I'd expect to add the most immediately. As Portfolio Manager at Labcorp Clinical Laboratory Services I oversee 100+ global studies representing $200M+ in annual revenue, and as Global Clinical Study Manager before that I managed trial budgets exceeding $20M — so budget ownership across a study portfolio is routine. On the client side, I've taken part in four bid defenses and represent Labcorp internationally to Novartis in person (London, Basel, and London again this September), including regular participation in client audits.
 
-Earlier, as a Global Clinical Study Manager, I managed trial budgets exceeding $20M across Oncology, Autoimmune, and Malaria indications, and as a Regional Study Coordinator across EMEA I built cross-country coordination skills relevant to this role's LATAM footprint.
+The mentoring expectation fits how I already work: I'm the escalation point for 100+ project managers globally, which is coaching under real time pressure more than it is org-chart management. My earliest role, Regional Study Coordinator across EMEA, was squarely in country-level regulatory and ethics submission work — the start-up mechanics this role oversees.
 
-I'm fluent in English and Portuguese, with working German, and based in Brazil, aligning with this role's remote scope. My Certificate in Project Management from Rutgers underpins the structured approach I bring to program, budget, and stakeholder management.
-
-I'd welcome the opportunity to bring this background to your team.
+I'm based in Brazil and trilingual (English C2, Portuguese C2, German B1), matching the role's São Paulo/Mexico City/Buenos Aires/Bogotá footprint.
 
 Thank you for your consideration.
 

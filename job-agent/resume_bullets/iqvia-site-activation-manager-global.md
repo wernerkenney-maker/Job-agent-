@@ -1,6 +1,6 @@
 # Resume bullet adjustments — Site Activation Manager (Global) (IQVIA)
 
-- Serve as Global Study Manager on HORIZON, the largest trial Novartis runs with Labcorp -- representing Labcorp internationally to Novartis in person (London, Basel, London again) and participating in 4 bid defenses.
-- Currently oversee a portfolio of 100+ concurrent global clinical studies representing $200M+ in annual revenue as Portfolio Manager at Labcorp Clinical Laboratory Services, serving as an escalation point for 100+ project managers globally.
-- Direct experience accelerating study start-up and managing sponsor/site relationships as Global Study Manager and Global Clinical Study Manager.
-- Managed clinical trial budgets exceeding $20M across Oncology, Autoimmune, and Malaria indications as Global Clinical Study Manager.
+- Own strategic, operational and financial delivery across a 100+ study, $200M+ annual revenue portfolio as Portfolio Manager at Labcorp Clinical Laboratory Services.
+- Support business development directly: 4 bid defenses, regular client audit participation, and in-person representation of Labcorp to Novartis (London, Basel, London again).
+- Coach and unblock at scale as escalation point for 100+ project managers globally, while personally leading the portfolio's most complex "giga trials."
+- Built country-level regulatory and ethics submission experience as Regional Study Coordinator, EMEA. Trilingual (EN C2 / PT C2 / DE B1), based in Brazil.

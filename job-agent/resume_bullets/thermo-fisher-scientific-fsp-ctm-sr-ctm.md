@@ -1,6 +1,6 @@
 # Resume bullet adjustments — FSP CTM / Sr. CTM (Thermo Fisher Scientific)
 
-- Serve as Global Study Manager on HORIZON, the largest trial Novartis runs with Labcorp -- representing Labcorp internationally to Novartis in person (London, Basel, London again) and participating in 4 bid defenses.
-- Currently oversee a portfolio of 100+ concurrent global clinical studies representing $200M+ in annual revenue as Portfolio Manager at Labcorp Clinical Laboratory Services, serving as an escalation point for 100+ project managers globally.
-- Managed clinical trial budgets exceeding $20M across Oncology, Autoimmune, and Malaria indications as Global Clinical Study Manager.
-- Based in Brazil with fluent English and Portuguese (working German); Certificate in Project Management from Rutgers University.
+- Managed clinical operational and quality delivery on trials exceeding $20M as Global Clinical Study Manager — monitoring plans, TMF quality, vendor oversight, budget reconciliation.
+- Currently oversee 100+ concurrent global studies representing $200M+ in annual revenue as Portfolio Manager at Labcorp Clinical Laboratory Services.
+- Client-facing credibility from 4 bid defenses and direct representation of Labcorp to Novartis's operational group.
+- Based in Brazil (matching the home-based requirement); trilingual EN C2 / PT C2 / DE B1; Certificate in Project Management, Rutgers.

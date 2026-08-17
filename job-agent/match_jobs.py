@@ -522,6 +522,11 @@ def main():
                 }
             )
 
+    # The MIN_SCORE floor is applied inside process_run(), which gates
+    # entry into tracking while still refreshing anything already tracked.
+    # Salary/relocation enrichment below is only worth doing for jobs that
+    # can actually reach the report, so screen to the floor here too --
+    # process_run() re-applies it as the authoritative check.
     matches = [job for job in scored if job["score"] >= MIN_SCORE]
     matches.sort(key=lambda job: job["score"], reverse=True)
 

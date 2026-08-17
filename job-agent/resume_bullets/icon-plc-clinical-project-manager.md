@@ -1,6 +1,6 @@
 # Resume bullet adjustments — Clinical Project Manager (ICON plc)
 
-- Serve as Global Study Manager on HORIZON, the largest trial Novartis runs with Labcorp -- representing Labcorp internationally to Novartis in person (London, Basel, London again) and participating in 4 bid defenses.
-- Currently oversee a portfolio of 100+ concurrent global clinical studies representing $200M+ in annual revenue as Portfolio Manager at Labcorp Clinical Laboratory Services, serving as an escalation point for 100+ project managers globally.
-- Managed clinical trial budgets exceeding $20M across Oncology, Autoimmune, and Malaria indications as Global Clinical Study Manager.
-- Based in Brazil with fluent English and Portuguese (working German); Certificate in Project Management from Rutgers University.
+- Manage timelines, budgets and resource allocation across 100+ concurrent global studies representing $200M+ in annual revenue as Portfolio Manager, Labcorp Clinical Laboratory Services.
+- Managed individual trial budgets exceeding $20M as Global Clinical Study Manager across Oncology, Autoimmune and Malaria.
+- Report exceptions and performance upward as escalation point for 100+ project managers globally; develop capability through coaching rather than line authority.
+- Certificate in Project Management, Rutgers; trilingual (EN C2 / PT C2 / DE B1) across São Paulo / Buenos Aires / Mexico City.

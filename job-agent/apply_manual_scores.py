@@ -15,7 +15,7 @@ import json
 
 from br_salary_estimate import estimate_br_salary
 from cover_letter import save_cover_letter
-from pipeline import MIN_SCORE, check_expired_links, process_run
+from pipeline import check_expired_links, process_run
 from report import write_report
 from resume_bullets import save_resume_bullets
 from salary_estimate import format_estimate
@@ -54,23 +54,11 @@ def salary_estimate_fn(job):
     return format_estimate(figures["low"], figures["high"], figures.get("note", ""))
 
 
-# The API path (match_jobs.py) drops anything under MIN_SCORE before the
-# pipeline ever sees it; this path historically did not, so hand-scored
-# entries below the floor silently entered the report while its header
-# still claimed "filtered to score 60+". Enforce the same floor here so
-# the two paths agree -- but print exactly what it holds back rather than
-# discarding quietly, since an invisible drop is the failure mode this
-# pipeline is explicitly built to avoid.
-below_floor = [m for m in data["matches"] if m["score"] < MIN_SCORE]
-scored_matches = [m for m in data["matches"] if m["score"] >= MIN_SCORE]
-if below_floor:
-    print(f"Held back {len(below_floor)} match(es) scoring under the {MIN_SCORE} floor:")
-    for m in sorted(below_floor, key=lambda m: -m["score"]):
-        print(f"  [{m['score']}] {m['title']} — {m['company']}")
-    print("  (still present in manual_matches.json; raise the score or lower MIN_SCORE to surface them)")
-
+# The MIN_SCORE floor is applied inside process_run() so both scoring
+# paths enforce it identically -- it gates entry into tracking, and names
+# whatever it holds back rather than dropping it silently.
 new_matches, interested_matches, applied_matches, state = process_run(
-    scored_matches, cover_letter_fn, salary_estimate_fn, resume_bullets_fn
+    data["matches"], cover_letter_fn, salary_estimate_fn, resume_bullets_fn
 )
 
 newly_expired = check_expired_links(state)

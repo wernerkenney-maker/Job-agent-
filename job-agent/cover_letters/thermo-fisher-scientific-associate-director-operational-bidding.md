@@ -2,15 +2,15 @@
 
 Dear Hiring Manager,
 
-I'm writing to apply for the Associate Director, Operational Bidding role at Thermo Fisher Scientific. As Portfolio Manager at Labcorp Clinical Laboratory Services, I oversee 100+ global clinical studies representing $200M+ in annual revenue, serve as an escalation point for a team of 100+ project managers globally, and personally lead the portfolio's most complex "giga trials."
+I'm applying for the Associate Director, Operational Bidding role at Thermo Fisher Scientific. Bid defense is the part of my work I'd most like to do more of, so a role built entirely around it is genuinely appealing rather than a lateral convenience.
 
-I'm also Global Study Manager on HORIZON, the largest trial Novartis runs with Labcorp -- representing Labcorp internationally to Novartis in person (London, Basel, and again London this September), participating regularly in client audits, and engaging directly with Novartis's operational group. I've participated in four bid defenses -- real, tested client-facing and commercial credibility. Leading bid and proposal development is exactly what my four bid defenses at Labcorp have prepared me for.
+I've participated in four bid defenses at Labcorp, working with commercial colleagues to build and defend the operational and pricing story to a major sponsor. Alongside that I represent Labcorp internationally to Novartis in person (London, Basel, and London again this September) as Global Study Manager on HORIZON — the largest trial Novartis runs with us — and take part in regular client audits. The posting's expectation that this role acts as trusted adviser to the commercial team on large deals is the relationship I already have internally, just without the title.
 
-Earlier, as a Global Clinical Study Manager, I managed trial budgets exceeding $20M across Oncology, Autoimmune, and Malaria indications, and as a Regional Study Coordinator across EMEA I built cross-country coordination skills relevant to this role's LATAM footprint.
+The pricing and feasibility judgement the role needs rests on knowing what delivery actually costs. As Portfolio Manager at Labcorp Clinical Laboratory Services I oversee 100+ global studies representing $200M+ in annual revenue, and as Global Clinical Study Manager I managed individual trials with budgets exceeding $20M — so when I say a scope is or isn't deliverable at a price, it comes from having run the work.
 
-I'm fluent in English and Portuguese, with working German, and based in Brazil, aligning with this role's remote scope. My Certificate in Project Management from Rutgers underpins the structured approach I bring to program, budget, and stakeholder management.
+On leading a team of five: I'm the escalation point for 100+ project managers globally and mentor continuously, but through influence rather than a formal reporting line. This would be my first direct-report team, and I'd want to be honest about that.
 
-I'd welcome the opportunity to bring this background to your team.
+Based in Brazil, trilingual (English C2, Portuguese C2, German B1).
 
 Thank you for your consideration.
 

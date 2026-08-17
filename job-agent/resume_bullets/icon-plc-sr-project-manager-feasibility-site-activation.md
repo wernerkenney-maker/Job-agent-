@@ -1,6 +1,6 @@
 # Resume bullet adjustments — (Sr) Project Manager, Feasibility Site Activation (ICON plc)
 
-- Serve as Global Study Manager on HORIZON, the largest trial Novartis runs with Labcorp -- representing Labcorp internationally to Novartis in person (London, Basel, London again) and participating in 4 bid defenses.
-- Currently oversee a portfolio of 100+ concurrent global clinical studies representing $200M+ in annual revenue as Portfolio Manager at Labcorp Clinical Laboratory Services, serving as an escalation point for 100+ project managers globally.
-- Managed clinical trial budgets exceeding $20M across Oncology, Autoimmune, and Malaria indications as Global Clinical Study Manager.
-- Based in Brazil with fluent English and Portuguese (working German); Certificate in Project Management from Rutgers University.
+- Owned site start-up, vendor oversight and budget reconciliation on trials exceeding $20M as Global Clinical Study Manager.
+- Navigated country-level regulatory and ethics submission variation across EMEA as Regional Study Coordinator — the core mechanic of feasibility and activation.
+- Primary client-facing contact at scale: in-person representation of Labcorp to Novartis (London, Basel, London again), regular client audits, 4 bid defenses.
+- Track KPIs and mitigate start-up risk across 100+ concurrent studies as Portfolio Manager and escalation point for 100+ PMs globally.

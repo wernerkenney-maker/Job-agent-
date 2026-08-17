@@ -2,15 +2,13 @@
 
 Dear Hiring Manager,
 
-I'm writing to apply for the Decentralized Clinical Trial Lead role at IQVIA. As Portfolio Manager at Labcorp Clinical Laboratory Services, I oversee 100+ global clinical studies representing $200M+ in annual revenue, serve as an escalation point for a team of 100+ project managers globally, and personally lead the portfolio's most complex "giga trials."
+I'm applying for the Decentralized Clinical Trial Lead role at IQVIA. I'll be upfront: decentralized and hybrid trial delivery is not where my direct experience sits. What the posting describes around it, though — owning the relationship with the project's key customer contact, setting objectives for a team you lead but don't line-manage, and coordinating across technology, mobile nursing, site support and regulatory — is precisely the shape of my current work.
 
-I'm also Global Study Manager on HORIZON, the largest trial Novartis runs with Labcorp -- representing Labcorp internationally to Novartis in person (London, Basel, and again London this September), participating regularly in client audits, and engaging directly with Novartis's operational group. I've participated in four bid defenses -- real, tested client-facing and commercial credibility.
+As Portfolio Manager at Labcorp Clinical Laboratory Services I oversee 100+ global studies representing $200M+ in annual revenue and serve as escalation point for 100+ project managers globally, which is continuous cross-functional coordination between groups with different priorities and no shared reporting line. On the customer side, I'm Global Study Manager on HORIZON, the largest trial Novartis runs with Labcorp, representing Labcorp to Novartis in person (London, Basel, London again) and through regular client audits, plus four bid defenses.
 
-Earlier, as a Global Clinical Study Manager, I managed trial budgets exceeding $20M across Oncology, Autoimmune, and Malaria indications, and as a Regional Study Coordinator across EMEA I built cross-country coordination skills relevant to this role's LATAM footprint.
+The role asks for creativity and comfort in a dynamic setting because DCT delivery models are still consolidating. I'd be joining to learn that model, bringing established client-ownership and multi-vendor coordination rather than claiming DCT expertise I don't have.
 
-I'm fluent in English and Portuguese, with working German, and based in Brazil, aligning with this role's remote scope. My Certificate in Project Management from Rutgers underpins the structured approach I bring to program, budget, and stakeholder management.
-
-I'd welcome the opportunity to bring this background to your team.
+Based in Brazil, trilingual (English C2, Portuguese C2, German B1), fitting the role's five-country LATAM spread.
 
 Thank you for your consideration.
 

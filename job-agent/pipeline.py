@@ -69,7 +69,23 @@ def process_run(
     today = today or today_str()
     merged = merge_sibling_postings(raw_matches)
     state = load_state()
-    new_keys = update_state(state, merged, today)
+
+    # MIN_SCORE gates ENTRY into tracking, not continued refresh of what is
+    # already tracked. A job that once cleared the bar stays a tracked
+    # record and keeps its live fields (score, salary, link status) up to
+    # date even if a later re-score dips below the floor -- otherwise it
+    # would freeze in the Archive showing stale data, which is a quieter
+    # version of losing it. Only genuinely new, below-floor matches are
+    # held back, and they are named rather than dropped in silence.
+    held_back = [job for job in merged if job["key"] not in state and job["score"] < MIN_SCORE]
+    if held_back:
+        print(f"Held back {len(held_back)} new match(es) scoring under the {MIN_SCORE} floor:")
+        for job in sorted(held_back, key=lambda j: -j["score"]):
+            print(f"  [{job['score']}] {job['title']} — {job['company']}")
+        print("  (not yet tracked; raise the score or lower MIN_SCORE to surface them)")
+    trackable = [job for job in merged if job["key"] in state or job["score"] >= MIN_SCORE]
+
+    new_keys = update_state(state, trackable, today)
 
     for job in state.values():
         if job["status"] in EXCLUDED_STATUSES:

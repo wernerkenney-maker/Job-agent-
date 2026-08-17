@@ -2,15 +2,13 @@
 
 Dear Hiring Manager,
 
-I'm writing to apply for the Senior Project Manager, Feasibility Site Activation role at ICON. As Portfolio Manager at Labcorp Clinical Laboratory Services, I oversee 100+ global clinical studies representing $200M+ in annual revenue, serve as an escalation point for a team of 100+ project managers globally, and personally lead the portfolio's most complex "giga trials."
+I'm applying for the Senior Project Manager, Feasibility and Site Activation role at ICON. The role sits at the front end of study delivery — feasibility assessments, country and site recommendations, ethics and regulatory submissions, activation milestones — and asks the holder to be the primary FSA contact for both internal teams and customers.
 
-I'm also Global Study Manager on HORIZON, the largest trial Novartis runs with Labcorp -- representing Labcorp internationally to Novartis in person (London, Basel, and again London this September), participating regularly in client audits, and engaging directly with Novartis's operational group. I've participated in four bid defenses -- real, tested client-facing and commercial credibility.
+That customer-facing half is where my background is strongest. I represent Labcorp internationally to Novartis in person (London, Basel, and London again this September) as Global Study Manager on HORIZON, participate regularly in client audits, and have taken part in four bid defenses. On the operational half, my earliest role was Regional Study Coordinator across EMEA, working country-by-country through exactly the regulatory and ethics variation this role coordinates; later, as Global Clinical Study Manager, I owned site start-up alongside vendor oversight and budget reconciliation on $20M+ trials.
 
-Earlier, as a Global Clinical Study Manager, I managed trial budgets exceeding $20M across Oncology, Autoimmune, and Malaria indications, and as a Regional Study Coordinator across EMEA I built cross-country coordination skills relevant to this role's LATAM footprint.
+The role also asks for tracking against KPIs and proactive risk mitigation. As Portfolio Manager at Labcorp Clinical Laboratory Services I do that across 100+ studies at once, as escalation point for 100+ project managers globally — start-up delays are among the most common things that reach me.
 
-I'm fluent in English and Portuguese, with working German, and based in Brazil, aligning with this role's remote scope. My Certificate in Project Management from Rutgers underpins the structured approach I bring to program, budget, and stakeholder management.
-
-I'd welcome the opportunity to bring this background to your team.
+Home-based in Brazil, trilingual (English C2, Portuguese C2, German B1).
 
 Thank you for your consideration.
 

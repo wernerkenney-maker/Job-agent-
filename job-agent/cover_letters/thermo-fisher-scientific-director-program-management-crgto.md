@@ -2,15 +2,13 @@
 
 Dear Hiring Manager,
 
-I'm writing to apply for the Director, Program Management (CRGTO) role at Thermo Fisher Scientific. As Portfolio Manager at Labcorp Clinical Laboratory Services, I oversee 100+ global clinical studies representing $200M+ in annual revenue, serve as an escalation point for a team of 100+ project managers globally, and personally lead the portfolio's most complex "giga trials."
+I'm applying for the Director, Program Management (CRGTO) role at Thermo Fisher Scientific, and I want to address the experience bar directly: the posting asks for an advanced degree plus ten years, or a bachelor's plus more. I have five and a half years. I'm applying anyway because the scope described is the scope I currently hold, and I'd rather make that case explicitly than let a year count decide it silently.
 
-I'm also Global Study Manager on HORIZON, the largest trial Novartis runs with Labcorp -- representing Labcorp internationally to Novartis in person (London, Basel, and again London this September), participating regularly in client audits, and engaging directly with Novartis's operational group. I've participated in four bid defenses -- real, tested client-facing and commercial credibility. Directing complex, cross-functional programs and serving as a strategic partner to senior executives is exactly what my current Portfolio Manager role already demands.
+What the role describes — managing portfolios of strategic initiatives, establishing project governance frameworks, translating strategy into risk-adjusted execution, and acting as a strategic partner to senior executives — is my day job at a different title. As Portfolio Manager at Labcorp Clinical Laboratory Services I oversee 100+ global studies representing $200M+ in annual revenue, serve as the escalation point for 100+ project managers globally, and personally lead the portfolio's most complex "giga trials." Governance across that many concurrent programs isn't optional; it's the only way the portfolio stays legible.
 
-Earlier, as a Global Clinical Study Manager, I managed trial budgets exceeding $20M across Oncology, Autoimmune, and Malaria indications, and as a Regional Study Coordinator across EMEA I built cross-country coordination skills relevant to this role's LATAM footprint.
+On executive partnership: I represent Labcorp internationally to Novartis in person (London, Basel, and London again this September), engage directly with Novartis's operational group, participate regularly in client audits, and have taken part in four bid defenses. That's senior stakeholder management with real commercial consequences attached.
 
-I'm fluent in English and Portuguese, with working German, and based in Brazil, aligning with this role's remote scope. My Certificate in Project Management from Rutgers underpins the structured approach I bring to program, budget, and stakeholder management.
-
-I'd welcome the opportunity to bring this background to your team.
+I hold a Certificate in Project Management from Rutgers, am based in Brazil, and am trilingual (English C2, Portuguese C2, German B1). I'd welcome a conversation about whether demonstrated scope can stand in for the stated years.
 
 Thank you for your consideration.
 

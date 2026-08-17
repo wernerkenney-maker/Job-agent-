@@ -1,6 +1,6 @@
 # Resume bullet adjustments — Associate Decentralized Clinical Trial Lead / Decentralized Clinical Trial Lead (IQVIA)
 
-- Serve as Global Study Manager on HORIZON, the largest trial Novartis runs with Labcorp -- representing Labcorp internationally to Novartis in person (London, Basel, London again) and participating in 4 bid defenses.
-- Currently oversee a portfolio of 100+ concurrent global clinical studies representing $200M+ in annual revenue as Portfolio Manager at Labcorp Clinical Laboratory Services, serving as an escalation point for 100+ project managers globally.
-- Managed clinical trial budgets exceeding $20M across Oncology, Autoimmune, and Malaria indications as Global Clinical Study Manager.
-- Based in Brazil with fluent English and Portuguese (working German); Certificate in Project Management from Rutgers University.
+- Own a major sponsor relationship end-to-end as Global Study Manager on HORIZON (largest Novartis–Labcorp trial), including in-person representation and 4 bid defenses.
+- Coordinate continuously across functions with no shared reporting line, as escalation point for 100+ project managers globally on a 100+ study, $200M+ portfolio.
+- Set objectives and drive delivery for teams led through influence rather than line authority, personally leading the portfolio's most complex "giga trials."
+- Certificate in Project Management, Rutgers; trilingual (EN C2 / PT C2 / DE B1) across a five-country LATAM remit.
