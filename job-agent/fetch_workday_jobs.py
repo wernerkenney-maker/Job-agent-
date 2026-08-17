@@ -67,6 +67,8 @@ see them. This is inherently client-side/local work -- Workday's search
 API gives no way to filter by "any of N locations is Brazil" server-side.
 """
 
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
 import requests
 
 COMPANIES = {
@@ -160,25 +162,43 @@ def _search(company_key, search_text):
     return results
 
 
+RESOLVE_WORKERS = 12
+
+
 def _resolve_ambiguous_locations(company_key, postings):
     """Mutates each posting whose locationsText is an "N Locations"
     summary, replacing it with the real semicolon-joined location list
     fetched from job detail. See module docstring for why this is
     necessary -- a summary like "4 Locations" can and does include
-    Brazil while giving no client-side way to tell without this."""
-    for posting in postings:
-        locations_text = posting.get("locationsText") or ""
-        if "Locations" not in locations_text:
-            continue
+    Brazil while giving no client-side way to tell without this.
+
+    Fetched concurrently (RESOLVE_WORKERS at a time): a large pharma/CRO
+    catalog can have hundreds of ambiguous multi-location postings, and
+    resolving them one at a time made a single tenant's fetch take up to
+    15 minutes (confirmed directly: IQVIA's full fetch went from ~125s
+    for the raw listing to 897s once every ambiguous posting was resolved
+    sequentially). A thread pool cuts that to the cost of the slowest
+    individual request rather than the sum of all of them, since these
+    are small, independent GET requests with no shared state."""
+    ambiguous = [p for p in postings if "Locations" in (p.get("locationsText") or "")]
+    if not ambiguous:
+        return
+
+    def resolve_one(posting):
         try:
             detail = fetch_job_detail(company_key, posting["externalPath"])
         except requests.exceptions.RequestException:
-            continue
+            return
         primary = detail.get("location") or ""
         additional = detail.get("additionalLocations") or []
         all_locations = [loc for loc in [primary, *additional] if loc]
         if all_locations:
             posting["locationsText"] = "; ".join(all_locations)
+
+    with ThreadPoolExecutor(max_workers=RESOLVE_WORKERS) as pool:
+        futures = [pool.submit(resolve_one, posting) for posting in ambiguous]
+        for future in as_completed(futures):
+            future.result()  # surface any unexpected (non-request) exception
 
 
 def fetch_jobs(company_key):
