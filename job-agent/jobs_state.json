@@ -258,6 +258,43 @@
     "title": "Clinical Trial Manager (CTM)",
     "trajectory": "Lateral move at essentially the same level as your Global Clinical Study Manager role -- strong, low-risk fit."
   },
+  "Fortrea::costing manager ii (emea or latam)": {
+    "category": "Adjacent",
+    "city": null,
+    "col_note": null,
+    "companies": [
+      "Fortrea"
+    ],
+    "company": "Fortrea",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-17",
+    "key": "Fortrea::costing manager ii (emea or latam)",
+    "last_seen": "2026-08-17",
+    "level": "Primary",
+    "link_checked_at": "2026-08-17",
+    "link_status": "live",
+    "location": "Warsaw; Remote United Kingdom; Remote Poland; Remote Brazil; Remote Mexico; Remote Bulgaria; Remote Greece",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "Fortrea",
+        "location": "Warsaw; Remote United Kingdom; Remote Poland; Remote Brazil; Remote Mexico; Remote Bulgaria; Remote Greece",
+        "url": "https://fortrea.wd1.myworkdayjobs.com/Fortrea/job/Warsaw/Costing-Manager-II--EMEA-or-LATAM-_262894"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "Supports Costing Directors in RFP costing/pricing and bid defense preparation across EMEA/LATAM -- real proposal/bid-adjacent exposure, though a support-to-director tier role.",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_confidence": "estimated",
+    "salary_estimate": null,
+    "score": 52,
+    "status": "new",
+    "tier": null,
+    "title": "Costing Manager II (EMEA or LATAM)",
+    "trajectory": "A functional pivot into costing/proposal support -- bid-defense-adjacent exposure, though a narrower, more junior-tier role than your current scope."
+  },
   "Fortrea::investigator grants manager / clinical trial costing manager \u2013 brazil (remote)": {
     "category": "Adjacent",
     "city": "S\u00e3o Paulo",
@@ -517,6 +554,43 @@
     "title": "Gerente Distrital Propaganda M\u00e9dica - Dermo - Curitiba/PR",
     "trajectory": "A lateral pivot into pharma field-sales management -- a real functional shift away from clinical operations, worth considering only if open to a sales-management track."
   },
+  "ICON plc::(sr) project manager, feasibility site activation": {
+    "category": "In-field",
+    "city": "S\u00e3o Paulo",
+    "col_note": "~R$325.000\u2013R$475.000 in S\u00e3o Paulo is roughly equivalent to ~R$224.000\u2013R$328.000 of purchasing power in Fortaleza (S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).",
+    "companies": [
+      "ICON plc"
+    ],
+    "company": "ICON plc",
+    "cover_letter_path": "cover_letters/icon-plc-sr-project-manager-feasibility-site-activation.md",
+    "first_seen": "2026-08-17",
+    "key": "ICON plc::(sr) project manager, feasibility site activation",
+    "last_seen": "2026-08-17",
+    "level": "Primary",
+    "link_checked_at": "2026-08-17",
+    "link_status": "live",
+    "location": "Mexico, Mexico City; Chile, Santiago; Colombia, Bogota; Brazil, Sao Paulo; Peru, Lima",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "ICON plc",
+        "location": "Mexico, Mexico City; Chile, Santiago; Colombia, Bogota; Brazil, Sao Paulo; Peru, Lima",
+        "url": "https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Mexico-Mexico-City/XMLNAME--Sr--Project-Manager--Feasibility-Site-Activation_JR148391"
+      }
+    ],
+    "probability": "High",
+    "reason": "Oversees site start-up and activation workstreams, serves as primary FSA contact for customers, explicitly develops team -- strong project-leadership match, home-based Mexico or Brazil.",
+    "relocation": null,
+    "resume_bullets_path": "resume_bullets/icon-plc-sr-project-manager-feasibility-site-activation.md",
+    "salary": "Not disclosed",
+    "salary_confidence": "estimated",
+    "salary_estimate": "~$65,000\u2013$95,000 USD (estimated \u2014 LATAM CRO senior feasibility/site-activation PM level, not disclosed by employer)",
+    "score": 82,
+    "status": "new",
+    "tier": null,
+    "title": "(Sr) Project Manager, Feasibility Site Activation",
+    "trajectory": "Lateral move into feasibility/site-activation leadership -- strong direct fit."
+  },
   "ICON plc::biosampling project manager": {
     "category": "Adjacent",
     "city": "S\u00e3o Paulo",
@@ -553,6 +627,43 @@
     "tier": null,
     "title": "Biosampling Project Manager",
     "trajectory": "PM-level title is a reasonable lateral, but the specialized biosampling-logistics scope is a real stretch from your background."
+  },
+  "ICON plc::clinical project manager": {
+    "category": "In-field",
+    "city": "S\u00e3o Paulo",
+    "col_note": "~R$310.000\u2013R$460.000 in S\u00e3o Paulo is roughly equivalent to ~R$214.000\u2013R$317.000 of purchasing power in Fortaleza (S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).",
+    "companies": [
+      "ICON plc"
+    ],
+    "company": "ICON plc",
+    "cover_letter_path": "cover_letters/icon-plc-clinical-project-manager.md",
+    "first_seen": "2026-08-17",
+    "key": "ICON plc::clinical project manager",
+    "last_seen": "2026-08-17",
+    "level": "Primary",
+    "link_checked_at": "2026-08-17",
+    "link_status": "live",
+    "location": "Brazil, Sao Paulo; Argentina, Buenos Aires; Mexico, Mexico City",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "ICON plc",
+        "location": "Brazil, Sao Paulo; Argentina, Buenos Aires; Mexico, Mexico City",
+        "url": "https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Brazil-Sao-Paulo/Clinical-Project-Manager_JR157740"
+      }
+    ],
+    "probability": "High",
+    "reason": "Leading cross-functional project teams, developing detailed project plans/budgets, presenting to senior management, explicitly developing team capability -- direct match to your program-leadership background.",
+    "relocation": null,
+    "resume_bullets_path": "resume_bullets/icon-plc-clinical-project-manager.md",
+    "salary": "Not disclosed",
+    "salary_confidence": "estimated",
+    "salary_estimate": "~$62,000\u2013$92,000 USD (estimated \u2014 LATAM CRO project manager level, not disclosed by employer)",
+    "score": 85,
+    "status": "new",
+    "tier": null,
+    "title": "Clinical Project Manager",
+    "trajectory": "Lateral move at essentially your current level -- strong, low-risk fit."
   },
   "ICON plc::clinical project manager - brazil": {
     "category": "In-field",
@@ -702,6 +813,80 @@
     "title": "Medical Director",
     "trajectory": "A big leap in function (ops/portfolio management to medical affairs leadership), now backed by real executive client-facing credibility -- but the medical-degree requirement is likely a hard blocker, so confirm before applying."
   },
+  "ICON plc::project manager, pcs": {
+    "category": "Adjacent",
+    "city": "S\u00e3o Paulo",
+    "col_note": "S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza (rough estimate).",
+    "companies": [
+      "ICON plc"
+    ],
+    "company": "ICON plc",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-17",
+    "key": "ICON plc::project manager, pcs",
+    "last_seen": "2026-08-17",
+    "level": "Primary",
+    "link_checked_at": "2026-08-17",
+    "link_status": "live",
+    "location": "Mexico, Mexico City; Brazil, Sao Paulo",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "ICON plc",
+        "location": "Mexico, Mexico City; Brazil, Sao Paulo",
+        "url": "https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Mexico-Mexico-City/Project-Manager--PCS_JR142926"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "Project leadership across market access/HEOR consulting projects, client relationships, matrix teams on global projects, budget management -- genuine PM/client-relationship scope in an adjacent consulting function.",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_confidence": "estimated",
+    "salary_estimate": null,
+    "score": 68,
+    "status": "new",
+    "tier": null,
+    "title": "Project Manager, PCS",
+    "trajectory": "A functional pivot into market-access/HEOR consulting project management -- client-relationship and matrix-team leadership transfer directly."
+  },
+  "ICON plc::senior clinical supplies specialist": {
+    "category": "Adjacent",
+    "city": "S\u00e3o Paulo",
+    "col_note": "S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza (rough estimate).",
+    "companies": [
+      "ICON plc"
+    ],
+    "company": "ICON plc",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-17",
+    "key": "ICON plc::senior clinical supplies specialist",
+    "last_seen": "2026-08-17",
+    "level": "Primary",
+    "link_checked_at": "2026-08-17",
+    "link_status": "live",
+    "location": "Mexico, Mexico City; Argentina, Buenos Aires; Colombia, Bogota; Brazil, Sao Paulo",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "ICON plc",
+        "location": "Mexico, Mexico City; Argentina, Buenos Aires; Colombia, Bogota; Brazil, Sao Paulo",
+        "url": "https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Mexico-Mexico-City/Senior-Clinical-Supplies-Specialist_JR157811"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "Leads and coordinates external clinical supply packaging/distribution, key technical lead for supply operations -- genuine technical leadership, though narrow supply-chain function.",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_confidence": "estimated",
+    "salary_estimate": null,
+    "score": 52,
+    "status": "new",
+    "tier": null,
+    "title": "Senior Clinical Supplies Specialist",
+    "trajectory": "A functional pivot into clinical supply-chain leadership -- narrower, more technical fit than your current program-leadership role."
+  },
   "ICON plc::senior clinical trial manager": {
     "category": "In-field",
     "city": "S\u00e3o Paulo",
@@ -739,6 +924,228 @@
     "title": "Senior Clinical Trial Manager",
     "trajectory": "Lateral to modest step up from your Global Clinical Study Manager role -- strong, low-risk fit."
   },
+  "ICON plc::senior global regulatory scientist": {
+    "category": "Adjacent",
+    "city": "S\u00e3o Paulo",
+    "col_note": "~R$275.000\u2013R$410.000 in S\u00e3o Paulo is roughly equivalent to ~R$190.000\u2013R$283.000 of purchasing power in Fortaleza (S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).",
+    "companies": [
+      "ICON plc"
+    ],
+    "company": "ICON plc",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-17",
+    "key": "ICON plc::senior global regulatory scientist",
+    "last_seen": "2026-08-17",
+    "level": "Primary",
+    "link_checked_at": "2026-08-17",
+    "link_status": "live",
+    "location": "Mexico, Mexico City; Brazil, Sao Paulo",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "ICON plc",
+        "location": "Mexico, Mexico City; Brazil, Sao Paulo",
+        "url": "https://icon.wd3.myworkdayjobs.com/broadbean_external/job/Mexico-Mexico-City/Senior-Global-Regulatory-Scientist_JR142556"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "Leads development of global regulatory strategies for clinical programmes, represents regulatory functions in sponsor/health-authority meetings, mentors junior colleagues -- genuine strategic regulatory leadership.",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_confidence": "estimated",
+    "salary_estimate": "~$55,000\u2013$82,000 USD (estimated \u2014 LATAM CRO senior scientist level, regulatory science function, not disclosed by employer)",
+    "score": 55,
+    "status": "new",
+    "tier": null,
+    "title": "Senior Global Regulatory Scientist",
+    "trajectory": "A functional pivot into regulatory strategy leadership -- narrower, more scientific/technical fit than your current program-leadership role."
+  },
+  "ICON plc::senior regulatory project manager": {
+    "category": "Adjacent",
+    "city": "S\u00e3o Paulo",
+    "col_note": "S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza (rough estimate).",
+    "companies": [
+      "ICON plc"
+    ],
+    "company": "ICON plc",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-17",
+    "key": "ICON plc::senior regulatory project manager",
+    "last_seen": "2026-08-17",
+    "level": "Primary",
+    "link_checked_at": "2026-08-17",
+    "link_status": "live",
+    "location": "US, Blue Bell (ICON); US, Blue Bell (PRA); Brazil, Sao Paulo; UK, Reading",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "ICON plc",
+        "location": "US, Blue Bell (ICON); US, Blue Bell (PRA); Brazil, Sao Paulo; UK, Reading",
+        "url": "https://icon.wd3.myworkdayjobs.com/broadbean_external/job/US-Blue-Bell-ICON/Senior-Regulatory-Project-Manager_JR155900"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "Senior Manager, Regulatory Strategy -- leads and manages cross-functional submission teams, represents the regulatory project management group in cross-functional planning -- genuine Senior Manager-level team leadership.",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_confidence": "estimated",
+    "salary_estimate": null,
+    "score": 65,
+    "status": "new",
+    "tier": null,
+    "title": "Senior Regulatory Project Manager",
+    "trajectory": "A functional pivot into regulatory submission project management -- genuine team-leadership scope, narrower in function than your current role."
+  },
+  "IQVIA::(senior) data team lead": {
+    "category": "Adjacent",
+    "city": "S\u00e3o Paulo",
+    "col_note": "S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza (rough estimate).",
+    "companies": [
+      "IQVIA"
+    ],
+    "company": "IQVIA",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-17",
+    "key": "IQVIA::(senior) data team lead",
+    "last_seen": "2026-08-17",
+    "level": "Primary",
+    "link_checked_at": "2026-08-17",
+    "link_status": "live",
+    "location": "Mexico City, Mexico; Buenos Aires, Argentina; S\u00e3o Paulo, Brazil; Bogota, Colombia",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "IQVIA",
+        "location": "Mexico City, Mexico; Buenos Aires, Argentina; S\u00e3o Paulo, Brazil; Bogota, Colombia",
+        "url": "https://iqvia.wd1.myworkdayjobs.com/IQVIA/job/Mexico-City-Mexico/XMLNAME--Senior--Data-Team-Lead_R1543913"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "Provides leadership and vision to a data-management team, serves as primary customer point of contact, leads direct negotiations with customers -- genuine team leadership and client negotiation, though data-management-specific.",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_confidence": "estimated",
+    "salary_estimate": null,
+    "score": 62,
+    "status": "new",
+    "tier": null,
+    "title": "(Senior) Data Team Lead",
+    "trajectory": "A functional pivot into data-management team leadership -- client negotiation and team leadership transfer, though the function is narrower and more technical than your current role."
+  },
+  "IQVIA::assoc. site activation manager - sponsor dedicated": {
+    "category": "In-field",
+    "city": "S\u00e3o Paulo",
+    "col_note": "S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza (rough estimate).",
+    "companies": [
+      "IQVIA"
+    ],
+    "company": "IQVIA",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-17",
+    "key": "IQVIA::assoc. site activation manager - sponsor dedicated",
+    "last_seen": "2026-08-17",
+    "level": "Primary",
+    "link_checked_at": "2026-08-17",
+    "link_status": "live",
+    "location": "Buenos Aires, Argentina; Mexico City, Mexico; S\u00e3o Paulo, Brazil",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "IQVIA",
+        "location": "Buenos Aires, Argentina; Mexico City, Mexico; S\u00e3o Paulo, Brazil",
+        "url": "https://iqvia.wd1.myworkdayjobs.com/IQVIA/job/Buenos-Aires-Argentina/Assoc-Site-Activation-Manager---Sponsor-Dedicated_R1560453"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "Directs and manages site activation delivery for assigned studies -- genuine project-leadership scope, though Associate-level (3+ years) sits below your current seniority.",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_confidence": "estimated",
+    "salary_estimate": null,
+    "score": 65,
+    "status": "new",
+    "tier": null,
+    "title": "Assoc. Site Activation Manager - Sponsor Dedicated",
+    "trajectory": "A step down in seniority from your current role, but genuine site-activation project-leadership scope, sponsor-dedicated."
+  },
+  "IQVIA::assoc. site activation manager.": {
+    "category": "In-field",
+    "city": "S\u00e3o Paulo",
+    "col_note": "S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza (rough estimate).",
+    "companies": [
+      "IQVIA"
+    ],
+    "company": "IQVIA",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-17",
+    "key": "IQVIA::assoc. site activation manager.",
+    "last_seen": "2026-08-17",
+    "level": "Primary",
+    "link_checked_at": "2026-08-17",
+    "link_status": "live",
+    "location": "Buenos Aires, Argentina; Mexico City, Mexico; S\u00e3o Paulo, Brazil; Bogota, Colombia",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "IQVIA",
+        "location": "Buenos Aires, Argentina; Mexico City, Mexico; S\u00e3o Paulo, Brazil; Bogota, Colombia",
+        "url": "https://iqvia.wd1.myworkdayjobs.com/IQVIA/job/Buenos-Aires-Argentina/Assoc-Site-Activation-Manager--Sponsor-Facing_R1548809"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "Leads and oversees country operations teams for site activation, participates in bid defense meetings -- genuine associate-level project leadership with bid-defense exposure.",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_confidence": "estimated",
+    "salary_estimate": null,
+    "score": 63,
+    "status": "new",
+    "tier": null,
+    "title": "Assoc. Site Activation Manager.",
+    "trajectory": "A step down in seniority from your current role, but genuine project leadership with real bid-defense involvement."
+  },
+  "IQVIA::associate decentralized clinical trial lead / decentralized clinical trial lead": {
+    "category": "In-field",
+    "city": "S\u00e3o Paulo",
+    "col_note": "~R$300.000\u2013R$440.000 in S\u00e3o Paulo is roughly equivalent to ~R$207.000\u2013R$303.000 of purchasing power in Fortaleza (S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).",
+    "companies": [
+      "IQVIA"
+    ],
+    "company": "IQVIA",
+    "cover_letter_path": "cover_letters/iqvia-associate-decentralized-clinical-trial-lead-decentralized-clinical-trial-lead.md",
+    "first_seen": "2026-08-17",
+    "key": "IQVIA::associate decentralized clinical trial lead / decentralized clinical trial lead",
+    "last_seen": "2026-08-17",
+    "level": "Primary",
+    "link_checked_at": "2026-08-17",
+    "link_status": "live",
+    "location": "S\u00e3o Paulo, Brazil; Mexico City, Mexico; Buenos Aires, Argentina; Lima, Peru; Bogota, Colombia",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "IQVIA",
+        "location": "S\u00e3o Paulo, Brazil; Mexico City, Mexico; Buenos Aires, Argentina; Lima, Peru; Bogota, Colombia",
+        "url": "https://iqvia.wd1.myworkdayjobs.com/IQVIA/job/So-Paulo-Brazil/Associate-Decentralized-Clinical-Trial-Lead---Decentralized-Clinical-Trial-Lead_R1555556-1"
+      }
+    ],
+    "probability": "High",
+    "reason": "Accountable for strategic development and delivery of DCT studies, owns the relationship with the project's key customer contact, sets team objectives -- strong project/client leadership match, in a growing decentralized-trials specialty.",
+    "relocation": null,
+    "resume_bullets_path": "resume_bullets/iqvia-associate-decentralized-clinical-trial-lead-decentralized-clinical-trial-lead.md",
+    "salary": "Not disclosed",
+    "salary_confidence": "estimated",
+    "salary_estimate": "~$60,000\u2013$88,000 USD (estimated \u2014 LATAM CRO DCT lead level, not disclosed by employer)",
+    "score": 83,
+    "status": "new",
+    "tier": null,
+    "title": "Associate Decentralized Clinical Trial Lead / Decentralized Clinical Trial Lead",
+    "trajectory": "Lateral move into a specialized (decentralized trials) but structurally similar project-leadership role -- strong fit."
+  },
   "IQVIA::centralized monitoring lead in latam (remote)": {
     "category": "In-field",
     "city": null,
@@ -775,6 +1182,43 @@
     "tier": null,
     "title": "Centralized Monitoring Lead in LATAM (Remote)",
     "trajectory": "A step down in scope from portfolio management into a more specialized monitoring-lead function -- doable, not a direct line."
+  },
+  "IQVIA::clinical lead - global study leadership": {
+    "category": "In-field",
+    "city": "S\u00e3o Paulo",
+    "col_note": "~R$340.000\u2013R$490.000 in S\u00e3o Paulo is roughly equivalent to ~R$234.000\u2013R$338.000 of purchasing power in Fortaleza (S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).",
+    "companies": [
+      "IQVIA"
+    ],
+    "company": "IQVIA",
+    "cover_letter_path": "cover_letters/iqvia-clinical-lead-global-study-leadership.md",
+    "first_seen": "2026-08-17",
+    "key": "IQVIA::clinical lead - global study leadership",
+    "last_seen": "2026-08-17",
+    "level": "Primary",
+    "link_checked_at": "2026-08-17",
+    "link_status": "live",
+    "location": "S\u00e3o Paulo, Brazil; Mexico City, Mexico; Buenos Aires, Argentina; Santiago, Chile; Lima, Peru; Bogota, Colombia",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "IQVIA",
+        "location": "S\u00e3o Paulo, Brazil; Mexico City, Mexico; Buenos Aires, Argentina; Santiago, Chile; Lima, Peru; Bogota, Colombia",
+        "url": "https://iqvia.wd1.myworkdayjobs.com/IQVIA/job/So-Paulo-Brazil/Clinical-Lead---Global-Study-Leadership_R1559712-1"
+      }
+    ],
+    "probability": "High",
+    "reason": "Accountable for clinical delivery of regional and global studies, driving patient recruitment and site engagement strategies across a broad therapeutic portfolio -- direct match to your global study management background.",
+    "relocation": null,
+    "resume_bullets_path": "resume_bullets/iqvia-clinical-lead-global-study-leadership.md",
+    "salary": "Not disclosed",
+    "salary_confidence": "estimated",
+    "salary_estimate": "~$68,000\u2013$98,000 USD (estimated \u2014 LATAM CRO global study clinical lead level, not disclosed by employer)",
+    "score": 85,
+    "status": "new",
+    "tier": null,
+    "title": "Clinical Lead - Global Study Leadership",
+    "trajectory": "Lateral move into global study clinical leadership -- strong direct fit."
   },
   "IQVIA::clinical trial manager - sponsor dedicated": {
     "category": "In-field",
@@ -849,6 +1293,228 @@
     "tier": null,
     "title": "Coordenador de Opera\u00e7\u00f5es de Neg\u00f3cios",
     "trajectory": "A step down in scope from portfolio management to operations coordination, but a legitimate operational-leadership role at a major CRO."
+  },
+  "IQVIA::primary research manager (fieldwork)": {
+    "category": "Adjacent",
+    "city": "S\u00e3o Paulo",
+    "col_note": "S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza (rough estimate).",
+    "companies": [
+      "IQVIA"
+    ],
+    "company": "IQVIA",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-17",
+    "key": "IQVIA::primary research manager (fieldwork)",
+    "last_seen": "2026-08-17",
+    "level": "Primary",
+    "link_checked_at": "2026-08-17",
+    "link_status": "live",
+    "location": "Mexico City, Mexico; Buenos Aires, Argentina; S\u00e3o Paulo, Brazil; Santiago, Chile; Bogota, Colombia",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "IQVIA",
+        "location": "Mexico City, Mexico; Buenos Aires, Argentina; S\u00e3o Paulo, Brazil; Santiago, Chile; Bogota, Colombia",
+        "url": "https://iqvia.wd1.myworkdayjobs.com/IQVIA/job/Mexico-City-Mexico/Fieldwork-Support-Manager_R1547435"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "Manages end-to-end healthcare market-research fieldwork, vendor/financial management, team capability development -- genuine manager-level scope, though a narrower market-research function.",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_confidence": "estimated",
+    "salary_estimate": null,
+    "score": 58,
+    "status": "new",
+    "tier": null,
+    "title": "Primary Research Manager (Fieldwork)",
+    "trajectory": "A functional pivot into market-research fieldwork management -- vendor and team management skills transfer, though the function is narrower than your current role."
+  },
+  "IQVIA::principal clinical database manager": {
+    "category": "Adjacent",
+    "city": "S\u00e3o Paulo",
+    "col_note": "S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza (rough estimate).",
+    "companies": [
+      "IQVIA"
+    ],
+    "company": "IQVIA",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-17",
+    "key": "IQVIA::principal clinical database manager",
+    "last_seen": "2026-08-17",
+    "level": "Primary",
+    "link_checked_at": "2026-08-17",
+    "link_status": "live",
+    "location": "Bogota, Colombia; Mexico City, Mexico; Buenos Aires, Argentina; Santiago, Chile; Lima, Peru; S\u00e3o Paulo, Brazil",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "IQVIA",
+        "location": "Bogota, Colombia; Mexico City, Mexico; Buenos Aires, Argentina; Santiago, Chile; Lima, Peru; S\u00e3o Paulo, Brazil",
+        "url": "https://iqvia.wd1.myworkdayjobs.com/IQVIA/job/Bogota-Colombia/Principal-Clinical-Database-Manager_R1547599"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "Owns study database design/build and project financials from a programming-services perspective -- genuine Principal-level ownership, but heavily technical (eCRF/CDMS design) rather than program or client leadership.",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_confidence": "estimated",
+    "salary_estimate": null,
+    "score": 52,
+    "status": "new",
+    "tier": null,
+    "title": "Principal Clinical Database Manager",
+    "trajectory": "A functional pivot into technical data-management leadership -- a narrower, more technical fit than your current program-leadership role."
+  },
+  "IQVIA::regulatory affairs officer, iqvia biotech": {
+    "category": "Adjacent",
+    "city": "S\u00e3o Paulo",
+    "col_note": "S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza (rough estimate).",
+    "companies": [
+      "IQVIA"
+    ],
+    "company": "IQVIA",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-17",
+    "key": "IQVIA::regulatory affairs officer, iqvia biotech",
+    "last_seen": "2026-08-17",
+    "level": "Primary",
+    "link_checked_at": "2026-08-17",
+    "link_status": "live",
+    "location": "Buenos Aires, Argentina; Mexico City, Mexico; S\u00e3o Paulo, Brazil",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "IQVIA",
+        "location": "Buenos Aires, Argentina; Mexico City, Mexico; S\u00e3o Paulo, Brazil",
+        "url": "https://iqvia.wd1.myworkdayjobs.com/IQVIA/job/Buenos-Aires-Argentina/Regulatory-Affairs-Officer--IQVIA-Biotech_R1550155"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "Serves as Regulatory Team Lead on complex global studies, presents at full-service bid defenses, mentors junior colleagues -- real team-lead and bid-defense elements, though the 3-4 year experience bar is below your seniority.",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_confidence": "estimated",
+    "salary_estimate": null,
+    "score": 55,
+    "status": "new",
+    "tier": null,
+    "title": "Regulatory Affairs Officer, IQVIA Biotech",
+    "trajectory": "A functional pivot into regulatory affairs team leadership with real bid-defense exposure, though at a more junior experience band than your current role."
+  },
+  "IQVIA::site activation manager (global)": {
+    "category": "In-field",
+    "city": "S\u00e3o Paulo",
+    "col_note": "~R$350.000\u2013R$500.000 in S\u00e3o Paulo is roughly equivalent to ~R$241.000\u2013R$345.000 of purchasing power in Fortaleza (S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).",
+    "companies": [
+      "IQVIA"
+    ],
+    "company": "IQVIA",
+    "cover_letter_path": "cover_letters/iqvia-site-activation-manager-global.md",
+    "first_seen": "2026-08-17",
+    "key": "IQVIA::site activation manager (global)",
+    "last_seen": "2026-08-17",
+    "level": "Primary",
+    "link_checked_at": "2026-08-17",
+    "link_status": "live",
+    "location": "S\u00e3o Paulo, Brazil; Mexico City, Mexico; Buenos Aires, Argentina; Bogota, Colombia",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "IQVIA",
+        "location": "S\u00e3o Paulo, Brazil; Mexico City, Mexico; Buenos Aires, Argentina; Bogota, Colombia",
+        "url": "https://iqvia.wd1.myworkdayjobs.com/IQVIA/job/So-Paulo-Brazil/Site-Activation-Manager--Global-_R1548815"
+      }
+    ],
+    "probability": "High",
+    "reason": "Lead and manage strategic/operational/financial delivery of Site Activation across global studies -- 7+ years incl. 3+ in a leadership role, explicit bid defense and client engagement, mentors team members. The exact role this whole rescan was built to catch: genuinely Brazil-eligible and manager-level, but its title alone gives no hint of that scope.",
+    "relocation": null,
+    "resume_bullets_path": "resume_bullets/iqvia-site-activation-manager-global.md",
+    "salary": "Not disclosed",
+    "salary_confidence": "estimated",
+    "salary_estimate": "~$70,000\u2013$100,000 USD (estimated \u2014 LATAM CRO global site-activation manager level, 7+ years incl. leadership, not disclosed by employer)",
+    "score": 87,
+    "status": "new",
+    "tier": null,
+    "title": "Site Activation Manager (Global)",
+    "trajectory": "Lateral move into global site-activation leadership -- strong direct fit with your bid-defense and client-relationship background."
+  },
+  "IQVIA::sr clinical project manager": {
+    "category": "In-field",
+    "city": "S\u00e3o Paulo",
+    "col_note": "~R$325.000\u2013R$475.000 in S\u00e3o Paulo is roughly equivalent to ~R$224.000\u2013R$328.000 of purchasing power in Fortaleza (S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).",
+    "companies": [
+      "IQVIA"
+    ],
+    "company": "IQVIA",
+    "cover_letter_path": "cover_letters/iqvia-sr-clinical-project-manager.md",
+    "first_seen": "2026-08-17",
+    "key": "IQVIA::sr clinical project manager",
+    "last_seen": "2026-08-17",
+    "level": "Primary",
+    "link_checked_at": "2026-08-17",
+    "link_status": "live",
+    "location": "S\u00e3o Paulo, Brazil; Buenos Aires, Argentina",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "IQVIA",
+        "location": "S\u00e3o Paulo, Brazil; Buenos Aires, Argentina",
+        "url": "https://iqvia.wd1.myworkdayjobs.com/IQVIA/job/So-Paulo-Brazil/Sr-Clinical-Project-Manager_R1560017"
+      }
+    ],
+    "probability": "High",
+    "reason": "Senior Project Lead running own studies, leading bid defense presentations in partnership with Business Development, accountable for strategic planning and execution -- direct match to your bid-defense and study-leadership background.",
+    "relocation": null,
+    "resume_bullets_path": "resume_bullets/iqvia-sr-clinical-project-manager.md",
+    "salary": "Not disclosed",
+    "salary_confidence": "estimated",
+    "salary_estimate": "~$65,000\u2013$95,000 USD (estimated \u2014 LATAM CRO senior PM level, not disclosed by employer)",
+    "score": 90,
+    "status": "new",
+    "tier": null,
+    "title": "Sr Clinical Project Manager",
+    "trajectory": "Lateral to modest step up from your Global Clinical Study Manager role -- the bid-defense language mirrors your actual experience closely."
+  },
+  "IQVIA::sr clinical trial manager - global studies": {
+    "category": "In-field",
+    "city": "S\u00e3o Paulo",
+    "col_note": "~R$350.000\u2013R$500.000 in S\u00e3o Paulo is roughly equivalent to ~R$241.000\u2013R$345.000 of purchasing power in Fortaleza (S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza; both figures rough estimates, using an approximate R$5.00/USD exchange rate).",
+    "companies": [
+      "IQVIA"
+    ],
+    "company": "IQVIA",
+    "cover_letter_path": "cover_letters/iqvia-sr-clinical-trial-manager-global-studies.md",
+    "first_seen": "2026-08-17",
+    "key": "IQVIA::sr clinical trial manager - global studies",
+    "last_seen": "2026-08-17",
+    "level": "Primary",
+    "link_checked_at": "2026-08-17",
+    "link_status": "live",
+    "location": "Mexico City, Mexico; Santiago, Chile; Panama City, Panama; Buenos Aires, Argentina; San Jose, Costa Rica; S\u00e3o Paulo, Brazil; Bogota, Colombia",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "IQVIA",
+        "location": "Mexico City, Mexico; Santiago, Chile; Panama City, Panama; Buenos Aires, Argentina; San Jose, Costa Rica; S\u00e3o Paulo, Brazil; Bogota, Colombia",
+        "url": "https://iqvia.wd1.myworkdayjobs.com/IQVIA/job/Mexico-City-Mexico/Sr-Clinical-Trial-Manager---Cell-Therapy_R1558569"
+      }
+    ],
+    "probability": "High",
+    "reason": "End-to-end global trial management, 8 years clinical research/monitoring experience, 3+ years regional/global trial management -- direct match to your Global Clinical Study Manager background.",
+    "relocation": null,
+    "resume_bullets_path": "resume_bullets/iqvia-sr-clinical-trial-manager-global-studies.md",
+    "salary": "Not disclosed",
+    "salary_confidence": "estimated",
+    "salary_estimate": "~$70,000\u2013$100,000 USD (estimated \u2014 LATAM CRO senior global CTM level, not disclosed by employer)",
+    "score": 87,
+    "status": "new",
+    "tier": null,
+    "title": "Sr Clinical Trial Manager - Global Studies",
+    "trajectory": "Lateral move at essentially your current level -- strong, low-risk fit."
   },
   "Kyndryl::customer partner": {
     "category": "Adjacent",
@@ -1146,6 +1812,43 @@
     "title": "Global Study Manager II - FSP",
     "trajectory": "Lateral move to a near-identical role you already hold (Global Study Manager) at a major CRO -- strong, low-risk fit, reinforced by real client-facing credibility."
   },
+  "Parexel::supply and logistics project manager": {
+    "category": "Adjacent",
+    "city": null,
+    "col_note": null,
+    "companies": [
+      "Parexel"
+    ],
+    "company": "Parexel",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-17",
+    "key": "Parexel::supply and logistics project manager",
+    "last_seen": "2026-08-17",
+    "level": "Primary",
+    "link_checked_at": "2026-08-17",
+    "link_status": "live",
+    "location": "Argentina-Remote; Mexico-Remote; Brazil-Remote",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "Parexel",
+        "location": "Argentina-Remote; Mexico-Remote; Brazil-Remote",
+        "url": "https://parexel.wd1.myworkdayjobs.com/Parexel_External_Careers/job/Argentina-Remote/Supply-and-logistics-Project-Manager_R0000043749"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "Functional leader providing global leadership, management, and strategic direction for Clinical Logistics projects -- genuine PM/functional-leadership scope, high-impact and independent decision-making, though logistics-specific.",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_confidence": "estimated",
+    "salary_estimate": null,
+    "score": 65,
+    "status": "new",
+    "tier": null,
+    "title": "Supply and logistics Project Manager",
+    "trajectory": "A lateral pivot into clinical-logistics functional leadership -- genuine project/functional leadership, narrower in scope than your current role."
+  },
   "Precision Medicine Group family::account development manager": {
     "category": "Adjacent",
     "city": null,
@@ -1398,6 +2101,43 @@
     "title": "Gerente de Assist\u00eancia T\u00e9cnica e Servi\u00e7os",
     "trajectory": "A lateral pivot into technical-services operations management -- different function, but the team-leadership and operational-efficiency scope transfers."
   },
+  "Syneos Health::clinical trial manager i with some experience in project management as a ctm or pm - sao paulo, brazil client based (50% of the time in client's office)": {
+    "category": "In-field",
+    "city": null,
+    "col_note": null,
+    "companies": [
+      "Syneos Health"
+    ],
+    "company": "Syneos Health",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-17",
+    "key": "Syneos Health::clinical trial manager i with some experience in project management as a ctm or pm - sao paulo, brazil client based (50% of the time in client's office)",
+    "last_seen": "2026-08-17",
+    "level": "Primary",
+    "link_checked_at": "2026-08-17",
+    "link_status": "live",
+    "location": "BRA-Client",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "Syneos Health",
+        "location": "BRA-Client",
+        "url": "https://syneoshealth.wd12.myworkdayjobs.com/Syneos_Health_External_Site/job/BRA-Client/Clinical-Trial-Manager-I-with-some-experience-in-project-management-as-a-CTM-or-PM---Sao-Paulo--Brazil-Client-Based--50--of-the-time-in-client-s-office-_25109711"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "Client-based (50% on-site) Clinical Trial Manager I role, Sao Paulo -- genuine direct CTM function, but explicitly the entry CTM tier below your current scope.",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_confidence": "estimated",
+    "salary_estimate": null,
+    "score": 65,
+    "status": "new",
+    "tier": null,
+    "title": "Clinical Trial Manager I with some experience in project management as a CTM or PM - Sao Paulo, Brazil Client Based (50% of the time in client's office)",
+    "trajectory": "A step down in scope/level from your current role, but a genuine on-site, client-facing CTM position in Sao Paulo."
+  },
   "Syneos Health::clinical trial manager with focus on project management - sponsor dedicated - brazil home based": {
     "category": "In-field",
     "city": null,
@@ -1471,6 +2211,43 @@
     "tier": null,
     "title": "CTM II - Sr CTM assigned to client LAtam (USA scope or local scope) - Mexico, Argentina, Brasil, Chile, Colombia",
     "trajectory": "Lateral to modest step up from your Global Clinical Study Manager role -- strong direct fit."
+  },
+  "Syneos Health::feasibility strategy analytics lead (sponsor dedicated) - argentina, brazil and mexico home based": {
+    "category": "Adjacent",
+    "city": null,
+    "col_note": null,
+    "companies": [
+      "Syneos Health"
+    ],
+    "company": "Syneos Health",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-17",
+    "key": "Syneos Health::feasibility strategy analytics lead (sponsor dedicated) - argentina, brazil and mexico home based",
+    "last_seen": "2026-08-17",
+    "level": "Primary",
+    "link_checked_at": "2026-08-17",
+    "link_status": "live",
+    "location": "ARG-Remote; BRA-Remote; MEX-Remote",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "Syneos Health",
+        "location": "ARG-Remote; BRA-Remote; MEX-Remote",
+        "url": "https://syneoshealth.wd12.myworkdayjobs.com/Syneos_Health_External_Site/job/ARG-Remote/Feasibility-Strategy-Analytics-Lead--Sponsor-dedicated----Argentina--Brazil-and-Mexico-Home-Based_25109911"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "LATAM-wide feasibility strategy/analytics function -- \"Lead\" title, though the visible responsibilities read closer to an analytical/business-deliverables role than team or program leadership.",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_confidence": "estimated",
+    "salary_estimate": "~$50,000\u2013$75,000 USD (estimated \u2014 LATAM CRO lead-level, feasibility/strategy analytics function, not disclosed by employer)",
+    "score": 52,
+    "status": "new",
+    "tier": null,
+    "title": "Feasibility Strategy Analytics Lead (Sponsor dedicated) - Argentina, Brazil and Mexico Home Based",
+    "trajectory": "A functional pivot into feasibility strategy analytics -- narrower and more analytical fit than your current program-leadership role."
   },
   "Syneos Health::regulatory cmc manager cell and gene therapy": {
     "category": "Adjacent",
@@ -1619,5 +2396,634 @@
     "tier": null,
     "title": "Gerente de Relacionamento M\u00e9dico e Institucional",
     "trajectory": "A step down in scope from portfolio management, but a genuine strategic client/institutional-relationship leadership role at a dedicated CRO -- leverages your real bid-defense and relationship-management experience directly."
+  },
+  "Thermo Fisher Scientific::ad, program management crgto": {
+    "category": "Adjacent",
+    "city": null,
+    "col_note": null,
+    "companies": [
+      "Thermo Fisher Scientific"
+    ],
+    "company": "Thermo Fisher Scientific",
+    "cover_letter_path": "cover_letters/thermo-fisher-scientific-ad-program-management-crgto.md",
+    "first_seen": "2026-08-17",
+    "key": "Thermo Fisher Scientific::ad, program management crgto",
+    "last_seen": "2026-08-17",
+    "level": "Primary",
+    "link_checked_at": "2026-08-17",
+    "link_status": "live",
+    "location": "Remote, Brazil",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "Thermo Fisher Scientific",
+        "location": "Remote, Brazil",
+        "url": "https://thermofisher.wd5.myworkdayjobs.com/thermofishercareers/job/Remote-Brazil/AD--Program-Management-CRGTO_R-01362375-1"
+      }
+    ],
+    "probability": "High",
+    "reason": "Associate Director of Program Management leading strategic programs/portfolios across business units, builds and guides high-performing teams, trusted advisor to senior leadership -- the second of the two Thermo Fisher roles this rescan targeted. Directly matches your Portfolio Manager scope at your actual level.",
+    "relocation": null,
+    "resume_bullets_path": "resume_bullets/thermo-fisher-scientific-ad-program-management-crgto.md",
+    "salary": "Not disclosed",
+    "salary_confidence": "estimated",
+    "salary_estimate": "~$80,000\u2013$120,000 USD (estimated \u2014 Brazil-based Associate Director-level program management, major global CRO, not disclosed by employer)",
+    "score": 85,
+    "status": "new",
+    "tier": null,
+    "title": "AD, Program Management CRGTO",
+    "trajectory": "Lateral to modest step up from your Portfolio Manager role, at a company squarely in your target industry -- strong fit, worth prioritizing."
+  },
+  "Thermo Fisher Scientific::apm/pm/sr pm gcs": {
+    "category": "Adjacent",
+    "city": null,
+    "col_note": null,
+    "companies": [
+      "Thermo Fisher Scientific"
+    ],
+    "company": "Thermo Fisher Scientific",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-17",
+    "key": "Thermo Fisher Scientific::apm/pm/sr pm gcs",
+    "last_seen": "2026-08-17",
+    "level": "Primary",
+    "link_checked_at": "2026-08-17",
+    "link_status": "live",
+    "location": "Remote, Mexico; Remote, Brazil; Remote, Colombia; Remote, Peru; Remote, Argentina",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "Thermo Fisher Scientific",
+        "location": "Remote, Mexico; Remote, Brazil; Remote, Colombia; Remote, Peru; Remote, Argentina",
+        "url": "https://thermofisher.wd5.myworkdayjobs.com/thermofishercareers/job/Remote-Mexico/APM-PM-Sr-PM-GCS_R-01358062"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "Manages end-to-end clinical supply chain logistics, mentors junior team members, may participate in bid defense -- genuine PM scope with bid-defense exposure, though supply-chain-specific.",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_confidence": "estimated",
+    "salary_estimate": null,
+    "score": 58,
+    "status": "new",
+    "tier": null,
+    "title": "APM/PM/Sr PM GCS",
+    "trajectory": "A lateral pivot into clinical supply-chain project management -- some bid-defense overlap, though a narrower logistics-specific function."
+  },
+  "Thermo Fisher Scientific::associate director operational bidding": {
+    "category": "Adjacent",
+    "city": null,
+    "col_note": null,
+    "companies": [
+      "Thermo Fisher Scientific"
+    ],
+    "company": "Thermo Fisher Scientific",
+    "cover_letter_path": "cover_letters/thermo-fisher-scientific-associate-director-operational-bidding.md",
+    "first_seen": "2026-08-17",
+    "key": "Thermo Fisher Scientific::associate director operational bidding",
+    "last_seen": "2026-08-17",
+    "level": "Primary",
+    "link_checked_at": "2026-08-17",
+    "link_status": "live",
+    "location": "Remote, Brazil",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "Thermo Fisher Scientific",
+        "location": "Remote, Brazil",
+        "url": "https://thermofisher.wd5.myworkdayjobs.com/thermofishercareers/job/Remote-Brazil/Associate-Director-Operational-Bidding_R-01355701"
+      }
+    ],
+    "probability": "High",
+    "reason": "Leads a team of 5 producing bids/proposals for medical affairs scopes of work, trusted adviser to commercial team on large deals, mentors team members -- direct match to your 4 bid defenses and proposal leadership experience.",
+    "relocation": null,
+    "resume_bullets_path": "resume_bullets/thermo-fisher-scientific-associate-director-operational-bidding.md",
+    "salary": "Not disclosed",
+    "salary_confidence": "estimated",
+    "salary_estimate": "~$78,000\u2013$115,000 USD (estimated \u2014 Brazil-based Associate Director-level bid/proposal leadership, major global CRO, not disclosed by employer)",
+    "score": 84,
+    "status": "new",
+    "tier": null,
+    "title": "Associate Director Operational Bidding",
+    "trajectory": "Lateral move into dedicated bid/proposal leadership at your actual level -- your bid-defense experience is exactly what this role screens for."
+  },
+  "Thermo Fisher Scientific::clinical team manager (ctm) \u2013 hemonc": {
+    "category": "In-field",
+    "city": null,
+    "col_note": null,
+    "companies": [
+      "Thermo Fisher Scientific"
+    ],
+    "company": "Thermo Fisher Scientific",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-17",
+    "key": "Thermo Fisher Scientific::clinical team manager (ctm) \u2013 hemonc",
+    "last_seen": "2026-08-17",
+    "level": "Primary",
+    "link_checked_at": "2026-08-17",
+    "link_status": "live",
+    "location": "Remote, Mexico; Remote, Brazil; Remote, Colombia; Remote, Peru; Remote, Argentina; Remote, Chile",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "Thermo Fisher Scientific",
+        "location": "Remote, Mexico; Remote, Brazil; Remote, Colombia; Remote, Peru; Remote, Argentina; Remote, Chile",
+        "url": "https://thermofisher.wd5.myworkdayjobs.com/thermofishercareers/job/Remote-Mexico/Clinical-Team-Manager--CTM----HemOnc_R-01353396"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "Clinical Trial Manager accountable for final clinical deliverables and efficient team management -- direct functional match, though explicitly scoped to low-to-moderate complexity studies (a junior CTM tier vs. your current portfolio-level scope).",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_confidence": "estimated",
+    "salary_estimate": null,
+    "score": 78,
+    "status": "new",
+    "tier": null,
+    "title": "Clinical Team Manager (CTM) \u2013 HemOnc",
+    "trajectory": "A step down in complexity from your current Global Clinical Study Manager scope, but a genuine, direct CTM role."
+  },
+  "Thermo Fisher Scientific::director program management crgto": {
+    "category": "Adjacent",
+    "city": null,
+    "col_note": null,
+    "companies": [
+      "Thermo Fisher Scientific"
+    ],
+    "company": "Thermo Fisher Scientific",
+    "cover_letter_path": "cover_letters/thermo-fisher-scientific-director-program-management-crgto.md",
+    "first_seen": "2026-08-17",
+    "key": "Thermo Fisher Scientific::director program management crgto",
+    "last_seen": "2026-08-17",
+    "level": "Reach",
+    "link_checked_at": "2026-08-17",
+    "link_status": "live",
+    "location": "Remote, Brazil",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "Thermo Fisher Scientific",
+        "location": "Remote, Brazil",
+        "url": "https://thermofisher.wd5.myworkdayjobs.com/thermofishercareers/job/Remote-Brazil/Director-Program-Management-CRGTO_R-01362373"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "Director of Project Management overseeing complex cross-functional projects/portfolios, strategic partner to Sr Executives, establishes project governance frameworks -- one of the two Thermo Fisher Director/AD program-management roles this rescan was specifically built to catch. A genuine Director-level reach, but the portfolio/program-leadership scope maps directly onto your Portfolio Manager role.",
+    "relocation": null,
+    "resume_bullets_path": "resume_bullets/thermo-fisher-scientific-director-program-management-crgto.md",
+    "salary": "Not disclosed",
+    "salary_confidence": "estimated",
+    "salary_estimate": "~$95,000\u2013$145,000 USD (estimated \u2014 Brazil-based Director-level program management, major global CRO, not disclosed by employer)",
+    "score": 85,
+    "status": "new",
+    "tier": null,
+    "title": "Director Program Management CRGTO",
+    "trajectory": "A genuine Director-level reach versus your current title, but the actual scope (portfolio leadership, executive stakeholder management) closely matches what you already do -- worth pursuing."
+  },
+  "Thermo Fisher Scientific::fsp ctm / sr. ctm": {
+    "category": "In-field",
+    "city": null,
+    "col_note": null,
+    "companies": [
+      "Thermo Fisher Scientific"
+    ],
+    "company": "Thermo Fisher Scientific",
+    "cover_letter_path": "cover_letters/thermo-fisher-scientific-fsp-ctm-sr-ctm.md",
+    "first_seen": "2026-08-17",
+    "key": "Thermo Fisher Scientific::fsp ctm / sr. ctm",
+    "last_seen": "2026-08-17",
+    "level": "Primary",
+    "link_checked_at": "2026-08-17",
+    "link_status": "live",
+    "location": "Remote, Brazil",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "Thermo Fisher Scientific",
+        "location": "Remote, Brazil",
+        "url": "https://thermofisher.wd5.myworkdayjobs.com/thermofishercareers/job/Remote-Brazil/FSP-CTM---Sr-CTM_R-01362887"
+      }
+    ],
+    "probability": "High",
+    "reason": "Same Clinical Trial Manager scope as Thermo Fisher's LATAM-wide CTM posting, Brazil-specific -- direct match to your Global Clinical Study Manager background.",
+    "relocation": null,
+    "resume_bullets_path": "resume_bullets/thermo-fisher-scientific-fsp-ctm-sr-ctm.md",
+    "salary": "Not disclosed",
+    "salary_confidence": "estimated",
+    "salary_estimate": "~$62,000\u2013$92,000 USD (estimated \u2014 LATAM CRO senior CTM level, FSP model, Brazil-specific, not disclosed by employer)",
+    "score": 85,
+    "status": "new",
+    "tier": null,
+    "title": "FSP CTM / Sr. CTM",
+    "trajectory": "Lateral move at essentially your current level -- strong, low-risk fit."
+  },
+  "Thermo Fisher Scientific::fsp vendor management specialist": {
+    "category": "Adjacent",
+    "city": null,
+    "col_note": null,
+    "companies": [
+      "Thermo Fisher Scientific"
+    ],
+    "company": "Thermo Fisher Scientific",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-17",
+    "key": "Thermo Fisher Scientific::fsp vendor management specialist",
+    "last_seen": "2026-08-17",
+    "level": "Primary",
+    "link_checked_at": "2026-08-17",
+    "link_status": "live",
+    "location": "Remote, Mexico; Remote, Brazil; Remote, Colombia; Remote, Peru; Remote, Argentina; Santiago, Chile",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "Thermo Fisher Scientific",
+        "location": "Remote, Mexico; Remote, Brazil; Remote, Colombia; Remote, Peru; Remote, Argentina; Santiago, Chile",
+        "url": "https://thermofisher.wd5.myworkdayjobs.com/thermofishercareers/job/Remote-Mexico/FSP-Vendor-Management-Specialist_R-01361416"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "Leads day-to-day oversight of third-party clinical vendors, owns vendor management plans and performance tracking -- genuine vendor-oversight scope overlapping your budget/vendor management background, though titled Specialist.",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_confidence": "estimated",
+    "salary_estimate": null,
+    "score": 52,
+    "status": "new",
+    "tier": null,
+    "title": "FSP Vendor Management Specialist",
+    "trajectory": "A lateral pivot into dedicated vendor-oversight, leveraging your budget/vendor-management experience, though narrower in scope than your current role."
+  },
+  "Thermo Fisher Scientific::icf program manager": {
+    "category": "Adjacent",
+    "city": null,
+    "col_note": null,
+    "companies": [
+      "Thermo Fisher Scientific"
+    ],
+    "company": "Thermo Fisher Scientific",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-17",
+    "key": "Thermo Fisher Scientific::icf program manager",
+    "last_seen": "2026-08-17",
+    "level": "Primary",
+    "link_checked_at": "2026-08-17",
+    "link_status": "live",
+    "location": "Remote, Mexico; Remote, Brazil; Santiago de Chile, Chile; Remote, Colombia; Remote, Argentina",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "Thermo Fisher Scientific",
+        "location": "Remote, Mexico; Remote, Brazil; Santiago de Chile, Chile; Remote, Colombia; Remote, Argentina",
+        "url": "https://thermofisher.wd5.myworkdayjobs.com/thermofishercareers/job/Remote-Mexico/ICF-Program-Manager_R-01361436"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "Leads patient-centric medical writing programs, manages complex projects and client relationships, mentors junior staff -- genuine PM scope, specialized to Informed Consent Form documentation.",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_confidence": "estimated",
+    "salary_estimate": null,
+    "score": 55,
+    "status": "new",
+    "tier": null,
+    "title": "ICF Program Manager",
+    "trajectory": "A lateral pivot into a specialized (medical writing/ICF) program-management track -- client-relationship and PM skills transfer, though narrower in scope."
+  },
+  "Thermo Fisher Scientific::manager, portfolio governance and insights": {
+    "category": "Adjacent",
+    "city": "S\u00e3o Paulo",
+    "col_note": "S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza (rough estimate).",
+    "companies": [
+      "Thermo Fisher Scientific"
+    ],
+    "company": "Thermo Fisher Scientific",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-17",
+    "key": "Thermo Fisher Scientific::manager, portfolio governance and insights",
+    "last_seen": "2026-08-17",
+    "level": "Primary",
+    "link_checked_at": "2026-08-17",
+    "link_status": "live",
+    "location": "S\u00e3o Paulo, Brazil",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "Thermo Fisher Scientific",
+        "location": "S\u00e3o Paulo, Brazil",
+        "url": "https://thermofisher.wd5.myworkdayjobs.com/thermofishercareers/job/So-Paulo-Brazil/Project-Manager--Portfolio-Governance-and-Insights_R-01355401"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "Supports enterprise portfolio governance, PMO standardization, and executive reporting across complex cross-functional initiatives -- genuine portfolio-governance scope, though more analytical/support-leaning than owning a portfolio directly.",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_confidence": "estimated",
+    "salary_estimate": null,
+    "score": 58,
+    "status": "new",
+    "tier": null,
+    "title": "Manager, Portfolio Governance and Insights",
+    "trajectory": "A lateral pivot into portfolio governance and PMO strategy -- transferable from your portfolio-management background, though more analytical in nature."
+  },
+  "Thermo Fisher Scientific::manager, regulatory affairs": {
+    "category": "Adjacent",
+    "city": "S\u00e3o Paulo",
+    "col_note": "S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza (rough estimate).",
+    "companies": [
+      "Thermo Fisher Scientific"
+    ],
+    "company": "Thermo Fisher Scientific",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-17",
+    "key": "Thermo Fisher Scientific::manager, regulatory affairs",
+    "last_seen": "2026-08-17",
+    "level": "Primary",
+    "link_checked_at": "2026-08-17",
+    "link_status": "live",
+    "location": "S\u00e3o Paulo, Brazil",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "Thermo Fisher Scientific",
+        "location": "S\u00e3o Paulo, Brazil",
+        "url": "https://thermofisher.wd5.myworkdayjobs.com/thermofishercareers/job/So-Paulo-Brazil/Manager--Regulatory-Affairs_R-01358241"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "Leads regulatory strategy and compliance for Thermo Fisher's Brazil operations across multiple product lines -- genuine Manager-level ownership of a country regulatory function.",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_confidence": "estimated",
+    "salary_estimate": null,
+    "score": 60,
+    "status": "new",
+    "tier": null,
+    "title": "Manager, Regulatory Affairs",
+    "trajectory": "A functional pivot into regulatory affairs leadership for Brazil operations -- a legitimate senior local-market leadership role."
+  },
+  "Thermo Fisher Scientific::non interventional studies - sr. clinical lead/ sr. clinical trial manager": {
+    "category": "In-field",
+    "city": null,
+    "col_note": null,
+    "companies": [
+      "Thermo Fisher Scientific"
+    ],
+    "company": "Thermo Fisher Scientific",
+    "cover_letter_path": "cover_letters/thermo-fisher-scientific-non-interventional-studies-sr-clinical-lead-sr-clinical-trial-manager.md",
+    "first_seen": "2026-08-17",
+    "key": "Thermo Fisher Scientific::non interventional studies - sr. clinical lead/ sr. clinical trial manager",
+    "last_seen": "2026-08-17",
+    "level": "Primary",
+    "link_checked_at": "2026-08-17",
+    "link_status": "live",
+    "location": "Remote, Brazil; Santiago de Chile, Chile; San Isidro, Peru; Remote, Colombia; Remote, Argentina; Remote, Mexico",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "Thermo Fisher Scientific",
+        "location": "Remote, Brazil; Santiago de Chile, Chile; San Isidro, Peru; Remote, Colombia; Remote, Argentina; Remote, Mexico",
+        "url": "https://thermofisher.wd5.myworkdayjobs.com/thermofishercareers/job/Remote-Brazil/Non-Interventional-Studies---Sr-Clinical-Lead--Sr-Clinical-Trial-Manager_R-01351130"
+      }
+    ],
+    "probability": "High",
+    "reason": "Senior CTM role for non-interventional studies -- works independently on moderate-to-high complexity projects, may assume regional lead/Clinical Study Manager responsibilities -- strong direct match.",
+    "relocation": null,
+    "resume_bullets_path": "resume_bullets/thermo-fisher-scientific-non-interventional-studies-sr-clinical-lead-sr-clinical-trial-manager.md",
+    "salary": "Not disclosed",
+    "salary_confidence": "estimated",
+    "salary_estimate": "~$65,000\u2013$95,000 USD (estimated \u2014 LATAM CRO senior clinical lead/CTM level, non-interventional studies, not disclosed by employer)",
+    "score": 85,
+    "status": "new",
+    "tier": null,
+    "title": "Non Interventional Studies - Sr. Clinical Lead/ Sr. Clinical Trial Manager",
+    "trajectory": "Lateral move at essentially your current level -- strong, low-risk fit."
+  },
+  "Thermo Fisher Scientific::operations manager, medical communications contact center": {
+    "category": "Adjacent",
+    "city": "S\u00e3o Paulo",
+    "col_note": "S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza (rough estimate).",
+    "companies": [
+      "Thermo Fisher Scientific"
+    ],
+    "company": "Thermo Fisher Scientific",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-17",
+    "key": "Thermo Fisher Scientific::operations manager, medical communications contact center",
+    "last_seen": "2026-08-17",
+    "level": "Primary",
+    "link_checked_at": "2026-08-17",
+    "link_status": "live",
+    "location": "S\u00e3o Paulo, Brazil",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "Thermo Fisher Scientific",
+        "location": "S\u00e3o Paulo, Brazil",
+        "url": "https://thermofisher.wd5.myworkdayjobs.com/thermofishercareers/job/So-Paulo-Brazil/Operations-Manager--Medical-Communications-Contact-Center_R-01359760"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "Leads medical information operations team, oversees quality and compliance of medical/clinical work and staff -- genuine operations-management scope, contact-center context.",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_confidence": "estimated",
+    "salary_estimate": null,
+    "score": 55,
+    "status": "new",
+    "tier": null,
+    "title": "Operations Manager, Medical Communications Contact Center",
+    "trajectory": "A functional pivot into medical-communications operations management -- a narrower, more operational fit than your current role."
+  },
+  "Thermo Fisher Scientific::operations strategy sr. lead/lead/consultant \u2013 internal med": {
+    "category": "Adjacent",
+    "city": null,
+    "col_note": null,
+    "companies": [
+      "Thermo Fisher Scientific"
+    ],
+    "company": "Thermo Fisher Scientific",
+    "cover_letter_path": "cover_letters/thermo-fisher-scientific-operations-strategy-sr-lead-lead-consultant-internal-med.md",
+    "first_seen": "2026-08-17",
+    "key": "Thermo Fisher Scientific::operations strategy sr. lead/lead/consultant \u2013 internal med",
+    "last_seen": "2026-08-17",
+    "level": "Primary",
+    "link_checked_at": "2026-08-17",
+    "link_status": "live",
+    "location": "Remote, Brazil; Remote, Peru; Remote, Argentina; Remote, Chile; Remote, Mexico",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "Thermo Fisher Scientific",
+        "location": "Remote, Brazil; Remote, Peru; Remote, Argentina; Remote, Chile; Remote, Mexico",
+        "url": "https://thermofisher.wd5.myworkdayjobs.com/thermofishercareers/job/Remote-Brazil/Operations-Strategy-Sr-Lead-Lead-Consultant---Internal-Med_R-01359391"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "Hires in at AD/Director/Sr Director-equivalent levels; owns operational strategy and bid defense for complex multi-region, multi-service proposals from RFP receipt through client decision -- direct match to your bid-defense background, entering at the AD level matching your actual experience.",
+    "relocation": null,
+    "resume_bullets_path": "resume_bullets/thermo-fisher-scientific-operations-strategy-sr-lead-lead-consultant-internal-med.md",
+    "salary": "Not disclosed",
+    "salary_confidence": "estimated",
+    "salary_estimate": "~$80,000\u2013$120,000 USD (estimated \u2014 Brazil-based AD/Director-range operational strategy and bid-defense leadership, major global CRO, not disclosed by employer)",
+    "score": 80,
+    "status": "new",
+    "tier": null,
+    "title": "Operations Strategy Sr. Lead/Lead/Consultant \u2013 Internal Med",
+    "trajectory": "Lateral move into dedicated proposal/bid strategy leadership at your level, with upside if the hiring level flexes toward Director -- worth pursuing."
+  },
+  "Thermo Fisher Scientific::sr ctm / ctm - fsp": {
+    "category": "In-field",
+    "city": null,
+    "col_note": null,
+    "companies": [
+      "Thermo Fisher Scientific"
+    ],
+    "company": "Thermo Fisher Scientific",
+    "cover_letter_path": "cover_letters/thermo-fisher-scientific-sr-ctm-ctm-fsp.md",
+    "first_seen": "2026-08-17",
+    "key": "Thermo Fisher Scientific::sr ctm / ctm - fsp",
+    "last_seen": "2026-08-17",
+    "level": "Primary",
+    "link_checked_at": "2026-08-17",
+    "link_status": "live",
+    "location": "Remote, Brazil; Santiago de Chile, Chile; San Isidro, Peru; Remote, Colombia; Remote, Argentina; Remote, Mexico",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "Thermo Fisher Scientific",
+        "location": "Remote, Brazil; Santiago de Chile, Chile; San Isidro, Peru; Remote, Colombia; Remote, Argentina; Remote, Mexico",
+        "url": "https://thermofisher.wd5.myworkdayjobs.com/thermofishercareers/job/Remote-Brazil/Sr-CTM---CTM---FSP_R-01365082"
+      }
+    ],
+    "probability": "High",
+    "reason": "Accountable for the final clinical deliverable within contract terms, may assume regional lead or Clinical Study Manager responsibilities, efficient management of the clinical team -- direct CTM match across a LATAM-wide remit.",
+    "relocation": null,
+    "resume_bullets_path": "resume_bullets/thermo-fisher-scientific-sr-ctm-ctm-fsp.md",
+    "salary": "Not disclosed",
+    "salary_confidence": "estimated",
+    "salary_estimate": "~$62,000\u2013$92,000 USD (estimated \u2014 LATAM CRO senior CTM level, FSP model, not disclosed by employer)",
+    "score": 86,
+    "status": "new",
+    "tier": null,
+    "title": "Sr CTM / CTM - FSP",
+    "trajectory": "Lateral move at essentially your current level -- strong, low-risk fit."
+  },
+  "Thermo Fisher Scientific::sr it operations manager": {
+    "category": "Adjacent",
+    "city": "S\u00e3o Paulo",
+    "col_note": "S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza (rough estimate).",
+    "companies": [
+      "Thermo Fisher Scientific"
+    ],
+    "company": "Thermo Fisher Scientific",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-17",
+    "key": "Thermo Fisher Scientific::sr it operations manager",
+    "last_seen": "2026-08-17",
+    "level": "Primary",
+    "link_checked_at": "2026-08-17",
+    "link_status": "live",
+    "location": "S\u00e3o Paulo, Brazil",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "Thermo Fisher Scientific",
+        "location": "S\u00e3o Paulo, Brazil",
+        "url": "https://thermofisher.wd5.myworkdayjobs.com/thermofishercareers/job/So-Paulo-Brazil/Sr-Operations-Manager_R-01362361"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "Leads IT Infrastructure and End User Services operations, strong operational leader combining technical expertise with stakeholder management -- genuine operations-leadership scope, though IT-infrastructure function is a pivot from clinical ops.",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_confidence": "estimated",
+    "salary_estimate": null,
+    "score": 58,
+    "status": "new",
+    "tier": null,
+    "title": "Sr IT Operations Manager",
+    "trajectory": "A genuine functional pivot into IT operations leadership -- the stakeholder-management and operational-leadership skills transfer, though the domain is new."
+  },
+  "Thermo Fisher Scientific::sr manager, field services, latin america": {
+    "category": "Adjacent",
+    "city": "S\u00e3o Paulo",
+    "col_note": "S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza (rough estimate).",
+    "companies": [
+      "Thermo Fisher Scientific"
+    ],
+    "company": "Thermo Fisher Scientific",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-17",
+    "key": "Thermo Fisher Scientific::sr manager, field services, latin america",
+    "last_seen": "2026-08-17",
+    "level": "Primary",
+    "link_checked_at": "2026-08-17",
+    "link_status": "live",
+    "location": "S\u00e3o Paulo, Brazil",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "Thermo Fisher Scientific",
+        "location": "S\u00e3o Paulo, Brazil",
+        "url": "https://thermofisher.wd5.myworkdayjobs.com/thermofishercareers/job/So-Paulo-Brazil/Sr-Manager--Field-Services--Latin-America_R-01363608"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "Leads a 50+ person Field Services and Support organization across Latin America, owns customer/operational/financial targets -- directly matches your capacity-based fit for large distributed-team oversight, though the function (instrument field services) is outside pharma clinical ops.",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_confidence": "estimated",
+    "salary_estimate": null,
+    "score": 76,
+    "status": "new",
+    "tier": null,
+    "title": "Sr Manager, Field Services, Latin America",
+    "trajectory": "A genuine industry-function pivot (clinical ops to technical field services), but the 50+ person team leadership and P&L ownership transfer directly."
+  },
+  "Thermo Fisher Scientific::supervisor, digital innovation and ai delivery": {
+    "category": "Adjacent",
+    "city": "S\u00e3o Paulo",
+    "col_note": "S\u00e3o Paulo's cost of living runs roughly 45% higher than Fortaleza (rough estimate).",
+    "companies": [
+      "Thermo Fisher Scientific"
+    ],
+    "company": "Thermo Fisher Scientific",
+    "cover_letter_path": null,
+    "first_seen": "2026-08-17",
+    "key": "Thermo Fisher Scientific::supervisor, digital innovation and ai delivery",
+    "last_seen": "2026-08-17",
+    "level": "Primary",
+    "link_checked_at": "2026-08-17",
+    "link_status": "live",
+    "location": "S\u00e3o Paulo, Brazil",
+    "market": "International (remote)",
+    "postings": [
+      {
+        "company": "Thermo Fisher Scientific",
+        "location": "S\u00e3o Paulo, Brazil",
+        "url": "https://thermofisher.wd5.myworkdayjobs.com/thermofishercareers/job/So-Paulo-Brazil/Corporate-Strategy-Analyst-III_R-01364224"
+      }
+    ],
+    "probability": "Medium",
+    "reason": "Portfolio leadership for a 13+ initiative AI/data portfolio, structures delivery and governance, is the reference point for portfolio status across the region -- genuine portfolio-management scope (though no direct reports yet), transferable from your portfolio-management background.",
+    "relocation": null,
+    "resume_bullets_path": null,
+    "salary": "Not disclosed",
+    "salary_confidence": "estimated",
+    "salary_estimate": null,
+    "score": 60,
+    "status": "new",
+    "tier": null,
+    "title": "Supervisor, Digital Innovation and AI Delivery",
+    "trajectory": "A functional pivot from clinical portfolio management into digital/AI portfolio management -- the portfolio-governance skill set transfers directly, though the domain is new."
   }
 }
