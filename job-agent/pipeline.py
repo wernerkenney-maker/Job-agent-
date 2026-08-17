@@ -6,6 +6,7 @@ adjustments, and salary estimates. Used identically by match_jobs.py
 paths produce the same report.html shape.
 """
 
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 
 from cost_of_living import (
@@ -18,6 +19,16 @@ from cover_letter import COVER_LETTER_SCORE_THRESHOLD as DRAFT_MATERIALS_THRESHO
 from dedup import merge_sibling_postings
 from jobs_state import APPLIED_STATUSES, EXCLUDED_STATUSES, load_state, save_state, update_state
 from link_check import check_link_status
+
+
+# Minimum score a match must reach to be surfaced at all. Lives here, not
+# in match_jobs.py, because it is a pipeline-level policy that BOTH
+# scoring paths must apply identically -- when only the API path enforced
+# it, hand-scored sub-threshold entries leaked into the report while its
+# header still advertised a 60+ floor.
+MIN_SCORE = 60
+
+LINK_CHECK_WORKERS = 12
 
 
 def today_str():
@@ -125,16 +136,29 @@ def check_expired_links(state, checker=check_link_status, today=None):
     already done with those). A network failure never flips a job to
     expired -- check_link_status() returns "unknown" for that, which is
     left alone here. Mutates and saves state; returns the list of keys
-    newly found expired this run (already-expired keys aren't repeated)."""
+    newly found expired this run (already-expired keys aren't repeated).
+
+    Checked concurrently (LINK_CHECK_WORKERS at a time): the tracked set
+    only ever grows -- nothing is removed from it by design, since every
+    match stays permanently visible -- so a sequential pass gets steadily
+    slower every run (~0.7s per posting: about a minute at 81 tracked,
+    several at a few hundred). These are small independent GETs with no
+    shared state, so the pool costs the slowest single request rather
+    than the sum."""
     today = today or today_str()
+    checkable = [
+        (key, job) for key, job in state.items()
+        if job["status"] not in EXCLUDED_STATUSES and (job.get("postings") or [])
+    ]
+    if not checkable:
+        save_state(state)
+        return []
+
+    with ThreadPoolExecutor(max_workers=LINK_CHECK_WORKERS) as pool:
+        results = list(pool.map(lambda item: checker(item[1]["postings"][0]["url"]), checkable))
+
     newly_expired = []
-    for key, job in state.items():
-        if job["status"] in EXCLUDED_STATUSES:
-            continue
-        postings = job.get("postings") or []
-        if not postings:
-            continue
-        result = checker(postings[0]["url"])
+    for (key, job), result in zip(checkable, results):
         if result == "unknown":
             continue
         was_expired = job.get("link_status") == "expired"

@@ -343,10 +343,12 @@ def generate_report_html(
         "All Matches Archive",
         archive_matches,
         "Nothing tracked yet.",
-        intro="Every match ever scored 60+, permanently — including ones that have "
-        "scrolled out of \"New matches\" without being actioned, and anything marked "
-        "Declined/Passed (kept visible here, tagged, rather than deleted). Nothing is "
-        "ever silently dropped; a job's only way out of this list is not being tracked at all.",
+        intro="The complete index of record — every match ever tracked, permanently. "
+        "Includes ones that have scrolled out of \"New matches\" without being actioned, "
+        "anything marked Declined/Passed (kept visible here, tagged, rather than deleted), "
+        "and a few older entries scored below the current 60-point floor. Entries shown in "
+        "the sections above are repeated here so this stays a complete list. Nothing is ever "
+        "silently dropped; a job's only way out is not being tracked at all.",
     )
 
     return f"""<!DOCTYPE html>
@@ -704,7 +706,7 @@ def generate_report_html(
   <div class="wrap">
     <header>
       <h1>Clinical Ops Job Matches</h1>
-      <p class="subtitle">Clinical operations, quality, regulatory affairs, medical affairs, and adjacent pharma/biotech leadership roles, plus capacity-based matches in any industry (large multi-country programs, executive/named-client relationships, bid/proposal leadership, 50+ person team oversight) — scored for fit, compensation, and career trajectory against your background. Manager-level and above only. Workable from Brazil required (remote, or on-site/hybrid anywhere in Brazil). Covers both international remote employers and Brazilian-market employers hiring locally in BRL, tagged and grouped separately for comparison. Senior Manager/Associate Director/Regional Director-equivalent roles are the primary realistic target; Director/VP/Country Manager-equivalent roles stay visible but are tagged "Reach — Long Shot" and sorted separately at the bottom. Filtered to score 60+, sorted by score within each group, with a modest boost for Confirmed disclosed pay and a real penalty for Flagged salary risk (Estimated, the default, gets no adjustment) — a nudge, not a tier override, so a Flagged 95 can still outrank a Confirmed 80. Sibling postings from the same corporate family are shown once. Every tracked posting's link is also re-checked on each scan — one that now errors or redirects to a "not found" page gets a &#9888; Expired tag and a muted, struck-through card, since it's likely been filled or pulled. Every match ever scored 60+ also stays permanently visible in the "All Matches Archive" section at the bottom, including Declined/Passed ones (tagged, not deleted) and anything that scrolled out of "New matches" without being actioned — nothing is ever silently dropped.</p>
+      <p class="subtitle">Clinical operations, quality, regulatory affairs, medical affairs, and adjacent pharma/biotech leadership roles, plus capacity-based matches in any industry (large multi-country programs, executive/named-client relationships, bid/proposal leadership, 50+ person team oversight) — scored for fit, compensation, and career trajectory against your background. Manager-level and above only. Workable from Brazil required (remote, or on-site/hybrid anywhere in Brazil). Covers both international remote employers and Brazilian-market employers hiring locally in BRL, tagged and grouped separately for comparison. Senior Manager/Associate Director/Regional Director-equivalent roles are the primary realistic target; Director/VP/Country Manager-equivalent roles stay visible but are tagged "Reach — Long Shot" and sorted separately at the bottom. The active sections are filtered to score 60+ (the Archive keeps everything ever tracked, including a few older entries scored below that floor). Sorted by score within each group, with a modest boost for Confirmed disclosed pay and a real penalty for Flagged salary risk (Estimated, the default, gets no adjustment) — a nudge, not a tier override, so a Flagged 95 can still outrank a Confirmed 80. Sibling postings from the same corporate family are shown once. Every tracked posting's link is also re-checked on each scan — one that now errors or redirects to a "not found" page gets a &#9888; Expired tag and a muted, struck-through card, since it's likely been filled or pulled. Every match ever scored 60+ also stays permanently visible in the "All Matches Archive" section at the bottom, including Declined/Passed ones (tagged, not deleted) and anything that scrolled out of "New matches" without being actioned — nothing is ever silently dropped.</p>
       <div class="pace">
         <span class="pace-figure">{pace_weekly}</span> applied this week &middot; <span class="pace-figure">{pace_total}</span> all-time
       </div>

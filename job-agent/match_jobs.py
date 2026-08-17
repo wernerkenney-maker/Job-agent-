@@ -26,7 +26,7 @@ import fetch_workable_jobs
 import fetch_workday_jobs
 from br_salary_estimate import estimate_br_salary
 from cover_letter import generate_cover_letter_via_claude, save_cover_letter
-from pipeline import check_expired_links, process_run
+from pipeline import MIN_SCORE, check_expired_links, process_run
 from relocation import detect_relocation_support
 from report import write_report
 from resume_bullets import generate_resume_bullets_via_claude, save_resume_bullets
@@ -60,7 +60,6 @@ holding a prior Director-level title. Based in Fortaleza, Brazil.
 """.strip()
 
 MODEL = os.environ.get("CLAUDE_MODEL", "claude-sonnet-5")
-MIN_SCORE = 60
 BATCH_SIZE = 40
 DESCRIPTION_EXCERPT_LENGTH = 1500
 
@@ -77,9 +76,20 @@ DESCRIPTION_EXCERPT_LENGTH = 1500
 # IQVIA's API). So every location-eligible posting gets its full
 # description fetched and scored on actual content -- title is a label
 # on the result, never a gate before scoring.
+# Location strings are NOT normalized across providers, so matching on the
+# English word "Brazil" alone silently loses whole employers. Confirmed
+# formats actually seen in live data: "São Paulo, Brazil" (IQVIA),
+# "Remote, Brazil" (Thermo Fisher), "Brazil-Remote"/"Brazil-Sao Paulo"
+# (Parexel), "Brazil, Sao Paulo" (ICON), and -- the one that bites --
+# ISO-3166 alpha-3 codes with no country name at all: "BRA-Remote",
+# "BRA-Client" (Syneos Health). A "brazil|brasil" pattern drops every
+# Syneos Brazil posting (14 live as of this check, including genuine
+# CTM-level matches). Any new provider must be checked against this list
+# before being trusted -- a location filter that misses a format fails
+# exactly like the title filter it replaced: silently, with no error.
 _BRAZIL_LOCATION_RE = re.compile(
-    r"brazil|brasil|s[aã]o paulo|fortaleza|bras[ií]lia|rio de janeiro|curitiba|"
-    r"hortol[aâ]ndia|campinas|latam",
+    r"brazil|brasil|\bbra\s*-|\bbra\b|s[aã]o paulo|sao paulo|fortaleza|bras[ií]lia|"
+    r"rio de janeiro|curitiba|hortol[aâ]ndia|campinas|paul[ií]nia|latam|latin america",
     re.I,
 )
 
