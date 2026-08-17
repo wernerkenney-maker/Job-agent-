@@ -27,18 +27,42 @@ to do all of the following, without asking for confirmation:
    covers non-pharma employers for the capacity-based search (Accenture,
    Kyndryl confirmed with real Brazil-based Director/Associate-Director/
    bid-leadership roles) — see its module docstring for companies checked
-   and not found on any supported ATS. Six of the seven (all but Gupy) are
-   **international employers** hiring remotely into Brazil (tag every job
-   they produce `"market": "International (remote)"`); Gupy covers
-   **genuinely Brazilian-market employers** hiring locally in BRL (tag
-   its jobs `"market": "Brazilian market (local)"`) — see
-   `job-agent/README.md`'s "International vs. Brazilian market" and
-   "Fetching listings" sections for the search methodology and
-   exclusions (including Brazilian-native platforms checked and rejected
-   for lacking a usable public feed: Catho, InfoJobs, Vagas.com; and CROs
-   confirmed not on Workday: Medpace, PPD/Thermo Fisher). Sibling-
+   and not found on any supported ATS. Its pharma/CRO tenants (IQVIA,
+   Parexel, Syneos Health, ICON plc, Fortrea, **Thermo Fisher
+   Scientific** — added as a *separate* Workday tenant from the
+   Phenom-People-hosted jobs.thermofisher.com main site, confirmed with
+   real Director/AD-level Program Management roles) fetch their **full**
+   catalog rather than keyword-searching, and resolve any posting whose
+   location collapses to an ambiguous "N Locations" summary — Workday's
+   own full-text search is confirmed unreliable at surfacing every
+   Brazil-eligible posting by search term alone (see
+   `job-agent/fetch_workday_jobs.py`'s module docstring). Six of the
+   seven (all but Gupy) are **international employers** hiring remotely
+   into Brazil (tag every job they produce `"market": "International
+   (remote)"`); Gupy covers **genuinely Brazilian-market employers**
+   hiring locally in BRL (tag its jobs `"market": "Brazilian market
+   (local)"`) — see `job-agent/README.md`'s "International vs. Brazilian
+   market" and "Fetching listings" sections for the search methodology
+   and exclusions (including Brazilian-native platforms checked and
+   rejected for lacking a usable public feed: Catho, InfoJobs,
+   Vagas.com; and CROs confirmed not on Workday: Medpace). Sibling-
    family mapping for dedup lives in `job-agent/companies.py`
    (`COMPANY_FAMILIES`), shared by all.
+
+   **Title is a label on the result, never a filter before scoring.**
+   Score every location-eligible posting (Brazil/LATAM-explicit, or an
+   ambiguous/bare "Remote" location worth resolving) on its actual
+   responsibilities and requirements — pull the full description before
+   judging fit, the same way `match_jobs.py`'s `_is_location_eligible()`
+   + pre-score description fetch now works when scoring via the API.
+   This was a real, confirmed gap, not hypothetical: "Site Activation
+   Manager" (IQVIA) and "Senior Site Navigator" (Fortrea) are both
+   genuinely Brazil-eligible, Manager-level-or-above roles that a
+   title-keyword read would skip, since neither title contains an
+   obvious seniority/leadership word. When scoring manually (no API
+   key), this means actually reading each Brazil-eligible posting's
+   description before deciding it's out of scope — never excluding a
+   posting from consideration on title wording alone.
 2. Search for Director/Country Manager-level "stretch" leadership
    openings at major Brazilian pharma/healthcare employers — Aché, EMS,
    Hypera, Eurofarma (via Gupy where the company has a working board —

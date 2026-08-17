@@ -83,7 +83,7 @@ see "International vs. Brazilian market" below.
   large non-pharma employers for the capacity-based (industry-agnostic)
   search — see "Industry scope" below:
   - Pharma/CRO: **IQVIA**, **Parexel**, **Syneos Health**, **ICON plc**,
-    **Fortrea**
+    **Fortrea**, **Thermo Fisher Scientific** (see correction below)
   - Non-pharma: **Accenture**, **Kyndryl** (IBM's IT-infrastructure
     spinoff) — confirmed with real São Paulo/Rio-based Director/
     Associate-Director/bid-proposal-leadership roles
@@ -93,23 +93,48 @@ see "International vs. Brazilian market" below.
   `.../job{externalPath}` (GET) — verified directly (curled and confirmed
   real job data, same as every other provider) before committing to this
   provider, per the same standard used for Greenhouse/Lever originally.
-  Each tenant's facet configuration differs (IQVIA exposes a
-  `Location_Country` facet; most others don't), so rather than depend on
-  facets, `fetch_jobs()` searches Workday's full-text `searchText` per
-  tenant, merging results (deduped by `externalPath`). Pharma CRO boards
-  run 300-1,800+ total postings; Accenture/Kyndryl run into the
-  thousands across every function and seniority level, so their search
-  terms (`search_terms` per tenant in `_TENANTS`, see the module) combine
-  a location signal with a seniority/capacity signal (e.g. `"Sao Paulo
-  Director"`, `"Propostas Comerciais"`) rather than relying on location
-  text alone — fetching everything and filtering client-side, as the
-  smaller providers do, isn't practical at this scale.
+
+  **Correction: Thermo Fisher Scientific *is* on Workday.** An earlier
+  pass concluded it wasn't, based only on checking jobs.thermofisher.com
+  (Phenom People) — but Thermo Fisher runs a **second, separate** Workday
+  tenant in parallel (`thermofisher.wd5`/`thermofisher`/
+  `thermofishercareers`), confirmed directly via the CXS API and
+  cross-checked against a live search hit. It has real Brazil-eligible
+  postings squarely in the candidate's target function, including
+  Director- and AD-level Program Management (CRGTO) roles. PPD (Thermo
+  Fisher's clinical-research business specifically) may still be Phenom-
+  only, but the parent company's separate Workday tenant is what matters
+  here and was missed. Lesson: checking one known careers domain isn't
+  sufficient to rule a company out — a company can run more than one ATS
+  concurrently (e.g. mid-migration, or a distinct business unit).
+
+  **Fetch strategy — full catalog, not keyword search, for pharma/CRO
+  tenants.** `fetch_jobs()` used to search Workday's full-text
+  `searchText` per tenant (each tenant's facet configuration differs —
+  IQVIA exposes a `Location_Country` facet, most others don't, hence
+  relying on search text rather than facets). This was confirmed
+  **unreliable**: searching IQVIA's own API for `"Brazil"` or `"LATAM"`
+  does not return "Site Activation Manager (Global)" or "Assoc. Site
+  Activation Manager - Sponsor Dedicated", despite São Paulo, Brazil
+  being each posting's *primary* listed location. Pharma/CRO tenants are
+  now fetched via a blank search (`searchText=""`) — the full paginated
+  catalog, title/location only, cheap — rather than trusting Workday's
+  search relevance to surface every Brazil-eligible posting. Separately,
+  Workday collapses a posting with more than one office into a
+  `locationsText` summary like `"4 Locations"`, hiding which countries
+  are actually included — confirmed directly: IQVIA's "Site Activation
+  Manager (Global)" and Fortrea's "Senior Site Navigator" (São Paulo/
+  Remote Brazil) both only show as `"N Locations"` in the catalog list.
+  `_resolve_ambiguous_locations()` fetches job detail only for postings
+  whose `locationsText` collapses like this (not the whole catalog),
+  replacing it with the real location list. Accenture/Kyndryl (whose
+  catalogs run into the thousands across every function and seniority
+  level) keep their existing `search_terms`-based strategy (a location
+  signal combined with a seniority/capacity signal, e.g. `"Sao Paulo
+  Director"`, `"Propostas Comerciais"`) — a full-catalog fetch isn't
+  practical at that scale.
   - **Medpace** — uses iCIMS (`uscareers-medpace.icims.com`), confirmed
     **not** on Workday.
-  - **PPD** (the clinical-research business of Thermo Fisher Scientific)
-    — uses Phenom People (`jobs.thermofisher.com`), the same platform
-    already noted as a dead end for standalone Thermo Fisher above,
-    confirmed **not** on Workday.
   - Checked for a public ATS on any provider this pipeline supports (not
     just Workday) and **not found** — most run custom/proprietary career
     portals: Globant, EPAM Systems, Endava, Capgemini, DXC Technology,
@@ -150,9 +175,12 @@ python3 fetch_gupy_jobs.py
 python3 fetch_workday_jobs.py
 ```
 
-**Note on Thermo Fisher:** its careers site (jobs.thermofisher.com) runs
-on Phenom People, not any of the five providers above, so no matching
-public-API endpoint exists.
+**Note on Thermo Fisher:** its main careers site (jobs.thermofisher.com)
+runs on Phenom People, not any of the providers above — but Thermo Fisher
+also runs a **separate** Workday tenant in parallel
+(`thermofisher.wd5.myworkdayjobs.com/thermofishercareers`), confirmed and
+added to `fetch_workday_jobs.py`. See the Workday section above for the
+full correction.
 
 **Company search notes** (useful context before re-searching):
 
@@ -341,15 +369,40 @@ consistent with the Brazilian-market title-convention note above.
 ## Resume-based matching
 
 `match_jobs.py` fetches jobs from every company across all seven
-providers, sends them to Claude in batches to score fit (1-100) against a
-candidate background hardcoded in `CANDIDATE_PROFILE`, keeps jobs scoring
-60+ (`MIN_SCORE`), then runs them through the shared pipeline (dedup,
-seen-job tracking, salary, cover letters — see below) before writing the
-report. Each batch uses its own local integer ids (0, 1, 2, ...) when
-talking to Claude instead of raw provider ids, since those differ in type
-across providers (Greenhouse/SmartRecruiters use integers, Lever/Ashby
-use UUID strings, Workable uses hex shortcodes) — keeps the scoring
-prompt/response format identical regardless of source.
+providers, then filters to *location-eligible* postings only —
+`_is_location_eligible()`: Brazil/LATAM-explicit, or an ambiguous/bare
+location (e.g. `"Remote"` with no country named) worth resolving via the
+description. This is the one legitimate pre-scoring filter: geography is
+a hard requirement the candidate genuinely can't work around, unlike a
+title. For every location-eligible posting, `match_jobs.py` fetches its
+full detail/description *before* scoring (`_fetch_job_detail()` +
+`_description_html()`, HTML-stripped and truncated to
+`DESCRIPTION_EXCERPT_LENGTH` chars) and sends that excerpt to Claude
+alongside title/location/company, in batches, to score fit (1-100)
+against a candidate background hardcoded in `CANDIDATE_PROFILE`. Keeps
+jobs scoring 60+ (`MIN_SCORE`), then runs them through the shared
+pipeline (dedup, seen-job tracking, salary, cover letters — see below)
+before writing the report. Each batch uses its own local integer ids (0,
+1, 2, ...) when talking to Claude instead of raw provider ids, since
+those differ in type across providers (Greenhouse/SmartRecruiters use
+integers, Lever/Ashby use UUID strings, Workable uses hex shortcodes) —
+keeps the scoring prompt/response format identical regardless of source.
+
+**Title is a label on the result, never a filter before scoring.** An
+earlier version of this pipeline sent Claude only `title`/`location`/
+`company` — no description — which meant the model (and, standing in for
+it during manual scoring, the keyword-regex triage used to narrow the
+raw fetch to a reviewable set) was effectively judging fit from a title
+string alone. That silently dropped real matches at already-integrated
+companies: "Site Activation Manager" (IQVIA) and "Senior Site Navigator"
+(Fortrea) are both genuinely Brazil-eligible, Manager-level-or-above
+roles, but neither title contains an obvious seniority/leadership
+keyword, and Workday's own full-text "Brazil"/"LATAM" search doesn't
+reliably surface them either (see the Workday fetch-strategy correction
+above). Now every location-eligible posting's actual responsibilities
+and requirements drive the score, regardless of title wording —
+`SCORING_INSTRUCTIONS` explicitly tells the model to read the excerpt
+and judge real scope, not pattern-match the title.
 
 The scoring rubric is intentionally broader than an exact title match:
 it considers clinical operations, quality, regulatory affairs, medical

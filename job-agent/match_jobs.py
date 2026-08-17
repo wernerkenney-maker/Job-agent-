@@ -9,8 +9,10 @@ salary where undisclosed, and refresh report.html.
 Requires an Anthropic API key in the ANTHROPIC_API_KEY environment variable.
 """
 
+import html
 import json
 import os
+import re
 import sys
 
 import anthropic
@@ -60,6 +62,49 @@ holding a prior Director-level title. Based in Fortaleza, Brazil.
 MODEL = os.environ.get("CLAUDE_MODEL", "claude-sonnet-5")
 MIN_SCORE = 60
 BATCH_SIZE = 40
+DESCRIPTION_EXCERPT_LENGTH = 1500
+
+# The one legitimate pre-scoring filter: geography, not title. The
+# candidate genuinely cannot work a Beijing-only or US-only role
+# regardless of what its responsibilities are, so this is checked before
+# spending a detail fetch. A title-based filter, by contrast, was
+# silently dropping real matches at already-integrated companies --
+# "Site Activation Manager" (IQVIA) and "Senior Site Navigator" (Fortrea)
+# are both genuinely Brazil-eligible but don't contain any of the
+# "manager/director/coordinator" keyword-style signal a title filter
+# would look for, and Workday's own full-text "Brazil"/"LATAM" search
+# doesn't reliably surface them either (confirmed directly against
+# IQVIA's API). So every location-eligible posting gets its full
+# description fetched and scored on actual content -- title is a label
+# on the result, never a gate before scoring.
+_BRAZIL_LOCATION_RE = re.compile(
+    r"brazil|brasil|s[aã]o paulo|fortaleza|bras[ií]lia|rio de janeiro|curitiba|"
+    r"hortol[aâ]ndia|campinas|latam",
+    re.I,
+)
+
+
+def _is_location_eligible(job):
+    """True if this posting's location is Brazil/LATAM-explicit, or bare/
+    ambiguous ("Remote" with no country named, or no location text at
+    all) -- worth a description fetch to resolve. False only when the
+    location explicitly names a different, specific country/region with
+    no Brazil/LATAM mention (e.g. "Beijing, China", "Remote, United
+    States") -- fetching those would be pure waste, since no description
+    changes their geography. Gupy postings are always eligible: the
+    market is Brazilian by definition (see fetch_gupy_jobs.py)."""
+    if job.get("market") == "Brazilian market (local)":
+        return True
+    location = (job.get("location") or "").strip()
+    if not location or location.lower() == "remote":
+        return True
+    return bool(_BRAZIL_LOCATION_RE.search(location))
+
+
+def _strip_html_to_text(raw):
+    text = html.unescape(raw or "")
+    text = re.sub(r"<[^<]+?>", " ", text)
+    return re.sub(r"\s+", " ", text).strip()
 
 SCORING_INSTRUCTIONS = """
 You are screening job listings for fit against a candidate's background.
@@ -87,6 +132,17 @@ equal-or-better seniority, pay, and growth potential should score as
 well as or better than a narrower title match at a lower level (e.g. a
 "Consultant" or "Associate"-level contract role should score lower than
 a permanent managerial role, even in a closer-sounding function).
+
+Each job below includes an excerpt of its actual description --
+responsibilities and requirements. Score from that content, not from the
+title. A title alone is not sufficient signal either way: an
+unfamiliar-sounding or generic title ("Site Activation Manager," "Senior
+Site Navigator," "Clinical Team Lead") can carry real manager-level
+program/site-leadership scope that only the description reveals, exactly
+as easily as an impressive-sounding title can turn out to be individual-
+contributor work once you read what it actually does. Read the excerpt
+and judge real scope, seniority, and functional fit from it every time --
+never pattern-match on the title string itself.
 
 Hard requirements, not traded off:
 - Workable from Brazil -- either explicitly remote/LATAM-inclusive, OR
@@ -316,7 +372,8 @@ def chunk(items, size):
 
 def score_batch(client, batch):
     jobs_text = "\n".join(
-        f"- id={i}, title=\"{job['title']}\", location=\"{job['location']}\", company=\"{job['company']}\""
+        f"- id={i}, title=\"{job['title']}\", location=\"{job['location']}\", company=\"{job['company']}\", "
+        f"description=\"{job.get('description_excerpt', '')}\""
         for i, job in enumerate(batch)
     )
     prompt = SCORING_INSTRUCTIONS.format(profile=CANDIDATE_PROFILE, jobs=jobs_text)
@@ -337,6 +394,65 @@ def score_batch(client, batch):
     return json.loads(text)
 
 
+def _fetch_job_detail(job):
+    """Fetch (or, for providers whose listing payload already includes
+    full detail, just return) the raw detail payload for one posting.
+    Raises on network failure -- caller decides how to handle that."""
+    source = job["source"]
+    if source == "greenhouse":
+        return fetch_greenhouse_jobs.fetch_job_detail(job["board_token"], job["source_id"])
+    if source in ("lever", "workable", "ashby"):
+        return job["raw"]
+    if source == "smartrecruiters":
+        return fetch_smartrecruiters_jobs.fetch_job_detail(job["company_id"], job["source_id"])
+    if source == "gupy":
+        return fetch_gupy_jobs.fetch_job_detail(job["subdomain"], job["source_id"])
+    if source == "workday":
+        return fetch_workday_jobs.fetch_job_detail(job["company_key"], job["external_path"])
+    return {}
+
+
+def _description_html(detail, source):
+    if source == "greenhouse":
+        return detail.get("content", "")
+    if source == "lever":
+        return detail.get("description", "")
+    if source == "workable":
+        return detail.get("description", "")
+    if source == "smartrecruiters":
+        sections = detail.get("jobAd", {}).get("sections", {})
+        return " ".join(s.get("text", "") for s in sections.values())
+    if source == "ashby":
+        return detail.get("descriptionHtml", "")
+    if source == "gupy":
+        return (
+            detail.get("description", "")
+            + detail.get("prerequisites", "")
+            + detail.get("responsibilities", "")
+        )
+    if source == "workday":
+        return detail.get("jobDescription", "")
+    return ""
+
+
+def _extract_salary(detail, source):
+    if source == "greenhouse":
+        return extract_salary(detail)
+    if source == "lever":
+        return extract_salary_lever(detail)
+    if source == "workable":
+        return extract_salary_workable(detail)
+    if source == "smartrecruiters":
+        return extract_salary_smartrecruiters(detail)
+    if source == "ashby":
+        return extract_salary_ashby(detail)
+    if source == "gupy":
+        return "Not disclosed"  # Gupy never structurally discloses salary
+    if source == "workday":
+        return extract_salary_workday(detail)
+    return "Not disclosed"
+
+
 def main():
     if not os.environ.get("ANTHROPIC_API_KEY"):
         print("Error: ANTHROPIC_API_KEY environment variable is not set.", file=sys.stderr)
@@ -346,8 +462,34 @@ def main():
 
     all_jobs = collect_all_jobs()
 
+    # Geography is the only pre-scoring filter (see _is_location_eligible
+    # docstring) -- title is never used to decide whether a posting is
+    # worth fetching or how it's judged. Every location-eligible posting
+    # gets its full description fetched here, *before* scoring, so
+    # score_batch() can judge real responsibilities/requirements rather
+    # than guessing from a title string.
+    eligible_jobs = [job for job in all_jobs if _is_location_eligible(job)]
+    print(
+        f"{len(all_jobs)} fetched, {len(eligible_jobs)} location-eligible "
+        f"(Brazil/LATAM-explicit or ambiguous/bare-remote) -- fetching full "
+        f"descriptions for these before scoring.",
+        file=sys.stderr,
+    )
+
+    detail_cache = {}  # url -> provider detail/raw posting payload
+    for job in eligible_jobs:
+        try:
+            detail = _fetch_job_detail(job)
+        except Exception as exc:
+            print(f"Warning: failed to fetch detail for {job['title']} ({job['company']}): {exc}", file=sys.stderr)
+            job["description_excerpt"] = ""
+            continue
+        detail_cache[job["url"]] = detail
+        description_text = _strip_html_to_text(_description_html(detail, job["source"]))
+        job["description_excerpt"] = description_text[:DESCRIPTION_EXCERPT_LENGTH]
+
     scored = []
-    for batch in chunk(all_jobs, BATCH_SIZE):
+    for batch in chunk(eligible_jobs, BATCH_SIZE):
         try:
             results = score_batch(client, batch)
         except Exception as exc:
@@ -373,60 +515,14 @@ def main():
     matches = [job for job in scored if job["score"] >= MIN_SCORE]
     matches.sort(key=lambda job: job["score"], reverse=True)
 
-    detail_cache = {}  # url -> provider detail/raw posting payload
+    # Detail was already fetched above (pre-score) for every eligible
+    # job, including every match -- reuse it rather than fetching again.
     for job in matches:
-        try:
-            if job["source"] == "greenhouse":
-                detail = fetch_greenhouse_jobs.fetch_job_detail(job["board_token"], job["source_id"])
-                detail_cache[job["url"]] = detail
-                job["salary"] = extract_salary(detail)
-            elif job["source"] == "lever":
-                detail_cache[job["url"]] = job["raw"]
-                job["salary"] = extract_salary_lever(job["raw"])
-            elif job["source"] == "workable":
-                detail_cache[job["url"]] = job["raw"]
-                job["salary"] = extract_salary_workable(job["raw"])
-            elif job["source"] == "smartrecruiters":
-                detail = fetch_smartrecruiters_jobs.fetch_job_detail(job["company_id"], job["source_id"])
-                detail_cache[job["url"]] = detail
-                job["salary"] = extract_salary_smartrecruiters(detail)
-            elif job["source"] == "ashby":
-                detail_cache[job["url"]] = job["raw"]
-                job["salary"] = extract_salary_ashby(job["raw"])
-            elif job["source"] == "gupy":
-                detail = fetch_gupy_jobs.fetch_job_detail(job["subdomain"], job["source_id"])
-                detail_cache[job["url"]] = detail
-                job["salary"] = "Not disclosed"  # Gupy never structurally discloses salary
-            elif job["source"] == "workday":
-                detail = fetch_workday_jobs.fetch_job_detail(job["company_key"], job["external_path"])
-                detail_cache[job["url"]] = detail
-                job["salary"] = extract_salary_workday(detail)
-        except Exception as exc:
-            print(f"Warning: failed to fetch salary for {job['title']}: {exc}", file=sys.stderr)
-            job["salary"] = "Not disclosed"
+        detail = detail_cache.get(job["url"], {})
+        job["salary"] = _extract_salary(detail, job["source"])
 
     def description_html(url, source):
-        detail = detail_cache.get(url, {})
-        if source == "greenhouse":
-            return detail.get("content", "")
-        if source == "lever":
-            return detail.get("description", "")
-        if source == "workable":
-            return detail.get("description", "")
-        if source == "smartrecruiters":
-            sections = detail.get("jobAd", {}).get("sections", {})
-            return " ".join(s.get("text", "") for s in sections.values())
-        if source == "ashby":
-            return detail.get("descriptionHtml", "")
-        if source == "gupy":
-            return (
-                detail.get("description", "")
-                + detail.get("prerequisites", "")
-                + detail.get("responsibilities", "")
-            )
-        if source == "workday":
-            return detail.get("jobDescription", "")
-        return ""
+        return _description_html(detail_cache.get(url, {}), source)
 
     for job in matches:
         job["relocation"] = detect_relocation_support(description_html(job["url"], job["source"]))
