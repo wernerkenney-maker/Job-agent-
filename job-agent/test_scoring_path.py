@@ -191,7 +191,42 @@ def run():
     if len(long_text[: match_jobs.DESCRIPTION_EXCERPT_LENGTH]) != match_jobs.DESCRIPTION_EXCERPT_LENGTH:
         failures.append("DESCRIPTION_EXCERPT_LENGTH truncation not applied")
 
-    total = len(PROVIDER_FIXTURES) * 2 + 1 + 6 + 1 + 1 + 1
+    # 8. A malformed posting must never abort collection. Workday's full
+    #    catalog returns records with no externalPath -- the field every
+    #    URL and id derives from -- and the per-posting loop used to sit
+    #    outside the try, so one bad row discarded every provider already
+    #    fetched (a ten-minute loss once Workday went full-catalog).
+    if match_jobs._map_workday({"title": "no path"}, "iqvia", "IQVIA") is not None:
+        failures.append("_map_workday: posting without externalPath should be dropped")
+    if match_jobs._map_workday({"externalPath": "", "title": "empty"}, "iqvia", "IQVIA") is not None:
+        failures.append("_map_workday: empty externalPath should be dropped")
+    mapped = match_jobs._map_workday(
+        {"externalPath": "/job/x_R1", "title": "T", "locationsText": "São Paulo, Brazil"},
+        "iqvia", "IQVIA",
+    )
+    if not mapped or mapped["source_id"] != "/job/x_R1" or not mapped["url"].endswith("/job/x_R1"):
+        failures.append(f"_map_workday: valid posting mapped wrong -> {mapped}")
+
+    collected = []
+    match_jobs._collect_provider(
+        collected, "TestCo",
+        fetch=lambda: [{"id": 1}, {"MALFORMED": True}, {"id": 3}],
+        mapper=lambda p: {"id": p["id"]},
+    )
+    if [j["id"] for j in collected] != [1, 3]:
+        failures.append(f"_collect_provider: bad row lost good ones -> {collected}")
+
+    survived = []
+
+    def _boom():
+        raise RuntimeError("network down")
+
+    match_jobs._collect_provider(survived, "BrokenCo", fetch=_boom, mapper=lambda p: p)
+    match_jobs._collect_provider(survived, "GoodCo", fetch=lambda: [{"k": 1}], mapper=lambda p: p)
+    if survived != [{"k": 1}]:
+        failures.append(f"_collect_provider: fetch failure not isolated -> {survived}")
+
+    total = len(PROVIDER_FIXTURES) * 2 + 1 + 6 + 1 + 1 + 1 + 5
     if failures:
         print(f"FAILED {len(failures)} of ~{total} checks:\n")
         for f in failures:

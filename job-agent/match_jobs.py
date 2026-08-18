@@ -226,153 +226,169 @@ Include exactly one entry per job listed above, in any order.
 """
 
 
+def _collect_provider(all_jobs, company_name, fetch, mapper):
+    """Fetch one company's postings and map them into the common shape.
+
+    Both stages are isolated. A fetch failure skips that company, as
+    before. A *mapping* failure now skips only the offending posting:
+    previously the per-posting loop sat outside the try, so a single
+    malformed record -- a Workday entry with no externalPath, seen in
+    live full-catalog data -- raised straight out of collect_all_jobs()
+    and discarded every provider already fetched. With Workday now
+    pulling full catalogs, that meant losing a ten-minute fetch to one
+    bad row. Skipped postings are counted and reported rather than
+    passed over in silence."""
+    try:
+        postings = fetch()
+    except Exception as exc:
+        print(f"Failed to fetch {company_name}: {exc}", file=sys.stderr)
+        return
+
+    skipped = 0
+    for posting in postings:
+        try:
+            mapped = mapper(posting)
+        except Exception as exc:
+            skipped += 1
+            if skipped == 1:  # report the first one concretely, then just count
+                print(f"  {company_name}: skipping malformed posting ({exc!r})", file=sys.stderr)
+            continue
+        if mapped is not None:
+            all_jobs.append(mapped)
+    if skipped:
+        print(f"  {company_name}: skipped {skipped} malformed posting(s)", file=sys.stderr)
+
+
 def collect_all_jobs():
     all_jobs = []
 
     for board_token, company_name in fetch_greenhouse_jobs.COMPANIES.items():
-        try:
-            jobs = fetch_greenhouse_jobs.fetch_jobs(board_token)
-        except Exception as exc:
-            print(f"Failed to fetch {company_name}: {exc}", file=sys.stderr)
-            continue
-        for job in jobs:
-            all_jobs.append(
-                {
-                    "source": "greenhouse",
-                    "source_id": job["id"],
-                    "board_token": board_token,
-                    "title": job["title"],
-                    "location": (job.get("location") or {}).get("name", ""),
-                    "url": job["absolute_url"],
-                    "company": company_name,
-                    "market": "International (remote)",
-                }
-            )
+        _collect_provider(
+            all_jobs, company_name,
+            lambda t=board_token: fetch_greenhouse_jobs.fetch_jobs(t),
+            lambda job, t=board_token, c=company_name: {
+                "source": "greenhouse",
+                "source_id": job["id"],
+                "board_token": t,
+                "title": job["title"],
+                "location": (job.get("location") or {}).get("name", ""),
+                "url": job["absolute_url"],
+                "company": c,
+                "market": "International (remote)",
+            },
+        )
 
     for token, company_name in fetch_lever_jobs.COMPANIES.items():
-        try:
-            postings = fetch_lever_jobs.fetch_jobs(token)
-        except Exception as exc:
-            print(f"Failed to fetch {company_name}: {exc}", file=sys.stderr)
-            continue
-        for posting in postings:
-            all_jobs.append(
-                {
-                    "source": "lever",
-                    "source_id": posting["id"],
-                    "raw": posting,
-                    "title": posting["text"],
-                    "location": fetch_lever_jobs.normalize_location(posting),
-                    "url": posting["hostedUrl"],
-                    "company": company_name,
-                    "market": "International (remote)",
-                }
-            )
+        _collect_provider(
+            all_jobs, company_name,
+            lambda t=token: fetch_lever_jobs.fetch_jobs(t),
+            lambda posting, c=company_name: {
+                "source": "lever",
+                "source_id": posting["id"],
+                "raw": posting,
+                "title": posting["text"],
+                "location": fetch_lever_jobs.normalize_location(posting),
+                "url": posting["hostedUrl"],
+                "company": c,
+                "market": "International (remote)",
+            },
+        )
 
     for account, company_name in fetch_workable_jobs.COMPANIES.items():
-        try:
-            jobs = fetch_workable_jobs.fetch_jobs(account)
-        except Exception as exc:
-            print(f"Failed to fetch {company_name}: {exc}", file=sys.stderr)
-            continue
-        for job in jobs:
-            all_jobs.append(
-                {
-                    "source": "workable",
-                    "source_id": job["shortcode"],
-                    "raw": job,
-                    "title": job["title"],
-                    "location": fetch_workable_jobs.normalize_location(job),
-                    "url": job["url"],
-                    "company": company_name,
-                    "market": "International (remote)",
-                }
-            )
+        _collect_provider(
+            all_jobs, company_name,
+            lambda a=account: fetch_workable_jobs.fetch_jobs(a),
+            lambda job, c=company_name: {
+                "source": "workable",
+                "source_id": job["shortcode"],
+                "raw": job,
+                "title": job["title"],
+                "location": fetch_workable_jobs.normalize_location(job),
+                "url": job["url"],
+                "company": c,
+                "market": "International (remote)",
+            },
+        )
 
     for company_id, company_name in fetch_smartrecruiters_jobs.COMPANIES.items():
-        try:
-            postings = fetch_smartrecruiters_jobs.fetch_jobs(company_id)
-        except Exception as exc:
-            print(f"Failed to fetch {company_name}: {exc}", file=sys.stderr)
-            continue
-        for posting in postings:
-            all_jobs.append(
-                {
-                    "source": "smartrecruiters",
-                    "source_id": posting["id"],
-                    "company_id": company_id,
-                    "title": posting["name"],
-                    "location": posting.get("location", {}).get("fullLocation", ""),
-                    "url": fetch_smartrecruiters_jobs.POSTING_URL_TEMPLATE.format(
-                        company_id=company_id, posting_id=posting["id"]
-                    ),
-                    "company": company_name,
-                    "market": "International (remote)",
-                }
-            )
+        _collect_provider(
+            all_jobs, company_name,
+            lambda i=company_id: fetch_smartrecruiters_jobs.fetch_jobs(i),
+            lambda posting, i=company_id, c=company_name: {
+                "source": "smartrecruiters",
+                "source_id": posting["id"],
+                "company_id": i,
+                "title": posting["name"],
+                "location": posting.get("location", {}).get("fullLocation", ""),
+                "url": fetch_smartrecruiters_jobs.POSTING_URL_TEMPLATE.format(
+                    company_id=i, posting_id=posting["id"]
+                ),
+                "company": c,
+                "market": "International (remote)",
+            },
+        )
 
     for token, company_name in fetch_ashby_jobs.COMPANIES.items():
-        try:
-            jobs = fetch_ashby_jobs.fetch_jobs(token)
-        except Exception as exc:
-            print(f"Failed to fetch {company_name}: {exc}", file=sys.stderr)
-            continue
-        for job in jobs:
-            all_jobs.append(
-                {
-                    "source": "ashby",
-                    "source_id": job["id"],
-                    "raw": job,
-                    "title": job["title"],
-                    "location": job.get("location", ""),
-                    "url": job.get("jobUrl") or job.get("applyUrl"),
-                    "company": company_name,
-                    "market": "International (remote)",
-                }
-            )
+        _collect_provider(
+            all_jobs, company_name,
+            lambda t=token: fetch_ashby_jobs.fetch_jobs(t),
+            lambda job, c=company_name: {
+                "source": "ashby",
+                "source_id": job["id"],
+                "raw": job,
+                "title": job["title"],
+                "location": job.get("location", ""),
+                "url": job.get("jobUrl") or job.get("applyUrl"),
+                "company": c,
+                "market": "International (remote)",
+            },
+        )
 
     for subdomain, company_name in fetch_gupy_jobs.COMPANIES.items():
-        try:
-            jobs = fetch_gupy_jobs.fetch_jobs(subdomain)
-        except Exception as exc:
-            print(f"Failed to fetch {company_name}: {exc}", file=sys.stderr)
-            continue
-        for job in jobs:
-            all_jobs.append(
-                {
-                    "source": "gupy",
-                    "source_id": job["id"],
-                    "subdomain": subdomain,
-                    "title": job["title"],
-                    "location": fetch_gupy_jobs.normalize_location(job),
-                    "url": fetch_gupy_jobs.job_url(subdomain, job["id"]),
-                    "company": company_name,
-                    "market": "Brazilian market (local)",
-                }
-            )
+        _collect_provider(
+            all_jobs, company_name,
+            lambda s=subdomain: fetch_gupy_jobs.fetch_jobs(s),
+            lambda job, s=subdomain, c=company_name: {
+                "source": "gupy",
+                "source_id": job["id"],
+                "subdomain": s,
+                "title": job["title"],
+                "location": fetch_gupy_jobs.normalize_location(job),
+                "url": fetch_gupy_jobs.job_url(s, job["id"]),
+                "company": c,
+                "market": "Brazilian market (local)",
+            },
+        )
 
     for company_key, company_name in fetch_workday_jobs.COMPANIES.items():
-        try:
-            jobs = fetch_workday_jobs.fetch_jobs(company_key)
-        except Exception as exc:
-            print(f"Failed to fetch {company_name}: {exc}", file=sys.stderr)
-            continue
-        for job in jobs:
-            all_jobs.append(
-                {
-                    "source": "workday",
-                    "source_id": job["externalPath"],
-                    "company_key": company_key,
-                    "external_path": job["externalPath"],
-                    "title": job["title"],
-                    "location": job.get("locationsText", ""),
-                    "url": fetch_workday_jobs.job_url(company_key, job["externalPath"]),
-                    "company": company_name,
-                    "market": "International (remote)",
-                }
-            )
+        _collect_provider(
+            all_jobs, company_name,
+            lambda k=company_key: fetch_workday_jobs.fetch_jobs(k),
+            lambda job, k=company_key, c=company_name: _map_workday(job, k, c),
+        )
 
     return all_jobs
+
+
+def _map_workday(job, company_key, company_name):
+    """Workday's full catalog (blank searchText) occasionally returns a
+    record with no externalPath -- the field every downstream URL and id
+    is built from. Such a posting cannot be linked to or re-fetched, so
+    it is dropped deliberately rather than allowed to raise."""
+    external_path = job.get("externalPath")
+    if not external_path:
+        return None
+    return {
+        "source": "workday",
+        "source_id": external_path,
+        "company_key": company_key,
+        "external_path": external_path,
+        "title": job.get("title", ""),
+        "location": job.get("locationsText", ""),
+        "url": fetch_workday_jobs.job_url(company_key, external_path),
+        "company": company_name,
+        "market": "International (remote)",
+    }
 
 
 def chunk(items, size):
