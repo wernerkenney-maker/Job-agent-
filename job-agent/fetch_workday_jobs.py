@@ -180,7 +180,10 @@ def _resolve_ambiguous_locations(company_key, postings):
     sequentially). A thread pool cuts that to the cost of the slowest
     individual request rather than the sum of all of them, since these
     are small, independent GET requests with no shared state."""
-    ambiguous = [p for p in postings if "Locations" in (p.get("locationsText") or "")]
+    ambiguous = [
+        p for p in postings
+        if "Locations" in (p.get("locationsText") or "") or not (p.get("locationsText") or "").strip()
+    ]
     if not ambiguous:
         return
 
@@ -192,8 +195,21 @@ def _resolve_ambiguous_locations(company_key, postings):
         primary = detail.get("location") or ""
         additional = detail.get("additionalLocations") or []
         all_locations = [loc for loc in [primary, *additional] if loc]
+        if not all_locations:
+            # Some tenants leave both locationsText and location blank but
+            # still carry the real country on the requisition -- Syneos does
+            # this on a chunk of its catalog, and Accenture on most of
+            # theirs. Without this fallback those postings stay permanently
+            # location-unknown: they pass the eligibility filter as
+            # "ambiguous", cost a detail fetch, and then reach scoring with
+            # no geography at all, so a Taipei or Singapore role looks
+            # exactly like a São Paulo one.
+            requisition = detail.get("jobRequisitionLocation") or {}
+            descriptor = requisition.get("descriptor") or ""
+            country = (requisition.get("country") or {}).get("descriptor") or ""
+            all_locations = [loc for loc in [descriptor, country] if loc]
         if all_locations:
-            posting["locationsText"] = "; ".join(all_locations)
+            posting["locationsText"] = "; ".join(dict.fromkeys(all_locations))
 
     with ThreadPoolExecutor(max_workers=RESOLVE_WORKERS) as pool:
         futures = [pool.submit(resolve_one, posting) for posting in ambiguous]
