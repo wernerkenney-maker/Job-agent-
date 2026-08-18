@@ -33,6 +33,14 @@ COMPANIES = {
     "rennova": "Rennova",  # aesthetics/medical products co. with a clinical research function
     "vagasache": "Aché",  # major Brazilian pharma, added for the leadership/stretch search
     "hyperapharma": "Hypera Pharma",  # major Brazilian pharma, added for the leadership/stretch search
+    # Daiichi Sankyo's Brazil arm -- found via the Director-level stretch
+    # search, which turned up a (since-closed) "Head de Operações Clínicas"
+    # in São Paulo and led back to this board. Exactly the employer profile
+    # the stretch search exists to catch: a multinational pharma hiring
+    # locally in BRL, with a real clinical-operations function in Brazil.
+    # Its current openings are all below the Manager floor, but the board is
+    # tracked so the next leadership opening is caught on the run it appears.
+    "dsbr": "Daiichi Sankyo Brasil",
 }
 
 # EMS Farmacêutica: could NOT confirm a working Gupy subdomain. "ems" is a
