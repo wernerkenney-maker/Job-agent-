@@ -319,6 +319,21 @@
       "low": 55000,
       "high": 82000,
       "note": "LATAM CRO senior pricing/proposal level, biometrics service line"
+    },
+    "Associate Study Start Up Manager": {
+      "low": 58000,
+      "high": 86000,
+      "note": "LATAM CRO associate-manager level, site activation/start-up function"
+    },
+    "Associate Director, Centralized Monitoring": {
+      "low": 80000,
+      "high": 118000,
+      "note": "Brazil-based Associate Director, major global CRO, centralized monitoring/data analytics"
+    },
+    "Dedicated Clinical Ops Mgr (Line Manager)": {
+      "low": 62000,
+      "high": 92000,
+      "note": "Sao Paulo-based clinical operations line manager, major global CRO"
     }
   },
   "cover_letters": {
