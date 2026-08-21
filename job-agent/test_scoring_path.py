@@ -226,7 +226,36 @@ def run():
     if survived != [{"k": 1}]:
         failures.append(f"_collect_provider: fetch failure not isolated -> {survived}")
 
-    total = len(PROVIDER_FIXTURES) * 2 + 1 + 6 + 1 + 1 + 1 + 5
+    # 9. The same missing-externalPath row must also be survivable inside
+    #    the *fetcher*, not just the mapper. fetch_workday_jobs.fetch_jobs
+    #    used to index posting["externalPath"] directly in two places (the
+    #    search-term dedup and the concurrent location resolver); the
+    #    resolver's KeyError escaped future.result() and took out the whole
+    #    tenant, so _collect_provider logged "Failed to fetch IQVIA" and
+    #    1868 postings vanished from the run.
+    import fetch_workday_jobs as fw
+
+    real_search = fw._search
+    real_resolve_detail = fw.fetch_job_detail
+    fw._search = lambda key, term: [
+        {"externalPath": "/job/good_R1", "title": "Good", "locationsText": "2 Locations"},
+        {"title": "No path at all", "locationsText": "São Paulo"},
+        {"externalPath": "", "title": "Empty path", "locationsText": ""},
+    ]
+    fw.fetch_job_detail = lambda key, path: {"location": "São Paulo, Brazil"}
+    try:
+        got = fw.fetch_jobs("iqvia")  # full-catalog tenant (no search_terms)
+        if [p.get("externalPath") for p in got] != ["/job/good_R1"]:
+            failures.append(f"fetch_jobs: pathless rows not dropped -> {got}")
+        if got and got[0]["locationsText"] != "São Paulo, Brazil":
+            failures.append(f"fetch_jobs: ambiguous location not resolved -> {got[0]}")
+    except Exception as exc:  # noqa: BLE001
+        failures.append(f"fetch_jobs: pathless row aborted the tenant ({exc!r})")
+    finally:
+        fw._search = real_search
+        fw.fetch_job_detail = real_resolve_detail
+
+    total = len(PROVIDER_FIXTURES) * 2 + 1 + 6 + 1 + 1 + 1 + 5 + 2
     if failures:
         print(f"FAILED {len(failures)} of ~{total} checks:\n")
         for f in failures:

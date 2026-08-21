@@ -69,6 +69,8 @@ API gives no way to filter by "any of N locations is Brazil" server-side.
 
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
+import sys
+
 import requests
 
 COMPANIES = {
@@ -188,8 +190,11 @@ def _resolve_ambiguous_locations(company_key, postings):
         return
 
     def resolve_one(posting):
+        external_path = posting.get("externalPath")
+        if not external_path:
+            return
         try:
-            detail = fetch_job_detail(company_key, posting["externalPath"])
+            detail = fetch_job_detail(company_key, external_path)
         except requests.exceptions.RequestException:
             return
         primary = detail.get("location") or ""
@@ -214,7 +219,13 @@ def _resolve_ambiguous_locations(company_key, postings):
     with ThreadPoolExecutor(max_workers=RESOLVE_WORKERS) as pool:
         futures = [pool.submit(resolve_one, posting) for posting in ambiguous]
         for future in as_completed(futures):
-            future.result()  # surface any unexpected (non-request) exception
+            try:
+                future.result()
+            except Exception as exc:  # noqa: BLE001
+                # One unresolvable posting must not discard the tenant.
+                # The posting keeps its ambiguous locationsText and is
+                # simply treated as location-unknown downstream.
+                print(f"  {company_key}: location resolve failed ({exc!r})", file=sys.stderr)
 
 
 def fetch_jobs(company_key):
@@ -229,10 +240,20 @@ def fetch_jobs(company_key):
         seen = {}
         for term in config["search_terms"]:
             for posting in _search(company_key, term):
-                seen[posting["externalPath"]] = posting
+                external_path = posting.get("externalPath")
+                if external_path:
+                    seen[external_path] = posting
         postings = list(seen.values())
     else:
         postings = _search(company_key, "")
+    # Drop rows with no externalPath before anything downstream touches
+    # them. Workday's full catalog returns a small number of these, and
+    # every consumer -- the detail URL, the job URL, the tracking id --
+    # derives from that one field, so such a row is unusable anyway. It
+    # used to raise a bare KeyError from inside the resolve thread pool,
+    # which propagated out of future.result() and discarded the entire
+    # tenant's catalog (IQVIA: 1868 postings lost to one bad row).
+    postings = [p for p in postings if p.get("externalPath")]
     _resolve_ambiguous_locations(company_key, postings)
     return postings
 
