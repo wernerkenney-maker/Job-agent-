@@ -354,6 +354,11 @@
       "low": 35000,
       "high": 55000,
       "note": "IQVIA Brazil local hire -- Portuguese-language posting, paid in BRL rather than on the international CRO band; approximate USD equivalent of a Sao Paulo medical-affairs supervisor salary"
+    },
+    "Patient Compensation Lead": {
+      "low": 55000,
+      "high": 80000,
+      "note": "LATAM CRO lead-level, patient recruitment/enrollment delivery function"
     }
   },
   "cover_letters": {
