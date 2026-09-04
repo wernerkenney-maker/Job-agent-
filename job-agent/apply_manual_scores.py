@@ -31,15 +31,31 @@ resume_bullets = extras.get("resume_bullets", {})
 salary_estimates = extras.get("salary_estimates", {})
 
 
+def _lookup(table, job):
+    """Extras are keyed by the posting's primary URL first, then by title.
+
+    Title alone is not a safe key: the same title recurs across employers
+    ("Clinical Trial Manager" is open at ICON and Fortrea at once), and a
+    title-only lookup would hand ICON's cover letter to the Fortrea job.
+    Any URL in the merged posting group resolves, so a sibling board's
+    link works too. Title stays as the fallback for the older entries
+    that were written before URL keys existed."""
+    urls = [job.get("url")] + [p.get("url") for p in job.get("postings", [])]
+    for url in urls:
+        if url and url in table:
+            return table[url]
+    return table.get(job["title"])
+
+
 def cover_letter_fn(job):
-    text = cover_letters.get(job["title"])
+    text = _lookup(cover_letters, job)
     if not text:
         return None
     return save_cover_letter(job, text)
 
 
 def resume_bullets_fn(job):
-    text = resume_bullets.get(job["title"])
+    text = _lookup(resume_bullets, job)
     if not text:
         return None
     return save_resume_bullets(job, text)
@@ -48,7 +64,7 @@ def resume_bullets_fn(job):
 def salary_estimate_fn(job):
     if job.get("market") == "Brazilian market (local)":
         return estimate_br_salary(job["title"])
-    figures = salary_estimates.get(job["title"])
+    figures = _lookup(salary_estimates, job)
     if not figures:
         return None
     return format_estimate(figures["low"], figures["high"], figures.get("note", ""))
